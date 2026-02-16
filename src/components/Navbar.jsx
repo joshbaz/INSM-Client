@@ -129,7 +129,7 @@ const Navbar = () => {
                 className="
                 hidden md:inline-flex
                 items-center justify-center
-                bg-brand-lilac hover:bg-brand-lilac-700
+                bg-brand-lilac hover:bg-brand-lilac/90
                 text-white text-body font-semibold
                 px-8 py-3
                 rounded-full
@@ -145,7 +145,7 @@ const Navbar = () => {
               {/* TOGGLE BUTTON (BURGER / CLOSE) */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-brand-lilac-700 hover:text-brand-lilac-900 focus:outline-none cursor-pointer p-2"
+                className="text-brand-lilac-700 hover:text-brand-lilac-700/90 focus:outline-none cursor-pointer p-2"
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
@@ -177,7 +177,7 @@ const Navbar = () => {
                 >
                   <button
                     onClick={() => toggleCategory(category.title)}
-                    className="w-full flex items-center justify-between py-6 group hover:bg-gray-50 transition-colors px-4 rounded-lg cursor-pointer"
+                    className="w-full flex items-center justify-between py-6 group hover:bg-brand-dark-100/90 transition-colors px-4 rounded-lg cursor-pointer"
                   >
                     <span className="text-2xl md:text-3xl text-brand-dark font-normal">
                       {category.title}
@@ -204,7 +204,7 @@ const Navbar = () => {
                           key={idx}
                           to={item.path}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block text-lg text-brand-dark-400 hover:text-brand-lilac pl-4 border-l-2 border-transparent hover:border-brand-lilac transition-all cursor-pointer"
+                          className="block text-lg text-brand-dark-400 hover:text-brand-lilac/90 pl-4 border-l-2 border-transparent hover:border-brand-lilac transition-all cursor-pointer"
                         >
                           {item.name}
                         </Link>
@@ -223,7 +223,7 @@ const Navbar = () => {
                 className="
                   w-full md:w-auto
                   items-center justify-center
-                  bg-brand-lilac hover:bg-brand-lilac-700
+                  bg-brand-lilac hover:bg-brand-lilac/90
                   text-white text-body font-semibold
                   px-8 py-3
                   rounded-full

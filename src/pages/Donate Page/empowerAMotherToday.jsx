@@ -30,7 +30,7 @@ const EmpowerAMotherToday = ({ onDonateClick }) => {
 
         <button
           onClick={onDonateClick}
-          className="bg-[#E5DAD4] text-[#7F4829] font-bold text-xs md:text-sm py-4 px-8 rounded-full cursor-pointer hover:bg-white transition-all transform hover:scale-105 uppercase tracking-widest shadow-lg"
+          className="bg-[#E5DAD4] text-[#7F4829] font-bold text-xs md:text-sm py-4 px-8 rounded-full cursor-pointer hover:bg-[#E5DAD4]/90 transition-all transform hover:scale-105 uppercase tracking-widest shadow-lg"
         >
           Empower A Mother Today
         </button>

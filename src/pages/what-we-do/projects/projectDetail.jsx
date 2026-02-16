@@ -25,7 +25,7 @@ const ProjectDetail = () => {
           </p>
           <Link
             to="/projects/list"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-white font-semibold text-sm rounded-full hover:bg-brand-lilac-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-white font-semibold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors"
           >
             ← Back to Projects
           </Link>
@@ -90,7 +90,7 @@ const ProjectDetail = () => {
                   setCopied(true);
                   setTimeout(() => setCopied(false), 2000);
                 }}
-                className="relative w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark transition-colors cursor-pointer"
+                className="relative w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark/90 transition-colors cursor-pointer"
                 title="Copy link"
               >
                 <Icon icon="mdi:link-variant" width={18} />
@@ -109,7 +109,7 @@ const ProjectDetail = () => {
                     "width=580,height=400,left=200,top=200",
                   )
                 }
-                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark/90 transition-colors cursor-pointer"
                 title="Share on Facebook"
               >
                 <Icon icon="ri:facebook-fill" width={18} />
@@ -123,7 +123,7 @@ const ProjectDetail = () => {
                     "width=580,height=400,left=200,top=200",
                   )
                 }
-                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark/90 transition-colors cursor-pointer"
                 title="Share on Threads"
               >
                 <Icon icon="ri:threads-fill" width={18} />
@@ -137,7 +137,7 @@ const ProjectDetail = () => {
                     "width=580,height=400,left=200,top=200",
                   )
                 }
-                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark/90 transition-colors cursor-pointer"
                 title="Share on X"
               >
                 <Icon icon="ri:twitter-x-fill" width={18} />
@@ -151,7 +151,7 @@ const ProjectDetail = () => {
                     "width=580,height=400,left=200,top=200",
                   )
                 }
-                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full flex items-center justify-center text-brand-dark-300 hover:text-brand-dark/90 transition-colors cursor-pointer"
                 title="Share on LinkedIn"
               >
                 <Icon icon="ri:linkedin-fill" width={18} />

@@ -35,7 +35,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
       <div className="px-6 md:px-10 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-brand-dark-200/30 shrink-0 bg-white flex items-center justify-between">
         <button
           onClick={onBack}
-          className="text-sm font-semibold text-brand-dark-300 hover:text-brand-lilac flex items-center gap-1.5 cursor-pointer transition-colors"
+          className="text-sm font-semibold text-brand-dark-300 hover:text-brand-lilac/90 flex items-center gap-1.5 cursor-pointer transition-colors"
         >
           <Icon icon="heroicons:arrow-left" className="w-4 h-4" />
           Back
@@ -195,7 +195,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                   className={`block w-full text-brand-cream-100 font-bold py-4 rounded-lg transition-all uppercase tracking-wide shadow-md ${
                     isSubmitting || !isValid || !dirty
                       ? "bg-gray-300 cursor-not-allowed"
-                      : "bg-pesapal-red hover:bg-red-700 cursor-pointer hover:shadow-lg active:scale-[0.98]"
+                      : "bg-pesapal-red hover:bg-pesapal-red/90 cursor-pointer hover:shadow-lg active:scale-[0.98]"
                   }`}
                 >
                   {isSubmitting ? "Processing..." : "Proceed to Payment (Mock)"}

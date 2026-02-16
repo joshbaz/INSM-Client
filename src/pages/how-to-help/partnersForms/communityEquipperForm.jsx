@@ -63,7 +63,7 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
       {/* ── Close button — top-right of viewport ── */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-70 transition-opacity cursor-pointer"
+        className="absolute top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-90 transition-opacity cursor-pointer"
         aria-label="Close modal"
         type="button"
       >
@@ -269,7 +269,7 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-brand-lilac hover:bg-brand-lilac-700 active:scale-[0.97] text-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-10 py-3.5 rounded-full transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shadow-md shadow-brand-lilac/25 hover:shadow-lg hover:shadow-brand-lilac/30"
+                      className="bg-brand-lilac hover:bg-brand-lilac/90 active:scale-[0.97] text-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-10 py-3.5 rounded-full transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shadow-md shadow-brand-lilac/25 hover:shadow-lg hover:shadow-brand-lilac/30"
                     >
                       SUBMIT FORM
                     </button>
@@ -282,13 +282,13 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
 
         {/* ── Security links (Sidebar) ── */}
         <div className="hidden md:flex flex-col items-end gap-2 pb-2 shrink-0">
-          <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
+          <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100/90 hover:underline transition-all cursor-help whitespace-nowrap">
             Is my information secure
             <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
               <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>
-          <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
+          <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100/90 hover:underline transition-all cursor-help whitespace-nowrap">
             Can I delete my form details
             <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
               <Icon icon="ph:question-mark-bold" className="w-3 h-3" />

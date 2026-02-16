@@ -71,7 +71,7 @@ const DonationPanel = ({
                     ${
                       frequency === "once"
                         ? "bg-brand-lilac text-brand-cream-100 shadow-md"
-                        : "text-brand-dark-400 hover:text-brand-dark"
+                        : "text-brand-dark-400 hover:text-brand-dark/90"
                     }`}
                 >
                   Give Once
@@ -88,7 +88,7 @@ const DonationPanel = ({
                     ${
                       frequency === "monthly"
                         ? "bg-brand-teal text-brand-cream-100 shadow-md"
-                        : "text-brand-dark-400 hover:text-brand-dark"
+                        : "text-brand-dark-400 hover:text-brand-dark/90"
                     }`}
                 >
                   Monthly
@@ -109,7 +109,7 @@ const DonationPanel = ({
                       ${
                         isActive
                           ? "bg-brand-lilac-100 border-brand-lilac text-brand-lilac-800 shadow-inner"
-                          : "bg-brand-cream-100 border-brand-dark-200 text-brand-dark-400 hover:border-brand-lilac-300 hover:text-brand-dark"
+                          : "bg-brand-cream-100 border-brand-dark-200 text-brand-dark-400 hover:border-brand-lilac-300/90 hover:text-brand-dark/90"
                       }`}
                   >
                     ${val}
@@ -139,7 +139,7 @@ const DonationPanel = ({
               className={`w-full h-12 md:h-14 rounded-md border border-brand-dark-200 bg-brand-cream-100 shadow-sm flex items-center justify-center gap-2 transition-all duration-200
                 ${
                   canContinue
-                    ? "hover:shadow-md hover:bg-brand-cream-200 cursor-pointer"
+                    ? "hover:shadow-md hover:bg-brand-cream-200/90 cursor-pointer"
                     : "opacity-50 cursor-not-allowed"
                 }`}
             >

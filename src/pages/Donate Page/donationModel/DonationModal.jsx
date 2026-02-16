@@ -87,7 +87,7 @@ const DonationModal = ({ isOpen, onClose, tier }) => {
         {/* Close button — top-right of viewport */}
         <button
           onClick={onClose}
-          className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-70 transition-opacity cursor-pointer"
+          className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-90 transition-opacity cursor-pointer"
           aria-label="Close modal"
         >
           <Icon icon="heroicons:x-mark" width={32} />

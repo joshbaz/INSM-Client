@@ -78,7 +78,7 @@ const SendDonation = ({ isOpen, onClose }) => {
       {/* Close button */}
       <button
         onClick={onClose}
-        className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-70 transition-opacity cursor-pointer"
+        className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-90 transition-opacity cursor-pointer"
         aria-label="Close modal"
       >
         <Icon icon="heroicons:x-mark" width={32} />
@@ -142,7 +142,7 @@ const SendDonation = ({ isOpen, onClose }) => {
                                 ${
                                   isActive
                                     ? "bg-brand-lilac-100 border-brand-lilac text-brand-lilac-800 shadow-inner"
-                                    : "bg-brand-cream-100 border-transparent text-brand-dark hover:border-brand-lilac-300"
+                                    : "bg-brand-cream-100 border-transparent text-brand-dark hover:border-brand-lilac-300/90"
                                 }`}
                             >
                               ${val}
@@ -191,7 +191,7 @@ const SendDonation = ({ isOpen, onClose }) => {
                         className={`w-full h-14 rounded border border-brand-dark-200 bg-white shadow-sm flex items-center justify-center gap-2 transition-all duration-200 mb-6
                           ${
                             isValid && dirty
-                              ? "hover:shadow-md hover:bg-brand-cream-100 cursor-pointer"
+                              ? "hover:shadow-md hover:bg-brand-cream-100/90 cursor-pointer"
                               : "opacity-60 cursor-not-allowed"
                           }`}
                       >

@@ -75,7 +75,7 @@ const HomeCarousel = () => {
             <div className="mt-4">
               <Link
                 to={currentItem.link}
-                className="inline-flex items-center gap-2 font-bold text-brand-dark text-sm uppercase tracking-wider hover:text-brand-lilac transition-colors group"
+                className="inline-flex items-center gap-2 font-bold text-brand-dark text-sm uppercase tracking-wider hover:text-brand-lilac/90 transition-colors group"
               >
                 LEARN More
                 <Icon
