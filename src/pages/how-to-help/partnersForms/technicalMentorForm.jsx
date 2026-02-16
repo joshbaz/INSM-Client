@@ -1,83 +1,14 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { Formik } from "formik";
+import { Icon } from "@iconify/react";
 import * as Yup from "yup";
 
 /* ── Inline SVG icons for each expertise option ── */
 const ExpertiseIcons = {
-  Law: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      className="w-6 h-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 3v1.5M12 21v-1.5M6.75 6.75l1.06 1.06M16.19 16.19l1.06 1.06M3 12h1.5M21 12h-1.5M6.75 17.25l1.06-1.06M16.19 7.81l1.06-1.06"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 6.75a5.25 5.25 0 0 1 0 10.5"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M7.5 12 12 4.5l4.5 7.5H7.5Z"
-      />
-    </svg>
-  ),
-  Finance: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      className="w-6 h-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"
-      />
-    </svg>
-  ),
-  Health: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      className="w-6 h-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
-      />
-    </svg>
-  ),
-  Other: (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      className="w-6 h-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-      />
-    </svg>
-  ),
+  Law: <Icon icon="heroicons:scale" className="w-6 h-6" />,
+  Finance: <Icon icon="heroicons:currency-dollar" className="w-6 h-6" />,
+  Health: <Icon icon="heroicons:heart" className="w-6 h-6" />,
+  Other: <Icon icon="heroicons:sparkles" className="w-6 h-6" />,
 };
 
 const TechnicalMentorForm = ({ isOpen, onClose }) => {
@@ -142,20 +73,7 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
         aria-label="Close modal"
         type="button"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <Icon icon="heroicons:x-mark" width={24} />
       </button>
 
       {/* ── Content wrapper — includes card + security links ── */}
@@ -207,14 +125,10 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
                   {/* ── Section: Professional Details ── */}
                   <div className="flex items-center gap-2.5 text-brand-dark-400">
                     <span className="w-5 h-5 grid place-items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
+                      <Icon
+                        icon="heroicons:user"
                         className="w-[18px] h-[18px]"
-                      >
-                        <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2-8 4.5A1.5 1.5 0 0 0 5.5 20h13a1.5 1.5 0 0 0 1.5-1.5C20 16 16.42 14 12 14Z" />
-                      </svg>
+                      />
                     </span>
                     <span className="text-xs md:text-sm font-primary font-semibold text-brand-dark uppercase tracking-wide">
                       Professional Details
@@ -290,15 +204,7 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
                       </label>
                       <div className="relative">
                         <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-dark-300">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-4 h-4"
-                          >
-                            <path d="M10.59 13.41a1 1 0 0 0 0 1.41l.59.59a1 1 0 0 0 1.41 0l3.3-3.3a1 1 0 0 0 0-1.41l-.59-.59a1 1 0 0 0-1.41 0l-3.3 3.3Z" />
-                            <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm5.66 9.66-3.3 3.3a3 3 0 0 1-4.24 0l-.59-.59a3 3 0 0 1 0-4.24l3.3-3.3a3 3 0 0 1 4.24 0l.59.59a3 3 0 0 1 0 4.24Z" />
-                          </svg>
+                          <Icon icon="heroicons:link" className="w-4 h-4" />
                         </span>
                         <input
                           name="linkedin"
@@ -320,14 +226,10 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
                   {/* ── Section: Area of Expertise ── */}
                   <div className="mt-8 flex items-center gap-2.5 text-brand-dark-400">
                     <span className="w-5 h-5 grid place-items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
+                      <Icon
+                        icon="heroicons:briefcase"
                         className="w-[18px] h-[18px]"
-                      >
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 2.5L18.5 9H14Z" />
-                      </svg>
+                      />
                     </span>
                     <span className="text-xs md:text-sm font-primary font-semibold text-brand-dark uppercase tracking-wide">
                       Area of Expertise
@@ -403,14 +305,14 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
         <div className="hidden md:flex flex-col items-end gap-2 pb-2 shrink-0">
           <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
             Is my information secure
-            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 text-[10px] font-bold grid place-items-center">
-              ?
+            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+              <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>
           <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
             Can I delete my form details
-            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 text-[10px] font-bold grid place-items-center">
-              ?
+            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+              <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>
         </div>

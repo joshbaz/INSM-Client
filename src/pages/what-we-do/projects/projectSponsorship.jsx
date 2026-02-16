@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Icon } from "@iconify/react";
 import projectsData from "./projectsData";
 
 const projectSponsorship = () => {
@@ -67,19 +68,10 @@ const projectSponsorship = () => {
             className="inline-flex items-center gap-2 text-base font-secondary text-brand-dark-400 hover:text-brand-dark transition-colors group"
           >
             View more projects
-            <svg
+            <Icon
+              icon="heroicons:arrow-right"
               className="w-4 h-4 transition-transform group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            />
           </Link>
         </div>
       </div>

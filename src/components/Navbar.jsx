@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Icon } from "@iconify/react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -148,34 +149,9 @@ const Navbar = () => {
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-10 h-10"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  <Icon icon="heroicons:x-mark" width={40} />
                 ) : (
-                  <svg
-                    className="w-10 h-10"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
+                  <Icon icon="heroicons:bars-3" width={40} />
                 )}
               </button>
             </div>
@@ -186,7 +162,7 @@ const Navbar = () => {
       {/* MENU OVERLAY */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-white z-[60] pt-24 overflow-y-auto"
+          className="fixed inset-0 bg-white z-60 pt-24 overflow-y-auto"
           ref={menuRef}
         >
           {/* Header Separation Line */}
@@ -206,19 +182,13 @@ const Navbar = () => {
                     <span className="text-2xl md:text-3xl text-brand-dark font-normal">
                       {category.title}
                     </span>
-                    <svg
-                      className={`w-6 h-6 text-brand-dark transition-transform duration-300 ${expandedCategory === category.title ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
+                    <span
+                      className={`text-brand-dark transition-transform duration-300 ${
+                        expandedCategory === category.title ? "rotate-180" : ""
+                      }`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
+                      <Icon icon="ph:caret-down-bold" width={24} />
+                    </span>
                   </button>
 
                   {/* EXPANDED CONTENT */}

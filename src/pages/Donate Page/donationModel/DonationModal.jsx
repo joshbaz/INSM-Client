@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import { Icon } from "@iconify/react";
 import CampaignCard from "./CampaignCard";
 import DonationPanel from "./DonationPanel";
 
@@ -89,20 +90,7 @@ const DonationModal = ({ isOpen, onClose, tier }) => {
           className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-70 transition-opacity cursor-pointer"
           aria-label="Close modal"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <Icon icon="heroicons:x-mark" width={32} />
         </button>
 
         {/* ── CONTENT — cards + security links ── */}
@@ -133,14 +121,14 @@ const DonationModal = ({ isOpen, onClose, tier }) => {
             <div className="hidden md:flex flex-col items-end gap-2 pb-2 shrink-0">
               <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
                 Is my donation secure
-                <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 text-[10px] font-bold grid place-items-center">
-                  ?
+                <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+                  <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
                 </span>
               </p>
               <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
                 Can I cancel my recurring donation
-                <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 text-[10px] font-bold grid place-items-center">
-                  ?
+                <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+                  <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
                 </span>
               </p>
             </div>

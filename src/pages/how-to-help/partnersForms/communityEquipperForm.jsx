@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo } from "react";
 import { Formik } from "formik";
+import { Icon } from "@iconify/react";
 import * as Yup from "yup";
 
 const CommunityEquipperForm = ({ isOpen, onClose }) => {
@@ -66,20 +67,7 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
         aria-label="Close modal"
         type="button"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
+        <Icon icon="heroicons:x-mark" width={24} />
       </button>
 
       {/* ── Content wrapper ── */}
@@ -131,14 +119,10 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
                   {/* ── Section: Personal Details ── */}
                   <div className="flex items-center gap-2.5 text-brand-dark-400">
                     <span className="w-5 h-5 grid place-items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
+                      <Icon
+                        icon="heroicons:user"
                         className="w-[18px] h-[18px]"
-                      >
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Zm0 2.5L18.5 9H14Z" />
-                      </svg>
+                      />
                     </span>
                     <span className="text-xs md:text-sm font-primary font-semibold text-brand-dark uppercase tracking-wide">
                       Personal Details
@@ -214,18 +198,7 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
                       </label>
                       <div className="relative">
                         <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-brand-dark-300">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="currentColor"
-                            className="w-4 h-4"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 3.58-3.14c1.55-1.774 2.46-3.467 2.46-4.961 0-3.73-3.134-6.75-7-6.75s-7 3.02-7 6.75c0 1.494.91 3.187 2.46 4.961a16.971 16.971 0 0 0 3.58 3.14ZM12 15.75a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
+                          <Icon icon="heroicons:map-pin" className="w-4 h-4" />
                         </span>
                         <input
                           name="residence"
@@ -247,15 +220,10 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
                   {/* ── Section: Leadership Context ── */}
                   <div className="mt-8 flex items-center gap-2.5 text-brand-dark-400">
                     <span className="w-5 h-5 grid place-items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
+                      <Icon
+                        icon="heroicons:users"
                         className="w-[18px] h-[18px]"
-                      >
-                        <path d="M16.5 7.5a6.75 6.75 0 1 0-13.5 0 6.75 6.75 0 0 0 13.5 0ZM6 12.75l.178-.015a.75.75 0 1 1 .512 1.41L6 14.25c-2.43 0-4.5 1.92-4.5 4.5V21a.75.75 0 0 0 1.5 0v-2.25c0-1.602 1.348-3 3-3h.375a.75.75 0 0 1 0 1.5H6a.75.75 0 0 0 0 1.5h.375c.621 0 1.125.504 1.125 1.125V21a.75.75 0 0 0 1.5 0v-1.125c0-1.447-1.178-2.625-2.625-2.625h-.375c-.2 0-.394-.03-.578-.084a2.984 2.984 0 0 0 2.146.909h1.5a.75.75 0 0 0 0-1.5h-1.5a1.488 1.488 0 0 1-1.489-1.343l-.001-.157c0-.18.067-.35.188-.48.121-.131.29-.207.47-.207h3a.75.75 0 0 0 0-1.5h-3a1.984 1.984 0 0 0-1.258.45 6.75 6.75 0 0 1 9.758-5.45.75.75 0 0 1-.75 1.299 5.25 5.25 0 1 0-7.808 4.35 1.954 1.954 0 0 0-1.192-.4H6Z" />
-                        <path d="M18.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM21 16.5c-2.43 0-4.5 1.92-4.5 4.5V21a.75.75 0 0 0 1.5 0v-.75a3 3 0 0 1 3-3h.75a.75.75 0 0 0 0-1.5H21Z" />
-                      </svg>
+                      />
                     </span>
                     <span className="text-xs md:text-sm font-primary font-semibold text-brand-dark uppercase tracking-wide">
                       Leadership Context
@@ -285,20 +253,7 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
                         ))}
                       </select>
                       <span className="absolute right-4 top-1/2 -translate-y-1/2 text-brand-dark-300 pointer-events-none">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-4 w-4"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
+                        <Icon icon="ph:caret-down-bold" className="h-4 w-4" />
                       </span>
                     </div>
                     {touched.leadershipConnection &&
@@ -329,14 +284,14 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
         <div className="hidden md:flex flex-col items-end gap-2 pb-2 shrink-0">
           <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
             Is my information secure
-            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 text-[10px] font-bold grid place-items-center">
-              ?
+            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+              <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>
           <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
             Can I delete my form details
-            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 text-[10px] font-bold grid place-items-center">
-              ?
+            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+              <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>
         </div>

@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import SendDonation from "./Project Details Form/sendDonation";
+import RequestForm from "./Project Details Form/requestForm";
 import projectsData from "./projectsData";
 
 const ProjectDetail = () => {
@@ -9,6 +10,7 @@ const ProjectDetail = () => {
   const project = projectsData.find((p) => p.id === parseInt(projectId));
   const [copied, setCopied] = useState(false);
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+  const [isRequestFormOpen, setIsRequestFormOpen] = useState(false);
 
   /* ── 404 Handling ── */
   if (!project) {
@@ -297,12 +299,12 @@ const ProjectDetail = () => {
                 We're seeking equipment, or professional space to accelerate the
                 growth of these ventures.
               </p>
-              <Link
-                to="/how-to-help"
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-teal-700 text-white font-bold text-xs rounded-full hover:bg-brand-teal-700/90 transition-colors uppercase tracking-wider w-fit"
+              <button
+                onClick={() => setIsRequestFormOpen(true)}
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-teal-700 text-white font-bold text-xs rounded-full hover:bg-brand-teal-700/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
               >
                 Fill Request Form
-              </Link>
+              </button>
             </div>
           </div>
         </div>
@@ -312,6 +314,12 @@ const ProjectDetail = () => {
       <SendDonation
         isOpen={isDonationModalOpen}
         onClose={() => setIsDonationModalOpen(false)}
+      />
+
+      {/* Request Form Modal */}
+      <RequestForm
+        isOpen={isRequestFormOpen}
+        onClose={() => setIsRequestFormOpen(false)}
       />
     </div>
   );
