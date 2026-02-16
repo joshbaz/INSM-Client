@@ -7,12 +7,27 @@ import { Icon } from "@iconify/react";
  *
  * @param {{ amount: string, onBack: Function }} props
  */
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+/**
+ * PesaPal payment mock view.
+ * Shown after the user clicks "Continue with PesaPal" on the DonationPanel.
+ *
+ * @param {{ amount: string, onBack: Function }} props
+ */
 const ContinueWithPesapal = ({ amount, onBack }) => {
   const steps = [
     { num: 1, label: "Enter Details", active: true },
     { num: 2, label: "Make Payment", active: false },
     { num: 3, label: "Confirmation", active: false },
   ];
+
+  const validationSchema = Yup.object({
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
+  });
 
   return (
     <>
@@ -63,48 +78,132 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
           ))}
         </div>
 
-        {/* Mock Form Fields */}
-        <div className="space-y-5 opacity-60 pointer-events-none select-none">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-brand-dark mb-1.5">
-                First Name *
-              </label>
-              <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-cream-100/50" />
-            </div>
-            <div>
-              <label className="block text-xs font-bold text-brand-dark mb-1.5">
-                Last Name *
-              </label>
-              <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-cream-100/50" />
-            </div>
-          </div>
-          <div>
-            <label className="block text-xs font-bold text-brand-dark mb-1.5">
-              Email Address *
-            </label>
-            <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-cream-100/50" />
-          </div>
-          <div>
-            <label className="block text-xs font-bold text-brand-dark mb-1.5">
-              Amount (USD) *
-            </label>
-            <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-cream-100/50 flex items-center px-3 text-brand-dark-400 font-secondary">
-              ${amount || "0.00"}
-            </div>
-          </div>
-        </div>
+        {/* Form */}
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+          }}
+          validationSchema={validationSchema}
+          onSubmit={(values, { setSubmitting }) => {
+            console.log("Processing PesaPal Payment:", { ...values, amount });
+            setTimeout(() => {
+              alert("Redirecting to PesaPal gateway...");
+              setSubmitting(false);
+            }, 1000);
+          }}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            isSubmitting,
+            isValid,
+            dirty,
+          }) => (
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-brand-dark mb-1.5">
+                    First Name *
+                  </label>
+                  <input
+                    name="firstName"
+                    value={values.firstName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full h-10 border rounded-lg px-3 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-pesapal-blue/30 transition-all ${
+                      touched.firstName && errors.firstName
+                        ? "border-pesapal-red bg-red-50"
+                        : "border-brand-dark-200 bg-white"
+                    }`}
+                  />
+                  {touched.firstName && errors.firstName && (
+                    <p className="text-xs text-pesapal-red mt-1">
+                      {errors.firstName}
+                    </p>
+                  )}
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-brand-dark mb-1.5">
+                    Last Name *
+                  </label>
+                  <input
+                    name="lastName"
+                    value={values.lastName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={`w-full h-10 border rounded-lg px-3 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-pesapal-blue/30 transition-all ${
+                      touched.lastName && errors.lastName
+                        ? "border-pesapal-red bg-red-50"
+                        : "border-brand-dark-200 bg-white"
+                    }`}
+                  />
+                  {touched.lastName && errors.lastName && (
+                    <p className="text-xs text-pesapal-red mt-1">
+                      {errors.lastName}
+                    </p>
+                  )}
+                </div>
+              </div>
 
-        {/* Mock proceed button */}
-        <div className="mt-8 text-center">
-          <p className="text-xs text-brand-dark-300 mb-4">
-            This is a demo. In production, this redirects to the secure PesaPal
-            gateway.
-          </p>
-          <button className="block w-full bg-pesapal-red hover:bg-red-700 text-brand-cream-100 font-bold py-4 rounded-lg transition-colors uppercase tracking-wide cursor-pointer shadow-md">
-            Proceed to Payment (Mock)
-          </button>
-        </div>
+              <div>
+                <label className="block text-xs font-bold text-brand-dark mb-1.5">
+                  Email Address *
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  value={values.email}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  className={`w-full h-10 border rounded-lg px-3 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-pesapal-blue/30 transition-all ${
+                    touched.email && errors.email
+                      ? "border-pesapal-red bg-red-50"
+                      : "border-brand-dark-200 bg-white"
+                  }`}
+                />
+                {touched.email && errors.email && (
+                  <p className="text-xs text-pesapal-red mt-1">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-brand-dark mb-1.5">
+                  Amount (USD) *
+                </label>
+                <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-cream-100/50 flex items-center px-3 text-brand-dark-400 font-secondary cursor-not-allowed">
+                  ${amount || "0.00"}
+                </div>
+              </div>
+
+              {/* Proceed button */}
+              <div className="mt-8 text-center pt-4">
+                <p className="text-xs text-brand-dark-300 mb-4">
+                  This is a demo. In production, this redirects to the secure
+                  PesaPal gateway.
+                </p>
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !isValid || !dirty}
+                  className={`block w-full text-brand-cream-100 font-bold py-4 rounded-lg transition-all uppercase tracking-wide shadow-md ${
+                    isSubmitting || !isValid || !dirty
+                      ? "bg-gray-300 cursor-not-allowed"
+                      : "bg-pesapal-red hover:bg-red-700 cursor-pointer hover:shadow-lg active:scale-[0.98]"
+                  }`}
+                >
+                  {isSubmitting ? "Processing..." : "Proceed to Payment (Mock)"}
+                </button>
+              </div>
+            </form>
+          )}
+        </Formik>
       </div>
     </>
   );
