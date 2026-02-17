@@ -38,7 +38,7 @@ const HomeHero = () => {
       </div>
 
       <Link
-        to="/how-to-help"
+        to="/how-to-help/join-the-assignment"
         className={`inline-flex items-center justify-center text-lg md:text-base font-bold text-white transition-all duration-300 transform hover:scale-105 hover:bg-brand-teal/90 bg-brand-teal mt-4 md:mt-8 lg:mt-14 ${visibleContent === "text" ? "invisible" : "pointer-events-auto"}`}
         style={{
           borderRadius: "99px",

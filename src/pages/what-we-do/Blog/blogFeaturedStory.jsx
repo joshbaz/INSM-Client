@@ -38,7 +38,7 @@ const BlogFeaturedStory = () => {
                 {featured.excerpt}
               </p>
               <Link
-                to={`/blog/${featured.id}`}
+                to={`/what-we-do/blog/${featured.id}`}
                 className="inline-flex items-center justify-center px-6 py-2.5 bg-brand-lilac text-white font-bold text-xs rounded-full hover:bg-brand-lilac/90 transition-colors uppercase tracking-wider"
               >
                 Read More

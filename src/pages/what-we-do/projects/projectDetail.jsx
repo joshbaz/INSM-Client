@@ -24,7 +24,7 @@ const ProjectDetail = () => {
             The project you're looking for doesn't exist or has been removed.
           </p>
           <Link
-            to="/projects/list"
+            to="/what-we-do/projects/list"
             className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-white font-semibold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors"
           >
             ← Back to Projects

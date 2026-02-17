@@ -23,7 +23,9 @@ import BlogDetailPage from "./pages/what-we-do/Blog/details/blogDetailPage";
 import DonatePage from "./pages/Donate Page/donatePage";
 import HowToHelp from "./pages/how-to-help/howToHelpPage";
 import ContactUs from "./pages/how-to-help/ContactUs";
-import PrivacyPolicyTermsOfUse from "./pages/privacy-policy/privacyPolicy-TermsOfUse";
+import PrivacyPolicyPage from "./pages/policies/policiesPage";
+import TermsOfUse from "./pages/policies/termsOfUse";
+import EthicalConduct from "./pages/policies/ethicalConduct";
 
 function App() {
   return (
@@ -40,26 +42,40 @@ function App() {
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/dashboard" element={<Dashboard />} />
 
-            {/* New Sitemap Routes */}
-            <Route path="/our-story" element={<OurStory />} />
-            <Route path="/our-team" element={<OurTeam />} />
-            <Route path="/the-roadmap" element={<TheRoadmap />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/list" element={<ProjectsList />} />
+            {/* Who We Are */}
+            <Route path="/who-we-are/our-story" element={<OurStory />} />
+            <Route path="/who-we-are/our-team" element={<OurTeam />} />
+            <Route path="/who-we-are/the-roadmap" element={<TheRoadmap />} />
+
+            {/* What We Do */}
+            <Route path="/what-we-do/projects" element={<Projects />} />
             <Route
-              path="/projects/list/:projectId"
+              path="/what-we-do/projects/list"
+              element={<ProjectsList />}
+            />
+            <Route
+              path="/what-we-do/projects/list/:projectId"
               element={<ProjectDetail />}
             />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:articleId" element={<BlogDetailPage />} />
-            <Route path="/donate" element={<DonatePage />} />
-            <Route path="/how-to-help" element={<HowToHelp />} />
-            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/what-we-do/gallery" element={<Gallery />} />
+            <Route path="/what-we-do/blog" element={<Blog />} />
             <Route
-              path="/privacy-policy"
-              element={<PrivacyPolicyTermsOfUse />}
+              path="/what-we-do/blog/:articleId"
+              element={<BlogDetailPage />}
             />
+
+            {/* How To Help */}
+            <Route path="/how-to-help/donate" element={<DonatePage />} />
+            <Route
+              path="/how-to-help/join-the-assignment"
+              element={<HowToHelp />}
+            />
+            <Route path="/how-to-help/contact-us" element={<ContactUs />} />
+
+            {/* Policies */}
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/ethical-conduct" element={<EthicalConduct />} />
           </Routes>
         </main>
         <Footer />

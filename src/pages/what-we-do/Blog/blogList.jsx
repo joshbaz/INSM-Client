@@ -62,7 +62,7 @@ const BlogList = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {pageArticles.map((article) => (
             <Link
-              to={`/blog/${article.id}`}
+              to={`/what-we-do/blog/${article.id}`}
               key={article.id}
               className="group flex flex-col"
             >

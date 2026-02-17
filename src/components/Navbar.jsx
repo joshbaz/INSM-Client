@@ -13,30 +13,33 @@ const Navbar = () => {
     {
       title: "Who we are?",
       items: [
-        { name: "Our Story", path: "/our-story" },
-        { name: "Our Team", path: "/our-team" },
-        { name: "The Roadmap", path: "/the-roadmap" },
+        { name: "Our Story", path: "/who-we-are/our-story" },
+        { name: "Our Team", path: "/who-we-are/our-team" },
+        { name: "The Roadmap", path: "/who-we-are/the-roadmap" },
       ],
     },
     {
       title: "What we do?",
       items: [
-        { name: "Projects", path: "/projects" },
-        { name: "Gallery", path: "/gallery" },
-        { name: "Blog", path: "/blog" },
+        { name: "Projects", path: "/what-we-do/projects" },
+        { name: "Gallery", path: "/what-we-do/gallery" },
+        { name: "Blog", path: "/what-we-do/blog" },
       ],
     },
     {
       title: "How to help?",
       items: [
-        { name: "Donate", path: "/donate" },
-        { name: "Join the Assignment", path: "/how-to-help" },
+        { name: "Donate", path: "/how-to-help/donate" },
+        {
+          name: "Join the Assignment",
+          path: "/how-to-help/join-the-assignment",
+        },
         {
           name: "Equipper Portal",
           path: "https://portal.insmuganda.org",
           external: true,
         },
-        { name: "Contact Us", path: "/contact-us" },
+        { name: "Contact Us", path: "/how-to-help/contact-us" },
       ],
     },
   ];
@@ -125,7 +128,7 @@ const Navbar = () => {
             <div className="flex items-center gap-6 z-30 relative">
               {/* CTA BUTTON */}
               <Link
-                to={isHomePage ? "/donate" : "/"}
+                to={isHomePage ? "/how-to-help/donate" : "/"}
                 className="
                 hidden md:inline-flex
                 items-center justify-center
@@ -218,7 +221,7 @@ const Navbar = () => {
             {/* Mobile Menu CTA */}
             <div className="mt-8 px-4 md:hidden">
               <Link
-                to={isHomePage ? "/donate" : "/"}
+                to={isHomePage ? "/how-to-help/donate" : "/"}
                 onClick={() => setIsMenuOpen(false)}
                 className="
                   w-full md:w-auto

@@ -25,7 +25,7 @@ const BlogRelatedArticles = ({ currentArticleId }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {related.map((article) => (
             <Link
-              to={`/blog/${article.id}`}
+              to={`/what-we-do/blog/${article.id}`}
               key={article.id}
               className="group flex flex-col"
             >

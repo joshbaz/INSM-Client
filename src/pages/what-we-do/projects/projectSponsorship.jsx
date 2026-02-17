@@ -25,7 +25,7 @@ const projectSponsorship = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Link
-              to={`/projects/list/${project.id}`}
+              to={`/what-we-do/projects/list/${project.id}`}
               key={index}
               className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
             >
@@ -64,7 +64,7 @@ const projectSponsorship = () => {
         {/* View More Projects */}
         <div className="flex justify-center mt-12">
           <Link
-            to="/projects/list"
+            to="/what-we-do/projects/list"
             className="inline-flex items-center gap-2 text-base font-secondary text-brand-dark-400 hover:text-brand-dark transition-colors group"
           >
             View more projects

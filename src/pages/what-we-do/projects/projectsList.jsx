@@ -283,7 +283,7 @@ const projectsList = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map((project) => (
                 <Link
-                  to={`/projects/list/${project.id}`}
+                  to={`/what-we-do/projects/list/${project.id}`}
                   key={project.id}
                   className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
                 >
