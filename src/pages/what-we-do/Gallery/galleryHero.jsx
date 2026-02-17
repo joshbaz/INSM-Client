@@ -2,7 +2,7 @@ import React from "react";
 
 const GalleryHero = () => {
   return (
-    <section className="bg-brand-pink-100/50 py-20 md:py-32 w-full text-center px-4">
+    <section className="bg-brand-pink-100/60 py-20 md:py-24 lg:py-40 w-full text-center px-4">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-primary text-brand-dark uppercase tracking-wide">
           GALLERY

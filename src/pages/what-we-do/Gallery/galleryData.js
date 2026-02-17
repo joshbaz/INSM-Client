@@ -79,7 +79,7 @@ export const GALLERY_IMAGES = [
   },
   {
     id: 9,
-    src: "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/gallery/img1.jpg", // Keeping a few placeholders as fallback/variety if needed, or remove if strictly broken
+    src: "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/cc9a5e89836850c364b70c4f8c5668e4d2ff8500.png", // Keeping a few placeholders as fallback/variety if needed, or remove if strictly broken
     category: "family-visits",
     region: "central",
     alt: "Vocational training workshop",

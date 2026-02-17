@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
+import { Icon } from "@iconify/react";
 import {
   GALLERY_CATEGORIES,
   GALLERY_REGIONS,
@@ -9,6 +10,24 @@ const GalleryGrid = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeRegion, setActiveRegion] = useState(null); // null means all regions
   const [selectedImage, setSelectedImage] = useState(null);
+  const [regionDropdownOpen, setRegionDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setRegionDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Get the label of the currently active region
+  const activeRegionLabel = activeRegion
+    ? GALLERY_REGIONS.find((r) => r.id === activeRegion)?.label
+    : "All Regions";
 
   // Filter images based on category and region
   const filteredImages = useMemo(() => {
@@ -22,14 +41,25 @@ const GalleryGrid = () => {
 
   return (
     <>
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-12">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap justify-start gap-8 md:gap-16 mb-12">
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-8">
+        {/* Category Tabs — horizontally scrollable on mobile */}
+        <div
+          className="gallery-tabs-scroll flex flex-nowrap md:flex-wrap justify-start gap-2 md:gap-4 mb-8 overflow-x-auto pb-2 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          <style>{`
+            .gallery-tabs-scroll::-webkit-scrollbar {
+              display: none;
+            }
+          `}</style>
           {GALLERY_CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`text-base md:text-lg font-secondary font-medium transition-all duration-300 relative pb-4 px-2 cursor-pointer ${
+              className={`text-sm md:text-base font-secondary font-medium transition-all duration-300 relative pb-4 px-3 md:px-2 cursor-pointer whitespace-nowrap shrink-0 ${
                 activeCategory === cat.id
                   ? "text-brand-lilac-700 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-brand-lilac-600 after:rounded-t-sm"
                   : "text-brand-dark-300 hover:text-brand-lilac-500"
@@ -40,9 +70,70 @@ const GalleryGrid = () => {
           ))}
         </div>
 
-        {/* Region Filters */}
-        <div className="flex flex-wrap items-center justify-start gap-4 mb-16">
-          <span className="text-sm font-bold text-gray-400 tracking-widest uppercase mr-4">
+        {/* Region Filters — Dropdown on mobile, pill buttons on desktop */}
+        {/* Mobile Dropdown */}
+        <div className="block md:hidden mb-10" ref={dropdownRef}>
+          <div className="relative">
+            <button
+              onClick={() => setRegionDropdownOpen(!regionDropdownOpen)}
+              className="w-full flex items-center justify-between px-5 py-3 rounded-xl bg-brand-lilac/10 border border-brand-lilac-200 text-sm font-bold text-brand-lilac-800 uppercase tracking-wider transition-all duration-300 cursor-pointer"
+            >
+              <span>{activeRegionLabel}</span>
+              <Icon
+                icon="heroicons:chevron-down"
+                className={`w-5 h-5 transition-transform duration-300 ${
+                  regionDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            {/* Dropdown Menu */}
+            <div
+              className={`absolute z-30 left-0 right-0 mt-2 rounded-xl bg-white border border-brand-lilac-100 shadow-xl overflow-hidden transition-all duration-300 origin-top ${
+                regionDropdownOpen
+                  ? "opacity-100 scale-y-100 pointer-events-auto"
+                  : "opacity-0 scale-y-95 pointer-events-none"
+              }`}
+            >
+              {/* "All Regions" option */}
+              <button
+                onClick={() => {
+                  setActiveRegion(null);
+                  setRegionDropdownOpen(false);
+                }}
+                className={`w-full text-left px-5 py-3 text-sm font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
+                  !activeRegion
+                    ? "bg-brand-lilac-100 text-brand-lilac-800"
+                    : "text-brand-dark-300 hover:bg-brand-lilac-50"
+                }`}
+              >
+                All Regions
+              </button>
+              {GALLERY_REGIONS.map((region) => (
+                <button
+                  key={region.id}
+                  onClick={() => {
+                    setActiveRegion(
+                      activeRegion === region.id ? null : region.id,
+                    );
+                    setRegionDropdownOpen(false);
+                  }}
+                  className={`w-full text-left px-5 py-3 text-sm font-bold uppercase tracking-wider transition-colors duration-200 cursor-pointer ${
+                    activeRegion === region.id
+                      ? "bg-brand-lilac-100 text-brand-lilac-800"
+                      : "text-brand-dark-300 hover:bg-brand-lilac-50"
+                  }`}
+                >
+                  {region.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Pill Buttons */}
+        <div className="hidden md:flex flex-wrap items-center justify-start gap-4 mb-16">
+          <span className="text-sm md:text-base font-primary font-medium text-gray-400 tracking-widest uppercase mr-4">
             REGIONS
           </span>
           {GALLERY_REGIONS.map((region) => (
@@ -110,20 +201,7 @@ const GalleryGrid = () => {
             className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
             onClick={() => setSelectedImage(null)}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="w-8 h-8 md:w-10 md:h-10"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Icon icon="heroicons:x-mark" className="w-8 h-8 md:w-10 md:h-10" />
           </button>
 
           <div
