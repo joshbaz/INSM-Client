@@ -19,6 +19,7 @@ import ProjectsList from "./pages/what-we-do/projects/projectsList";
 import ProjectDetail from "./pages/what-we-do/projects/projectDetail";
 import Gallery from "./pages/what-we-do/Gallery/galleryPage";
 import Blog from "./pages/what-we-do/Blog/blogPage";
+import BlogDetailPage from "./pages/what-we-do/Blog/details/blogDetailPage";
 import DonatePage from "./pages/Donate Page/donatePage";
 import HowToHelp from "./pages/how-to-help/howToHelpPage";
 import ContactUs from "./pages/how-to-help/ContactUs";
@@ -51,6 +52,7 @@ function App() {
             />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:articleId" element={<BlogDetailPage />} />
             <Route path="/donate" element={<DonatePage />} />
             <Route path="/how-to-help" element={<HowToHelp />} />
             <Route path="/contact-us" element={<ContactUs />} />
