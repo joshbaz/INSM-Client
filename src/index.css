@@ -167,7 +167,11 @@
   --text-body-weight: 400;
 }
 
-/* Base: page background (cream), primary font, focus ring (accessibility) */
+/* Base: smooth scroll, page background (cream), primary font, focus ring */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-primary);
   background-color: var(--cream);
