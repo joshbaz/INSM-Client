@@ -77,8 +77,14 @@ const Footer = () => {
         {/* BOTTOM: Contact & Copyright */}
         <div className="flex flex-col items-center md:items-start gap-1 text-base text-center md:text-left text-brand-cream-800 font-semibold font-secondary max-w-3xl">
           <p>
-            If you need assistance with your donation, please call us at
-            000000000 or <br /> contact us through our{" "}
+            If you need assistance with your donation, please call us at{" "}
+            <a
+              href="tel:+256784323406"
+              className="text-brand-lilac-700 border-b border-brand-lilac-700 hover:text-brand-lilac-900 transition-colors"
+            >
+              +256 784 323 406
+            </a>{" "}
+            or <br /> contact us through our{" "}
             <a
               href="mailto:official@insmuganda.org"
               className="text-brand-lilac-700 border-b border-brand-lilac-700 hover:text-brand-lilac-900 transition-colors"
