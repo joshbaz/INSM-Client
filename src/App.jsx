@@ -15,6 +15,7 @@ import Dashboard from "./pages/dashboard/dashboardPage";
 import OurStory from "./pages/who-we-are/OurStory";
 import OurTeam from "./pages/who-we-are/OurTeam";
 import TheRoadmap from "./pages/who-we-are/TheRoadmap";
+import WhatWeDo from "./pages/what-we-do/whatWeDoPage";
 import Projects from "./pages/what-we-do/projects/projectsPage";
 import ProjectsList from "./pages/what-we-do/projects/projectsList";
 import ProjectDetail from "./pages/what-we-do/projects/projectDetail";
@@ -50,6 +51,7 @@ function App() {
             <Route path="/who-we-are/the-roadmap" element={<TheRoadmap />} />
 
             {/* What We Do */}
+            <Route path="/what-we-do" element={<WhatWeDo />} />
             <Route path="/what-we-do/projects" element={<Projects />} />
             <Route
               path="/what-we-do/projects/list"

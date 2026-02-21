@@ -9,8 +9,8 @@ const CAROUSEL_DATA = [
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image.png",
     title: "Who we are",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec elit ornare purus consequat faucibus non a orci. Duis eleifend eu ipsum ut commodo. Etiam mollis fermentum dapibus. Proin at consectetur sapien. Aenean ultricies, est eu rhoncus mattis, libero libero dictum ipsum, sit amet ultricies nulla lacus eu erat.",
-    link: "/who-we-are",
+      "We are a global community dedicated to uplifting single mothers through connection, advocacy, and opportunity. Born from lived experience, our network brings together women across borders to share strength, build resilience, and create lasting change for families everywhere.",
+    link: "/who-we-are/our-story",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const CAROUSEL_DATA = [
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/Frame%202.png",
     title: "What we do",
     description:
-      "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut, mollis sed, nonummy id, metus.",
+      "From skills training and mentorship to community-driven projects, we equip single mothers with the tools they need to thrive. Our programmes span education, entrepreneurship, and wellness — empowering women to build sustainable livelihoods and brighter futures for their children.",
     link: "/what-we-do",
   },
 ];
