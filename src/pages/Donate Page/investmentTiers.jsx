@@ -1,100 +1,62 @@
-import React from "react";
-
-const TIERS = [
-  {
-    title: "The First Thread",
-    subtitle: "From Invisible to Official",
-    amount: "$10",
-    description:
-      "Provides a mother with her official Cooperative Passbook and first financial literacy induction.",
-    colorClass: "bg-brand-teal",
-  },
-  {
-    title: "The Safety Rope",
-    subtitle: "From Conflict to Stability",
-    amount: "$100",
-    description:
-      "Funds a mental health and positive parenting seminar for 10 mothers, securing the future of their children.",
-    colorClass: "bg-brand-pink",
-  },
-  {
-    title: "The Parish Seed",
-    subtitle: "From Isolation to Power",
-    amount: "$500",
-    description:
-      "Seeds the registration and mobilization of a new 50-member Parish Cooperative.",
-    colorClass: "bg-brand-brown",
-  },
-  {
-    title: "The Masterclass",
-    subtitle: "From Resilience to a Pro",
-    amount: "$2,500",
-    description:
-      "Funds a 4-week certification in Commercial Agriculture or Tourism for 100 women.",
-    colorClass: "bg-brand-brown",
-  },
-  {
-    title: "The SACCO Engine",
-    subtitle: "From Subsistence to Wealth",
-    amount: "$10,000",
-    description:
-      "Provides the initial revolving credit fund to scale small businesses across an entire division.",
-    colorClass: "bg-brand-teal",
-  },
-  {
-    title: "The Legacy Fund",
-    subtitle: "Building the Republic",
-    amount: "$20,000+",
-    description:
-      "Seeds the registration and mobilization of a new 50-member Parish Cooperative.",
-    colorClass: "bg-brand-pink",
-  },
-];
+import React, { useState } from "react";
+import { Icon } from "@iconify/react";
+import TierDetailModal from "./TierDetailModal";
+import { TIERS } from "./tiersData";
 
 const InvestmentTiers = ({ onDonateClick }) => {
+  const [selectedTier, setSelectedTier] = useState(null);
+
   return (
-    <section className="w-full py-20 bg-white">
+    <section className="w-full py-24 bg-white">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark-400">
-            Investment Tiers
+        <div className="mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold font-primary text-black">
+            Our Investment Tiers
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {TIERS.map((tier, index) => (
+          {TIERS.map((tier) => (
             <div
-              key={index}
-              className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
+              key={tier.id}
+              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
             >
-              {/* Header Section */}
               <div className="mb-6">
-                <h3 className="text-xl font-bold font-primary text-black mb-1">
+                <h3 className="text-2xl font-bold font-primary text-black mb-1">
                   {tier.title}
                 </h3>
-                <p className="text-sm font-bold text-gray-400 font-secondary uppercase tracking-wide">
+                <p className="text-xs font-bold text-gray-400 font-secondary uppercase tracking-widest">
                   {tier.subtitle}
                 </p>
               </div>
 
-              {/* Color Block with Amount */}
               <div
-                className={`w-full h-48 ${tier.colorClass} flex items-center justify-center text-white`}
+                className={`w-full h-48 ${tier.colorClass} flex items-center justify-center text-white rounded-lg`}
               >
-                <span className="text-5xl font-bold font-primary">
+                <span className="text-6xl font-bold font-primary">
                   {tier.amount}
                 </span>
               </div>
 
-              {/* Description & Action */}
               <div className="flex flex-col grow mt-6">
-                <p className="text-brand-dark font-secondary leading-relaxed mb-8 grow">
+                <p className="text-brand-dark font-secondary leading-relaxed mb-8 grow text-sm">
                   {tier.description}
                 </p>
-                <div className="flex justify-end mt-auto">
+
+                <div className="flex justify-between items-center mt-auto gap-3">
+                  <button
+                    onClick={() => setSelectedTier(tier)}
+                    className="border border-gray-300 text-gray-400 font-bold text-[10px] py-3 px-4 rounded-full flex items-center gap-1 hover:bg-gray-50 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap"
+                  >
+                    More Info
+                    <Icon
+                      icon="material-symbols:play-circle-outline"
+                      width="16"
+                    />
+                  </button>
                   <button
                     onClick={() => onDonateClick && onDonateClick(tier)}
-                    className="bg-brand-lilac-600 text-white font-bold text-xs py-3 px-6 rounded-full hover:bg-brand-lilac-600/90 transition-colors uppercase tracking-wider cursor-pointer"
+                    className="bg-brand-lilac-600 text-white font-bold text-[10px] py-3 px-6 rounded-full hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm"
                   >
                     Give Seed
                   </button>
@@ -104,6 +66,14 @@ const InvestmentTiers = ({ onDonateClick }) => {
           ))}
         </div>
       </div>
+
+      {selectedTier && (
+        <TierDetailModal
+          tier={selectedTier}
+          onClose={() => setSelectedTier(null)}
+          onDonate={onDonateClick}
+        />
+      )}
     </section>
   );
 };
