@@ -10,8 +10,8 @@ const ROPES = [
     bg: "bg-brand-lilac-100",
     labelColor: "text-brand-lilac-400", // ← label color
     titleColor: "text-brand-lilac-800", // ← title color
-    leftTextColor: "text-brand-dark", // ← left quote-text color
-    rightTextColor: "text-brand-dark-400", // ← right description color
+    leftTextColor: "text-brand-lilac-800", // ← left quote-text color
+    rightTextColor: "text-brand-lilac-700", // ← right description color
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/cc9a5e89836850c364b70c4f8c5668e4d2ff8500.png",
     leftText: {
@@ -26,10 +26,10 @@ const ROPES = [
     label: "SECOND ROPE",
     title: "Vocational Mastery",
     bg: "bg-brand-teal-100",
-    labelColor: "text-brand-dark-300", // ← label color
-    titleColor: "text-brand-dark", // ← title color
-    leftTextColor: "text-brand-dark", // ← left quote-text color
-    rightTextColor: "text-brand-dark-400", // ← right description color
+    labelColor: "text-brand-teal-400", // ← label color
+    titleColor: "text-brand-teal-800", // ← title color
+    leftTextColor: "text-brand-teal-800", // ← left quote-text color
+    rightTextColor: "text-brand-teal-700", // ← right description color
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/c28126f0fa21ff64ada52f6689f43d1e74bf046c.png",
     leftText: {
@@ -44,10 +44,10 @@ const ROPES = [
     label: "THIRD ROPE",
     title: "Family Stability",
     bg: "bg-brand-cream-100",
-    labelColor: "text-brand-dark-300", // ← label color
-    titleColor: "text-brand-dark", // ← title color
-    leftTextColor: "text-brand-dark", // ← left quote-text color
-    rightTextColor: "text-brand-dark-400", // ← right description color
+    labelColor: "text-brand-cream-700", // ← label color
+    titleColor: "text-brand-cream-800", // ← title color
+    leftTextColor: "text-brand-cream-800", // ← left quote-text color
+    rightTextColor: "text-brand-cream-700", // ← right description color
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/8dbf70e93d3efe7df76b6e2153e64ea54d139809.png",
     leftText: {
@@ -62,7 +62,7 @@ const ROPES = [
 const QuoteMark = () => (
   <Icon
     icon="mdi:format-quote-open"
-    className="w-6 h-6 text-brand-dark-300 opacity-40 shrink-0"
+    className="w-16 h-16 sm:hidden md:block absolute top-1/2 -translate-y-1/8 text-brand-lilac-200 opacity-40 shrink-0"
   />
 );
 
@@ -71,8 +71,8 @@ const ThreeRopes = () => {
     <section className="w-full bg-white py-16 md:py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Section header — left aligned */}
-        <div className="mb-12 md:mb-16 max-w-2xl">
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-4">
+        <div className="mb-12 md:mb-16 max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-4">
             The Three Ropes
           </h2>
           <p className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed">
@@ -87,7 +87,7 @@ const ThreeRopes = () => {
         {/* Rope cards */}
         <div className="flex flex-col gap-10 md:gap-12">
           {ROPES.map((rope) => (
-            <div key={rope.id} className={`${rope.bg} overflow-hidden`}>
+            <div key={rope.id} className={`${rope.bg} relative overflow-hidden`}>
               {/* Full card row: left column | image | right column */}
               <div className="flex flex-col md:flex-row items-stretch md:h-[340px]">
                 {/* Left column — label + title at top, quote + text at bottom */}
@@ -101,7 +101,7 @@ const ThreeRopes = () => {
                     </span>
                     {/* TITLE COLOR */}
                     <h3
-                      className={`text-2xl md:text-3xl font-bold font-primary ${rope.titleColor}`}
+                      className={`text-2xl mt-2 md:mt-8 md:text-3xl font-bold font-primary ${rope.titleColor}`}
                     >
                       {rope.title}
                     </h3>
@@ -111,7 +111,7 @@ const ThreeRopes = () => {
                     <QuoteMark />
                     {/* LEFT QUOTE-TEXT COLOR */}
                     <p
-                      className={`text-sm md:text-base font-semibold font-primary ${rope.leftTextColor} leading-snug`}
+                      className={`text-sm md:text-xl font-semibold font-primary ${rope.leftTextColor} leading-snug`}
                     >
                       {rope.leftText.heading}
                     </p>

@@ -2,6 +2,7 @@ import React from "react";
 import WhatWeDoHero from "./whatWeDoHero";
 import ThreeRopes from "./threeRopes";
 import RopesImpact from "./ropesImpact";
+import ImageSlider from "./imageSlider";
 import PowerMovement from "./powerMovement";
 
 const WhatWeDoPage = () => {
@@ -10,6 +11,7 @@ const WhatWeDoPage = () => {
       <WhatWeDoHero />
       <ThreeRopes />
       <RopesImpact />
+      <ImageSlider />
       <PowerMovement />
     </div>
   );
