@@ -3,28 +3,37 @@ import { Link } from "react-router-dom";
 
 const PowerMovement = () => {
   return (
-    <section className="w-full bg-brand-lilac py-16 md:py-24 px-4 md:px-8">
-      <div className="max-w-4xl mx-auto text-center flex flex-col items-center gap-6">
-        <h2 className="text-3xl md:text-5xl font-bold font-primary text-white leading-tight">
+    <section className="relative w-full h-[449px] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url("https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/24d67f7bedf75fdebe204784ab41ceb9f7e96699.png")`,
+        }}
+      ></div>
+
+      {/* Color Overlay — brand lilac with 85% opacity */}
+      <div
+        className="absolute inset-0 mix-blend-multiply"
+        style={{ backgroundColor: "#7F4829", opacity: 0.98 }}
+      ></div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white flex flex-col items-center">
+        <h2 className="text-3xl md:text-5xl font-bold font-primary mb-6 drop-shadow-sm leading-tight">
           Ready to Power the Movement?
         </h2>
-
-        <p className="text-base md:text-lg font-secondary text-white/85 max-w-2xl leading-relaxed">
-          True power that serves as a crucible: the church serves, single
-          mothers recite their growth, this machine is set on building the
+        <p className="text-base md:text-xl font-secondary leading-relaxed mb-10 opacity-95 max-w-3xl mx-auto font-light">
+          Our data proves that when you provide the infrastructure, single
+          mothers provide the growth. We invite you to join us in building the
           economic future of Uganda.
         </p>
 
         <Link
           to="/how-to-help/join-the-assignment"
-          className="inline-flex items-center justify-center text-base md:text-lg font-bold text-white bg-brand-teal hover:bg-brand-teal-600 transition-all duration-300 transform hover:scale-105 mt-2"
-          style={{
-            borderRadius: "99px",
-            padding: "16px 48px",
-            whiteSpace: "nowrap",
-          }}
+          className="bg-[#E5DAD4] text-[#7F4829] font-bold text-xs md:text-sm py-4 px-8 rounded-full cursor-pointer hover:bg-[#E5DAD4]/90 transition-all transform hover:scale-105 uppercase tracking-widest shadow-lg"
         >
-          BECOME A MOTHER TODAY
+          Empower A Mother Today
         </Link>
       </div>
     </section>

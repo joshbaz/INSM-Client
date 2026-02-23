@@ -4,29 +4,22 @@ const STATS = [
   {
     id: 1,
     value: 57,
-    label: "Investments to Date",
-    description:
-      "Total verified financial instruments that have generated measurable returns for the community.",
+    label: "Investments\nto Date",
+    description: "Active capital deployed into single-mother-led ventures.",
   },
   {
     id: 2,
     value: 17000,
-    suffix: "",
-    label: "Mothers Supported",
-    description:
-      "Mothers and families that have been part of the network across Uganda.",
+    label: "Mothers\nSupported",
+    description: "Moving from orientation to economic independence.",
   },
   {
     id: 3,
     value: 203,
-    label: "Ventures Launched",
-    description:
-      "Micro-enterprises launched in the community as a direct result of our programmes.",
+    label: "Ventures\nLaunched",
+    description: "New businesses funded by the Network and are thriving.",
   },
 ];
-
-const SECTION_IMAGE =
-  "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/566072bc0c5d53da65e9b10a82415c4e1dad98f8.png";
 
 /* ── Animated counter hook ── */
 function useCounter(target, duration = 2000, shouldAnimate) {
@@ -53,27 +46,6 @@ function useCounter(target, duration = 2000, shouldAnimate) {
   return count;
 }
 
-/* ── Stat card ── */
-const StatCard = ({ stat, shouldAnimate }) => {
-  const count = useCounter(stat.value, 2000, shouldAnimate);
-
-  const formatted = count.toLocaleString();
-
-  return (
-    <div className="flex flex-col items-center text-center gap-2 px-4 py-6 md:px-6">
-      <span className="text-sm font-semibold font-primary text-brand-brown uppercase tracking-wider">
-        {stat.label}
-      </span>
-      <span className="text-5xl md:text-6xl font-bold font-primary text-brand-dark leading-none">
-        {formatted}
-      </span>
-      <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed max-w-xs">
-        {stat.description}
-      </p>
-    </div>
-  );
-};
-
 /* ── Section ── */
 const RopesImpact = () => {
   const sectionRef = useRef(null);
@@ -95,43 +67,41 @@ const RopesImpact = () => {
   }, []);
 
   return (
-    <section className="w-full bg-brand-cream py-16 md:py-24 px-4 md:px-8">
+    <section className="w-full bg-white py-16 md:py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto px-2 md:px-12 lg:px-20">
-        {/* Section header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-3">
+        {/* Section header — left aligned */}
+        <div className="mb-10 md:mb-14">
+          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-2">
             Impact of the Ropes
           </h2>
-          <div className="flex items-center justify-center gap-3 mb-2">
-            <span className="h-0.5 w-12 bg-brand-lilac rounded-full" />
-            <p className="text-sm font-secondary text-brand-dark-300 italic">
-              Results that speak louder than figures
-            </p>
-            <span className="h-0.5 w-12 bg-brand-lilac rounded-full" />
-          </div>
+          <p className="text-base font-secondary text-brand-dark-400">
+            Visual proof of the Makindye Model in motion across Uganda.
+          </p>
         </div>
 
         {/* Stats grid */}
-        <div
-          ref={sectionRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 mb-14 md:mb-20"
-        >
+        <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {STATS.map((stat) => (
-            <StatCard key={stat.id} stat={stat} shouldAnimate={isVisible} />
-          ))}
-        </div>
+            <div
+              key={stat.id}
+              className="bg-brand-lilac-100 flex flex-col items-start gap-5 px-6 py-8"
+            >
+              {/* LABEL */}
+              <span className="text-base md:text-2xl font-semibold font-primary text-brand-pink-800 leading-tight whitespace-pre-line">
+                {stat.label}
+              </span>
 
-        {/* Full-width image */}
-        <div className="relative w-full h-72 md:h-[420px] rounded-2xl overflow-hidden shadow-lg">
-          <img
-            src={SECTION_IMAGE}
-            alt="Mothers in the INSM community"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-linear-to-t from-black/30 to-transparent" />
-          <p className="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/80 font-secondary italic">
-            Mothers from across the network at a community gathering
-          </p>
+              {/* NUMBER */}
+              <span className="text-5xl md:text-6xl font-bold font-primary text-brand-pink-800 leading-none">
+                {(isVisible ? stat.value : 0).toLocaleString()}
+              </span>
+
+              {/* DESCRIPTION */}
+              <p className="text-lg font-secondary text-brand-pink-900 leading-relaxed">
+                {stat.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

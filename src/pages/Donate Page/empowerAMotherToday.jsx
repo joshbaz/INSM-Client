@@ -2,7 +2,7 @@ import React from "react";
 
 const EmpowerAMotherToday = ({ onDonateClick }) => {
   return (
-    <section className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[449px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
@@ -14,7 +14,7 @@ const EmpowerAMotherToday = ({ onDonateClick }) => {
       {/* Color Overlay #7F4829 with 85% opacity */}
       <div
         className="absolute inset-0 mix-blend-multiply"
-        style={{ backgroundColor: "#7F4829", opacity: 0.9 }}
+        style={{ backgroundColor: "#7F4829", opacity: 0.98 }}
       ></div>
 
       {/* Content */}
