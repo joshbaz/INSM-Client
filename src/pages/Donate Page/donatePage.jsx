@@ -5,8 +5,15 @@ import InvestmentTiers from "./investmentTiers";
 import PathToProsperity from "./pathToProsperity";
 import EmpowerAMotherToday from "./empowerAMotherToday";
 import DonationModal from "./donationModel/DonationModal";
+import useSEO from "../../hooks/useSEO";
 
 const donatePage = () => {
+  useSEO({
+    title: "Donate",
+    description:
+      "Invest in the economic dignity of single mothers in Uganda. Your contribution directly funds cooperative formation and financial literacy.",
+  });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedTier, setSelectedTier] = useState(null);
 

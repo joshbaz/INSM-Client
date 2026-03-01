@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "../../utils/animations";
 
 const BG_IMAGE =
   "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image%201.png";
@@ -13,8 +15,14 @@ const HomeHero = () => {
 
   // Content component to ensure identical layout in both layers
   const PanelContent = ({ visibleContent }) => (
-    <div className="max-w-xl flex flex-col items-start gap-2">
-      <h1
+    <motion.div
+      initial="hidden"
+      animate="visible"
+      variants={staggerContainer}
+      className="max-w-xl flex flex-col items-start gap-2"
+    >
+      <motion.h1
+        variants={fadeUp}
         className={`text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-[#F5F5DD] leading-tight font-primary tracking-wide ${visibleContent === "button" ? "invisible" : ""}`}
       >
         WE DIDN'T
@@ -24,9 +32,10 @@ const HomeHero = () => {
         WE STARTED
         <br />
         WITH
-      </h1>
+      </motion.h1>
 
-      <div
+      <motion.div
+        variants={fadeUp}
         className={`text-white leading-none mt-2 ${visibleContent === "button" ? "invisible" : ""}`}
       >
         <span className="block text-4xl md:text-5xl lg:text-6xl font-bold">
@@ -35,20 +44,22 @@ const HomeHero = () => {
         <span className="block text-2xl md:text-3xl lg:text-4xl font-bold mt-1">
           LIVES
         </span>
-      </div>
+      </motion.div>
 
-      <Link
-        to="/how-to-help/join-the-assignment"
-        className={`inline-flex items-center justify-center text-lg md:text-base font-bold text-white transition-all duration-300 transform hover:scale-105 hover:bg-brand-teal/90 bg-brand-teal mt-4 md:mt-8 lg:mt-14 ${visibleContent === "text" ? "invisible" : "pointer-events-auto"}`}
-        style={{
-          borderRadius: "99px",
-          padding: "14px 48px",
-          whiteSpace: "nowrap",
-        }}
-      >
-        JOIN THE ASSIGNMENT
-      </Link>
-    </div>
+      <motion.div variants={fadeUp}>
+        <Link
+          to="/how-to-help/join-the-assignment"
+          className={`inline-flex items-center justify-center text-lg md:text-base font-bold text-white transition-all duration-300 transform hover:scale-105 hover:bg-brand-teal/90 bg-brand-teal mt-4 md:mt-8 lg:mt-14 ${visibleContent === "text" ? "invisible" : "pointer-events-auto"}`}
+          style={{
+            borderRadius: "99px",
+            padding: "14px 48px",
+            whiteSpace: "nowrap",
+          }}
+        >
+          JOIN THE ASSIGNMENT
+        </Link>
+      </motion.div>
+    </motion.div>
   );
 
   return (

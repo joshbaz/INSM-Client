@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "../../utils/animations";
 
 const STATS = [
   {
@@ -70,20 +72,34 @@ const RopesImpact = () => {
     <section className="w-full bg-white py-16 md:py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Section header — left aligned */}
-        <div className="mb-10 md:mb-14">
+        <motion.div
+          className="mb-10 md:mb-14"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-2">
             Impact of the Ropes
           </h2>
           <p className="text-base font-secondary text-brand-dark-400">
             Visual proof of the Makindye Model in motion across Uganda.
           </p>
-        </div>
+        </motion.div>
 
         {/* Stats grid */}
-        <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <motion.div
+          ref={sectionRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+        >
           {STATS.map((stat) => (
-            <div
+            <motion.div
               key={stat.id}
+              variants={fadeUp}
               className="bg-brand-lilac-100 flex flex-col items-start gap-5 px-6 py-8"
             >
               {/* LABEL */}
@@ -100,9 +116,9 @@ const RopesImpact = () => {
               <p className="text-lg font-secondary text-brand-pink-900 leading-relaxed">
                 {stat.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

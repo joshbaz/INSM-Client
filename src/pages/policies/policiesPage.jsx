@@ -1,7 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useSEO from "../../hooks/useSEO";
 
 const PrivacyPolicyPage = () => {
+  useSEO({
+    title: "Privacy Policy",
+    description:
+      "Read the International Network for Single Mothers Uganda Chapter privacy policy regarding data protection and security.",
+  });
   return (
     <div className="pt-28 pb-16 min-h-screen">
       <div className="max-w-3xl mx-auto px-6 md:px-8">

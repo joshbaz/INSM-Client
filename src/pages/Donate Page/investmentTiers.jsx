@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
+import { motion, AnimatePresence } from "framer-motion";
+import { fadeUp, staggerContainer } from "../../utils/animations";
 import TierDetailModal from "./TierDetailModal";
 import { TIERS } from "./tiersData";
 
@@ -9,15 +11,28 @@ const InvestmentTiers = ({ onDonateClick }) => {
   return (
     <section className="w-full py-24 bg-white">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
-        <div className="mb-16">
+        <motion.div
+          className="mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <h2 className="text-4xl md:text-5xl font-bold font-primary text-black">
             Our Investment Tiers
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+        >
           {TIERS.map((tier) => (
-            <div
+            <motion.div
+              variants={fadeUp}
               key={tier.id}
               className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
             >
@@ -62,9 +77,9 @@ const InvestmentTiers = ({ onDonateClick }) => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {selectedTier && (

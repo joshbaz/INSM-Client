@@ -1,5 +1,7 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer } from "../../utils/animations";
 
 const ROPES = [
   /* ─── CARD 1: Financial Mastery ─── */
@@ -71,7 +73,13 @@ const ThreeRopes = () => {
     <section className="w-full bg-white py-16 md:py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Section header — left aligned */}
-        <div className="mb-12 md:mb-16 max-w-4xl">
+        <motion.div
+          className="mb-12 md:mb-16 max-w-4xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-4">
             The Three Ropes
           </h2>
@@ -82,12 +90,22 @@ const ThreeRopes = () => {
             household we reach transitions from surviving to building
             generational wealth.
           </p>
-        </div>
+        </motion.div>
 
         {/* Rope cards */}
-        <div className="flex flex-col gap-10 md:gap-12">
+        <motion.div
+          className="flex flex-col gap-10 md:gap-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={staggerContainer}
+        >
           {ROPES.map((rope) => (
-            <div key={rope.id} className={`${rope.bg} relative overflow-hidden`}>
+            <motion.div
+              key={rope.id}
+              variants={fadeUp}
+              className={`${rope.bg} relative overflow-hidden`}
+            >
               {/* Full card row: left column | image | right column */}
               <div className="flex flex-col md:flex-row items-stretch md:h-[340px]">
                 {/* Left column — label + title at top, quote + text at bottom */}
@@ -137,9 +155,9 @@ const ThreeRopes = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

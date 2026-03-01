@@ -1,8 +1,15 @@
 import React from "react";
 import BlogFeaturedStory from "./blogFeaturedStory";
 import BlogList from "./blogList";
+import useSEO from "../../../hooks/useSEO";
 
 const Blog = () => {
+  useSEO({
+    title: "Stories & Insights",
+    description:
+      "Read stories from the field, latest insights, and updates from the International Network for Single Mothers Uganda Chapter.",
+  });
+
   return (
     <div className="bg-brand-cream-100 min-h-screen">
       {/* Featured Story Hero */}

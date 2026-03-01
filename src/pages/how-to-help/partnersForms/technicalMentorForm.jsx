@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { Formik } from "formik";
 import { Icon } from "@iconify/react";
 import * as Yup from "yup";
+import useSEO from "../../../hooks/useSEO";
 
 /* ── Inline SVG icons for each expertise option ── */
 const ExpertiseIcons = {
@@ -12,6 +13,11 @@ const ExpertiseIcons = {
 };
 
 const TechnicalMentorForm = ({ isOpen, onClose }) => {
+  useSEO({
+    title: "Become a Technical Mentor",
+    description:
+      "Lend your expertise in Law, Finance, or Health to build the infrastructure of our movement for single mothers in Uganda.",
+  });
   const validationSchema = useMemo(
     () =>
       Yup.object({

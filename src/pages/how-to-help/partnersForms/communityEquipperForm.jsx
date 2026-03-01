@@ -2,8 +2,14 @@ import React, { useCallback, useEffect, useMemo } from "react";
 import { Formik } from "formik";
 import { Icon } from "@iconify/react";
 import * as Yup from "yup";
+import useSEO from "../../../hooks/useSEO";
 
 const CommunityEquipperForm = ({ isOpen, onClose }) => {
+  useSEO({
+    title: "Become a Community Equipper",
+    description:
+      "Join the Equipper Network to mobilize grassroots efforts and support single mothers in your community.",
+  });
   const validationSchema = useMemo(
     () =>
       Yup.object({
