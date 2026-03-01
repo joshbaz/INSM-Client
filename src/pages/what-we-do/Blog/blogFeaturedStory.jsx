@@ -27,7 +27,7 @@ const BlogFeaturedStory = () => {
 
           {/* Overlay Card — centered */}
           <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 md:p-0 ">
-            <div className="bg-white/95 backdrop-blur-sm rounded-xl md:rounded-xl p-6 md:p-8 max-w-xl w-full shadow-lg text-left">
+            <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 max-w-xl w-full shadow-lg text-left">
               <p className="text-xs font-secondary text-brand-lilac tracking-widest uppercase mb-3">
                 {formattedDate}
               </p>
