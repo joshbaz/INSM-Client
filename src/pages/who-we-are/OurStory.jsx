@@ -6,18 +6,18 @@ const OurStory = () => {
   return (
     <section
       id="our-story"
-      className="w-full bg-brand-lilac-100 py-24 md:py-32 px-6 md:px-12"
+      className="w-full bg-brand-lilac-100 py-24 md:py-32 px-4 md:px-8"
     >
       <motion.div
-        className="max-w-3xl mx-auto md:ml-[15%] flex flex-col items-start text-left"
+        className="max-w-3xl mx-auto md:ml-[15%] flex flex-col items-start px-2 md:px-12 lg:px-20 text-left"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
       >
-        <motion.h2  
+        <motion.h2
           variants={fadeUp}
-          className="text-lg md:text-4xl normal-case! font-bold font-primary text-brand-lilac-800 mb-8"
+          className="text-3xl md:text-4xl normal-case! font-bold font-primary text-brand-lilac-800 mb-8"
         >
           Investing in the majority
           <br />
@@ -26,7 +26,7 @@ const OurStory = () => {
 
         <motion.p
           variants={fadeUp}
-          className="font-secondary text-base md:text-lg text-brand-lilac-700 leading-relaxed mb-8 font-medium"
+          className="font-secondary text-base leading-relaxed mb-8 text-brand-dark-400"
         >
           In Uganda today, a profound structural shift has identified an
           unparalleled market opportunity. Nearly 1 in 4 households (22.4%) are
@@ -37,7 +37,7 @@ const OurStory = () => {
 
         <motion.p
           variants={fadeUp}
-          className="font-secondary text-base md:text-lg text-brand-lilac-700 leading-relaxed font-medium"
+          className="font-secondary text-base leading-relaxed text-brand-dark-400"
         >
           At the International Network for Single Mothers (INSM), we recognize
           that economic sovereignty is engineered through infrastructure. We

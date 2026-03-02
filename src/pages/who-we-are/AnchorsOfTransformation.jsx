@@ -4,8 +4,8 @@ import { fadeUp, staggerContainer, slideInRight } from "../../utils/animations";
 
 const AnchorsOfTransformation = () => {
   return (
-    <section className="w-full bg-white py-20 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto">
+    <section className="w-full bg-white py-20 px-4 md:px-8">
+      <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Header Section */}
         <motion.div
           className="mb-16 md:mb-24 max-w-3xl"
@@ -22,13 +22,13 @@ const AnchorsOfTransformation = () => {
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="text-lg font-secondary text-brand-dark-300 mb-8"
+            className="text-base md:text-lg font-secondary text-brand-dark-300 mb-8"
           >
             A Proven Architecture, Not a Pilot Project
           </motion.p>
           <motion.p
             variants={fadeUp}
-            className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium"
+            className="font-secondary text-base md:text-lg text-brand-navy-900 leading-relaxed font-medium"
           >
             INSM is a registered industrial cooperative movement that has
             engineered a definitive pathway to Economic Sovereignty. We refine
@@ -51,17 +51,17 @@ const AnchorsOfTransformation = () => {
             variants={staggerContainer}
           >
             <motion.div className="w-full md:w-1/2" variants={fadeUp}>
-              <h3 className="text-2xl font-bold font-primary text-brand-navy-900 mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-navy-900 mb-4">
                 The Makindye Blueprint
               </h3>
-              <p className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium">
+              <p className="font-secondary text-base md:text-lg text-brand-navy-900 leading-relaxed font-medium">
                 We have successfully consolidated over 17,000 production units
                 into a disciplined, wealth-generating bloc. This is the National
                 Gold Standard for economic mobilization.
               </p>
             </motion.div>
             <motion.div
-              className="w-full md:w-1/2 h-64 bg-gray-50 rounded-sm border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shrink-0"
+              className="w-full md:w-1/2 h-64 bg-brand-dark-100 rounded-sm border-2 border-dashed border-brand-dark-200 flex flex-col items-center justify-center shrink-0"
               variants={slideInRight}
             >
               <span className="text-brand-dark-200 font-secondary text-sm">
@@ -79,10 +79,10 @@ const AnchorsOfTransformation = () => {
             variants={staggerContainer}
           >
             <motion.div className="w-full md:w-1/2" variants={fadeUp}>
-              <h3 className="text-2xl font-bold font-primary text-brand-navy-900 mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-navy-900 mb-4">
                 National Strategic Endorsement
               </h3>
-              <p className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium">
+              <p className="font-secondary text-base md:text-lg text-brand-navy-900 leading-relaxed font-medium">
                 Our architecture has garnered the explicit support of the
                 Government of Uganda and senior leadership, recognizing us as
                 the most Efficient Vehicle for Parish-Level Economic
@@ -90,7 +90,7 @@ const AnchorsOfTransformation = () => {
               </p>
             </motion.div>
             <motion.div
-              className="w-full md:w-1/2 h-64 bg-gray-50 rounded-sm border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shrink-0"
+              className="w-full md:w-1/2 h-64 bg-brand-dark-100 rounded-sm border-2 border-dashed border-brand-dark-200 flex flex-col items-center justify-center shrink-0"
               variants={slideInRight}
             >
               <span className="text-brand-dark-200 font-secondary text-sm">
@@ -108,17 +108,17 @@ const AnchorsOfTransformation = () => {
             variants={staggerContainer}
           >
             <motion.div className="w-full md:w-1/2" variants={fadeUp}>
-              <h3 className="text-2xl font-bold font-primary text-brand-navy-900 mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-navy-900 mb-4">
                 Scalable National Dominance
               </h3>
-              <p className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium">
+              <p className="font-secondary text-base md:text-lg text-brand-navy-900 leading-relaxed font-medium">
                 We are scaling this architecture across every district. Our
                 mission is categorical: ensure that "female-led" becomes
                 synonymous with "Economically Dominant."
               </p>
             </motion.div>
             <motion.div
-              className="w-full md:w-1/2 h-64 bg-gray-50 rounded-sm border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shrink-0"
+              className="w-full md:w-1/2 h-64 bg-brand-dark-100 rounded-sm border-2 border-dashed border-brand-dark-200 flex flex-col items-center justify-center shrink-0"
               variants={slideInRight}
             >
               <span className="text-brand-dark-200 font-secondary text-sm">

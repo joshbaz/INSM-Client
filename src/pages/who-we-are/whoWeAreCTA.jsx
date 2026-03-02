@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 
 const WhoWeAreCTA = () => {
   return (
-    <section className="w-full bg-brand-navy py-24 md:py-32 px-6 md:px-12 text-center">
+    <section className="w-full bg-brand-navy py-24 md:py-32 px-4 md:px-8 text-center">
       <motion.div
-        className="max-w-4xl mx-auto flex flex-col items-center"
+        className="max-w-4xl mx-auto px-2 md:px-12 lg:px-20 flex flex-col items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -15,7 +15,7 @@ const WhoWeAreCTA = () => {
       >
         <motion.h2
           variants={fadeUp}
-          className="text-3xl md:text-5xl font-bold font-primary text-white mb-8 leading-tight"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold font-primary text-white mb-8 leading-tight"
         >
           This is no longer an appeal for charity.{" "}
           <br className="hidden md:block" />
@@ -25,7 +25,7 @@ const WhoWeAreCTA = () => {
 
         <motion.p
           variants={fadeUp}
-          className="text-lg md:text-xl font-secondary text-brand-navy-100 mb-10 max-w-3xl font-medium leading-relaxed"
+          className="text-base md:text-lg font-secondary text-brand-navy-100 mb-10 max-w-3xl font-medium leading-relaxed"
         >
           Become a stakeholder in the structural integrity of Uganda. Join the
           national economic engine and help us transform the "Invisible

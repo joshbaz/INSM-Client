@@ -6,9 +6,9 @@ const OurTeam = () => {
   return (
     <section
       id="our-team"
-      className="w-full bg-white py-20 md:py-32 px-6 md:px-12"
+      className="w-full bg-white py-20 md:py-32 px-4 md:px-8"
     >
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+      <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
         {/* Left Side: Image */}
         <motion.div
           className="w-full md:w-[45%] lg:w-[40%] shrink-0"
@@ -17,7 +17,7 @@ const OurTeam = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={slideInLeft}
         >
-          <div className="w-full aspect-4/5 overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center relative">
+          <div className="w-full aspect-4/5 overflow-hidden bg-brand-dark-100 border border-brand-dark-200 flex items-center justify-center relative">
             <img
               src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/3b5f7e7f7b2c9a1d8e1f0e4d7a8c6b2e1f4d9c7a.png?updatedAt=1708878000000"
               alt="Winifred Nassanga - Lead Architect"
@@ -49,20 +49,20 @@ const OurTeam = () => {
 
           <motion.h2
             variants={fadeUp}
-            className="text-4xl lg:text-[2.75rem] font-bold font-primary text-brand-navy-900 mb-3"
+            className="text-3xl md:text-4xl font-bold font-primary text-brand-navy-900 mb-3"
           >
             Winifred Nassanga
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="text-lg text-brand-dark-300 font-secondary mb-8"
+            className="text-base md:text-lg text-brand-dark-300 font-secondary mb-8"
           >
             Lead Architect & Visionary Strategist
           </motion.p>
 
           <motion.div variants={fadeUp} className="space-y-6">
-            <p className="font-secondary text-sm md:text-base text-brand-navy-900 leading-relaxed font-medium">
+            <p className="font-secondary text-base md:text-lg text-brand-navy-900 leading-relaxed font-medium">
               Winifred's leadership is defined by the high-precision synthesis
               of operational experience and industrial foresight. Having
               pioneered the optimization of the Primary Production Unit (the
@@ -71,7 +71,7 @@ const OurTeam = () => {
               "Invisible Majority."
             </p>
 
-            <p className="font-secondary text-sm md:text-base text-brand-navy-900 leading-relaxed font-medium">
+            <p className="font-secondary text-base md:text-lg text-brand-navy-900 leading-relaxed font-medium">
               Driven by the empirical fact that Household Fiscal Sovereignty is
               the foundational pillar of National Security, she engineered INSM.
               Her governing philosophy, "The Sovereignty of the Kitchen Table,"
