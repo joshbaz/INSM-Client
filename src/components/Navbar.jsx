@@ -14,8 +14,8 @@ const Navbar = () => {
       title: "Who we are?",
       items: [
         { name: "Our Story", path: "/who-we-are/our-story" },
-        { name: "Our Team", path: "/who-we-are/our-team" },
-        { name: "The Roadmap", path: "/who-we-are/the-roadmap" },
+        { name: "The Visionary", path: "/who-we-are/our-team" },
+        { name: "Strategic Blueprint", path: "/who-we-are/the-roadmap" },
       ],
     },
     {

@@ -12,9 +12,7 @@ import ForgotPassword from "./pages/auth/forgotPassword";
 import Dashboard from "./pages/dashboard/dashboardPage";
 
 // New Sitemap Pages
-import OurStory from "./pages/who-we-are/OurStory";
-import OurTeam from "./pages/who-we-are/OurTeam";
-import TheRoadmap from "./pages/who-we-are/TheRoadmap";
+import WhoWeArePage from "./pages/who-we-are/whoWeArePage";
 import WhatWeDo from "./pages/what-we-do/whatWeDoPage";
 import Projects from "./pages/what-we-do/projects/projectsPage";
 import ProjectsList from "./pages/what-we-do/projects/projectsList";
@@ -46,9 +44,10 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
 
             {/* Who We Are */}
-            <Route path="/who-we-are/our-story" element={<OurStory />} />
-            <Route path="/who-we-are/our-team" element={<OurTeam />} />
-            <Route path="/who-we-are/the-roadmap" element={<TheRoadmap />} />
+            <Route path="/who-we-are" element={<WhoWeArePage />} />
+            <Route path="/who-we-are/our-story" element={<WhoWeArePage />} />
+            <Route path="/who-we-are/our-team" element={<WhoWeArePage />} />
+            <Route path="/who-we-are/the-roadmap" element={<WhoWeArePage />} />
 
             {/* What We Do */}
             <Route path="/what-we-do" element={<WhatWeDo />} />

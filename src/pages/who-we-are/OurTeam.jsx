@@ -4,7 +4,10 @@ import { fadeUp, staggerContainer, slideInLeft } from "../../utils/animations";
 
 const OurTeam = () => {
   return (
-    <section className="w-full bg-white py-20 md:py-32 px-6 md:px-12">
+    <section
+      id="our-team"
+      className="w-full bg-white py-20 md:py-32 px-6 md:px-12"
+    >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-20">
         {/* Left Side: Image */}
         <motion.div

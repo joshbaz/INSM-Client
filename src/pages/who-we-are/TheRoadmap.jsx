@@ -25,7 +25,7 @@ const PHASES = [
 
 const TheRoadmap = () => {
   return (
-    <section className="w-full bg-white py-20 px-6 md:px-12">
+    <section id="the-roadmap" className="w-full bg-white py-20 px-6 md:px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -70,15 +70,15 @@ const TheRoadmap = () => {
             <motion.div
               key={phase.id}
               variants={fadeUp}
-              className="bg-[#E2CE8F] p-8 md:p-10 flex flex-col items-start min-h-[400px]"
+              className="bg-brand-gold/40 p-8 md:p-10 flex flex-col items-start min-h-[400px]"
             >
-              <span className="text-[#665D41] font-primary font-bold text-[10px] tracking-[0.15em] uppercase mb-8">
+              <span className="text-brand-navy-900/80 font-primary font-bold text-[10px] tracking-[0.15em] uppercase mb-8">
                 {phase.label}
               </span>
-              <h3 className="text-2xl lg:text-[1.75rem] font-bold font-primary text-[#332E20] mb-6 whitespace-pre-line leading-tight">
+              <h3 className="text-2xl lg:text-[1.75rem] font-bold font-primary text-brand-navy-900 mb-6 whitespace-pre-line leading-tight">
                 {phase.title}
               </h3>
-              <p className="font-secondary text-sm md:text-base text-[#4D4531] leading-relaxed font-medium">
+              <p className="font-secondary text-sm md:text-base text-brand-navy-800 leading-relaxed font-medium">
                 {phase.text}
               </p>
             </motion.div>
