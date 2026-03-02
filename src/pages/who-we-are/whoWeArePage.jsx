@@ -1,6 +1,8 @@
 import React from "react";
+import WhoWeAreHero from "./whoWeAreHero";
 import OurStory from "./OurStory";
 import OuTeam from "./OurTeam";
+import AnchorsOfTransformation from "./AnchorsOfTransformation";
 import RoadMap from "./TheRoadmap";
 import useSEO from "../../hooks/useSEO";
 
@@ -13,8 +15,10 @@ const whoWeArePage = () => {
 
   return (
     <div>
+      <WhoWeAreHero />
       <OurStory />
       <OuTeam />
+      <AnchorsOfTransformation />
       <RoadMap />
     </div>
   );

@@ -132,7 +132,7 @@ const Navbar = () => {
                 className="
                 hidden md:inline-flex
                 items-center justify-center
-                bg-brand-charcoal hover:bg-brand-charcoal/90
+                bg-brand-navy hover:bg-brand-navy/90
                 text-white text-body font-semibold
                 px-8 py-3
                 rounded-full
@@ -226,7 +226,7 @@ const Navbar = () => {
                 className="
                   w-full md:w-auto
                   items-center justify-center
-                  bg-brand-charcoal hover:bg-brand-charcoal/90
+                  bg-brand-navy hover:bg-brand-navy/90
                   text-white text-body font-semibold
                   px-8 py-3
                   rounded-full

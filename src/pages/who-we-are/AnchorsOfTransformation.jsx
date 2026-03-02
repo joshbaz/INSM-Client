@@ -1,0 +1,135 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { fadeUp, staggerContainer, slideInRight } from "../../utils/animations";
+
+const AnchorsOfTransformation = () => {
+  return (
+    <section className="w-full bg-white py-20 px-6 md:px-12">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
+        <motion.div
+          className="mb-16 md:mb-24 max-w-3xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="text-3xl md:text-4xl font-bold font-primary text-brand-navy-900 mb-2"
+          >
+            The Anchors of Transformation
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="text-lg font-secondary text-brand-dark-300 mb-8"
+          >
+            A Proven Architecture, Not a Pilot Project
+          </motion.p>
+          <motion.p
+            variants={fadeUp}
+            className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium"
+          >
+            INSM is a registered industrial cooperative movement that has
+            engineered a definitive pathway to Economic Sovereignty. We refine
+            high-tenacity capability into an unstoppable economic force. While
+            traditional aid offers temporary relief, we provide the "Anchors of
+            Transformation": robust institutional systems, catalytic capital,
+            and the professional mastery required to move entire communities
+            into Market-Competitive Industrial Surplus.
+          </motion.p>
+        </motion.div>
+
+        {/* Content Grids */}
+        <div className="flex flex-col gap-20 md:gap-32">
+          {/* Item 1: The Makindye Blueprint */}
+          <motion.div
+            className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.div className="w-full md:w-1/2" variants={fadeUp}>
+              <h3 className="text-2xl font-bold font-primary text-brand-navy-900 mb-4">
+                The Makindye Blueprint
+              </h3>
+              <p className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium">
+                We have successfully consolidated over 17,000 production units
+                into a disciplined, wealth-generating bloc. This is the National
+                Gold Standard for economic mobilization.
+              </p>
+            </motion.div>
+            <motion.div
+              className="w-full md:w-1/2 h-64 bg-gray-50 rounded-sm border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shrink-0"
+              variants={slideInRight}
+            >
+              <span className="text-brand-dark-200 font-secondary text-sm">
+                Image Asset Placeholder
+              </span>
+            </motion.div>
+          </motion.div>
+
+          {/* Item 2: National Strategic Endorsement */}
+          <motion.div
+            className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.div className="w-full md:w-1/2" variants={fadeUp}>
+              <h3 className="text-2xl font-bold font-primary text-brand-navy-900 mb-4">
+                National Strategic Endorsement
+              </h3>
+              <p className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium">
+                Our architecture has garnered the explicit support of the
+                Government of Uganda and senior leadership, recognizing us as
+                the most Efficient Vehicle for Parish-Level Economic
+                Development.
+              </p>
+            </motion.div>
+            <motion.div
+              className="w-full md:w-1/2 h-64 bg-gray-50 rounded-sm border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shrink-0"
+              variants={slideInRight}
+            >
+              <span className="text-brand-dark-200 font-secondary text-sm">
+                Image Asset Placeholder
+              </span>
+            </motion.div>
+          </motion.div>
+
+          {/* Item 3: Scalable National Dominance */}
+          <motion.div
+            className="flex flex-col md:flex-row gap-8 md:gap-16 items-start md:items-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={staggerContainer}
+          >
+            <motion.div className="w-full md:w-1/2" variants={fadeUp}>
+              <h3 className="text-2xl font-bold font-primary text-brand-navy-900 mb-4">
+                Scalable National Dominance
+              </h3>
+              <p className="font-secondary text-base text-brand-navy-900 leading-relaxed font-medium">
+                We are scaling this architecture across every district. Our
+                mission is categorical: ensure that "female-led" becomes
+                synonymous with "Economically Dominant."
+              </p>
+            </motion.div>
+            <motion.div
+              className="w-full md:w-1/2 h-64 bg-gray-50 rounded-sm border-2 border-dashed border-gray-200 flex flex-col items-center justify-center shrink-0"
+              variants={slideInRight}
+            >
+              <span className="text-brand-dark-200 font-secondary text-sm">
+                Image Asset Placeholder
+              </span>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default AnchorsOfTransformation;
