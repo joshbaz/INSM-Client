@@ -19,15 +19,9 @@ const OurTeam = () => {
         >
           <div className="w-full aspect-4/5 overflow-hidden bg-brand-dark-100 border border-brand-dark-200 flex items-center justify-center relative">
             <img
-              src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/3b5f7e7f7b2c9a1d8e1f0e4d7a8c6b2e1f4d9c7a.png?updatedAt=1708878000000"
+              src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image.png?updatedAt=1772568745351"
               alt="Winifred Nassanga - Lead Architect"
               className="w-full h-full object-cover object-top absolute inset-0"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.style.display = "none";
-                e.target.parentElement.innerHTML =
-                  '<span class="text-brand-dark-300 font-secondary text-sm">Image Placeholder</span>';
-              }}
             />
           </div>
         </motion.div>
