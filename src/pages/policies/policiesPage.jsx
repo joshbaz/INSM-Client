@@ -4,178 +4,212 @@ import useSEO from "../../hooks/useSEO";
 
 const PrivacyPolicyPage = () => {
   useSEO({
-    title: "Privacy Policy",
+    title: "Privacy Policy | INSM Uganda",
     description:
-      "Read the International Network for Single Mothers Uganda Chapter privacy policy regarding data protection and security.",
+      "Securing the Data of the Movement. Read the International Network for Single Mothers Uganda Chapter privacy protocols regarding data protection and industrial integrity.",
   });
+
   return (
-    <div className="pt-28 pb-16 min-h-screen">
-      <div className="max-w-3xl mx-auto px-6 md:px-8">
+    <div className="pt-32 pb-20 min-h-screen bg-brand-white">
+      <div className="max-w-4xl mx-auto px-6 md:px-8">
         {/* Header */}
-        <h1 className="text-4xl md:text-5xl font-bold font-primary text-brand-dark mb-2">
-          Privacy Policy
-        </h1>
-        <p className="text-lg font-secondary text-brand-dark-400 italic mb-10">
-          Protecting the movement of your Data
-        </p>
-
-        {/* Intro */}
-        <p className="text-base font-secondary text-brand-dark-400 leading-relaxed mb-10">
-          The International Network for Single Mothers Uganda Chapter is
-          committed to respecting the privacy rights of all donors, members, and
-          visitors to our website. The following information details our
-          collection, protection, and use of the data we receive from donors and
-          visitors to this website.
-        </p>
-
-        {/* Our General Policy */}
-        <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
-          Our General Policy
-        </h2>
-        <div className="space-y-5 mb-10">
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed">
-            The International Network for Single Mothers Uganda Chapter
-            recognizes the importance of protecting information we may collect
-            from donors and visitors to our website. We maintain appropriate
-            security measures to keep this information private and secure.
-          </p>
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed">
-            We follow industry standards on information security to safeguard
-            sensitive information, including strong passwords, data encryption,
-            and security awareness training for all team members. Personally
-            Identifiable Information (PII) is accessible only to staff and
-            volunteers who need it for business purposes. Confidential data is
-            protected via role-based access controls to ensure it is not
-            improperly disclosed or modified.
-          </p>
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed">
-            If you choose to give us personal information via the Internet for
-            the purposes of correspondence, seeding a cooperative, or
-            subscribing to our newsletter, it is our intent to let you know how
-            we will use such information.
-          </p>
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed">
-            The International Network for Single Mothers Chapter will remove
-            your name from our mailing list, email list, or telephone
-            solicitation list at any time at your request. To do so, please
-            email{" "}
-            <a
-              href="mailto:recurringgiving@insmuganda.org"
-              className="text-brand-lilac-700 border-b border-brand-lilac-700 hover:text-brand-lilac-900 transition-colors"
-            >
-              recurringgiving@insmuganda.org
-            </a>
-            .
+        <div className="mb-16 border-l-4 border-brand-gold pl-6">
+          <h1 className="text-4xl md:text-5xl font-black font-primary text-brand-dark uppercase tracking-tight mb-4">
+            Privacy Policy
+          </h1>
+          <p className="text-lg font-primary font-bold text-brand-gold uppercase tracking-[0.2em]">
+            Securing the Data of the Movement
           </p>
         </div>
 
-        {/* Information Collected */}
-        <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-2">
-          Information Collected by the International Network for Single Mothers
-          Uganda Chapter
-        </h2>
-        <div className="space-y-5 mb-10">
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed">
-            We are committed to protecting your privacy and maintaining
-            transparency about how we handle your information. We do not collect
-            personally identifiable information (PII) from visitors unless it is
-            provided voluntarily and knowingly. Certain features and
-            interactions require you to share information with us. For instance,
-            we collect PII when you:
-          </p>
-          <ul className="list-disc pl-6 space-y-3 text-base font-secondary text-brand-dark-400 leading-relaxed">
-            <li>
-              <strong>Join the Equipper Network:</strong> We collect your{" "}
-              <em>
-                Full Name, Phone Number, Email Address, Parish or District of
-                Residence, and Conversion to Leadership
-              </em>{" "}
-              to facilitate grassroots mobilization.
-            </li>
-            <li>
-              <strong>Join the Technical Mentorship:</strong> We collect your{" "}
-              <em>
-                Full Name, Phone Number, Email Address, LinkedIn Profile, and
-                your specific Area of Expertise
-              </em>{" "}
-              (Law, Finance, Health, or other) to build the infrastructure of
-              our movement.
-            </li>
-            <li>
-              <strong>Interact with our Portals:</strong> We automatically
-              gather non-personally identifiable information about your device
-              and browsing behavior to improve the content and structure of our
-              national economic priority.
-            </li>
-          </ul>
-        </div>
-
-        {/* Online Investments & Security */}
-        <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
-          Online Investments & Security
-        </h2>
-        <p className="text-base font-secondary text-brand-dark-400 leading-relaxed mb-10">
-          Our online donation and investment processors utilize high-grade
-          encryption to ensure secure transactions and data management. We
-          maintain a "Gold Standard" of radical transparency to ensure every
-          shilling is accounted for in our Transparency Tracker.
-        </p>
-
-        {/* Disclosure of Your Information */}
-        <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
-          Disclosure of Your Information
-        </h2>
-        <div className="space-y-5 mb-10">
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed">
-            Subject to applicable law, we may disclose PII to:
-          </p>
-          <ul className="list-disc pl-6 space-y-3 text-base font-secondary text-brand-dark-400 leading-relaxed">
-            <li>
-              <strong>Technical Mentors & Advisors:</strong> Professionals under
-              contract (Law, Finance, Health) who are required to protect
-              confidentiality and use information solely for the service
-              provided.
-            </li>
-            <li>
-              <strong>Law Enforcement:</strong> if compelled by law or in
-              connection with a government request to protect the integrity of
-              the Republic of Uganda or the safety of our members.
-            </li>
-          </ul>
-        </div>
-
-        {/* Your Rights */}
-        <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
-          Your Rights
-        </h2>
-        <p className="text-base font-secondary text-brand-dark-400 leading-relaxed mb-12">
-          You have the right to access data about you processed by the
-          International Network for Single Mothers Uganda Chapter. You may
-          request an update or deletion of your personal data by contacting us
-          at{" "}
-          <a
-            href="tel:+256784323406"
-            className="text-brand-lilac-700 border-b border-brand-lilac-700 hover:text-brand-lilac-900 transition-colors"
-          >
-            +256 784 323 406
-          </a>
-          .
-        </p>
-
-        {/* Navigation Pills */}
-        <div className="flex flex-wrap gap-3">
-          <Link
-            to="/terms-of-use"
-            className="px-5 py-2 border-2 border-brand-dark-200 rounded-full text-xs font-bold uppercase tracking-wider text-brand-dark-400 hover:border-brand-lilac hover:text-brand-lilac transition-all"
-          >
-            Terms
-          </Link>
-          <Link
-            to="/ethical-conduct"
-            className="px-5 py-2 border-2 border-brand-dark-200 rounded-full text-xs font-bold uppercase tracking-wider text-brand-dark-400 hover:border-brand-lilac hover:text-brand-lilac transition-all"
-          >
-            Ethical Conduct
-          </Link>
+        <div className="space-y-12">
+          {/* Protecting the Integrity */}
+          <section className="space-y-6">
+            <h2 className="text-xl font-primary font-black text-brand-dark uppercase tracking-wider">
+              Protecting the Integrity of Your Economic Footprint
+            </h2>
+            <p className="text-brand-dark-400 font-secondary leading-relaxed">
+              The International Network for Single Mothers (INSM) Uganda Chapter
+              is committed to the highest standards of data security for all
+              Capital Partners, Production Units, and Strategic Mentors. We
+              recognize that in a high-velocity economy, data is a primary
+              asset. The following details our protocols for the collection,
+              optimization, and protection of the information we steward.
+            </p>
+          </section>
+          {/* Our Institutional Policy */}
+          <section className="space-y-6 bg-brand-white-100 p-8 md:p-10 border border-brand-dark-200/30">
+            <h2 className="text-xl font-primary font-black text-brand-dark uppercase tracking-wider">
+              Our Institutional Policy
+            </h2>
+            <div className="space-y-4 text-brand-dark-400 font-secondary leading-relaxed">
+              <p>
+                INSM recognizes that protecting the data of our partners is
+                foundational to National Stability. We maintain advanced
+                security protocols to ensure all sensitive information remains
+                confidential and structurally sound.
+              </p>
+              <p>
+                We adhere to Industrial Standards for Information Security to
+                safeguard the movement’s intelligence. This includes multi-tier
+                data encryption, high-grade password protocols, and specialized
+                security training for our strategic team. Personally
+                Identifiable Information (PII) is restricted via role-based
+                access controls, ensuring that data is accessible only to
+                authorized personnel for the purposes of Market Dominance and
+                Operational Efficiency.
+              </p>
+            </div>
+          </section>
+          {/* Strategic Data Collection */}
+          <section className="space-y-8">
+            <h2 className="text-xl font-primary font-black text-brand-dark uppercase tracking-wider">
+              Strategic Data Collection
+            </h2>
+            <p className="text-brand-dark-400 font-secondary leading-relaxed">
+              We do not collect information from visitors unless it is provided
+              voluntarily to facilitate the Makindye Blueprint. Certain features
+              require data sharing to optimize the movement’s output:
+            </p>
+            <ul className="space-y-6">
+              <li className="flex gap-6">
+                <div className="shrink-0 w-12 h-12 bg-brand-gold/10 flex items-center justify-center rounded-sm border border-brand-gold/20">
+                  <span className="font-primary font-black text-brand-gold text-lg">
+                    01
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
+                    The Equipper Network
+                  </h4>
+                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                    We collect Full Name, Contact Intelligence, and
+                    Jurisdictional Data (Parish/District) to facilitate
+                    precision grassroots mobilization.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-6">
+                <div className="shrink-0 w-12 h-12 bg-brand-gold/10 flex items-center justify-center rounded-sm border border-brand-gold/20">
+                  <span className="font-primary font-black text-brand-gold text-lg">
+                    02
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
+                    Technical Mentorship
+                  </h4>
+                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                    We collect Professional Credentials, LinkedIn Profiles, and
+                    Subject Matter Expertise to build the intellectual
+                    infrastructure of our members.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-6">
+                <div className="shrink-0 w-12 h-12 bg-brand-gold/10 flex items-center justify-center rounded-sm border border-brand-gold/20">
+                  <span className="font-primary font-black text-brand-gold text-lg">
+                    03
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
+                    The 1k Club & Parish Seeds
+                  </h4>
+                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                    We collect transaction data to maintain our Radical
+                    Transparency Tracker, ensuring every unit of capital is
+                    accounted for in our national ledger.
+                  </p>
+                </div>
+              </li>
+              <li className="flex gap-6">
+                <div className="shrink-0 w-12 h-12 bg-brand-gold/10 flex items-center justify-center rounded-sm border border-brand-gold/20">
+                  <span className="font-primary font-black text-brand-gold text-lg">
+                    04
+                  </span>
+                </div>
+                <div className="space-y-2">
+                  <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
+                    Analytical Intelligence
+                  </h4>
+                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                    We automatically gather non-personally identifiable behavior
+                    data to optimize the digital architecture of our National
+                    Economic Terminal.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </section>
+          {/* Capital Security */}
+          <section className="space-y-6">
+            <h2 className="text-xl font-primary font-black text-brand-dark uppercase tracking-wider">
+              Capital Security & Global Transactions
+            </h2>
+            <p className="text-brand-dark-400 font-secondary leading-relaxed">
+              Our financial processors utilize Bank-Grade Encryption to ensure
+              secure capital deployments and data management. We maintain a
+              "Gold Standard" of Structural Integrity, providing partners with
+              the assurance that their investment is handled with the precision
+              of a Tier-1 financial institution.
+            </p>
+          </section>
+          {/* Disclosure */}
+          <section className="space-y-6">
+            <h2 className="text-xl font-primary font-black text-brand-dark uppercase tracking-wider">
+              Disclosure of Strategic Intelligence
+            </h2>
+            <p className="text-brand-dark-400 font-secondary leading-relaxed">
+              Subject to applicable law, we may disclose PII exclusively to:
+            </p>
+            <ul className="list-disc pl-6 space-y-4 text-brand-dark-400 font-secondary">
+              <li>
+                <strong>Technical Mentors & Industrial Advisors:</strong>{" "}
+                Certified professionals (Law, Finance, Tourism, and Agriculture)
+                under strict confidentiality contracts who utilize the data
+                solely for the Optimization of the Bloc.
+              </li>
+              <li>
+                <strong>National Authorities:</strong> If compelled by law to
+                protect the National Interest or the physical and economic
+                safety of our members.
+              </li>
+            </ul>
+          </section>
+          {/* Sovereignty */}
+          <section className="pt-10 border-t border-brand-dark-200">
+            <h2 className="text-xl font-primary font-black text-brand-dark uppercase tracking-wider mb-6">
+              The Right to Data Sovereignty
+            </h2>
+            <p className="text-brand-dark-400 font-secondary leading-relaxed mb-8">
+              You maintain the right to access, update, or authorize the
+              deletion of your data within the INSM ecosystem. For any inquiries
+              regarding your Economic Footprint or to optimize your
+              communication preferences, contact our headquarters at +256 784
+              323 406 or email partnership@insmuganda.org.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Link
+                to="/privacy-policy"
+                className="inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white text-sm font-primary font-bold px-8 py-3 rounded-full transition-all cursor-default uppercase tracking-widest shadow-md"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                to="/terms-of-use"
+                className="inline-flex items-center justify-center border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-sm font-primary font-bold px-8 py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest"
+              >
+                Terms of Use
+              </Link>
+              <Link
+                to="/ethical-conduct"
+                className="inline-flex items-center justify-center border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-sm font-primary font-bold px-8 py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest"
+              >
+                Ethical Conduct
+              </Link>
+            </div>
+          </section>
         </div>
       </div>
     </div>

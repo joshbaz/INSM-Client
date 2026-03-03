@@ -119,7 +119,9 @@ const Navbar = () => {
                     INTERNATIONAL NETWORK <br /> FOR SINGLE MOTHERS
                   </span>
                   <br />
-                  <span className="text-brand-lilac-700 text-sm">UGANDA CHAPTER</span>
+                  <span className="text-brand-lilac-700 text-sm">
+                    UGANDA CHAPTER
+                  </span>
                 </h1>
               </div>
             </Link>
