@@ -34,7 +34,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
             <motion.div
               variants={fadeUp}
               key={tier.id}
-              className="bg-brand-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
+              className="bg-brand-white-100 rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
             >
               <div className="mb-6">
                 <h3 className="text-2xl font-bold font-primary text-black mb-1">

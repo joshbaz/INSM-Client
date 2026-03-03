@@ -32,27 +32,35 @@ const STEPS = [
   },
 ];
 
-const Chevron = ({ children, isLast }) => (
-  <div className="relative w-full h-28 md:h-32 flex items-center justify-center">
-    {/* Chevron shape via CSS clip-path */}
-    <div
-      className="absolute inset-0 bg-brand-white-300"
-      style={{
-        clipPath: isLast
-          ? "polygon(8% 0%, 100% 0%, 100% 100%, 8% 100%, 0% 50%)"
-          : "polygon(8% 0%, 90% 0%, 100% 50%, 90% 100%, 8% 100%, 0% 50%)",
-      }}
-    />
-    <div className="relative z-10">{children}</div>
-  </div>
-);
+const Chevron = ({ children, index, total }) => {
+  const isFirst = index === 0;
+  const isLast = index === total - 1;
+
+  const getClipPath = () => {
+    if (isFirst) return "polygon(0% 0%, 92% 0%, 100% 50%, 92% 100%, 0% 100%)";
+    if (isLast) return "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%, 8% 50%)";
+    return "polygon(0% 0%, 92% 0%, 100% 50%, 92% 100%, 0% 100%, 8% 50%)";
+  };
+
+  return (
+    <div className="relative w-full h-24 sm:h-28 md:h-32 flex items-center justify-center translate-x-[-1px]">
+      <div
+        className="absolute inset-0 bg-brand-white-200"
+        style={{ clipPath: getClipPath() }}
+      />
+      <div className="relative z-10 flex items-center justify-center w-full">
+        {children}
+      </div>
+    </div>
+  );
+};
 
 const PathToProsperity = () => {
   return (
-    <section className="w-full py-24 md:py-32 bg-brand-white px-4 md:px-8">
-      <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20 text-center">
+    <section className="w-full py-24 md:py-32 bg-brand-white px-4">
+      <div className="max-w-7xl mx-auto px-2 md:px-12 lg:px-20 text-center">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-16 md:mb-20"
+          className="text-3xl md:text-5xl font-black font-primary text-brand-white-900 mb-16 md:mb-24"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -62,7 +70,7 @@ const PathToProsperity = () => {
         </motion.h2>
 
         <motion.div
-          className="flex flex-col md:flex-row items-start gap-2 md:gap-1"
+          className="flex flex-col md:flex-row items-start md:gap-0"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -71,25 +79,22 @@ const PathToProsperity = () => {
           {STEPS.map((step, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center w-full md:w-1/5"
+              className="flex flex-col items-center w-full md:w-1/5 mb-12 md:mb-0"
               variants={fadeUp}
             >
-              {/* Chevron with Icon */}
-              <Chevron isLast={index === STEPS.length - 1}>
+              <Chevron index={index} total={STEPS.length}>
                 <img
                   src={step.icon}
                   alt={step.label}
-                  className="w-14 h-14 md:w-16 md:h-16 object-contain"
+                  className="w-16 h-16 md:w-20 md:h-20 object-contain"
                 />
               </Chevron>
 
-              {/* Label */}
-              <h3 className="text-base md:text-lg font-bold font-primary text-brand-dark mt-6 mb-2">
+              <h3 className="text-lg md:text-xl font-black font-primary text-brand-white-900 mt-8 mb-3">
                 {step.label}
               </h3>
 
-              {/* Description */}
-              <p className="text-sm md:text-[15px] font-secondary text-brand-dark-400 leading-relaxed max-w-[200px]">
+              <p className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed max-w-[180px] mx-auto">
                 {step.description}
               </p>
             </motion.div>

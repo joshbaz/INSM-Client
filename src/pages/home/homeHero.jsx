@@ -8,63 +8,82 @@ const BG_IMAGE =
 
 const HomeHero = () => {
   return (
-    <section className="relative w-full h-screen -mt-20 pt-20 overflow-hidden bg-brand-dark-800">
-      {/* Background image — right side */}
+    <section className="relative w-full min-h-screen -mt-20 pt-20 overflow-hidden bg-brand-dark-900">
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
           src={BG_IMAGE}
           alt="Single mothers economic empowerment"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover scale-105"
         />
-        {/* Dark gradient overlay — stronger on left for text readability */}
-        <div className="absolute inset-0 bg-linear-to-r from-[#090a0c] via-[#090a0c]/85 to-transparent" />
+
+        {/* Cinematic multi-layer overlay */}
+        <div className="absolute inset-0 bg-linear-to-r from-black via-black/40 to-black/10" />
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-[1px]" />
       </div>
 
-      {/* Content — left aligned */}
-      <div className="relative z-10 h-full flex items-center">
+      {/* Content */}
+      <div className="relative z-10 flex items-center min-h-screen">
         <motion.div
-          className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full"
+          className="max-w-3xl px-6 md:px-12 lg:px-20 w-full"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
         >
-          <div className="max-w-2xl">
+          {/* Glass content panel */}
+          <div className="max-w-3xl bg-white/5 backdrop-blur-lg border border-brand-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+
+            {/* Tagline */}
             <motion.span
               variants={fadeUp}
-              className="inline-block text-xs md:text-sm font-secondary font-bold uppercase tracking-[0.2em] text-brand-white-600 mb-6"
+              className="inline-block text-xs md:text-sm lg:text-xs font-secondary font-bold uppercase tracking-[0.35em] text-brand-white-100 mb-6"
             >
               Architecting an Unshakable Uganda
             </motion.span>
 
+            {/* Headline */}
             <motion.h1
               variants={fadeUp}
-              className="text-lg md:text-xl lg:text-3xl font-bold font-primary text-brand-white uppercase tracking-tight mb-6 leading-tight"
+              className="font-primary font-extrabold text-brand-white uppercase leading-[1.1] tracking-tight mb-6"
             >
-              Forget Theories.<br/> We've Engineered an <br/> Economic Force of 17,000 Lives.
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+              Forget Theories.
+              </span>
+              <br />
+              <span className="text-brand-lilac-600 text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                We've Engineered
+              </span>{" "} <br/>
+              <span className="text-brand-white text-lg sm:text-xl md:text-2xl lg:text-2xl">
+                an Economic Force of 17,000 Lives.
+              </span>
             </motion.h1>
 
+            {/* Description */}
             <motion.p
               variants={fadeUp}
-              className="text-base md:text-xl font-secondary text-brand-dark-200 leading-relaxed mb-10 max-w-xl"
+              className="text-base md:text-lg font-secondary text-brand-white/80 leading-relaxed mb-10 max-w-2xl"
             >
               Uganda's 17,000 single mothers are no longer a demographic of
-              survivors; they are a disciplined economic bloc dominating
+              survivors — they are a disciplined economic bloc dominating
               Agriculture and Tourism value chains.
             </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-5"
             >
               <Link
                 to="/how-to-help/donate"
-                className="inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-sm px-10 py-4 rounded-full hover:bg-brand-lilac-700/50 transition-colors duration-300 cursor-pointer"
+                className="group relative inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-10 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.03]"
               >
-                Access The Terminal
+                <span className="relative z-10">Access The Terminal</span>
+                <div className="absolute inset-0 bg-brand-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </Link>
+
               <Link
                 to="/how-to-help/join-the-assignment"
-                className="inline-flex items-center justify-center border-2 border-brand-white/30 text-brand-white font-primary font-bold uppercase tracking-wider text-sm px-10 py-4 rounded-full hover:bg-brand-white/10 transition-colors duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center border border-brand-white/30 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-10 py-4 rounded-full backdrop-blur-md hover:bg-brand-white/10 transition-all duration-300 hover:scale-[1.03]"
               >
                 Invest in the Bloc
               </Link>
@@ -72,6 +91,9 @@ const HomeHero = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Subtle bottom fade for smooth transition */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-dark-900 to-transparent z-10" />
     </section>
   );
 };
