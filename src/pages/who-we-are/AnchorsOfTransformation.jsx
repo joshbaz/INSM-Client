@@ -16,7 +16,7 @@ const ANCHORS = [
     title: "National Strategic Endorsement",
     text: "Our architecture has garnered the explicit support of the Government of Uganda and senior leadership, recognizing us as the most Efficient Vehicle for Parish-Level Economic Development.",
     image:
-      "https://images.unsplash.com/photo-1577495508326-19a1b3cf65b7?q=80&w=2074&auto=format&fit=crop",
+      "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image.png?updatedAt=1772569895604",
     alt: "Government partnership and strategic endorsement",
   },
   {
@@ -24,7 +24,7 @@ const ANCHORS = [
     title: "Scalable National Dominance",
     text: 'We are scaling this architecture across every district. Our mission is categorical: ensure that "female-led" becomes synonymous with "Economically Dominant."',
     image:
-      "https://images.unsplash.com/photo-1573497161161-c3e73707e25c?q=80&w=2070&auto=format&fit=crop",
+      "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/Rectangle%206.png?updatedAt=1772569690283",
     alt: "Women-led economic expansion across Uganda",
   },
 ];
