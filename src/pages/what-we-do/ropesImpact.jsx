@@ -79,7 +79,7 @@ const RopesImpact = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-2">
+          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-2">
             Impact of the Ropes
           </h2>
           <p className="text-base font-secondary text-brand-dark-400">

@@ -39,7 +39,7 @@ const CARDS_DATA = [
 
 const HomeCards = () => {
   return (
-    <section className="w-full pt-32 pb-20 bg-linear-to-b from-brand-lilac via-brand-teal to-brand-cream">
+    <section className="w-full pt-32 pb-20 bg-linear-to-b from-brand-lilac via-brand-teal to-brand-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center"
@@ -69,7 +69,7 @@ const HomeCards = () => {
                 <h3 className="text-2xl md:text-4xl font-bold text-white font-primary leading-tight drop-shadow-lg">
                   {card.title}
                 </h3>
-                <p className="text-brand-cream-100 text-base md:text-lg font-secondary font-medium leading-relaxed max-w-lg drop-shadow-md">
+                <p className="text-brand-white-100 text-base md:text-lg font-secondary font-medium leading-relaxed max-w-lg drop-shadow-md">
                   {card.description}
                 </p>
               </div>

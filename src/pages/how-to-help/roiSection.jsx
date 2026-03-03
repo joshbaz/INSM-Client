@@ -42,7 +42,7 @@ const ROISection = () => {
             {STEPS.map((step, index) => (
               <div key={index} className="flex flex-col items-center w-full md:w-1/4">
                 {/* Icon Circle */}
-                <div className="w-32 h-32 rounded-full bg-brand-cream-400 flex items-center justify-center mb-6 relative z-10 shadow-sm cursor-pointer">
+                <div className="w-32 h-32 rounded-full bg-brand-white-400 flex items-center justify-center mb-6 relative z-10 shadow-sm cursor-pointer">
                   {step.icon}
                 </div>
 

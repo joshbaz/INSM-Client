@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-cream-100 w-full py-16">
+    <footer className="bg-brand-white-100 w-full py-16">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-64 mb-16">
           {/* LEFT: Logo + Description */}
@@ -16,7 +16,7 @@ const Footer = () => {
               />
             </div>
             <div className="text-center md:text-left pt-2">
-              <p className="font-secondary font-semibold text-brand-cream-800 text-lg leading-relaxed">
+              <p className="font-secondary font-semibold text-brand-white-800 text-lg leading-relaxed">
                 International Network for <br /> Single Mothers Uganda Chapter{" "}
                 <br /> empowers mothers become an <br /> economic force in
                 Uganda.
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM: Contact & Copyright */}
-        <div className="flex flex-col items-center md:items-start gap-1 text-base text-center md:text-left text-brand-cream-800 font-semibold font-secondary max-w-3xl">
+        <div className="flex flex-col items-center md:items-start gap-1 text-base text-center md:text-left text-brand-white-800 font-semibold font-secondary max-w-3xl">
           <p>
             If you need assistance with your donation, please call us at{" "}
             <a

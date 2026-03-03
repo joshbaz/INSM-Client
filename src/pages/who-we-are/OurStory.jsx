@@ -9,7 +9,7 @@ const OurStory = () => {
       className="w-full bg-brand-lilac-100 py-24 md:py-32 px-4 md:px-8"
     >
       <motion.div
-        className="max-w-3xl mx-auto md:ml-[15%] flex flex-col items-start px-2 md:px-12 lg:px-20 text-left"
+        className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20 flex flex-col items-start text-left"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -26,7 +26,7 @@ const OurStory = () => {
 
         <motion.p
           variants={fadeUp}
-          className="font-secondary text-base leading-relaxed mb-8 text-brand-dark-400"
+          className="font-secondary font-medium text-2xl leading-relaxed mb-8 text-brand-dark-400"
         >
           In Uganda today, a profound structural shift has identified an
           unparalleled market opportunity. Nearly 1 in 4 households (22.4%) are
@@ -37,7 +37,7 @@ const OurStory = () => {
 
         <motion.p
           variants={fadeUp}
-          className="font-secondary text-base leading-relaxed text-brand-dark-400"
+          className="font-secondary font-medium text-2xl leading-relaxed text-brand-dark-400"
         >
           At the International Network for Single Mothers (INSM), we recognize
           that economic sovereignty is engineered through infrastructure. We

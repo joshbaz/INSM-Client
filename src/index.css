@@ -26,15 +26,15 @@
   --teal-900: #1e2829;
 
   /* Primary – Holy White (page background) */
-  --cream: #f5f5dd;
-  --cream-100: #fdfdf8;
-  --cream-200: #fbfbf1;
-  --cream-300: #f9f9eb;
-  --cream-400: #f7f7e4;
-  --cream-600: #c4c4b1;
-  --cream-700: #939385;
-  --cream-800: #626258;
-  --cream-900: #31312c;
+  --white: #f5f5dd;
+  --white-100: #fdfdf8;
+  --white-200: #fbfbf1;
+  --white-300: #f9f9eb;
+  --white-400: #f7f7e4;
+  --white-600: #c4c4b1;
+  --white-700: #939385;
+  --white-800: #626258;
+  --white-900: #31312c;
 
   /* Secondary – Chewing Gum Pink (legacy CTAs) */
   --pink: #e490b8;
@@ -129,15 +129,15 @@
   --color-brand-teal-800: var(--teal-800);
   --color-brand-teal-900: var(--teal-900);
 
-  --color-brand-cream: var(--cream);
-  --color-brand-cream-100: var(--cream-100);
-  --color-brand-cream-200: var(--cream-200);
-  --color-brand-cream-300: var(--cream-300);
-  --color-brand-cream-400: var(--cream-400);
-  --color-brand-cream-600: var(--cream-600);
-  --color-brand-cream-700: var(--cream-700);
-  --color-brand-cream-800: var(--cream-800);
-  --color-brand-cream-900: var(--cream-900);
+  --color-brand-white: var(--white);
+  --color-brand-white-100: var(--white-100);
+  --color-brand-white-200: var(--white-200);
+  --color-brand-white-300: var(--white-300);
+  --color-brand-white-400: var(--white-400);
+  --color-brand-white-600: var(--white-600);
+  --color-brand-white-700: var(--white-700);
+  --color-brand-white-800: var(--white-800);
+  --color-brand-white-900: var(--white-900);
 
   --color-brand-pink: var(--pink);
   --color-brand-pink-100: var(--pink-100);
@@ -220,14 +220,13 @@ html {
 /* Restored original base styles since backgrounds should stay cream */
 body {
   font-family: var(--font-primary);
-  background-color: var(--cream);
+  background-color: var(--white);
   color: var(--dark);
 }
 
 /* Direct Heading Authority */
 h1, h2, h3, h4 {
   font-family: var(--font-primary);
-  text-transform: uppercase;
   letter-spacing: 0.02em;
 }
 

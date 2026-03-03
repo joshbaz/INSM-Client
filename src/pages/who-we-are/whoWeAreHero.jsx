@@ -4,7 +4,7 @@ import { fadeUp, staggerContainer } from "../../utils/animations";
 
 // Fallback background image
 const HERO_BG =
-  "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image%201.png";
+  "https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=2031&auto=format&fit=crop";
 
 const WhoWeAreHero = () => {
   return (

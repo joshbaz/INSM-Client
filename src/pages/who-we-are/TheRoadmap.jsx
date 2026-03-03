@@ -43,13 +43,13 @@ const TheRoadmap = () => {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-2"
+            className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-2"
           >
             The Strategic Blueprint
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="text-base md:text-lg font-secondary text-brand-dark-300 mb-6"
+            className="text-base md:text-lg font-secondary text-brand-dark-400 mb-6"
           >
             Architecting Permanent Fiscal Sovereignty
           </motion.p>

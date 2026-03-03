@@ -9,7 +9,7 @@ const projectStats = () => {
   ];
 
   return (
-    <section className="bg-brand-cream-100 py-20 overflow-x-hidden">
+    <section className="bg-brand-white-100 py-20 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
         {/* Heading */}
         <div className="mb-16 max-w-3xl">

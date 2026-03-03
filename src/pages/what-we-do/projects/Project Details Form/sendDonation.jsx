@@ -78,7 +78,7 @@ const SendDonation = ({ isOpen, onClose }) => {
       {/* Close button */}
       <button
         onClick={onClose}
-        className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-90 transition-opacity cursor-pointer"
+        className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-white-100 hover:opacity-90 transition-opacity cursor-pointer"
         aria-label="Close modal"
       >
         <Icon icon="heroicons:x-mark" width={32} />
@@ -142,7 +142,7 @@ const SendDonation = ({ isOpen, onClose }) => {
                                 ${
                                   isActive
                                     ? "bg-brand-lilac-100 border-brand-lilac text-brand-lilac-800 shadow-inner"
-                                    : "bg-brand-cream-100 border-transparent text-brand-dark hover:border-brand-lilac-300/90"
+                                    : "bg-brand-white-100 border-transparent text-brand-dark hover:border-brand-lilac-300/90"
                                 }`}
                             >
                               ${val}
@@ -153,7 +153,7 @@ const SendDonation = ({ isOpen, onClose }) => {
 
                       {/* Custom Amount Input */}
                       <div
-                        className={`flex items-center w-full bg-brand-cream-100/50 border rounded h-14 px-4 mb-2 transition-colors ${
+                        className={`flex items-center w-full bg-brand-white-100/50 border rounded h-14 px-4 mb-2 transition-colors ${
                           errors.amount && touched.amount
                             ? "border-brand-pink-700 focus-within:border-brand-pink-700"
                             : "border-brand-dark-200 focus-within:border-brand-lilac"
@@ -191,7 +191,7 @@ const SendDonation = ({ isOpen, onClose }) => {
                         className={`w-full h-14 rounded border border-brand-dark-200 bg-white shadow-sm flex items-center justify-center gap-2 transition-all duration-200 mb-6
                           ${
                             isValid && dirty
-                              ? "hover:shadow-md hover:bg-brand-cream-100/90 cursor-pointer"
+                              ? "hover:shadow-md hover:bg-brand-white-100/90 cursor-pointer"
                               : "opacity-60 cursor-not-allowed"
                           }`}
                       >
@@ -224,15 +224,15 @@ const SendDonation = ({ isOpen, onClose }) => {
 
       {/* Security links - Fixed positioning to screen */}
       <div className="fixed bottom-8 right-8 flex-col items-end gap-3 z-60 hidden md:flex">
-        <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-brand-cream-200 transition-colors group cursor-help">
+        <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-brand-white-200 transition-colors group cursor-help">
           Is my donation secure
-          <span className="w-4 h-4 rounded-full bg-white text-brand-dark flex items-center justify-center group-hover:bg-brand-cream-200">
+          <span className="w-4 h-4 rounded-full bg-white text-brand-dark flex items-center justify-center group-hover:bg-brand-white-200">
             <Icon icon="ph:question-mark-bold" width={10} />
           </span>
         </button>
-        <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-brand-cream-200 transition-colors group cursor-help">
+        <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-brand-white-200 transition-colors group cursor-help">
           Can I cancel my recurring donation
-          <span className="w-4 h-4 rounded-full bg-white text-brand-dark flex items-center justify-center group-hover:bg-brand-cream-200">
+          <span className="w-4 h-4 rounded-full bg-white text-brand-dark flex items-center justify-center group-hover:bg-brand-white-200">
             <Icon icon="ph:question-mark-bold" width={10} />
           </span>
         </button>

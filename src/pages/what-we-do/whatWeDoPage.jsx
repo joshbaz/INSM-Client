@@ -14,7 +14,7 @@ const WhatWeDoPage = () => {
   });
 
   return (
-    <div className="min-h-screen bg-brand-cream">
+    <div className="min-h-screen bg-brand-white">
       <WhatWeDoHero />
       <ThreeRopes />
       <RopesImpact />

@@ -11,7 +11,7 @@ const donateStats = () => {
   ];
 
   return (
-    <section className="bg-brand-cream-100 py-20 overflow-x-hidden">
+    <section className="bg-brand-white-100 py-20 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
         <motion.div
           className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0 text-center md:text-left"

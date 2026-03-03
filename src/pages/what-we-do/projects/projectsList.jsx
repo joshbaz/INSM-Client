@@ -111,7 +111,7 @@ const projectsList = () => {
   );
 
   return (
-    <section className="bg-brand-cream-100 min-h-screen py-12 md:py-20">
+    <section className="bg-brand-white-100 min-h-screen py-12 md:py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-24">
         {/* Page Header */}
         <div className="mb-10">

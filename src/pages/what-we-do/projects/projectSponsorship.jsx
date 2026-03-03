@@ -7,7 +7,7 @@ const projectSponsorship = () => {
   const projects = projectsData.slice(0, 3);
 
   return (
-    <section className="bg-brand-cream-100 py-20">
+    <section className="bg-brand-white-100 py-20">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
         {/* Heading */}
         <div className="mb-12 max-w-4xl">

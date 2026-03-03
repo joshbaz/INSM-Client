@@ -35,9 +35,9 @@ const DonationPanel = ({
   const campaignSubtitle = tier?.subtitle || "Identity & Orientation";
 
   return (
-    <div className="w-full md:max-w-[400px] bg-brand-cream-100 rounded-xl shadow-lg flex flex-col overflow-hidden">
+    <div className="w-full md:max-w-[400px] bg-brand-white-100 rounded-xl shadow-lg flex flex-col overflow-hidden">
       {/* ── Mobile-only compact campaign banner ── */}
-      <div className="flex md:hidden items-center gap-3 p-4 bg-brand-cream-200/50 border-b border-brand-dark-200/30">
+      <div className="flex md:hidden items-center gap-3 p-4 bg-brand-white-200/50 border-b border-brand-dark-200/30">
         <img
           src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/_image.png"
           alt="Campaign"
@@ -70,7 +70,7 @@ const DonationPanel = ({
                   className={`flex-1 h-full rounded-full text-xs font-bold uppercase tracking-wide transition-all duration-300 cursor-pointer z-10
                     ${
                       frequency === "once"
-                        ? "bg-brand-lilac text-brand-cream-100 shadow-md"
+                        ? "bg-brand-lilac text-brand-white-100 shadow-md"
                         : "text-brand-dark-400 hover:text-brand-dark/90"
                     }`}
                 >
@@ -78,7 +78,7 @@ const DonationPanel = ({
                 </button>
 
                 {/* OR badge */}
-                <span className="absolute left-1/2 -translate-x-1/2 z-20 w-7 h-7 md:w-8 md:h-8 rounded-full bg-brand-cream-100 shadow-sm flex items-center justify-center text-[10px] font-bold text-brand-dark-400">
+                <span className="absolute left-1/2 -translate-x-1/2 z-20 w-7 h-7 md:w-8 md:h-8 rounded-full bg-brand-white-100 shadow-sm flex items-center justify-center text-[10px] font-bold text-brand-dark-400">
                   OR
                 </span>
 
@@ -87,7 +87,7 @@ const DonationPanel = ({
                   className={`flex-1 h-full rounded-full text-xs font-bold uppercase tracking-wide transition-all duration-300 cursor-pointer z-10
                     ${
                       frequency === "monthly"
-                        ? "bg-brand-teal text-brand-cream-100 shadow-md"
+                        ? "bg-brand-teal text-brand-white-100 shadow-md"
                         : "text-brand-dark-400 hover:text-brand-dark/90"
                     }`}
                 >
@@ -109,7 +109,7 @@ const DonationPanel = ({
                       ${
                         isActive
                           ? "bg-brand-lilac-100 border-brand-lilac text-brand-lilac-800 shadow-inner"
-                          : "bg-brand-cream-100 border-brand-dark-200 text-brand-dark-400 hover:border-brand-lilac-300/90 hover:text-brand-dark/90"
+                          : "bg-brand-white-100 border-brand-dark-200 text-brand-dark-400 hover:border-brand-lilac-300/90 hover:text-brand-dark/90"
                       }`}
                   >
                     ${val}
@@ -136,10 +136,10 @@ const DonationPanel = ({
             <button
               onClick={() => canContinue && setStep("pesapal")}
               disabled={!canContinue}
-              className={`w-full h-12 md:h-14 rounded-md border border-brand-dark-200 bg-brand-cream-100 shadow-sm flex items-center justify-center gap-2 transition-all duration-200
+              className={`w-full h-12 md:h-14 rounded-md border border-brand-dark-200 bg-brand-white-100 shadow-sm flex items-center justify-center gap-2 transition-all duration-200
                 ${
                   canContinue
-                    ? "hover:shadow-md hover:bg-brand-cream-200/90 cursor-pointer"
+                    ? "hover:shadow-md hover:bg-brand-white-200/90 cursor-pointer"
                     : "opacity-50 cursor-not-allowed"
                 }`}
             >

@@ -13,7 +13,7 @@ const Home = () => {
   });
 
   return (
-    <div className="min-h-screen bg-brand-cream">
+    <div className="min-h-screen bg-brand-white">
       <HomeHero />
       <HomeBanner />
       <HomeCards />

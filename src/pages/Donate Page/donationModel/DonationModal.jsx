@@ -87,7 +87,7 @@ const DonationModal = ({ isOpen, onClose, tier }) => {
         {/* Close button — top-right of viewport */}
         <button
           onClick={onClose}
-          className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-90 transition-opacity cursor-pointer"
+          className="fixed top-4 right-4 md:top-6 md:right-6 z-60 text-brand-white-100 hover:opacity-90 transition-opacity cursor-pointer"
           aria-label="Close modal"
         >
           <Icon icon="heroicons:x-mark" width={32} />
@@ -119,15 +119,15 @@ const DonationModal = ({ isOpen, onClose, tier }) => {
 
             {/* Security links — to the right, bottom-aligned with cards */}
             <div className="hidden md:flex flex-col items-end gap-2 pb-2 shrink-0">
-              <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
+              <p className="flex items-center gap-2 text-sm text-brand-white-100/70 hover:text-brand-white-100 hover:underline transition-all cursor-help whitespace-nowrap">
                 Is my donation secure
-                <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+                <span className="w-5 h-5 rounded-full bg-brand-white-100/30 text-brand-white-100 grid place-items-center">
                   <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
                 </span>
               </p>
-              <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100 hover:underline transition-all cursor-help whitespace-nowrap">
+              <p className="flex items-center gap-2 text-sm text-brand-white-100/70 hover:text-brand-white-100 hover:underline transition-all cursor-help whitespace-nowrap">
                 Can I cancel my recurring donation
-                <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+                <span className="w-5 h-5 rounded-full bg-brand-white-100/30 text-brand-white-100 grid place-items-center">
                   <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
                 </span>
               </p>

@@ -45,11 +45,11 @@ const ROPES = [
     id: 3,
     label: "THIRD ROPE",
     title: "Family Stability",
-    bg: "bg-brand-cream-100",
-    labelColor: "text-brand-cream-700", // ← label color
-    titleColor: "text-brand-cream-800", // ← title color
-    leftTextColor: "text-brand-cream-800", // ← left quote-text color
-    rightTextColor: "text-brand-cream-700", // ← right description color
+    bg: "bg-brand-white-100",
+    labelColor: "text-brand-white-700", // ← label color
+    titleColor: "text-brand-white-800", // ← title color
+    leftTextColor: "text-brand-white-800", // ← left quote-text color
+    rightTextColor: "text-brand-white-700", // ← right description color
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/8dbf70e93d3efe7df76b6e2153e64ea54d139809.png",
     leftText: {
@@ -80,7 +80,7 @@ const ThreeRopes = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-4">
             The Three Ropes
           </h2>
           <p className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed">

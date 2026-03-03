@@ -11,7 +11,7 @@ const Blog = () => {
   });
 
   return (
-    <div className="bg-brand-cream-100 min-h-screen">
+    <div className="bg-brand-white-100 min-h-screen">
       {/* Featured Story Hero */}
       <BlogFeaturedStory />
 

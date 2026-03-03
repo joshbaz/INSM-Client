@@ -12,7 +12,7 @@ const BlogDetailPage = () => {
   /* ── 404 Handling ── */
   if (!article) {
     return (
-      <section className="bg-brand-cream-100 min-h-screen flex items-center justify-center">
+      <section className="bg-brand-white-100 min-h-screen flex items-center justify-center">
         <div className="text-center px-6">
           <h1 className="text-4xl font-bold font-primary text-brand-dark mb-4">
             Article Not Found
@@ -41,7 +41,7 @@ const BlogDetailPage = () => {
     .toUpperCase();
 
   return (
-    <div className="bg-brand-cream-100">
+    <div className="bg-brand-white-100">
       {/* ═══════════════════════════════════════════
           SECTION 1 — HERO
       ═══════════════════════════════════════════ */}

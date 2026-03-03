@@ -20,11 +20,11 @@ const projectFunds = () => {
   ];
 
   return (
-    <section className="bg-brand-cream-100 py-20">
+    <section className="bg-brand-white-100 py-20">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
         {/* Heading */}
         <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-cream-900 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-3">
             Our Network funds
           </h2>
           <p className="text-base md:text-lg font-secondary text-brand-dark-400">

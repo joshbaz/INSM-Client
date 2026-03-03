@@ -8,7 +8,7 @@ import React from "react";
  */
 const CampaignCard = ({ tier }) => {
   return (
-    <div className="w-full md:max-w-[380px] bg-brand-cream-100 rounded-xl shadow-lg overflow-hidden flex flex-col">
+    <div className="w-full md:max-w-[380px] bg-brand-white-100 rounded-xl shadow-lg overflow-hidden flex flex-col">
       {/* Campaign Image */}
       <div className="relative h-40 md:h-64 w-full shrink-0">
         <img

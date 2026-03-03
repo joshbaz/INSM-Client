@@ -56,7 +56,7 @@ const RequestForm = ({ isOpen, onClose }) => {
       {/* ── Close button ── */}
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 md:top-6 md:right-6 z-60 text-brand-cream-100 hover:opacity-90 transition-opacity cursor-pointer"
+        className="absolute top-4 right-4 md:top-6 md:right-6 z-60 text-brand-white-100 hover:opacity-90 transition-opacity cursor-pointer"
         aria-label="Close modal"
         type="button"
       >
@@ -124,7 +124,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="Enter your company's name"
-                        className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-cream-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
+                        className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-white-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
                       />
                     </div>
                     {touched.companyName && errors.companyName && (
@@ -151,7 +151,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           placeholder="Enter your full name"
-                          className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-cream-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
+                          className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-white-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
                         />
                       </div>
                       {touched.contactPerson && errors.contactPerson && (
@@ -176,7 +176,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                           onChange={handleChange}
                           onBlur={handleBlur}
                           placeholder="Enter your mobile number"
-                          className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-cream-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
+                          className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-white-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
                         />
                       </div>
                       {touched.phoneNumber && errors.phoneNumber && (
@@ -201,7 +201,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                         value={values.resourceType}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={`w-full rounded-lg border border-brand-dark-200/60 bg-brand-cream-100/30 pl-10 pr-10 py-2.5 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all appearance-none cursor-pointer ${
+                        className={`w-full rounded-lg border border-brand-dark-200/60 bg-brand-white-100/30 pl-10 pr-10 py-2.5 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all appearance-none cursor-pointer ${
                           values.resourceType
                             ? "text-brand-dark"
                             : "text-brand-dark-300"
@@ -249,7 +249,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                         onChange={handleChange}
                         onBlur={handleBlur}
                         placeholder="email@email.com"
-                        className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-cream-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
+                        className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-white-100/30 pl-10 pr-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all"
                       />
                     </div>
                     {touched.email && errors.email && (
@@ -271,7 +271,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                       onBlur={handleBlur}
                       rows={3}
                       placeholder="Briefly describe the resources and your location in Uganda"
-                      className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-cream-100/30 px-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all resize-none"
+                      className="w-full rounded-lg border border-brand-dark-200/60 bg-brand-white-100/30 px-4 py-2.5 text-sm font-secondary text-brand-dark placeholder:text-brand-dark-300 focus:outline-none focus:ring-2 focus:ring-brand-lilac/40 focus:border-brand-lilac transition-all resize-none"
                     />
                   </div>
 
@@ -293,15 +293,15 @@ const RequestForm = ({ isOpen, onClose }) => {
 
         {/* ── Sidebar: Security / Trust ── */}
         <div className="hidden md:flex flex-col items-end gap-2 pb-2 shrink-0">
-          <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100/90 hover:underline transition-all cursor-help whitespace-nowrap">
+          <p className="flex items-center gap-2 text-sm text-brand-white-100/70 hover:text-brand-white-100/90 hover:underline transition-all cursor-help whitespace-nowrap">
             How is my data used
-            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+            <span className="w-5 h-5 rounded-full bg-brand-white-100/30 text-brand-white-100 grid place-items-center">
               <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>
-          <p className="flex items-center gap-2 text-sm text-brand-cream-100/70 hover:text-brand-cream-100/90 hover:underline transition-all cursor-help whitespace-nowrap">
+          <p className="flex items-center gap-2 text-sm text-brand-white-100/70 hover:text-brand-white-100/90 hover:underline transition-all cursor-help whitespace-nowrap">
             Partnership guidelines
-            <span className="w-5 h-5 rounded-full bg-brand-cream-100/30 text-brand-cream-100 grid place-items-center">
+            <span className="w-5 h-5 rounded-full bg-brand-white-100/30 text-brand-white-100 grid place-items-center">
               <Icon icon="ph:question-mark-bold" className="w-3 h-3" />
             </span>
           </p>

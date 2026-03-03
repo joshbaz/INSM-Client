@@ -63,7 +63,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mb-1
                     ${
                       s.active
-                        ? "bg-pesapal-red text-brand-cream-100"
+                        ? "bg-pesapal-red text-brand-white-100"
                         : "bg-brand-dark-200 text-brand-dark-400"
                     }`}
               >
@@ -178,7 +178,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                 <label className="block text-xs font-bold text-brand-dark mb-1.5">
                   Amount (USD) *
                 </label>
-                <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-cream-100/50 flex items-center px-3 text-brand-dark-400 font-secondary cursor-not-allowed">
+                <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-white-100/50 flex items-center px-3 text-brand-dark-400 font-secondary cursor-not-allowed">
                   ${amount || "0.00"}
                 </div>
               </div>
@@ -192,7 +192,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting || !isValid || !dirty}
-                  className={`block w-full text-brand-cream-100 font-bold py-4 rounded-lg transition-all uppercase tracking-wide shadow-md ${
+                  className={`block w-full text-brand-white-100 font-bold py-4 rounded-lg transition-all uppercase tracking-wide shadow-md ${
                     isSubmitting || !isValid || !dirty
                       ? "bg-gray-300 cursor-not-allowed"
                       : "bg-pesapal-red hover:bg-pesapal-red/90 cursor-pointer hover:shadow-lg active:scale-[0.98]"

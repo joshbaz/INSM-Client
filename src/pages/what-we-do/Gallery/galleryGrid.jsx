@@ -173,7 +173,7 @@ const GalleryGrid = () => {
         </div>
 
         {filteredImages.length === 0 && (
-          <div className="text-center py-20 bg-brand-cream-50 rounded-2xl border border-brand-lilac-100">
+          <div className="text-center py-20 bg-brand-white-50 rounded-2xl border border-brand-lilac-100">
             <p className="text-xl text-brand-dark-400 font-secondary italic">
               No photos found for this selection.
             </p>
