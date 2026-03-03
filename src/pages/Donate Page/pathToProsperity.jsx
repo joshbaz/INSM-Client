@@ -86,7 +86,7 @@ const PathToProsperity = () => {
                 <img
                   src={step.icon}
                   alt={step.label}
-                  className="w-20 h-20 md:w-28 md:h-28 object-contain"
+                  className="w-14 h-14 md:w-18 md:h-18 object-contain"
                 />
               </Chevron>
 
@@ -94,7 +94,7 @@ const PathToProsperity = () => {
                 {step.label}
               </h3>
 
-              <p className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed max-w-[180px] mx-auto">
+              <p className="text-base md:text-normal font-secondary text-brand-dark-400 leading-relaxed max-w-[180px] mx-auto">
                 {step.description}
               </p>
             </motion.div>
