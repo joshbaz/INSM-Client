@@ -98,7 +98,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`sticky top-0 z-80 transition-all duration-500 border-b ${isScrolled ? "bg-white/30 backdrop-blur-lg backdrop-saturate-150 shadow-sm border-white/20" : "bg-white shadow-sm border-transparent"}`}
+        className={`sticky top-0 z-80 transition-all duration-500 border-b ${isScrolled ? "bg-white shadow-md border-gray-100" : "bg-white shadow-sm border-transparent"}`}
       >
         <div className="max-w-7xl mx-auto px-4">
           {/* NAV BAR HEADER */}

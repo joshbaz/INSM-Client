@@ -38,10 +38,9 @@ const HomeHero = () => {
 
             <motion.h1
               variants={fadeUp}
-              className="text-lg md:text-xl lg:text-2xl font-bold font-primary text-brand-white uppercase tracking-tight mb-6 leading-tight"
+              className="text-lg md:text-xl lg:text-3xl font-bold font-primary text-brand-white uppercase tracking-tight mb-6 leading-tight"
             >
-              Forget Theories. We've Engineered an Economic Force of 17,000
-              Lives.
+              Forget Theories.<br/> We've Engineered an <br/> Economic Force of 17,000 Lives.
             </motion.h1>
 
             <motion.p
@@ -59,7 +58,7 @@ const HomeHero = () => {
             >
               <Link
                 to="/how-to-help/donate"
-                className="inline-flex items-center justify-center bg-brand-white text-brand-dark font-primary font-bold uppercase tracking-wider text-sm px-10 py-4 rounded-full hover:bg-brand-white/90 transition-colors duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-sm px-10 py-4 rounded-full hover:bg-brand-white/90 transition-colors duration-300 cursor-pointer"
               >
                 Access The Terminal
               </Link>
