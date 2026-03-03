@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "../../utils/animations";
 
 const BG_IMAGE =
-  "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/hero%20image";
+  "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/heroimagelady.png?tr=fl-h";
 
 const HomeHero = () => {
   return (
