@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { fadeUp, staggerContainer } from "../../utils/animations";
 
@@ -58,9 +59,12 @@ const HomeClubTrigger = () => {
               the ground up.
             </p>
           </div>
-          <button className="shrink-0 bg-brand-teal text-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 hover:bg-brand-teal-600 transition-colors duration-200 whitespace-nowrap">
+          <Link
+            to="/how-to-help/donate"
+            className="shrink-0 bg-brand-lilac-700 text-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-lilac-700/90 transition-colors duration-300 cursor-pointer whitespace-nowrap"
+          >
             Access the Terminal
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

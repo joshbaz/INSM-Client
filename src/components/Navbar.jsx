@@ -132,7 +132,7 @@ const Navbar = () => {
                 className="
                 hidden md:inline-flex
                 items-center justify-center
-                bg-brand-navy hover:bg-brand-navy/90
+                bg-brand-lilac-700 hover:bg-brand-lilac-700/90
                 text-white text-body font-semibold
                 px-8 py-3
                 rounded-full

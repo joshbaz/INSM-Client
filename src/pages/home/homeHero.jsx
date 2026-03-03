@@ -51,14 +51,14 @@ const HomeHero = () => {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link
-              to="/how-to-help/join-the-assignment"
-              className="inline-flex items-center justify-center bg-brand-navy text-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-navy/90 transition-colors duration-300 cursor-pointer"
+              to="/how-to-help/donate"
+              className="inline-flex items-center justify-center bg-brand-lilac-700 text-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-lilac-700/90 transition-colors duration-300 cursor-pointer"
             >
               Access The Terminal
             </Link>
             <Link
               to="/how-to-help/join-the-assignment"
-              className="inline-flex items-center justify-center border-2 border-brand-navy text-brand-navy font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-navy/90 hover:text-white transition-colors duration-300 cursor-pointer"
+              className="inline-flex items-center justify-center border-2 border-brand-lilac-700 text-brand-lilac-700 font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-lilac-700/90 hover:text-white transition-colors duration-300 cursor-pointer"
             >
               Invest in the Bloc
             </Link>
