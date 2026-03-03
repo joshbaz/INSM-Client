@@ -45,7 +45,7 @@ const HomeClubTrigger = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="bg-brand-navy-400 p-10 md:p-16 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
+          className="bg-brand-lilac-400 p-10 md:p-16 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <div>
             <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-primary font-bold leading-snug mb-4">
@@ -53,7 +53,7 @@ const HomeClubTrigger = () => {
               <br />
               <span className="font-light italic">Join the Bloc.</span>
             </h3>
-            <p className="text-brand-navy-100 font-secondary text-base md:text-lg leading-relaxed max-w-xl">
+            <p className="text-brand-lilac-100 font-secondary text-base md:text-lg leading-relaxed max-w-xl">
               Your entry is not a donation. It is a strategic stake in the
               forces reshaping Uganda's agricultural and tourism economies from
               the ground up.
