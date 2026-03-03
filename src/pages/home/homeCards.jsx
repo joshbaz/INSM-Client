@@ -39,7 +39,7 @@ const CARDS_DATA = [
 
 const HomeCards = () => {
   return (
-    <section className="w-full pt-32 pb-20 bg-linear-to-b from-brand-lilac via-brand-teal to-brand-white">
+    <section className="w-full pt-32 pb-20 bg-brand-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center"

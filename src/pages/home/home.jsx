@@ -3,6 +3,8 @@ import HomeHero from "./homeHero";
 import HomeClubTrigger from "./homeClubTrigger";
 import HomeAnchors from "./homeAnchors";
 import HomePerformanceMetric from "./homePerformanceMetric";
+import Carousel from "./homeCarousel";
+import Cards from "./homeCards";
 import useSEO from "../../hooks/useSEO";
 
 const Home = () => {
@@ -15,9 +17,11 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-brand-white">
       <HomeHero />
-      <HomePerformanceMetric />
       <HomeClubTrigger />
       <HomeAnchors />
+      <HomePerformanceMetric />
+      <Cards />
+      <Carousel />
     </div>
   );
 };

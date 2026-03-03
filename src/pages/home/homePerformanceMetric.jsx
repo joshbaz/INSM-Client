@@ -18,9 +18,8 @@ const HomePerformanceMetric = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-teal/10 border border-brand-teal/20 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 mb-4"
           >
-            <span className="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
             <span className="text-xs font-secondary font-semibold text-brand-teal uppercase tracking-wider">
               Live Network Status
             </span>
@@ -41,7 +40,7 @@ const HomePerformanceMetric = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="flex flex-col items-center justify-center p-6 rounded-xl bg-brand-navy-600/50 border border-brand-navy-400/20 backdrop-blur-sm group hover:border-brand-gold/30 hover:bg-brand-navy-600/80 transition-all"
             >
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold font-primary text-brand-gold mb-2 flex items-baseline gap-1">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-bold font-primary text-brand-gold mb-2 flex items-baseline gap-1">
                 <span>{metric.value}</span>
                 <span className="text-lg md:text-xl font-medium text-brand-gold/80">
                   {metric.suffix}
