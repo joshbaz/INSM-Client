@@ -13,12 +13,12 @@ const WhoWeAreHero = () => {
       style={{ backgroundImage: `url("${HERO_BG}")` }}
     >
       {/* Light overlay for readability */}
-      <div className="absolute inset-0 bg-white/50 transition-opacity duration-700" />
+      <div className="absolute inset-0 bg-brand-white/50 transition-opacity duration-700" />
 
       {/* Content Container */}
       <div className="relative z-10 w-full">
         <motion.div
-          className="bg-white/60 backdrop-blur-md h-auto md:h-[340px] flex flex-col justify-center items-center p-6 md:p-12 text-center w-full shadow-sm border-t border-white/50"
+          className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] flex flex-col justify-center items-center p-6 md:p-12 text-center w-full shadow-sm border-t border-brand-white/50"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}

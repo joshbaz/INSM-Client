@@ -92,7 +92,7 @@ const BlogList = () => {
               </p>
 
               {/* Read More Button */}
-              <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-xs rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-white transition-all duration-300">
+              <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-xs rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-brand-white transition-all duration-300">
                 Read More
               </span>
             </Link>

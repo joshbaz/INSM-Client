@@ -25,7 +25,7 @@ const anchors = [
 
 const HomeAnchors = () => {
   return (
-    <section className="w-full bg-white py-20 md:py-28 px-4 md:px-8">
+    <section className="w-full bg-brand-white py-20 md:py-28 px-4 md:px-8">
       <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Section header */}
         <motion.div

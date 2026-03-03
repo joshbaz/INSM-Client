@@ -49,7 +49,7 @@ const Chevron = ({ children, isLast }) => (
 
 const PathToProsperity = () => {
   return (
-    <section className="w-full py-24 md:py-32 bg-white px-4 md:px-8">
+    <section className="w-full py-24 md:py-32 bg-brand-white px-4 md:px-8">
       <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20 text-center">
         <motion.h2
           className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-16 md:mb-20"

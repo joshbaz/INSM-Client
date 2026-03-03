@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12 md:gap-64 mb-16">
           {/* LEFT: Logo + Description */}
           <div className="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8 max-w-xl">
-            <div className="shrink-0 bg-white rounded-full p-1 shadow-sm">
+            <div className="shrink-0 bg-brand-white rounded-full p-1 shadow-sm">
               <img
                 src="/logo.png"
                 alt="INSM Uganda Logo"

@@ -169,18 +169,18 @@ const Navbar = () => {
           ref={menuRef}
         >
           {/* Header Separation Line */}
-          <div className="absolute top-20 left-0 w-full border-b border-gray-100"></div>
+          <div className="absolute top-20 left-0 w-full"></div>
 
           <div className="max-w-3xl mx-auto px-4 md:px-8 py-8">
             <div className="flex flex-col">
               {menuCategories.map((category, index) => (
                 <div
                   key={index}
-                  className="border-b border-gray-200 last:border-0"
+                  className="border-b border-brand-dark-200 last:border-0"
                 >
                   <button
                     onClick={() => toggleCategory(category.title)}
-                    className="w-full flex items-center justify-between py-6 group hover:bg-brand-dark-100/90 transition-colors px-4 rounded-lg cursor-pointer"
+                    className="w-full flex items-center justify-between py-6 group hover:bg-brand-white-100/50 transition-colors px-4 rounded-lg cursor-pointer"
                   >
                     <span className="text-2xl md:text-3xl text-brand-dark font-normal">
                       {category.title}

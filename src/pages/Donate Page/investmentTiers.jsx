@@ -9,7 +9,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
   const [selectedTier, setSelectedTier] = useState(null);
 
   return (
-    <section className="w-full py-24 bg-white">
+    <section className="w-full py-24 bg-brand-white">
       <div className="max-w-7xl mx-auto px-8 md:px-24">
         <motion.div
           className="mb-16"
@@ -34,7 +34,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
             <motion.div
               variants={fadeUp}
               key={tier.id}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
+              className="bg-brand-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 group"
             >
               <div className="mb-6">
                 <h3 className="text-2xl font-bold font-primary text-black mb-1">
@@ -46,7 +46,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
               </div>
 
               <div
-                className={`w-full h-48 ${tier.colorClass} flex items-center justify-center text-white rounded-lg`}
+                className={`w-full h-48 ${tier.colorClass} flex items-center justify-center text-brand-white rounded-lg`}
               >
                 <span className="text-6xl font-bold font-primary">
                   {tier.amount}
@@ -71,7 +71,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
                   </button>
                   <button
                     onClick={() => onDonateClick && onDonateClick(tier)}
-                    className="bg-brand-lilac-600 text-white font-bold text-[10px] py-3 px-6 rounded-full hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm"
+                    className="bg-brand-lilac-600 text-brand-white font-bold text-[10px] py-3 px-6 rounded-full hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm"
                   >
                     Give Seed
                   </button>

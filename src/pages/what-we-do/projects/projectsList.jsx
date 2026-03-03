@@ -94,10 +94,10 @@ const projectsList = () => {
   // Checkbox component
   const Checkbox = ({ checked }) => (
     <div
-      className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center transition-colors ${checked ? "bg-brand-lilac border-brand-lilac" : "border-brand-dark-200 bg-white"}`}
+      className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center transition-colors ${checked ? "bg-brand-lilac border-brand-lilac" : "border-brand-dark-200 bg-brand-white"}`}
     >
       {checked && (
-        <Icon icon="heroicons:check-bold" className="w-3 h-3 text-white" />
+        <Icon icon="heroicons:check-bold" className="w-3 h-3 text-brand-white" />
       )}
     </div>
   );
@@ -139,7 +139,7 @@ const projectsList = () => {
                 </span>
               </div>
 
-              <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <div className="bg-brand-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
                 {/* Community Programs */}
                 <div>
                   <button
@@ -216,7 +216,7 @@ const projectsList = () => {
                 </span>
               </div>
 
-              <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <div className="bg-brand-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
                 {/* Project Status */}
                 <div>
                   <button
@@ -285,7 +285,7 @@ const projectsList = () => {
                 <Link
                   to={`/what-we-do/projects/list/${project.id}`}
                   key={project.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+                  className="bg-brand-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
                 >
                   {/* Image */}
                   <div className="w-full h-[160px] overflow-hidden">

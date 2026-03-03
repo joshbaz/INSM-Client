@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer } from "../../utils/animations";
 const HomeBanner = () => {
   return (
     <motion.div
-      className="w-full bg-white py-20 flex justify-center items-center"
+      className="w-full bg-brand-white py-20 flex justify-center items-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

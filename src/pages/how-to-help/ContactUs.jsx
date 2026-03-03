@@ -11,11 +11,11 @@ const ContactUs = () => {
         }}
       >
         {/* White transparent overlay on the image */}
-        <div className="absolute inset-0 bg-white/50 transition-opacity duration-700"></div>
+        <div className="absolute inset-0 bg-brand-white/50 transition-opacity duration-700"></div>
 
         {/* Content with glass background */}
         <div className="relative z-10 w-full">
-          <div className="bg-white/60 backdrop-blur-md h-auto md:h-[340px] flex flex-col justify-center items-center p-6 md:p-12 text-center w-full shadow-sm border-t border-white/50">
+          <div className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] flex flex-col justify-center items-center p-6 md:p-12 text-center w-full shadow-sm border-t border-brand-white/50">
             <h1 className="text-4xl md:text-6xl font-bold font-primary text-brand-dark uppercase tracking-tight leading-none">
               WE'RE HERE
               <br />
@@ -25,7 +25,7 @@ const ContactUs = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-brand-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="font-secondary text-brand-dark text-base md:text-lg leading-relaxed">
             <p>

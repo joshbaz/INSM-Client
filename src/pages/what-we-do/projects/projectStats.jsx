@@ -55,7 +55,7 @@ const projectStats = () => {
 
           {/* Text Overlay */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-[90%] md:w-[85%] bg-brand-brown/60 px-8 md:px-12 py-10 md:py-14">
-            <p className="text-xl md:text-3xl font-primary font-semibold text-white leading-snug">
+            <p className="text-xl md:text-3xl font-primary font-semibold text-brand-white leading-snug">
               We identify, invest in, and accelerate the growth of innovative
               solutions across the agriculture and tourism sectors to transform
               30% of Ugandan households into a unified economic power.

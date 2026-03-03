@@ -27,7 +27,7 @@ const BlogFeaturedStory = () => {
 
           {/* Overlay Card — centered */}
           <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 md:p-0 ">
-            <div className="bg-white/95 backdrop-blur-sm p-6 md:p-8 max-w-xl w-full shadow-lg text-left">
+            <div className="bg-brand-white/95 backdrop-blur-sm p-6 md:p-8 max-w-xl w-full shadow-lg text-left">
               <p className="text-xs font-secondary text-brand-lilac tracking-widest uppercase mb-3">
                 {formattedDate}
               </p>
@@ -39,7 +39,7 @@ const BlogFeaturedStory = () => {
               </p>
               <Link
                 to={`/what-we-do/blog/${featured.id}`}
-                className="inline-flex items-center justify-center px-6 py-2.5 bg-brand-lilac text-white font-bold text-xs rounded-full hover:bg-brand-lilac/90 transition-colors uppercase tracking-wider"
+                className="inline-flex items-center justify-center px-6 py-2.5 bg-brand-lilac text-brand-white font-bold text-xs rounded-full hover:bg-brand-lilac/90 transition-colors uppercase tracking-wider"
               >
                 Read More
               </Link>

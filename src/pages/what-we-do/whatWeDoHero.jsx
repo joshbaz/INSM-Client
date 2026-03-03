@@ -12,12 +12,12 @@ const WhatWeDoHero = () => {
       style={{ backgroundImage: `url("${HERO_BG}")` }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-white/55" />
+      <div className="absolute inset-0 bg-brand-white/55" />
 
       {/* Content */}
       <div className="relative z-10 w-full">
         <motion.div
-          className="bg-white/60 backdrop-blur-md flex flex-col justify-center items-center p-8 md:p-14 text-center w-full shadow-sm border-t border-white/50"
+          className="bg-brand-white/60 backdrop-blur-md flex flex-col justify-center items-center p-8 md:p-14 text-center w-full shadow-sm border-t border-brand-white/50"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}

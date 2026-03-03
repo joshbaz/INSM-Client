@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer } from "../../utils/animations";
 
 const HomeClubTrigger = () => {
   return (
-    <section className="w-full bg-white py-20 md:py-28 px-4">
+    <section className="w-full bg-brand-white py-20 md:py-28 px-4">
       <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Section Label */}
         <motion.div
@@ -48,7 +48,7 @@ const HomeClubTrigger = () => {
           className="bg-brand-lilac-400 p-10 md:p-16 shadow-2xl flex flex-col md:flex-row items-start md:items-center justify-between gap-8"
         >
           <div>
-            <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-primary font-bold leading-snug mb-4">
+            <h3 className="text-brand-white text-2xl md:text-3xl lg:text-4xl font-primary font-bold leading-snug mb-4">
               Deploy Capital Now.
               <br />
               <span className="font-light italic">Join the Bloc.</span>
@@ -60,10 +60,10 @@ const HomeClubTrigger = () => {
             </p>
           </div>
           <Link
-            to="/how-to-help/donate"
-            className="shrink-0 bg-brand-lilac-700 text-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-lilac-700/90 transition-colors duration-300 cursor-pointer whitespace-nowrap"
+            to="/how-to-help/join-the-assignment"
+            className="shrink-0 bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-lilac-700/90 transition-colors duration-300 cursor-pointer whitespace-nowrap"
           >
-            Access the Terminal
+            Join the Bloc
           </Link>
         </motion.div>
       </div>

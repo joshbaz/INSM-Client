@@ -32,7 +32,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
   return (
     <>
       {/* ── Fixed Header ── */}
-      <div className="px-6 md:px-10 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-brand-dark-200/30 shrink-0 bg-white flex items-center justify-between">
+      <div className="px-6 md:px-10 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-brand-dark-200/30 shrink-0 bg-brand-white flex items-center justify-between">
         <button
           onClick={onBack}
           className="text-sm font-semibold text-brand-dark-300 hover:text-brand-lilac/90 flex items-center gap-1.5 cursor-pointer transition-colors"
@@ -57,7 +57,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
           {steps.map((s) => (
             <div
               key={s.num}
-              className="flex flex-col items-center bg-white px-2"
+              className="flex flex-col items-center bg-brand-white px-2"
             >
               <div
                 className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold mb-1
@@ -119,7 +119,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                     className={`w-full h-10 border rounded-lg px-3 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-pesapal-blue/30 transition-all ${
                       touched.firstName && errors.firstName
                         ? "border-pesapal-red bg-red-50"
-                        : "border-brand-dark-200 bg-white"
+                        : "border-brand-dark-200 bg-brand-white"
                     }`}
                   />
                   {touched.firstName && errors.firstName && (
@@ -140,7 +140,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                     className={`w-full h-10 border rounded-lg px-3 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-pesapal-blue/30 transition-all ${
                       touched.lastName && errors.lastName
                         ? "border-pesapal-red bg-red-50"
-                        : "border-brand-dark-200 bg-white"
+                        : "border-brand-dark-200 bg-brand-white"
                     }`}
                   />
                   {touched.lastName && errors.lastName && (
@@ -164,7 +164,7 @@ const ContinueWithPesapal = ({ amount, onBack }) => {
                   className={`w-full h-10 border rounded-lg px-3 text-sm font-secondary focus:outline-none focus:ring-2 focus:ring-pesapal-blue/30 transition-all ${
                     touched.email && errors.email
                       ? "border-pesapal-red bg-red-50"
-                      : "border-brand-dark-200 bg-white"
+                      : "border-brand-dark-200 bg-brand-white"
                   }`}
                 />
                 {touched.email && errors.email && (

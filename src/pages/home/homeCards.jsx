@@ -66,7 +66,7 @@ const HomeCards = () => {
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 w-full p-6 md:p-10 flex flex-col gap-2 md:gap-3">
-                <h3 className="text-2xl md:text-4xl font-bold text-white font-primary leading-tight drop-shadow-lg">
+                <h3 className="text-2xl md:text-4xl font-bold text-brand-white font-primary leading-tight drop-shadow-lg">
                   {card.title}
                 </h3>
                 <p className="text-brand-white-100 text-base md:text-lg font-secondary font-medium leading-relaxed max-w-lg drop-shadow-md">

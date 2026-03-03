@@ -25,7 +25,7 @@ const STEPS = [
 
 const ROISection = () => {
   return (
-    <section className="w-full py-20 bg-white">
+    <section className="w-full py-20 bg-brand-white">
       <div className="max-w-7xl mx-auto px-8 md:px-24 text-center">
         <h2 className="text-3xl md:text-4xl font-bold font-primary text-black mb-4">
           The ROI of Your Time

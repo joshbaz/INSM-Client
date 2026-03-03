@@ -31,7 +31,7 @@ const WhoWeAreOutro = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="absolute left-10 md:left-48 right-0 z-10 bg-brand-navy-400 p-10 md:p-16 shadow-2xl"
           >
-            <h2 className="text-white text-xl md:text-3xl lg:text-h2 font-light leading-relaxed tracking-tight">
+            <h2 className="text-brand-white text-xl md:text-3xl lg:text-h2 font-light leading-relaxed tracking-tight">
               This is no longer an appeal for charity. It is an invitation to{" "}
               <span className="font-semibold">Capitalize</span> strategically in
               a movement that will redefine the national economic landscape. The

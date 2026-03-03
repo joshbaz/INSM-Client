@@ -25,7 +25,7 @@ const ProjectDetail = () => {
           </p>
           <Link
             to="/what-we-do/projects/list"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-white font-semibold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-brand-white font-semibold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors"
           >
             ← Back to Projects
           </Link>
@@ -95,7 +95,7 @@ const ProjectDetail = () => {
               >
                 <Icon icon="mdi:link-variant" width={18} />
                 {copied && (
-                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-white bg-brand-dark px-2 py-0.5 rounded whitespace-nowrap">
+                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-brand-white bg-brand-dark px-2 py-0.5 rounded whitespace-nowrap">
                     Copied!
                   </span>
                 )}
@@ -283,7 +283,7 @@ const ProjectDetail = () => {
               </p>
               <button
                 onClick={() => setIsDonationModalOpen(true)}
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-brown text-white font-bold text-xs rounded-full hover:bg-brand-brown/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-brown text-brand-white font-bold text-xs rounded-full hover:bg-brand-brown/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
               >
                 Send Donation
               </button>
@@ -301,7 +301,7 @@ const ProjectDetail = () => {
               </p>
               <button
                 onClick={() => setIsRequestFormOpen(true)}
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-teal-700 text-white font-bold text-xs rounded-full hover:bg-brand-teal-700/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-teal-700 text-brand-white font-bold text-xs rounded-full hover:bg-brand-teal-700/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
               >
                 Fill Request Form
               </button>

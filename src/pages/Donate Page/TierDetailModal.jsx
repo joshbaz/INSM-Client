@@ -34,7 +34,7 @@ const TierDetailModal = ({ tier, onClose, onDonate }) => {
       <div className="relative w-full max-w-lg flex flex-col items-center justify-center gap-4 animate-modal-in z-10">
         {/* Main Content Card */}
         <div
-          className="relative w-full bg-white rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]"
+          className="relative w-full bg-brand-white rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[85vh]"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Hero Image */}
@@ -49,10 +49,10 @@ const TierDetailModal = ({ tier, onClose, onDonate }) => {
           {/* Info Area */}
           <div className="p-5 md:p-7 overflow-y-auto custom-scrollbar flex-1 flex flex-col items-center text-center">
             {/* Audio Player Container */}
-            <div className="mb-4 w-full p-3 border border-gray-100 rounded-xl bg-white shadow-sm flex items-center gap-4">
+            <div className="mb-4 w-full p-3 border border-gray-100 rounded-xl bg-brand-white shadow-sm flex items-center gap-4">
               <button
                 onClick={togglePlay}
-                className="w-9 h-9 rounded-full bg-brand-lilac flex items-center justify-center text-white hover:scale-105 transition-transform cursor-pointer shrink-0"
+                className="w-9 h-9 rounded-full bg-brand-lilac flex items-center justify-center text-brand-white hover:scale-105 transition-transform cursor-pointer shrink-0"
               >
                 <Icon
                   icon={
@@ -103,7 +103,7 @@ const TierDetailModal = ({ tier, onClose, onDonate }) => {
                     onDonate && onDonate(tier);
                     onClose();
                   }}
-                  className="bg-brand-lilac text-white py-2.5 px-7 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-[11px] hover:bg-brand-lilac-600 transition-all shadow-md shadow-brand-lilac/20 active:scale-[0.98] cursor-pointer"
+                  className="bg-brand-lilac text-brand-white py-2.5 px-7 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-[11px] hover:bg-brand-lilac-600 transition-all shadow-md shadow-brand-lilac/20 active:scale-[0.98] cursor-pointer"
                 >
                   Invest in a mother's future today
                 </button>
@@ -115,7 +115,7 @@ const TierDetailModal = ({ tier, onClose, onDonate }) => {
         {/* Close Button UI */}
         <button
           onClick={onClose}
-          className="absolute -top-12 right-0 md:top-0 md:-right-12 text-white/80 hover:text-white hover:scale-110 transition-all cursor-pointer p-2"
+          className="absolute -top-12 right-0 md:top-0 md:-right-12 text-brand-white/80 hover:text-brand-white hover:scale-110 transition-all cursor-pointer p-2"
           aria-label="Close modal"
         >
           <Icon icon="ph:x-light" width="32" className="drop-shadow-lg" />

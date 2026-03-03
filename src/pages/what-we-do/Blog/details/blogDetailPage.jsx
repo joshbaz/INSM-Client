@@ -22,7 +22,7 @@ const BlogDetailPage = () => {
           </p>
           <Link
             to="/what-we-do/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-white font-semibold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-brand-lilac text-brand-white font-semibold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors"
           >
             ← Back to Blog
           </Link>
@@ -92,7 +92,7 @@ const BlogDetailPage = () => {
               >
                 <Icon icon="mdi:link-variant" width={18} />
                 {copied && (
-                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-white bg-brand-dark px-2 py-0.5 rounded whitespace-nowrap">
+                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] font-semibold text-brand-white bg-brand-dark px-2 py-0.5 rounded whitespace-nowrap">
                     Copied!
                   </span>
                 )}

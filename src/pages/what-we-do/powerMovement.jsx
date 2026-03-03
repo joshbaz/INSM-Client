@@ -22,7 +22,7 @@ const PowerMovement = () => {
 
       {/* Content */}
       <motion.div
-        className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white flex flex-col items-center"
+        className="relative z-10 max-w-4xl mx-auto px-6 text-center text-brand-white flex flex-col items-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

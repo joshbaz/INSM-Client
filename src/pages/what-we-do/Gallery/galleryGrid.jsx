@@ -89,7 +89,7 @@ const GalleryGrid = () => {
 
             {/* Dropdown Menu */}
             <div
-              className={`absolute z-30 left-0 right-0 mt-2 rounded-xl bg-white border border-brand-lilac-100 shadow-xl overflow-hidden transition-all duration-300 origin-top ${
+              className={`absolute z-30 left-0 right-0 mt-2 rounded-xl bg-brand-white border border-brand-lilac-100 shadow-xl overflow-hidden transition-all duration-300 origin-top ${
                 regionDropdownOpen
                   ? "opacity-100 scale-y-100 pointer-events-auto"
                   : "opacity-0 scale-y-95 pointer-events-none"
@@ -142,7 +142,7 @@ const GalleryGrid = () => {
               onClick={() =>
                 setActiveRegion(activeRegion === region.id ? null : region.id)
               }
-              className={`cursor-pointer px-8 py-2.5 rounded-full text-sm font-bold text-white uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
+              className={`cursor-pointer px-8 py-2.5 rounded-full text-sm font-bold text-brand-white uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
                 activeRegion === region.id
                   ? "bg-brand-lilac-800 shadow-brand-lilac/50 scale-105 ring-2 ring-offset-2 ring-brand-lilac-800"
                   : "bg-brand-lilac hover:bg-brand-lilac/90"
@@ -198,7 +198,7 @@ const GalleryGrid = () => {
         >
           {/* Close Button */}
           <button
-            className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white transition-colors cursor-pointer p-2"
+            className="absolute top-4 right-4 md:top-8 md:right-8 text-brand-white/70 hover:text-brand-white transition-colors cursor-pointer p-2"
             onClick={() => setSelectedImage(null)}
           >
             <Icon icon="heroicons:x-mark" className="w-8 h-8 md:w-10 md:h-10" />

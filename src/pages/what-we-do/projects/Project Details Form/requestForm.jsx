@@ -66,7 +66,7 @@ const RequestForm = ({ isOpen, onClose }) => {
       {/* ── Content wrapper ── */}
       <div className="relative z-55 w-full max-w-[1000px] flex flex-col md:flex-row items-end justify-center gap-6 animate-[modalIn_0.25s_ease-out]">
         {/* ── White card ── */}
-        <div className="w-full max-w-[720px] bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+        <div className="w-full max-w-[720px] bg-brand-white rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
           {/* ── Fixed header ── */}
           <div className="px-5 md:px-10 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-brand-dark-200/30 shrink-0">
             <h2 className="text-xl md:text-2xl font-bold font-primary text-brand-dark flex justify-center">
@@ -280,7 +280,7 @@ const RequestForm = ({ isOpen, onClose }) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-[#9e76a0] hover:bg-[#9e76a0]/90 active:scale-[0.97] text-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-8 py-3 rounded-full transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shadow-md"
+                      className="bg-[#9e76a0] hover:bg-[#9e76a0]/90 active:scale-[0.97] text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-8 py-3 rounded-full transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shadow-md"
                     >
                       SUBMIT FORM
                     </button>

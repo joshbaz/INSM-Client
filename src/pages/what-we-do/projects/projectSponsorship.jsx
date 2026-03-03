@@ -27,7 +27,7 @@ const projectSponsorship = () => {
             <Link
               to={`/what-we-do/projects/list/${project.id}`}
               key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+              className="bg-brand-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
             >
               {/* Image */}
               <div className="w-full h-[220px] overflow-hidden">

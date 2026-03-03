@@ -29,7 +29,7 @@ const SLIDER_IMAGES = [
 
 const ImageSlider = () => {
   return (
-    <section className="w-full bg-white py-10 md:py-16 overflow-hidden">
+    <section className="w-full bg-brand-white py-10 md:py-16 overflow-hidden">
       <Swiper
         modules={[Autoplay]}
         slidesPerView={1.15}

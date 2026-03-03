@@ -11,7 +11,7 @@ const Gallery = () => {
   });
 
   return (
-    <main className="w-full min-h-screen bg-white">
+    <main className="w-full min-h-screen bg-brand-white">
       <GalleryHero />
       <GalleryGrid />
     </main>

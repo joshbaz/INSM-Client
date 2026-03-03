@@ -30,7 +30,7 @@ const TheRoadmap = () => {
   return (
     <section
       id="the-roadmap"
-      className="w-full bg-white py-24 md:py-32 px-4 md:px-8"
+      className="w-full bg-brand-white py-24 md:py-32 px-4 md:px-8"
     >
       <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
         {/* ── Header ── */}

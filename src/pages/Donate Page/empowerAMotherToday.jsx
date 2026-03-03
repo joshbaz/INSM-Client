@@ -18,7 +18,7 @@ const EmpowerAMotherToday = ({ onDonateClick }) => {
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-white flex flex-col items-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center text-brand-white flex flex-col items-center">
         <h2 className="text-3xl md:text-5xl font-bold font-primary mb-6 drop-shadow-sm leading-tight">
           Ready to Power the Movement?
         </h2>

@@ -87,7 +87,7 @@ const SendDonation = ({ isOpen, onClose }) => {
       {/* Content Wrapper */}
       <div className="relative z-55 w-full max-w-[550px] flex flex-col max-h-[85vh] p-4">
         {/* Card - Flex Container */}
-        <div className="w-full bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col h-full">
+        <div className="w-full bg-brand-white rounded-xl shadow-2xl overflow-hidden flex flex-col h-full">
           {step === "donation" ? (
             <Formik
               initialValues={{ amount: "" }}
@@ -120,7 +120,7 @@ const SendDonation = ({ isOpen, onClose }) => {
                     className="flex flex-col h-full"
                   >
                     {/* Fixed Header */}
-                    <div className="px-6 md:px-10 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-brand-dark-200/30 shrink-0 bg-white">
+                    <div className="px-6 md:px-10 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-brand-dark-200/30 shrink-0 bg-brand-white">
                       <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark text-center">
                         Sponsor with Capital
                       </h2>
@@ -188,7 +188,7 @@ const SendDonation = ({ isOpen, onClose }) => {
                       <button
                         type="submit"
                         disabled={!isValid || !dirty}
-                        className={`w-full h-14 rounded border border-brand-dark-200 bg-white shadow-sm flex items-center justify-center gap-2 transition-all duration-200 mb-6
+                        className={`w-full h-14 rounded border border-brand-dark-200 bg-brand-white shadow-sm flex items-center justify-center gap-2 transition-all duration-200 mb-6
                           ${
                             isValid && dirty
                               ? "hover:shadow-md hover:bg-brand-white-100/90 cursor-pointer"
@@ -224,15 +224,15 @@ const SendDonation = ({ isOpen, onClose }) => {
 
       {/* Security links - Fixed positioning to screen */}
       <div className="fixed bottom-8 right-8 flex-col items-end gap-3 z-60 hidden md:flex">
-        <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-brand-white-200 transition-colors group cursor-help">
+        <button className="flex items-center gap-2 text-xs font-bold text-brand-white hover:text-brand-white-200 transition-colors group cursor-help">
           Is my donation secure
-          <span className="w-4 h-4 rounded-full bg-white text-brand-dark flex items-center justify-center group-hover:bg-brand-white-200">
+          <span className="w-4 h-4 rounded-full bg-brand-white text-brand-dark flex items-center justify-center group-hover:bg-brand-white-200">
             <Icon icon="ph:question-mark-bold" width={10} />
           </span>
         </button>
-        <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-brand-white-200 transition-colors group cursor-help">
+        <button className="flex items-center gap-2 text-xs font-bold text-brand-white hover:text-brand-white-200 transition-colors group cursor-help">
           Can I cancel my recurring donation
-          <span className="w-4 h-4 rounded-full bg-white text-brand-dark flex items-center justify-center group-hover:bg-brand-white-200">
+          <span className="w-4 h-4 rounded-full bg-brand-white text-brand-dark flex items-center justify-center group-hover:bg-brand-white-200">
             <Icon icon="ph:question-mark-bold" width={10} />
           </span>
         </button>

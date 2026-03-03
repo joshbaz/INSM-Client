@@ -70,7 +70,7 @@ const QuoteMark = () => (
 
 const ThreeRopes = () => {
   return (
-    <section className="w-full bg-white py-16 md:py-24 px-4 md:px-8">
+    <section className="w-full bg-brand-white py-16 md:py-24 px-4 md:px-8">
       <div className="max-w-7xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Section header — left aligned */}
         <motion.div
