@@ -98,7 +98,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`sticky top-0 z-80 transition-all duration-500 border-b ${isScrolled ? "bg-white shadow-md border-gray-100" : "bg-white shadow-sm border-transparent"}`}
+        className={`sticky top-0 z-80 transition-all duration-500 ${isScrolled ? "bg-brand-white shadow-md" : "bg-brand-white shadow-sm"}`}
       >
         <div className="max-w-7xl mx-auto px-4">
           {/* NAV BAR HEADER */}
@@ -109,17 +109,17 @@ const Navbar = () => {
                 <img
                   src="/logo.png"
                   alt="INSM Logo"
-                  className="absolute top-0 left-0 w-28 h-28 rounded-full object-contain max-w-none shadow-sm bg-white"
+                  className="absolute top-0 left-0 w-24 h-24 rounded-full object-contain max-w-none shadow-sm bg-brand"
                 />
               </div>
 
               <div className="hidden sm:block">
                 <h1 className="font-primary font-bold text-body uppercase leading-tight">
-                  <span className="text-brand-lilac">
+                  <span className="text-brand-lilac text-sm">
                     INTERNATIONAL NETWORK <br /> FOR SINGLE MOTHERS
                   </span>
                   <br />
-                  <span className="text-brand-lilac-700">UGANDA CHAPTER</span>
+                  <span className="text-brand-lilac-700 text-sm">UGANDA CHAPTER</span>
                 </h1>
               </div>
             </Link>
@@ -133,14 +133,14 @@ const Navbar = () => {
                 hidden md:inline-flex
                 items-center justify-center
                 bg-brand-lilac-700 hover:bg-brand-lilac-700/90
-                text-white text-body font-semibold
+                text-white text-body font-semibold text-sm
                 px-8 py-3
                 rounded-full
                 transition-colors
                 cursor-pointer
                 uppercase tracking-wide
               "
-                style={{ minWidth: "200px", height: "54px" }}
+                style={{ minWidth: "150px", height: "45px" }}
               >
                 {isHomePage ? "DONATE" : "GO BACK HOME"}
               </Link>
