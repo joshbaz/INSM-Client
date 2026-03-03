@@ -58,7 +58,7 @@ const HomeHero = () => {
             >
               <Link
                 to="/how-to-help/donate"
-                className="inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-sm px-10 py-4 rounded-full hover:bg-brand-white/90 transition-colors duration-300 cursor-pointer"
+                className="inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-sm px-10 py-4 rounded-full hover:bg-brand-lilac-700/50 transition-colors duration-300 cursor-pointer"
               >
                 Access The Terminal
               </Link>
