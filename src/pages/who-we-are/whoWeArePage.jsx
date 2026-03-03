@@ -40,7 +40,7 @@ const whoWeArePage = () => {
   }, [location.pathname, location.key]);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <WhoWeAreHero />
       <OurStory />
       <OurTeam />
