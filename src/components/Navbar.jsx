@@ -133,7 +133,7 @@ const Navbar = () => {
                 hidden md:inline-flex
                 items-center justify-center
                 bg-brand-lilac-700 hover:bg-brand-lilac-700/90
-                text-white text-body font-semibold text-sm
+                text-brand-white text-body font-semibold text-sm
                 px-8 py-3
                 rounded-full
                 transition-colors
@@ -165,7 +165,7 @@ const Navbar = () => {
       {/* MENU OVERLAY */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-white z-60 pt-24 overflow-y-auto"
+          className="fixed inset-0 bg-brand-white z-60 pt-24 overflow-y-auto"
           ref={menuRef}
         >
           {/* Header Separation Line */}
@@ -227,7 +227,7 @@ const Navbar = () => {
                   w-full md:w-auto
                   items-center justify-center
                   bg-brand-navy hover:bg-brand-navy/90
-                  text-white text-body font-semibold
+                  text-brand-white text-body font-semibold
                   px-8 py-3
                   rounded-full
                   transition-colors
