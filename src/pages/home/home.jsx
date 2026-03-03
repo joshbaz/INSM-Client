@@ -1,8 +1,7 @@
 import React from "react";
 import HomeHero from "./homeHero";
-import HomeBanner from "./homeBanner";
-import HomeCards from "./homeCards";
-import HomeCarousel from "./homeCarousel";
+import HomeClubTrigger from "./homeClubTrigger";
+import HomeAnchors from "./homeAnchors";
 import useSEO from "../../hooks/useSEO";
 
 const Home = () => {
@@ -15,9 +14,8 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-brand-white">
       <HomeHero />
-      <HomeBanner />
-      <HomeCards />
-      <HomeCarousel />
+      <HomeClubTrigger />
+      <HomeAnchors />
     </div>
   );
 };
