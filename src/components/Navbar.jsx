@@ -226,7 +226,7 @@ const Navbar = () => {
                 className="
                   w-full md:w-auto
                   items-center justify-center
-                  bg-brand-navy hover:bg-brand-navy/90
+                  bg-brand-lilac-700 hover:bg-brand-lilac-700/90
                   text-brand-white text-body font-semibold
                   px-8 py-3
                   rounded-full
