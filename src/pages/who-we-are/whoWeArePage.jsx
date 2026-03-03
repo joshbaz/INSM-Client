@@ -5,7 +5,7 @@ import OurStory from "./OurStory";
 import OurTeam from "./OurTeam";
 import AnchorsOfTransformation from "./AnchorsOfTransformation";
 import RoadMap from "./TheRoadmap";
-import WhoWeAreCTA from "./whoWeAreCTA";
+import WhoWeAreOutro from "./whoWeAreOutro";
 import useSEO from "../../hooks/useSEO";
 
 const whoWeArePage = () => {
@@ -46,7 +46,7 @@ const whoWeArePage = () => {
       <OurTeam />
       <AnchorsOfTransformation />
       <RoadMap />
-      <WhoWeAreCTA />
+      <WhoWeAreOutro />
     </div>
   );
 };

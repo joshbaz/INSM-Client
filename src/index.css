@@ -65,16 +65,33 @@
   --dark-300: #9d9d9e;
   --dark-400: #6b6c6d;
 
-  /* ── NEW: Industrial Structural Palette ── */
+  /* Accent – Deep Charcoal (near-black shades) */
+  --dark-600: #151515;
+  --dark-700: #101010;
+  --dark-800: #0A0A0A;
+  --dark-900: #050505;
+
+  /* ── Industrial Structural Palette ── */
   --navy: #001F3F;
   --navy-100: #CCD2D9;
   --navy-200: #99A5B2;
-  --navy-400: #66798C;
-  --navy-600: #334C65;
-  --navy-800: #001932;
+  --navy-300: #66798C;
+  --navy-400: #334C65;
+  --navy-600: #001932;
+  --navy-700: #001326;
+  --navy-800: #000C19;
   --navy-900: #00060D;
-  
+
+  /* Metallic Gold */
   --gold: #D4AF37;
+  --gold-100: #F6EFD7;
+  --gold-200: #EEDFAF;
+  --gold-300: #E5CF87;
+  --gold-400: #DDBF5F;
+  --gold-600: #AA8C2C;
+  --gold-700: #7F6921;
+  --gold-800: #554616;
+  --gold-900: #2A230B;
 
   --industrial-white: #FFFFFF;
   --industrial-muted: #6B6C6D;
@@ -147,17 +164,31 @@
   --color-brand-dark-200: var(--dark-200);
   --color-brand-dark-300: var(--dark-300);
   --color-brand-dark-400: var(--dark-400);
+  --color-brand-dark-600: var(--dark-600);
+  --color-brand-dark-700: var(--dark-700);
+  --color-brand-dark-800: var(--dark-800);
+  --color-brand-dark-900: var(--dark-900);
 
-  /* ── NEW: Industrial Structural Colors ── */
+  /* ── Industrial Structural Colors ── */
   --color-brand-navy: var(--navy);
   --color-brand-navy-100: var(--navy-100);
   --color-brand-navy-200: var(--navy-200);
+  --color-brand-navy-300: var(--navy-300);
   --color-brand-navy-400: var(--navy-400);
   --color-brand-navy-600: var(--navy-600);
+  --color-brand-navy-700: var(--navy-700);
   --color-brand-navy-800: var(--navy-800);
   --color-brand-navy-900: var(--navy-900);
 
   --color-brand-gold: var(--gold);
+  --color-brand-gold-100: var(--gold-100);
+  --color-brand-gold-200: var(--gold-200);
+  --color-brand-gold-300: var(--gold-300);
+  --color-brand-gold-400: var(--gold-400);
+  --color-brand-gold-600: var(--gold-600);
+  --color-brand-gold-700: var(--gold-700);
+  --color-brand-gold-800: var(--gold-800);
+  --color-brand-gold-900: var(--gold-900);
 
   --color-pesapal-blue: var(--pesapal-blue);
   --color-pesapal-red: var(--pesapal-red);
