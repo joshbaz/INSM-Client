@@ -4,14 +4,6 @@ import { fadeUp, staggerContainer, slideInRight } from "../../utils/animations";
 
 const ANCHORS = [
   {
-    id: 1,
-    title: "The Makindye Blueprint",
-    text: "We have successfully consolidated over 17,000 production units into a disciplined, wealth-generating bloc. This is the National Gold Standard for economic mobilization.",
-    image:
-      "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?q=80&w=2070&auto=format&fit=crop",
-    alt: "Community cooperative meeting in Makindye",
-  },
-  {
     id: 2,
     title: "National Strategic Endorsement",
     text: "Our architecture has garnered the explicit support of the Government of Uganda and senior leadership, recognizing us as the most Efficient Vehicle for Parish-Level Economic Development.",
@@ -31,8 +23,8 @@ const ANCHORS = [
 
 const AnchorsOfTransformation = () => {
   return (
-    <section className="w-full bg-brand-white py-24 md:py-32 px-4 md:px-8">
-      <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
+    <section className="w-full bg-brand-white py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
         {/* Header Section */}
         <motion.div
           className="mb-16 md:mb-24 max-w-3xl"
@@ -65,6 +57,26 @@ const AnchorsOfTransformation = () => {
             and the professional mastery required to move entire communities
             into Market-Competitive Industrial Surplus.
           </motion.p>
+        </motion.div>
+
+        {/* The Makindye Blueprint Section (Text Only) */}
+        <motion.div
+          className="mb-20 md:mb-28"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          <motion.div variants={fadeUp} className="max-w-4xl">
+            <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-white-900 mb-6">
+              The Makindye Blueprint
+            </h3>
+            <p className="font-secondary text-lg md:text-xl text-brand-dark leading-relaxed">
+              We have successfully consolidated over 17,000 production units
+              into a disciplined, wealth-generating bloc. This is the National
+              Gold Standard for economic mobilization.
+            </p>
+          </motion.div>
         </motion.div>
 
         {/* Content Grid */}

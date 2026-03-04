@@ -42,6 +42,19 @@ const HomeClubTrigger = () => {
               Uganda's verified industrial network. No ambiguity. Direct
               accountability. Pure economic momentum.
             </motion.p>
+
+            <motion.div variants={fadeUp} className="pt-8">
+              <Link
+                to="/how-to-help/seed-portals"
+                className="inline-flex items-center gap-3 bg-brand-gold text-brand-navy-900 font-primary font-bold text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-brand-gold/80 transition-all duration-300 group"
+              >
+                Access the 1k Club Portal
+                <Icon
+                  icon="heroicons:arrow-right-20-solid"
+                  className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                />
+              </Link>
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -78,7 +91,7 @@ const HomeClubTrigger = () => {
             </p>
           </div>
           <Link
-            to="/how-to-help/join-the-assignment"
+            to="/how-to-help/seed-portals"
             className="shrink-0 bg-brand-lilac-500 border-2 border-brand-white/50 text-brand-white font-primary font-bold uppercase tracking-wider text-base px-10 py-4 rounded-full hover:bg-brand-lilac-500/50 transition-all duration-300 cursor-pointer whitespace-nowrap shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95"
           >
             Join the Bloc

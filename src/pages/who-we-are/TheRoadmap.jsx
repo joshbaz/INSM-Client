@@ -28,11 +28,8 @@ const PHASES = [
 
 const TheRoadmap = () => {
   return (
-    <section
-      id="the-roadmap"
-      className="w-full bg-brand-white py-24 md:py-32 px-4 md:px-8"
-    >
-      <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
+    <section id="the-roadmap" className="w-full bg-brand-white py-24 md:py-32">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
         {/* ── Header ── */}
         <motion.div
           className="mb-14 md:mb-20 max-w-3xl"

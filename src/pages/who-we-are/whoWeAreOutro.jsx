@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 const WhoWeAreOutro = () => {
   return (
-    <section className="w-full bg-transparent py-24 md:py-44 px-4 overflow-hidden">
-      <div className="max-w-6xl mx-auto relative">
+    <section className="w-full bg-transparent py-24 md:py-44 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 relative">
         <div className="relative flex items-center min-h-[400px]">
           {/* 1. Background Image - Shifted Left/Top */}
           <motion.div
@@ -15,12 +15,10 @@ const WhoWeAreOutro = () => {
             className="relative z-0 w-full max-w-lg aspect-video md:aspect-square md:max-w-xl overflow-hidden bg-brand-navy-100"
           >
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+              src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/Rectangle%206.png?updatedAt=1772569690283"
               alt="Strategic blueprint background"
-              className="w-full h-full object-cover opacity-30 grayscale mix-blend-multiply"
+              className="w-full h-full object-cover mix-blend-multiply"
             />
-            {/* The "checkerboard/grid" effect overlay from the screenshot */}
-            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
           </motion.div>
 
           {/* 2. Overlapping Text Box - Offset to the right */}

@@ -53,7 +53,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 { to: "/who-we-are/the-roadmap", label: "The Blueprint" },
-                { to: "/how-to-help/donate", label: "The Funds" },
+                { to: "/how-to-help/seed-portals", label: "The Funds" },
                 { to: "/what-we-do/projects", label: "Impact Data" },
                 { to: "/ethical-conduct", label: "Governance" },
               ].map((link, i) => (
@@ -77,7 +77,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 {
-                  to: "/how-to-help/seed-a-cooperative",
+                  to: "/how-to-help/donate",
                   label: "Capitalize a Hub",
                 },
                 {
@@ -86,7 +86,7 @@ const Footer = () => {
                 },
                 { to: "/how-to-help/contact-us", label: "Market Mentorship" },
                 {
-                  to: "/how-to-help/join-the-assignment",
+                  to: "/how-to-help/join-the-assignment#partners",
                   label: "Strategic Gatekeepers",
                 },
               ].map((link, i) => (

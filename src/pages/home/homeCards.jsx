@@ -7,33 +7,33 @@ const CARDS_DATA = [
     id: 1,
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/cc9a5e89836850c364b70c4f8c5668e4d2ff8500.png",
-    title: "17,000+ Lives Impacted.",
+    title: "Institutional SACCO Infrastructure",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec elit ornare purus.",
+      "Consolidating 17,000+ producers into governed Cooperative Societies to unlock wholesale credit and seed liquidity.",
   },
   {
     id: 2,
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/c28126f0fa21ff64ada52f6689f43d1e74bf046c.png",
-    title: "The Gold Standard of Transparency.",
+    title: "The Makindye Blueprint",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec elit ornare purus.",
+      "A high-efficiency deployment engine ensuring 17,000+ technical assets are the primary implementers of wealth creation.",
   },
   {
     id: 3,
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/8dbf70e93d3efe7df76b6e2153e64ea54d139809.png",
-    title: "Beyond Resilience to Mastery.",
+    title: "Collective Leverage",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec elit ornare purus.",
+      "Eliminating asset barriers by creating Institutional Collective Assets to dominate high-entry commercial sectors.",
   },
   {
     id: 4,
     image:
       "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/566072bc0c5d53da65e9b10a82415c4e1dad98f8.png",
-    title: "Secure the Mother, Secure the Nation.",
+    title: "Commanding the Value Chain",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nec elit ornare purus.",
+      "Transitioning producers from subsistence to Market Surplus as specialized leaders in Agriculture and Tourism.",
   },
 ];
 
@@ -41,6 +41,35 @@ const HomeCards = () => {
   return (
     <section className="w-full pt-32 pb-20 bg-brand-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+        {/* Header Section */}
+        <motion.div
+          className="mb-20 max-w-4xl"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="text-4xl md:text-5xl font-black font-primary text-brand-dark uppercase leading-[0.9] mb-8"
+          >
+            17,000+ Economic Units Deployed: <br />
+            <span className="text-brand-gold">
+              The Industrial Proof is in the Parish.
+            </span>
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="text-lg md:text-xl font-secondary text-brand-dark-400 leading-relaxed"
+          >
+            In Uganda, Market Dominance is a game of scale—and we are the Lead
+            Aggregators. With women comprising 51% of the national population,
+            the 17,000+ operatives we have mobilized represent a high-velocity
+            Economic Bloc. We have weaponized latent tenacity into Precision
+            Market Mastery.
+          </motion.p>
+        </motion.div>
+
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center"
           variants={staggerContainer}
@@ -69,7 +98,7 @@ const HomeCards = () => {
                 <h3 className="text-2xl md:text-4xl font-bold text-brand-white font-primary leading-tight drop-shadow-lg">
                   {card.title}
                 </h3>
-                <p className="text-brand-white-100 text-base md:text-lg font-secondary font-medium leading-relaxed max-w-lg drop-shadow-md">
+                <p className="text-brand-white-100 text-sm md:text-base font-secondary font-medium leading-relaxed max-w-lg drop-shadow-md">
                   {card.description}
                 </p>
               </div>

@@ -6,10 +6,10 @@ const OurStory = () => {
   return (
     <section
       id="our-story"
-      className="w-full bg-brand-lilac-100 py-24 md:py-32 px-4 md:px-8"
+      className="w-full bg-brand-lilac-100 py-24 md:py-32"
     >
       <motion.div
-        className="max-w-6xl mx-auto px-4 sm:px-8 md:px-12 lg:px-20 flex flex-col items-start text-left"
+        className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20 flex flex-col items-start text-left"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}

@@ -232,13 +232,13 @@ const StrategyInquiryForm = () => {
                 disabled={isSubmitting}
                 className="
                   bg-brand-gold hover:bg-brand-gold-600
-                  text-brand-navy-900 font-primary font-bold text-sm
-                  px-12 py-5
-                  rounded-sm
+                  text-brand-navy-900 font-primary font-black text-[10px]
+                  px-10 py-4
+                  rounded-full
                   transition-all duration-300
                   disabled:opacity-70 disabled:cursor-not-allowed
                   group cursor-pointer
-                  uppercase tracking-[0.3em]
+                  uppercase tracking-[0.2em]
                   flex items-center gap-4
                   border border-brand-gold
                 "

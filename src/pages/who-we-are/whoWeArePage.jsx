@@ -6,6 +6,7 @@ import OurTeam from "./OurTeam";
 import AnchorsOfTransformation from "./AnchorsOfTransformation";
 import RoadMap from "./TheRoadmap";
 import WhoWeAreOutro from "./whoWeAreOutro";
+import WhoWeAreAssignment from "./WhoWeAreAssignment";
 import useSEO from "../../hooks/useSEO";
 
 const whoWeArePage = () => {
@@ -47,6 +48,7 @@ const whoWeArePage = () => {
       <AnchorsOfTransformation />
       <RoadMap />
       <WhoWeAreOutro />
+      <WhoWeAreAssignment />
     </div>
   );
 };

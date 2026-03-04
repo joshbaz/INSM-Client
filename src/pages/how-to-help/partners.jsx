@@ -9,7 +9,7 @@ const Partners = () => {
     useState(false);
 
   return (
-    <section className="py-16 md:py-24 bg-brand-white">
+    <section id="partners" className="py-16 md:py-24 bg-brand-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ───── Header ───── */}
         <div className="mb-16 md:mb-24">
