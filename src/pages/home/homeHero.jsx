@@ -45,15 +45,15 @@ const HomeHero = () => {
               variants={fadeUp}
               className="font-primary font-extrabold text-brand-white uppercase leading-[1.1] tracking-tight mb-6"
             >
-              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              <span className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
                 Forget Theories.
               </span>
               <br />
-              <span className="text-brand-lilac-600 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              <span className="text-brand-lilac-600 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
                 We've Engineered
               </span>{" "}
               <br />
-              <span className="text-brand-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
+              <span className="text-brand-white text-base sm:text-lg md:text-xl lg:text-lg xl:text-xl 2xl:text-2xl">
                 an Economic Force of 17,000 Lives.
               </span>
             </motion.h1>

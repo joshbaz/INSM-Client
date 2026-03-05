@@ -45,13 +45,13 @@ const HomeGoldStandard = () => {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-dark mb-2"
+            className="text-base md:text-lg lg:text-xl xl:text-5xl 2xl:text-6xl font-bold font-primary text-brand-dark mb-2"
           >
             The Gold Standard
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="text-base md:text-lg font-secondary text-brand-dark-300 mb-6"
+            className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-dark-300 mb-6"
           >
             Integrity As Our Structural Anchor
           </motion.p>
@@ -88,7 +88,7 @@ const HomeGoldStandard = () => {
                 className="w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 object-contain"
               />{" "}
               {/* Title */}
-              <h3 className="text-xl md:text-2xl font-bold font-primary text-brand-gold-900 leading-tight">
+              <h3 className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold font-primary text-brand-gold-900 leading-tight">
                 {pillar.title}
               </h3>
               {/* Description or List */}

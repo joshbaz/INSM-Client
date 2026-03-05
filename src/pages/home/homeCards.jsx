@@ -52,7 +52,7 @@ const HomeCards = () => {
           {/* Gold Title */}
           <motion.h2
             variants={fadeUp}
-            className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-primary text-brand-gold leading-tight mb-3"
+            className="text-base md:text-lg lg:text-xl xl:text-5xl 2xl:text-6xl font-primary text-brand-gold leading-tight mb-3"
             style={{ fontStyle: "italic", fontWeight: 400 }}
           >
             17,000+ Economic Units Deployed
@@ -61,7 +61,7 @@ const HomeCards = () => {
           {/* Subtitle */}
           <motion.p
             variants={fadeUp}
-            className="text-lg md:text-xl font-secondary text-brand-white-200 font-medium mb-6"
+            className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-white-200 font-medium mb-6"
           >
             The Industrial Proof Is In The Parish
           </motion.p>
@@ -106,7 +106,7 @@ const HomeCards = () => {
               {/* Content — anchored to bottom */}
               <div className="absolute bottom-0 left-0 w-full p-5 md:p-8 xl:p-10 flex flex-col gap-2">
                 <h3
-                  className="text-2xl md:text-3xl font-bold font-primary leading-tight drop-shadow-lg"
+                  className="text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl font-bold font-primary leading-tight drop-shadow-lg"
                   style={{ color: "var(--industrial-white)" }}
                 >
                   {card.title}

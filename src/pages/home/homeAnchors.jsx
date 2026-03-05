@@ -40,13 +40,13 @@ const HomeAnchors = () => {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-dark mb-2"
+            className="text-base md:text-lg lg:text-xl xl:text-4xl 2xl:text-5xl font-bold font-primary text-brand-dark mb-2"
           >
             The Three Strategic Anchors
           </motion.h2>
           <motion.p
             variants={fadeUp}
-            className="text-base md:text-lg font-secondary text-brand-dark-300 mb-6"
+            className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-dark-300 mb-6"
           >
             Visualizing the Pathway to Market Dominance
           </motion.p>

@@ -74,11 +74,11 @@ const HomeCarousel = () => {
               variants={fadeUp}
               className="w-full md:w-1/2 flex flex-col gap-6"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-dark leading-tight">
+              <h2 className="text-base md:text-lg lg:text-xl xl:text-4xl 2xl:text-5xl font-bold font-primary text-brand-dark leading-tight">
                 {currentItem.title}
               </h2>
 
-              <p className="text-lg text-brand-dark-400 font-secondary leading-relaxed">
+              <p className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-dark-400 font-secondary leading-relaxed">
                 {currentItem.description}
               </p>
 

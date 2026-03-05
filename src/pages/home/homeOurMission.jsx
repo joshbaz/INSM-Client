@@ -121,17 +121,17 @@ const HomeOurMission = () => {
                 exit="exit"
               >
                 {/* Title */}
-                <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold font-primary text-brand-dark leading-tight mb-4">
+                <h2 className="text-base md:text-lg lg:text-xl xl:text-4xl 2xl:text-4xl font-extrabold font-primary text-brand-dark leading-tight mb-4">
                   {activeItem.title}
                 </h2>
 
                 {/* Subtitle */}
-                <p className="text-lg font-secondary text-brand-dark-300 mb-6">
+                <p className="text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-dark-300 mb-6">
                   {activeItem.subtitle}
                 </p>
 
                 {/* Description */}
-                <p className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed max-w-md">
+                <p className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed max-w-md">
                   {activeItem.description}
                 </p>
               </motion.div>

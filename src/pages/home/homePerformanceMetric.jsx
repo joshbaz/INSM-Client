@@ -44,7 +44,7 @@ const HomePerformanceMetric = () => {
           {/* Main Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-primary font-bold text-brand-white leading-tight mb-6 max-w-2xl"
+            className="text-base md:text-lg lg:text-xl xl:text-5xl 2xl:text-6xl font-primary font-bold text-brand-white leading-tight mb-6 max-w-2xl"
           >
             Ready to fuel the <br className="hidden md:block" />
             <span className="text-brand-gold">National Supply Chain?</span>
@@ -53,7 +53,7 @@ const HomePerformanceMetric = () => {
           {/* Subtext */}
           <motion.p
             variants={fadeUp}
-            className="font-secondary text-sm md:text-base text-brand-white/80 max-w-xl mb-10 leading-relaxed"
+            className="font-secondary text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-brand-white/80 max-w-xl mb-10 leading-relaxed"
           >
             Join An elite cadre of 10,000 individual partners committing
             <br className="hidden md:block" /> UGX 1,000 Weekly.
@@ -88,7 +88,7 @@ const HomePerformanceMetric = () => {
                     : ""
                 }`}
               >
-                <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-primary font-black text-brand-white tracking-tight leading-none mb-2">
+                <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-primary font-bold text-brand-white tracking-tight leading-none mb-2">
                   {metric.value}
                 </span>
                 <span className="text-[9px] md:text-[10px] font-primary font-bold text-brand-white/50 uppercase tracking-[0.2em]">
@@ -105,7 +105,7 @@ const HomePerformanceMetric = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6, duration: 0.5 }}
-          className="pt-14 text-xs md:text-sm text-center font-secondary text-brand-white/40 italic"
+          className="pt-14 text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-2xl text-center font-secondary text-brand-white/40 italic"
         >
           This fund supports the intellectual and legal infrastructure for
           17,000+ mothers.
