@@ -47,7 +47,7 @@ const Footer = () => {
           <div className="flex gap-16 lg:gap-24 lg:ml-auto lg:pt-1">
             {/* THE TERMINAL */}
             <div className="space-y-6">
-              <h4 className="font-primary font-bold text-brand-gold text-[11px] tracking-[0.25em] uppercase">
+              <h4 className="font-primary font-bold text-brand-dark-400 text-[11px] tracking-[0.25em] uppercase">
                 The Terminal
               </h4>
               <ul className="space-y-4">
@@ -71,7 +71,7 @@ const Footer = () => {
 
             {/* THE ASSIGNMENT */}
             <div className="space-y-6">
-              <h4 className="font-primary font-bold text-brand-gold text-[11px] tracking-[0.25em] uppercase">
+              <h4 className="font-primary font-bold text-brand-dark-400 text-[11px] tracking-[0.25em] uppercase">
                 The Assignment
               </h4>
               <ul className="space-y-4">

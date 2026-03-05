@@ -3,9 +3,7 @@ import { Icon } from "@iconify/react";
 import ContinueWithPesapal from "../../../Donate Page/donationModel/ContinueWithPesapal";
 
 /**
- * Specialized Payment Panel for the 1k Club.
- * Redesigned to match DonationPanel dimensions and styling to fit h-screen correctly.
- */
+ * Specialized Payment Panel for the 1k Club. */
 const OneKClubPanel = ({ frequency, setFrequency, step, setStep }) => {
   return (
     <div className="w-full md:max-w-[400px] bg-brand-white-100 rounded-xl shadow-lg flex flex-col overflow-hidden shrink-0">

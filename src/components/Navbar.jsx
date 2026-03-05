@@ -133,16 +133,15 @@ const Navbar = () => {
                 to={isHomePage ? "/how-to-help/partner-with-us" : "/"}
                 className="
                 hidden md:inline-flex
-                items-center justify-center
+                items-center justify-center text-center
                 bg-brand-lilac-700 hover:bg-brand-lilac-700/90
-                text-brand-white text-body font-semibold text-sm
-                px-8 py-3
+                text-brand-white font-semibold text-sm
+                px-8 h-[45px] min-w-[150px]
                 rounded-full
                 transition-colors
                 cursor-pointer
                 uppercase tracking-wide
               "
-                style={{ minWidth: "150px", height: "45px" }}
               >
                 {isHomePage ? "PARTNER WITH US" : "GO BACK HOME"}
               </Link>
