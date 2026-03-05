@@ -136,7 +136,7 @@ const Navbar = () => {
                 items-center justify-center text-center
                 bg-brand-lilac-700 hover:bg-brand-lilac-700/90
                 text-brand-white font-semibold text-sm
-                px-8 h-[45px] min-w-[150px]
+                px-2 md:px-4 h-[45px] min-w-[150px]
                 rounded-full
                 transition-colors
                 cursor-pointer

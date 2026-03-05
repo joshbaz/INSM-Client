@@ -52,7 +52,7 @@ const HomeCards = () => {
           {/* Gold Title */}
           <motion.h2
             variants={fadeUp}
-            className="text-4xl md:text-5xl lg:text-display font-primary text-brand-gold leading-tight mb-3"
+            className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-primary text-brand-gold leading-tight mb-3"
             style={{ fontStyle: "italic", fontWeight: 400 }}
           >
             17,000+ Economic Units Deployed
@@ -81,7 +81,7 @@ const HomeCards = () => {
 
         {/* 2×2 Cards Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-5 xl:gap-6 2xl:gap-8"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -91,7 +91,7 @@ const HomeCards = () => {
             <motion.div
               key={card.id}
               variants={fadeUp}
-              className="group relative h-72 md:h-80 w-full overflow-hidden rounded-lg"
+              className="group relative h-64 sm:h-72 md:h-80 xl:h-96 2xl:h-[480px] w-full overflow-hidden rounded-lg"
             >
               {/* Background Image */}
               <img
@@ -104,7 +104,7 @@ const HomeCards = () => {
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-black/10"></div>
 
               {/* Content — anchored to bottom */}
-              <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col gap-2">
+              <div className="absolute bottom-0 left-0 w-full p-5 md:p-8 xl:p-10 flex flex-col gap-2">
                 <h3
                   className="text-2xl md:text-3xl font-bold font-primary leading-tight drop-shadow-lg"
                   style={{ color: "var(--industrial-white)" }}

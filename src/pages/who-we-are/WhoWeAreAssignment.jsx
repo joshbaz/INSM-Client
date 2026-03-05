@@ -55,7 +55,7 @@ const ASSIGNMENT_POINTS = [
 const WhoWeAreAssignment = () => {
   return (
     <section className="w-full bg-brand-white py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="max-w-6xl 2xl:max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32">
         {/* ── Header: Matching Strategic Blueprint Style ── */}
         <motion.div
           className="mb-14 md:mb-20 max-w-3xl"
@@ -94,7 +94,7 @@ const WhoWeAreAssignment = () => {
 
         {/* ── Phase Cards: Blueprint Grid Layout ── */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-5 xl:gap-6 2xl:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
@@ -104,7 +104,7 @@ const WhoWeAreAssignment = () => {
             <motion.div
               key={point.id}
               variants={fadeUp}
-              className="bg-brand-lilac-100 p-8 md:p-10 flex flex-col items-start overflow-hidden relative group"
+              className="bg-brand-lilac-100 p-8 md:p-10 xl:p-12 flex flex-col items-start overflow-hidden relative group"
             >
               {/* Technical Marker Label (Matches Phase labels) */}
               <span className="text-brand-lilac-700 font-primary font-bold text-[10px] tracking-[0.15em] uppercase mb-10">
@@ -185,7 +185,7 @@ const WhoWeAreAssignment = () => {
             <Link
               to="/how-to-help/partner-with-us"
               className="
-                 inline-flex items-center justify-center
+                 inline-flex items-center justify-center min-h-[48px]
                  border border-brand-white/40 hover:border-brand-white
                  text-brand-white text-[11px] font-primary font-bold
                  px-8 py-4

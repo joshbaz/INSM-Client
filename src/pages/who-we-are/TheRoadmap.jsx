@@ -29,7 +29,7 @@ const PHASES = [
 const TheRoadmap = () => {
   return (
     <section id="the-roadmap" className="w-full bg-brand-white py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="max-w-6xl 2xl:max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32">
         {/* ── Header ── */}
         <motion.div
           className="mb-14 md:mb-20 max-w-3xl"
@@ -40,7 +40,7 @@ const TheRoadmap = () => {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-2"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-white-900 mb-2"
           >
             The Strategic Blueprint
           </motion.h2>
@@ -63,7 +63,7 @@ const TheRoadmap = () => {
 
         {/* ── Phase Cards ── */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 xl:gap-6 2xl:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}

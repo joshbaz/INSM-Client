@@ -31,11 +31,11 @@ const HomeHero = () => {
           variants={staggerContainer}
         >
           {/* Glass content panel */}
-          <div className="max-w-3xl bg-white/5 backdrop-blur-lg border border-brand-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
+          <div className="max-w-3xl bg-white/5 backdrop-blur-lg border border-brand-white/10 rounded-3xl p-6 sm:p-8 md:p-10 xl:p-14 shadow-2xl">
             {/* Tagline */}
             <motion.span
               variants={fadeUp}
-              className="inline-block text-xs md:text-sm lg:text-xs font-secondary font-bold uppercase tracking-[0.35em] text-brand-white-100 mb-6"
+              className="inline-block text-xs font-secondary font-bold uppercase tracking-[0.35em] text-brand-white-100 mb-6"
             >
               Architecting an Unshakable Uganda
             </motion.span>
@@ -45,15 +45,15 @@ const HomeHero = () => {
               variants={fadeUp}
               className="font-primary font-extrabold text-brand-white uppercase leading-[1.1] tracking-tight mb-6"
             >
-              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 Forget Theories.
               </span>
               <br />
-              <span className="text-brand-lilac-600 text-lg sm:text-xl md:text-2xl lg:text-3xl">
+              <span className="text-brand-lilac-600 text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 We've Engineered
               </span>{" "}
               <br />
-              <span className="text-brand-white text-lg sm:text-xl md:text-2xl lg:text-2xl">
+              <span className="text-brand-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl">
                 an Economic Force of 17,000 Lives.
               </span>
             </motion.h1>
@@ -71,11 +71,11 @@ const HomeHero = () => {
             {/* CTA Buttons */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-5"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-5"
             >
               <Link
                 to="/how-to-help/partner-with-us"
-                className="group relative inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-10 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.03]"
+                className="group relative inline-flex items-center justify-center min-h-[48px] bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-8 md:px-10 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.03]"
               >
                 <span className="relative z-10">Access The Terminal</span>
                 <div className="absolute inset-0 bg-brand-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -83,7 +83,7 @@ const HomeHero = () => {
 
               <Link
                 to="/how-to-help/join-the-assignment"
-                className="inline-flex items-center justify-center border border-brand-white/30 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-10 py-4 rounded-full backdrop-blur-md hover:bg-brand-white/10 transition-all duration-300 hover:scale-[1.03]"
+                className="inline-flex items-center justify-center min-h-[48px] border border-brand-white/30 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-8 md:px-10 py-4 rounded-full backdrop-blur-md hover:bg-brand-white/10 transition-all duration-300 hover:scale-[1.03]"
               >
                 Invest in the Bloc
               </Link>
@@ -93,7 +93,7 @@ const HomeHero = () => {
       </div>
 
       {/* Subtle bottom fade for smooth transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-dark-900 to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-brand-dark-900 to-transparent z-10" />
     </section>
   );
 };

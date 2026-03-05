@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="bg-brand-dark-600 w-full text-white">
       {/* ─── MAIN CONTENT ─── */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-14">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-16 2xl:px-20 pt-16 pb-14">
         <div className="flex flex-col lg:flex-row gap-14 lg:gap-8">
           {/* LEFT: Logo + Brand Statement */}
           <div className="flex gap-6 lg:max-w-[520px]">
@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
 
           {/* RIGHT: Navigation Columns */}
-          <div className="flex gap-16 lg:gap-24 lg:ml-auto lg:pt-1">
+          <div className="flex flex-wrap gap-16 lg:gap-24 xl:gap-32 2xl:gap-40 lg:ml-auto lg:pt-1">
             {/* THE TERMINAL */}
             <div className="space-y-6">
               <h4 className="font-primary font-bold text-brand-dark-400 text-[11px] tracking-[0.25em] uppercase">

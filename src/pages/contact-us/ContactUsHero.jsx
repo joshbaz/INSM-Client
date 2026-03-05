@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer } from "../../utils/animations";
 const ContactUsHero = () => {
   return (
     <section
-      className="relative w-full h-[500px] md:h-[600px] bg-cover bg-center flex items-end justify-center overflow-hidden group"
+      className="relative w-full h-[500px] md:h-[600px] xl:h-[700px] 2xl:h-[800px] bg-cover bg-center flex items-end justify-center overflow-hidden group"
       style={{
         backgroundImage: `url("https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/contact.png")`,
       }}
@@ -19,11 +19,11 @@ const ContactUsHero = () => {
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] flex flex-col justify-center items-center p-6 md:p-12 text-center w-full shadow-sm border-t border-brand-white/50"
+          className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] xl:h-[380px] flex flex-col justify-center items-center p-6 md:p-12 xl:p-16 text-center w-full shadow-sm border-t border-brand-white/50"
         >
           <motion.h1
             variants={fadeUp}
-            className="text-3xl md:text-5xl font-bold font-primary text-brand-teal-900 uppercase tracking-tight mb-4 md:mb-6 leading-tight max-w-5xl mx-auto"
+            className="text-3xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-teal-900 uppercase tracking-tight mb-4 md:mb-6 leading-tight max-w-5xl mx-auto"
           >
             Let's Architect the <br className="hidden md:block" /> Future of
             Uganda

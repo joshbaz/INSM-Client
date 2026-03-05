@@ -45,7 +45,7 @@ const HomeGoldStandard = () => {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-2"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-dark mb-2"
           >
             The Gold Standard
           </motion.h2>
@@ -69,7 +69,7 @@ const HomeGoldStandard = () => {
 
         {/* 3 Pillar Cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-14"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 xl:gap-8 mb-14"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -85,7 +85,7 @@ const HomeGoldStandard = () => {
               <img
                 src={pillar.icon}
                 alt={pillar.title}
-                className="w-14 h-14 object-contain"
+                className="w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 object-contain"
               />{" "}
               {/* Title */}
               <h3 className="text-xl md:text-2xl font-bold font-primary text-brand-gold-900 leading-tight">

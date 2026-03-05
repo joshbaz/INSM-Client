@@ -103,7 +103,7 @@ const HomeOurMission = () => {
       id="our-mission"
       className="relative w-full lg:px-20 py-20 md:py-28 px-4 md:px-8 bg-brand-white"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-6 md:px-12 lg:px-20 xl:px-24 2xl:px-32">
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
           {/* ── Left Column: Text Content ── */}
           <div className="w-full lg:w-1/2">
@@ -121,7 +121,7 @@ const HomeOurMission = () => {
                 exit="exit"
               >
                 {/* Title */}
-                <h2 className="text-3xl md:text-4xl lg:text-h1 font-extrabold font-primary text-brand-dark leading-tight mb-4">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold font-primary text-brand-dark leading-tight mb-4">
                   {activeItem.title}
                 </h2>
 

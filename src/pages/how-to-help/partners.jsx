@@ -10,10 +10,10 @@ const Partners = () => {
 
   return (
     <section id="partners" className="py-16 md:py-24 bg-brand-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-20">
         {/* ───── Header ───── */}
         <div className="mb-16 md:mb-24">
-          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold font-primary text-brand-dark mb-4">
             Our Strategic Partners
           </h2>
           <p className="font-secondary text-brand-dark-400 text-base md:text-lg leading-relaxed max-w-4xl">
@@ -80,7 +80,7 @@ const Partners = () => {
               <button
                 type="button"
                 onClick={() => setIsTechnicalMentorFormOpen(true)}
-                className="inline-block bg-brand-lilac hover:bg-brand-lilac/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300 cursor-pointer"
+                className="inline-block min-h-[48px] bg-brand-lilac hover:bg-brand-lilac/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300 cursor-pointer"
               >
                 Become a Technical Mentor
               </button>
@@ -125,7 +125,7 @@ const Partners = () => {
               <button
                 type="button"
                 onClick={() => setIsCommunityEquipperFormOpen(true)}
-                className="inline-block bg-brand-teal-800 hover:bg-brand-teal-800/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300 cursor-pointer"
+                className="inline-block min-h-[48px] bg-brand-teal-800 hover:bg-brand-teal-800/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300 cursor-pointer"
               >
                 Inquire About Equippers Portal
               </button>

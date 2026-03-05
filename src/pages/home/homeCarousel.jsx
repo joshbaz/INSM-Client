@@ -60,7 +60,7 @@ const HomeCarousel = () => {
               variants={slideInLeft}
               className="w-full md:w-1/2 flex justify-center md:justify-start"
             >
-              <div className="relative w-full max-w-[500px] aspect-4/5 md:aspect-square overflow-hidden rounded-lg shadow-sm">
+              <div className="relative w-full max-w-[500px] aspect-square md:aspect-square xl:aspect-4/5 overflow-hidden rounded-lg shadow-sm">
                 <img
                   src={currentItem.image}
                   alt={currentItem.title}
@@ -74,7 +74,7 @@ const HomeCarousel = () => {
               variants={fadeUp}
               className="w-full md:w-1/2 flex flex-col gap-6"
             >
-              <h2 className="text-4xl md:text-5xl font-bold font-primary text-brand-dark leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-dark leading-tight">
                 {currentItem.title}
               </h2>
 

@@ -40,7 +40,7 @@ const HomeAnchors = () => {
         >
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-2"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold font-primary text-brand-dark mb-2"
           >
             The Three Strategic Anchors
           </motion.h2>
@@ -62,7 +62,7 @@ const HomeAnchors = () => {
 
         {/* Cards */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5"
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 xl:gap-8"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -78,7 +78,7 @@ const HomeAnchors = () => {
               <img
                 src={anchor.icon}
                 alt={anchor.title}
-                className="w-14 h-14 object-contain mb-2"
+                className="w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 object-contain mb-2"
               />
 
               {/* Title */}

@@ -2,9 +2,9 @@ import React from "react";
 
 const GalleryHero = () => {
   return (
-    <section className="bg-brand-pink-100/60 py-20 md:py-24 lg:py-40 w-full text-center px-4">
+    <section className="bg-brand-pink-100/60 py-20 md:py-24 lg:py-40 xl:py-48 2xl:py-60 w-full text-center px-4">
       <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-primary text-brand-dark uppercase tracking-wide">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold font-primary text-brand-dark uppercase tracking-wide">
           GALLERY
         </h1>
         <p className="text-base md:text-lg lg:text-xl font-secondary text-brand-dark-400 max-w-2xl leading-relaxed">

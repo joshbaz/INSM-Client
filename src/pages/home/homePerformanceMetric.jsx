@@ -12,7 +12,7 @@ const METRICS = [
 
 const HomePerformanceMetric = () => {
   return (
-    <section className="relative w-full min-h-[620px] md:min-h-[680px] flex flex-col justify-center overflow-hidden">
+    <section className="relative w-full min-h-[620px] md:min-h-[680px] xl:min-h-[780px] 2xl:min-h-[900px] flex flex-col justify-center overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
@@ -25,7 +25,7 @@ const HomePerformanceMetric = () => {
       <div className="absolute inset-0 bg-brand-dark/80"></div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto w-full px-8 md:px-12 lg:px-20 pt-16 md:pt-20 pb-4 md:pb-6 flex flex-col">
+      <div className="relative z-10 max-w-6xl 2xl:max-w-screen-2xl mx-auto w-full px-8 md:px-12 lg:px-20 xl:px-24 2xl:px-32 pt-16 md:pt-20 pb-4 md:pb-6 flex flex-col">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -44,7 +44,7 @@ const HomePerformanceMetric = () => {
           {/* Main Heading */}
           <motion.h2
             variants={fadeUp}
-            className="text-3xl md:text-5xl lg:text-display font-primary font-bold text-brand-white leading-tight mb-6 max-w-2xl"
+            className="text-3xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-primary font-bold text-brand-white leading-tight mb-6 max-w-2xl"
           >
             Ready to fuel the <br className="hidden md:block" />
             <span className="text-brand-gold">National Supply Chain?</span>
@@ -88,7 +88,7 @@ const HomePerformanceMetric = () => {
                     : ""
                 }`}
               >
-                <span className="text-2xl md:text-3xl lg:text-4xl font-primary font-black text-brand-white tracking-tight leading-none mb-2">
+                <span className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-primary font-black text-brand-white tracking-tight leading-none mb-2">
                   {metric.value}
                 </span>
                 <span className="text-[9px] md:text-[10px] font-primary font-bold text-brand-white/50 uppercase tracking-[0.2em]">

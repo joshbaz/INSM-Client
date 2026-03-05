@@ -5,7 +5,7 @@ import { fadeUp, staggerContainer } from "../../../../utils/animations";
 const SeedPortalsHero = () => {
   return (
     <section
-      className="relative w-full h-[500px] md:h-[600px] bg-cover bg-center flex items-end justify-center overflow-hidden group"
+      className="relative w-full h-[500px] md:h-[600px] xl:h-[700px] 2xl:h-[800px] bg-cover bg-center flex items-end justify-center overflow-hidden group"
       style={{
         backgroundImage: `url("https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/24d67f7bedf75fdebe204784ab41ceb9f7e96699.png")`, // Using a reliable image, we can update later if a specific one is provided
       }}
@@ -16,7 +16,7 @@ const SeedPortalsHero = () => {
       {/* Content with glass background */}
       <div className="relative z-10 w-full">
         <motion.div
-          className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] flex flex-col justify-center items-center p-6 md:p-12 text-center w-full shadow-sm border-t border-brand-white/50"
+          className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] xl:h-[380px] flex flex-col justify-center items-center p-6 md:p-12 xl:p-16 text-center w-full shadow-sm border-t border-brand-white/50"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
@@ -33,7 +33,7 @@ const SeedPortalsHero = () => {
 
           <motion.h1
             variants={fadeUp}
-            className="text-3xl md:text-6xl font-bold font-primary text-brand-teal-900 mb-4 md:mb-6 uppercase tracking-tight"
+            className="text-3xl md:text-6xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold font-primary text-brand-teal-900 mb-4 md:mb-6 uppercase tracking-tight"
           >
             The Seed Portals
           </motion.h1>
