@@ -36,8 +36,7 @@ const Navbar = () => {
         },
         {
           name: "Equipper Portal",
-          path: "https://portal.insmuganda.org",
-          external: true,
+          path: "/partner-portal",
         },
         { name: "Contact Us", path: "/how-to-help/contact-us" },
       ],
@@ -104,12 +103,12 @@ const Navbar = () => {
           {/* NAV BAR HEADER */}
           <div className="flex items-center justify-between h-20">
             {/* LOGO */}
-            <Link to="/" className="flex items-center gap-4 z-50 relative">
-              <div className="relative w-28 h-20 md:w-32 md:h-24 xl:w-36 xl:h-28 2xl:w-40 2xl:h-32 shrink-0">
+            <Link to="/" className="flex items-center z-50 relative">
+              <div className="relative w-20 md:w-22 xl:w-26 2xl:w-30 h-20 md:h-24 xl:h-28 2xl:h-32 shrink-0">
                 <img
                   src="/logo.png"
                   alt="INSM Logo"
-                  className="absolute top-0 left-0 w-24 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 rounded-full object-contain max-w-none"
+                  className="absolute top-0 mt-4 left-0 w-18 h-18 md:w-20 md:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 rounded-full object-contain max-w-none"
                 />
               </div>
 
