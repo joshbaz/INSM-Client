@@ -101,8 +101,7 @@ const HomeOurMission = () => {
   return (
     <section
       id="our-mission"
-      className="relative w-full py-20 md:py-28 px-4 md:px-8"
-      style={{ backgroundColor: "#f5f5f5" }}
+      className="relative w-full lg:px-20 py-20 md:py-28 px-4 md:px-8 bg-brand-white"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col lg:flex-row items-start gap-10 lg:gap-16">
@@ -140,7 +139,7 @@ const HomeOurMission = () => {
           </div>
 
           {/* ── Right Column: Cards + Vertical Nav ── */}
-          <div className="w-full lg:w-1/3 flex items-center gap-6">
+          <div className="w-full lg:w-1/2 flex items-center gap-6">
             {/* Cards Stack */}
             <div className="flex-1 flex flex-col gap-4">
               <AnimatePresence mode="wait">
