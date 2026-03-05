@@ -3,6 +3,7 @@ import HomeHero from "./homeHero";
 import HomeAnchors from "./homeAnchors";
 import HomePerformanceMetric from "./homePerformanceMetric";
 import Carousel from "./homeCarousel";
+import OurMission from "./homeOurMission"
 import Cards from "./homeCards";
 import useSEO from "../../hooks/useSEO";
 
@@ -17,6 +18,7 @@ const Home = () => {
     <div className="min-h-screen bg-brand-white">
       <HomeHero />
       <Carousel />
+      <OurMission/>
       <HomeAnchors />
       <HomePerformanceMetric />
       <Cards />
