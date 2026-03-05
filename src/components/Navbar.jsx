@@ -109,7 +109,7 @@ const Navbar = () => {
                 <img
                   src="/logo.png"
                   alt="INSM Logo"
-                  className="absolute top-0 left-0 w-24 h-24 rounded-full object-contain max-w-none shadow-sm bg-brand"
+                  className="absolute top-0 left-0 w-24 h-24 rounded-full object-contain max-w-none"
                 />
               </div>
 
