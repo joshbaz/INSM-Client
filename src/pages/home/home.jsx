@@ -18,10 +18,10 @@ const Home = () => {
     <div className="min-h-screen bg-brand-white">
       <HomeHero />
       <HomeClubTrigger />
+      <Carousel />
       <HomeAnchors />
       <HomePerformanceMetric />
       <Cards />
-      <Carousel />
     </div>
   );
 };
