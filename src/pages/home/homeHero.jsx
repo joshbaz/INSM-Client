@@ -32,7 +32,6 @@ const HomeHero = () => {
         >
           {/* Glass content panel */}
           <div className="max-w-3xl bg-white/5 backdrop-blur-lg border border-brand-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
-
             {/* Tagline */}
             <motion.span
               variants={fadeUp}
@@ -47,12 +46,13 @@ const HomeHero = () => {
               className="font-primary font-extrabold text-brand-white uppercase leading-[1.1] tracking-tight mb-6"
             >
               <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
-              Forget Theories.
+                Forget Theories.
               </span>
               <br />
               <span className="text-brand-lilac-600 text-lg sm:text-xl md:text-2xl lg:text-3xl">
                 We've Engineered
-              </span>{" "} <br/>
+              </span>{" "}
+              <br />
               <span className="text-brand-white text-lg sm:text-xl md:text-2xl lg:text-2xl">
                 an Economic Force of 17,000 Lives.
               </span>
@@ -74,7 +74,7 @@ const HomeHero = () => {
               className="flex flex-col sm:flex-row gap-5"
             >
               <Link
-                to="/how-to-help/donate"
+                to="/how-to-help/partner-with-us"
                 className="group relative inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-10 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.03]"
               >
                 <span className="relative z-10">Access The Terminal</span>

@@ -81,9 +81,8 @@ const SeedPortals = () => {
             </div>
 
             <p className="font-secondary text-xs md:text-sm text-brand-lilac-800 mb-10 leading-relaxed grow">
-              An elite cadre of 1,000 individual partners committing $1,000
-              annually ($84/mo) to provide the baseline liquidity for national
-              scale. This fund supports the intellectual and legal
+              An elite cadre of 10,000 individual partners committing UGX 1,000
+              Weekly. This fund supports the intellectual and legal
               infrastructure for 17,000+ mothers.
             </p>
 
@@ -217,7 +216,7 @@ const SeedPortals = () => {
 
           <div className="relative z-10 shrink-0">
             <Link
-              to="/how-to-help/donate"
+              to="/how-to-help/partner-with-us"
               className="
                 inline-flex items-center justify-center
                 border border-brand-white/40 hover:border-brand-white

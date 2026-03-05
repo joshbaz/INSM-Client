@@ -149,7 +149,7 @@ const ThreeRopes = () => {
                 <div className="w-full md:w-1/4 p-6 md:p-8 flex flex-col justify-end">
                   {/* RIGHT DESCRIPTION COLOR */}
                   <p
-                    className={`text-sm font-secondary ${rope.rightTextColor} leading-relaxed`}
+                    className={`text-base font-secondary ${rope.rightTextColor} leading-relaxed`}
                   >
                     {rope.rightText}
                   </p>

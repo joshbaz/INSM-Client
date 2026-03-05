@@ -183,7 +183,7 @@ const WhoWeAreAssignment = () => {
 
           <div className="relative z-10 shrink-0">
             <Link
-              to="/how-to-help/donate"
+              to="/how-to-help/partner-with-us"
               className="
                  inline-flex items-center justify-center
                  border border-brand-white/40 hover:border-brand-white

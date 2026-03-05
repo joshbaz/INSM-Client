@@ -222,6 +222,12 @@ body {
   font-family: var(--font-primary);
   background-color: var(--white);
   color: var(--dark);
+  font-size: 16px;
+}
+
+/* Ensure minimum 16px for body text elements */
+p, li, span, td, th {
+  font-size: max(inherit, 1rem);
 }
 
 /* Direct Heading Authority */

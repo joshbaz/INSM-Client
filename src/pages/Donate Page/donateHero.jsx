@@ -25,7 +25,7 @@ const DonateHero = () => {
             variants={fadeUp}
             className="text-3xl md:text-6xl font-bold font-primary text-brand-teal-900 mb-4 md:mb-6 uppercase tracking-tight"
           >
-            Donate With <br className="hidden md:block" /> Dignity
+            Partner With <br className="hidden md:block" /> Us
           </motion.h1>
           <motion.p
             variants={fadeUp}

@@ -9,7 +9,7 @@ import useSEO from "../../hooks/useSEO";
 
 const donatePage = () => {
   useSEO({
-    title: "Donate",
+    title: "Partner With Us",
     description:
       "Invest in the economic dignity of single mothers in Uganda. Your contribution directly funds cooperative formation and financial literacy.",
   });

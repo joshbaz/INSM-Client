@@ -29,7 +29,7 @@ const Navbar = () => {
     {
       title: "How to help?",
       items: [
-        { name: "Donate", path: "/how-to-help/donate" },
+        { name: "Partner With Us", path: "/how-to-help/partner-with-us" },
         {
           name: "Join the Assignment",
           path: "/how-to-help/join-the-assignment",
@@ -130,7 +130,7 @@ const Navbar = () => {
             <div className="flex items-center gap-6 z-30 relative">
               {/* CTA BUTTON */}
               <Link
-                to={isHomePage ? "/how-to-help/donate" : "/"}
+                to={isHomePage ? "/how-to-help/partner-with-us" : "/"}
                 className="
                 hidden md:inline-flex
                 items-center justify-center
@@ -144,7 +144,7 @@ const Navbar = () => {
               "
                 style={{ minWidth: "150px", height: "45px" }}
               >
-                {isHomePage ? "DONATE" : "GO BACK HOME"}
+                {isHomePage ? "PARTNER WITH US" : "GO BACK HOME"}
               </Link>
 
               {/* TOGGLE BUTTON (BURGER / CLOSE) */}
@@ -223,7 +223,7 @@ const Navbar = () => {
             {/* Mobile Menu CTA */}
             <div className="mt-8 px-4 md:hidden">
               <Link
-                to={isHomePage ? "/how-to-help/donate" : "/"}
+                to={isHomePage ? "/how-to-help/partner-with-us" : "/"}
                 onClick={() => setIsMenuOpen(false)}
                 className="
                   w-full md:w-auto
@@ -239,7 +239,7 @@ const Navbar = () => {
                 "
                 style={{ height: "54px" }}
               >
-                {isHomePage ? "DONATE" : "GO BACK HOME"}
+                {isHomePage ? "PARTNER WITH US" : "GO BACK HOME"}
               </Link>
             </div>
           </div>

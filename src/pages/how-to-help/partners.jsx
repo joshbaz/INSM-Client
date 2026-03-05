@@ -166,8 +166,8 @@ const Partners = () => {
               Market Access &amp; Policy Alignment
             </p>
             <p className="font-secondary text-brand-dark-400 text-sm md:text-base leading-relaxed mb-5">
-              We invite businesses and Government officials (RDCs/ RCCs) to join
-              the national economic priority.
+              We invite businesses, LCs, and Government officials (RDCs/RCCs) to
+              join the national economic priority.
             </p>
             <ul className="space-y-3 mb-8 text-left font-secondary text-sm md:text-base text-brand-dark-400 leading-relaxed">
               <li className="flex items-start gap-2">

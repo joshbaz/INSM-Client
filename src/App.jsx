@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -69,7 +74,14 @@ function App() {
             />
 
             {/* How To Help */}
-            <Route path="/how-to-help/donate" element={<DonatePage />} />
+            <Route
+              path="/how-to-help/partner-with-us"
+              element={<DonatePage />}
+            />
+            <Route
+              path="/how-to-help/donate"
+              element={<Navigate to="/how-to-help/partner-with-us" replace />}
+            />
             <Route
               path="/how-to-help/join-the-assignment"
               element={<HowToHelp />}

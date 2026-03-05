@@ -77,7 +77,7 @@ const Footer = () => {
             <ul className="space-y-4">
               {[
                 {
-                  to: "/how-to-help/donate",
+                  to: "/how-to-help/partner-with-us",
                   label: "Capitalize a Hub",
                 },
                 {
@@ -137,28 +137,38 @@ const Footer = () => {
 
           <div className="flex items-center gap-8">
             <div className="flex gap-5">
-              {["mdi:facebook", "mdi:twitter", "mdi:linkedin"].map(
-                (icon, i) => (
-                  <a
-                    key={i}
-                    href="#"
-                    className="text-brand-white/20 hover:text-brand-gold transition-colors"
-                  >
-                    <Icon icon={icon} className="w-5 h-5" />
-                  </a>
-                ),
-              )}
+              {[
+                { icon: "mdi:facebook", href: "#" },
+                { icon: "mdi:twitter", href: "#" },
+                {
+                  icon: "mdi:linkedin",
+                  href: "https://www.linkedin.com/in/winifred-nassanga-5459063a8/",
+                },
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target={social.href !== "#" ? "_blank" : undefined}
+                  rel={social.href !== "#" ? "noopener noreferrer" : undefined}
+                  className="text-brand-white/20 hover:text-brand-gold transition-colors"
+                >
+                  <Icon icon={social.icon} className="w-5 h-5" />
+                </a>
+              ))}
             </div>
 
-            <a
-              href="https://portal.insmuganda.org"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-brand-white/5 hover:bg-brand-gold hover:text-brand-navy-900 border border-brand-white/10 px-6 py-2 rounded text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2"
+            <button
+              onClick={() =>
+                alert(
+                  "Partner Portal — Coming Soon! We are building a secure portal for strategic partners. Stay tuned.",
+                )
+              }
+              className="bg-brand-white/5 hover:bg-brand-gold hover:text-brand-navy-900 border border-brand-white/10 px-6 py-2 rounded text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-2 cursor-pointer"
             >
               Partner Portal
-              <Icon icon="heroicons:lock-closed-20-solid" className="w-3 h-3" />
-            </a>
+              <Icon icon="heroicons:clock-20-solid" className="w-3 h-3" />
+              <span className="text-[8px] opacity-60">Coming Soon</span>
+            </button>
           </div>
         </div>
       </div>
