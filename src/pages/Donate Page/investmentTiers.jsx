@@ -61,7 +61,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
                 <div className="flex justify-between items-center mt-auto gap-3">
                   <button
                     onClick={() => setSelectedTier(tier)}
-                    className="border border-gray-300 text-gray-400 font-bold text-[10px] py-3 px-4 rounded-full flex items-center gap-1 hover:bg-gray-50 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap"
+                    className="border border-gray-300 text-gray-400 font-bold text-[10px] py-4 px-4 rounded-full flex items-center gap-1 hover:bg-gray-50 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap min-h-[48px]"
                   >
                     More Info
                     <Icon
@@ -71,7 +71,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
                   </button>
                   <button
                     onClick={() => onDonateClick && onDonateClick(tier)}
-                    className="bg-brand-lilac-600 text-brand-white font-bold text-[10px] py-3 px-6 rounded-full hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm"
+                    className="bg-brand-lilac-600 text-brand-white font-bold text-[10px] py-4 px-6 rounded-full hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm min-h-[48px]"
                   >
                     Give Seed
                   </button>

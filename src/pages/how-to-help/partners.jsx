@@ -80,7 +80,7 @@ const Partners = () => {
               <button
                 type="button"
                 onClick={() => setIsTechnicalMentorFormOpen(true)}
-                className="inline-block min-h-[48px] bg-brand-lilac hover:bg-brand-lilac/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300 cursor-pointer"
+                className="inline-block min-h-[48px] bg-brand-lilac hover:bg-brand-lilac/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-4 rounded-full transition-colors duration-300 cursor-pointer"
               >
                 Become a Technical Mentor
               </button>
@@ -125,7 +125,7 @@ const Partners = () => {
               <button
                 type="button"
                 onClick={() => setIsCommunityEquipperFormOpen(true)}
-                className="inline-block min-h-[48px] bg-brand-teal-800 hover:bg-brand-teal-800/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300 cursor-pointer"
+                className="inline-block min-h-[48px] bg-brand-teal-800 hover:bg-brand-teal-800/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-4 rounded-full transition-colors duration-300 cursor-pointer"
               >
                 Inquire About Equippers Portal
               </button>
@@ -190,7 +190,7 @@ const Partners = () => {
             <div className="flex justify-center md:justify-end">
               <a
                 href="#"
-                className="inline-block bg-brand-brown hover:bg-brand-brown/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full transition-colors duration-300"
+                className="inline-block min-h-[48px] bg-brand-brown hover:bg-brand-brown/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-4 rounded-full transition-colors duration-300 flex items-center justify-center"
               >
                 Partner at the Executive Level
               </a>
