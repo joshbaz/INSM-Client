@@ -9,7 +9,7 @@ const HomeClubTrigger = () => {
     <section className="w-full bg-brand-white py-24 md:py-32 px-4 overflow-hidden">
       <div className="max-w-6xl mx-auto px-2 md:px-12 lg:px-20">
         {/* Header Section */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-4 mb-6 md:mb-6 lg:mb-8">
           <motion.div
             className="max-w-2xl"
             initial="hidden"
