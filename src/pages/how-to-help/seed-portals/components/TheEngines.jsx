@@ -19,7 +19,7 @@ const ENGINES = [
       "Direct influence on regional economic strategy.",
     ],
     actionType: "modal", // Triggers the modal
-    buttonLabel: "Initialize Partnership",
+    buttonLabel: "Activate My Subscription",
   },
 ];
 
@@ -122,10 +122,7 @@ const TheEngines = () => {
                       className="w-full bg-brand-lilac-600 hover:bg-brand-lilac-700 text-brand-white font-bold text-[11px] md:text-xs py-4 px-6 rounded-full transition-colors uppercase tracking-widest cursor-pointer shadow-sm flex items-center justify-center gap-2"
                     >
                       {engine.buttonLabel}
-                      <Icon
-                        icon="heroicons:bolt-20-solid"
-                        className="w-4 h-4"
-                      />
+                    
                     </button>
                   ) : (
                     <Link

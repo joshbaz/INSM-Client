@@ -50,7 +50,7 @@ const OneKClubPanel = ({ frequency, setFrequency, step, setStep }) => {
                   <button
                     key={opt.id}
                     onClick={() => setFrequency(opt.id)}
-                    className={`flex-1 h-full font-primary rounded-full text-[10px] font-bold uppercase tracking-[0.1em] transition-all duration-300 cursor-pointer z-10
+                    className={`flex-1 h-full font-primary rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer z-10
                       ${
                         frequency === opt.id
                           ? `${opt.color} text-brand-white-100 shadow-md`

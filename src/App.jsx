@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
-import Home from "./pages/home/home";
+import Home from "./pages/home/homePage";
 import HomeHero from "./pages/home/homeHero";
 import Login from "./pages/auth/login";
 import Signup from "./pages/auth/signup";

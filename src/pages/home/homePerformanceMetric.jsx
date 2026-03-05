@@ -65,7 +65,7 @@ const HomePerformanceMetric = () => {
               to="/how-to-help/seed-portals"
               className="inline-flex items-center bg-brand-gold text-brand-dark font-primary font-bold text-[11px] md:text-xs uppercase tracking-[0.2em] px-8 py-4 rounded-full hover:bg-brand-gold/90 transition-all duration-300 hover:scale-105 shadow-lg"
             >
-              Activate My Subscription
+              Access the 1K Club Portal
             </Link>
           </motion.div>
         </motion.div>
