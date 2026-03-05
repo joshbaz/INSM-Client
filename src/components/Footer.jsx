@@ -130,6 +130,13 @@ const Footer = () => {
             >
               Privacy Policy
             </Link>
+            <span className="text-white/20">•</span>
+            <Link
+              to="/terms-of-use"
+              className="hover:text-brand-gold transition-colors"
+            >
+              Terms of Use
+            </Link>
           </div>
 
           {/* Right: Socials + Partner Portal */}
