@@ -140,7 +140,7 @@ const Footer = () => {
           </div>
 
           {/* Right: Socials + Partner Portal */}
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6 ">
             <div className="flex items-center gap-4">
               <a
                 href="https://www.linkedin.com/in/winifred-nassanga-5459063a8/"
