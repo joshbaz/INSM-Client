@@ -7,7 +7,7 @@ const Footer = () => {
   const [showTransparency, setShowTransparency] = useState(false);
 
   return (
-    <footer className="bg-[#111] w-full text-white">
+    <footer className="bg-brand-dark-600 w-full text-white">
       {/* ─── MAIN CONTENT ─── */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 pt-16 pb-14">
         <div className="flex flex-col lg:flex-row gap-14 lg:gap-8">
@@ -109,7 +109,7 @@ const Footer = () => {
       </div>
 
       {/* ─── BOTTOM BAR ─── */}
-      <div className="border-t border-white/10">
+      <div className="bg-brand-dark">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Copyright + Links */}
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-secondary text-[12px] text-white/40">
