@@ -100,26 +100,26 @@ const Navbar = () => {
       <nav
         className={`sticky top-0 z-80 transition-all duration-500 ${isScrolled ? "bg-brand-white shadow-md" : "bg-brand-white shadow-sm"}`}
       >
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
           {/* NAV BAR HEADER */}
           <div className="flex items-center justify-between h-20">
             {/* LOGO */}
             <Link to="/" className="flex items-center gap-4 z-50 relative">
-              <div className="relative w-28 h-20 shrink-0">
+              <div className="relative w-28 h-20 md:w-32 md:h-24 xl:w-36 xl:h-28 2xl:w-40 2xl:h-32 shrink-0">
                 <img
                   src="/logo.png"
                   alt="INSM Logo"
-                  className="absolute top-0 left-0 w-24 h-24 rounded-full object-contain max-w-none"
+                  className="absolute top-0 left-0 w-24 h-24 md:w-28 md:h-28 xl:w-32 xl:h-32 2xl:w-36 2xl:h-36 rounded-full object-contain max-w-none"
                 />
               </div>
 
               <div className="hidden sm:block">
                 <h1 className="font-primary font-bold text-body uppercase leading-tight">
-                  <span className="text-brand-lilac text-sm">
+                  <span className="text-brand-lilac text-sm xl:text-base 2xl:text-lg">
                     INTERNATIONAL NETWORK <br /> FOR SINGLE MOTHERS
                   </span>
                   <br />
-                  <span className="text-brand-lilac-700 text-sm">
+                  <span className="text-brand-lilac-700 text-sm xl:text-base 2xl:text-lg">
                     UGANDA CHAPTER
                   </span>
                 </h1>
@@ -135,8 +135,8 @@ const Navbar = () => {
                 hidden md:inline-flex
                 items-center justify-center text-center
                 bg-brand-lilac-700 hover:bg-brand-lilac-700/90
-                text-brand-white font-semibold text-sm
-                px-2 md:px-4 h-[45px] min-w-[150px]
+                text-brand-white font-semibold text-sm xl:text-base
+                px-4 md:px-6 xl:px-8 h-[45px] xl:h-[52px] min-w-[150px] xl:min-w-[180px]
                 rounded-full
                 transition-colors
                 cursor-pointer
@@ -172,7 +172,7 @@ const Navbar = () => {
           {/* Header Separation Line */}
           <div className="absolute top-20 left-0 w-full"></div>
 
-          <div className="max-w-3xl mx-auto px-4 md:px-8 py-8">
+          <div className="max-w-3xl xl:max-w-5xl 2xl:max-w-7xl mx-auto px-4 md:px-8 py-8">
             <div className="flex flex-col">
               {menuCategories.map((category, index) => (
                 <div
@@ -183,7 +183,7 @@ const Navbar = () => {
                     onClick={() => toggleCategory(category.title)}
                     className="w-full flex items-center justify-between py-6 group hover:bg-brand-white-100/50 transition-colors px-4 rounded-lg cursor-pointer"
                   >
-                    <span className="text-2xl md:text-3xl text-brand-dark font-normal">
+                    <span className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl text-brand-dark font-normal">
                       {category.title}
                     </span>
                     <span
@@ -208,7 +208,7 @@ const Navbar = () => {
                           key={idx}
                           to={item.path}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block text-lg text-brand-dark-400 hover:text-brand-lilac/90 pl-4 border-l-2 border-transparent hover:border-brand-lilac transition-all cursor-pointer"
+                          className="block text-lg xl:text-xl 2xl:text-2xl text-brand-dark-400 hover:text-brand-lilac/90 pl-4 border-l-2 border-transparent hover:border-brand-lilac transition-all cursor-pointer"
                         >
                           {item.name}
                         </Link>
