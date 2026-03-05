@@ -31,7 +31,8 @@ import ContactUs from "./pages/contact-us/contactUsPage";
 import PrivacyPolicyPage from "./pages/policies/policiesPage";
 import TermsOfUse from "./pages/policies/termsOfUse";
 import EthicalConduct from "./pages/policies/ethicalConduct";
-import SeedPortals from "./pages/how-to-help/SeedPortals";
+import SeedPortals from "./pages/how-to-help/seed-portals/SeedPortals";
+import PartnerPortalPage from "./pages/dashboard/partnerPortalPage";
 
 function App() {
   return (
@@ -93,6 +94,7 @@ function App() {
             <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="/ethical-conduct" element={<EthicalConduct />} />
             <Route path="/how-to-help/seed-portals" element={<SeedPortals />} />
+            <Route path="/partner-portal" element={<PartnerPortalPage />} />
           </Routes>
         </main>
         <Footer />
