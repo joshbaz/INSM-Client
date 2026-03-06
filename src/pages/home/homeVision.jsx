@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-import { fadeUp, slideInLeft, staggerContainer } from "../../utils/animations";
+import { fadeUp, fadeIn, staggerContainer } from "../../utils/animations";
 
 const HomeVision = () => {
   return (
@@ -17,7 +17,7 @@ const HomeVision = () => {
         >
           {/* Image Side */}
           <motion.div
-            variants={slideInLeft}
+            variants={fadeIn}
             className="w-full md:w-1/2 flex justify-center md:justify-start"
           >
             <div className="relative w-full aspect-4/5 overflow-hidden rounded-sm shadow-sm md:max-w-md">
