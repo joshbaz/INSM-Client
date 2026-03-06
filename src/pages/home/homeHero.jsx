@@ -25,7 +25,7 @@ const HomeHero = () => {
         {/* Content Box */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-20 pt-10 md:pt-0">
           <motion.div
-            className="w-full md:max-w-xl lg:max-w-2xl border border-brand-white/20 p-6 md:p-10 xl:p-12 backdrop-blur-[2px]"
+            className="w-full md:max-w-xl lg:max-w-2xl border-y border-brand-white/20 p-6 md:p-10 xl:p-12 backdrop-blur-[2px]"
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
