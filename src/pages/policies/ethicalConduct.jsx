@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useSEO from "../../hooks/useSEO";
+import DeletionRequestForm from "./DeletionRequestForm";
 
 const EthicalConduct = () => {
+  const [isDeletionModalOpen, setIsDeletionModalOpen] = useState(false);
+
   useSEO({
     title: "Ethical Compliance & Security | INSM Uganda",
     description:
@@ -58,7 +61,7 @@ const EthicalConduct = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
               <div className="space-y-1">
-                <span className="block text-xs md:text-[10px] uppercase font-bold tracking-[0.2em] text-brand-gold">
+                <span className="block text-xs uppercase font-bold tracking-[0.2em] text-brand-gold">
                   Hotline
                 </span>
                 <a
@@ -69,7 +72,7 @@ const EthicalConduct = () => {
                 </a>
               </div>
               <div className="space-y-1">
-                <span className="block text-xs md:text-[10px] uppercase font-bold tracking-[0.2em] text-brand-gold">
+                <span className="block text-xs uppercase font-bold tracking-[0.2em] text-brand-gold">
                   Email
                 </span>
                 <a
@@ -99,29 +102,29 @@ const EthicalConduct = () => {
             </p>
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <li className="bg-brand-white-100 p-6 border border-brand-dark-200/50">
-                <h4 className="font-primary font-bold text-sm md:text-xs uppercase tracking-widest mb-3">
+                <h4 className="font-primary font-bold text-sm uppercase tracking-widest mb-3">
                   Access Controls
                 </h4>
-                <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                   Personally Identifiable Information (PII) is restricted to
                   authorized Strategic Staff and Technical Mentors for specific
                   industrial training or operational mandates.
                 </p>
               </li>
               <li className="bg-brand-white-100 p-6 border border-brand-dark-200/50">
-                <h4 className="font-primary font-bold text-sm md:text-xs uppercase tracking-widest mb-3">
+                <h4 className="font-primary font-bold text-sm uppercase tracking-widest mb-3">
                   Data Integrity
                 </h4>
-                <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                   Confidential data is secured via Role-Based Access Controls
                   (RBAC) to prevent unauthorized modification or disclosure.
                 </p>
               </li>
               <li className="bg-brand-white-100 p-6 border border-brand-dark-200/50">
-                <h4 className="font-primary font-bold text-sm md:text-xs uppercase tracking-widest mb-3">
+                <h4 className="font-primary font-bold text-sm uppercase tracking-widest mb-3">
                   Retention
                 </h4>
-                <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                   Sensitive data is retained strictly according to legal,
                   regulatory, and industrial requirements within the Nation.
                 </p>
@@ -145,29 +148,29 @@ const EthicalConduct = () => {
             </p>
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <li className="space-y-3">
-                <h4 className="font-primary font-bold text-sm md:text-xs text-brand-dark uppercase tracking-widest border-l-2 border-brand-gold pl-3">
+                <h4 className="font-primary font-bold text-sm text-brand-dark uppercase tracking-widest border-l-2 border-brand-gold pl-3">
                   Industrial Standards
                 </h4>
-                <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                   Our capital processors meet global industry standards for
                   secure transactions and multi-tier data management.
                 </p>
               </li>
               <li className="space-y-3">
-                <h4 className="font-primary font-bold text-sm md:text-xs text-brand-dark uppercase tracking-widest border-l-2 border-brand-gold pl-3">
+                <h4 className="font-primary font-bold text-sm text-brand-dark uppercase tracking-widest border-l-2 border-brand-gold pl-3">
                   Encryption
                 </h4>
-                <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                   We utilize high-grade encryption to ensure every
                   investment—from "The Primary Link" ($10) to "The SACCO Engine"
                   ($10,000+)—is transferred with bank-grade security.
                 </p>
               </li>
               <li className="space-y-3">
-                <h4 className="font-primary font-bold text-sm md:text-xs text-brand-dark uppercase tracking-widest border-l-2 border-brand-gold pl-3">
+                <h4 className="font-primary font-bold text-sm text-brand-dark uppercase tracking-widest border-l-2 border-brand-gold pl-3">
                   Recurring Controls
                 </h4>
-                <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                   For partners choosing Continuous Capitalization (Monthly), you
                   maintain full command and may terminate the subscription at
                   any time.
@@ -188,13 +191,13 @@ const EthicalConduct = () => {
               time.
             </p>
             <div className="bg-brand-white-100 p-8 border border-brand-dark-200/50 space-y-6">
-              <h4 className="font-primary font-black text-base md:text-sm uppercase tracking-widest text-brand-dark">
+              <h4 className="font-primary font-black text-base uppercase tracking-widest text-brand-dark">
                 Our Industrial Deletion Policy
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-1.5 shrink-0"></div>
-                  <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                  <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                     <strong>Verification Mandatory:</strong> To protect the
                     integrity of the Bloc, identity verification is required
                     before any data subject request is authorized.
@@ -202,7 +205,7 @@ const EthicalConduct = () => {
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-1.5 shrink-0"></div>
-                  <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                  <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                     <strong>Timeline:</strong> Data requests are typically
                     processed within 30 days; you will receive a formal
                     notification once the deletion is finalized.
@@ -210,7 +213,7 @@ const EthicalConduct = () => {
                 </li>
                 <li className="flex items-start gap-4">
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-gold mt-1.5 shrink-0"></div>
-                  <p className="text-sm md:text-xs text-brand-dark-400 font-secondary leading-relaxed">
+                  <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed">
                     <strong>Lifecycle Management:</strong> All hardware and
                     media containing PII are wiped and destroyed at the end of
                     their operational lifecycle to ensure zero data leakage.
@@ -219,7 +222,22 @@ const EthicalConduct = () => {
               </ul>
             </div>
 
-            <div className="flex flex-nowrap overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 gap-4 pt-4 no-scrollbar">
+            {/* Embed Deletion Request Form Trigger */}
+            <div className="pt-8 w-full max-w-3xl">
+              <button
+                onClick={() => setIsDeletionModalOpen(true)}
+                className="inline-flex items-center gap-3 px-6 py-3.5 bg-brand-lilac-600 text-brand-white font-primary font-bold uppercase tracking-widest text-xs rounded-full transition-all hover:bg-brand-lilac-700 shadow-md shadow-brand-lilac-600/20"
+              >
+                Raise Deletion Request
+              </button>
+            </div>
+
+            <DeletionRequestForm
+              isOpen={isDeletionModalOpen}
+              onClose={() => setIsDeletionModalOpen(false)}
+            />
+
+            <div className="flex flex-nowrap overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 gap-4 pt-12 no-scrollbar">
               <Link
                 to="/privacy-policy"
                 className="inline-flex items-center justify-center shrink-0 border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-[12px] sm:text-sm font-primary font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest whitespace-nowrap"
