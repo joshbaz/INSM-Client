@@ -44,9 +44,6 @@ const TheEngines = () => {
               National Structural Transition.
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold font-primary text-black">
-            The Two Engines
-          </h2>
         </motion.div>
 
         <motion.div

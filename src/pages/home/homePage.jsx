@@ -2,7 +2,7 @@ import React from "react";
 import HomeHero from "./homeHero";
 import HomeAnchors from "./homeAnchors";
 import HomePerformanceMetric from "./homePerformanceMetric";
-import Carousel from "./homeCarousel";
+import HomeVision from "./homeVision";
 import OurMission from "./homeOurMission";
 import Cards from "./homeCards";
 import GoldStandard from "./homeGoldStandard";
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-brand-white">
       <HomeHero />
-      <Carousel />
+      <HomeVision />
       <OurMission />
       <HomeAnchors />
       <Cards />

@@ -133,7 +133,7 @@ const Navbar = () => {
                 className="
                 hidden md:flex
                 items-center justify-center text-center
-                bg-brand-lilac-700 hover:bg-brand-lilac-700/90
+                bg-brand-navy hover:bg-brand-navy/90
                 text-brand-white font-semibold text-base xl:text-lg
                 px-4 md:px-6 xl:px-8 h-[45px] xl:h-[52px] min-w-[150px] xl:min-w-[180px]
                 rounded-full

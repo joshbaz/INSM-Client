@@ -30,37 +30,19 @@ const OneKClubPanel = ({ frequency, setFrequency, step, setStep }) => {
               Empower A <span className="text-brand-lilac">Mother</span>
             </h2>
 
-            {/* Subtitle */}
-            <p className="text-center text-[10px] font-secondary text-brand-dark-400 uppercase tracking-widest mb-6 border-b border-brand-dark/5 pb-6">
-              Select your partnership velocity.
-            </p>
-
-            {/* ── TOGGLE SWITCH ── */}
-            <div className="flex justify-center mb-10">
-              <div className="relative bg-brand-dark-200 rounded-full h-10 md:h-12 flex items-center p-1 w-full border border-brand-dark/5">
-                {[
-                  { id: "once", label: "Once", color: "bg-brand-lilac" },
-                  { id: "weekly", label: "Weekly", color: "bg-brand-teal" },
-                  {
-                    id: "monthly",
-                    label: "Monthly",
-                    color: "bg-brand-lilac-700",
-                  },
-                ].map((opt) => (
-                  <button
-                    key={opt.id}
-                    onClick={() => setFrequency(opt.id)}
-                    className={`flex-1 h-full font-primary rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer z-10
-                      ${
-                        frequency === opt.id
-                          ? `${opt.color} text-brand-white-100 shadow-md`
-                          : "text-brand-dark-400 hover:text-brand-dark/90"
-                      }`}
-                  >
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
+            {/* Subtitle / Explanation */}
+            <div className="text-center mb-10 border-b border-brand-dark/5 pb-6">
+              <p className="text-[10px] font-secondary text-brand-dark-400 uppercase tracking-widest mb-2">
+                Automated Partnership
+              </p>
+              <p className="text-sm font-secondary text-brand-dark-600 leading-relaxed max-w-[280px] mx-auto">
+                By proceeding, you agree to an automated, recurring deployment
+                of{" "}
+                <span className="font-bold text-brand-dark">
+                  1,000 UGX every week
+                </span>
+                .
+              </p>
             </div>
 
             {/* ── FIXED AMOUNT DISPLAY ── */}
@@ -77,9 +59,7 @@ const OneKClubPanel = ({ frequency, setFrequency, step, setStep }) => {
                 </span>
               </div>
               <p className="text-[9px] font-secondary text-brand-dark-400 uppercase tracking-widest font-bold">
-                {frequency === "once"
-                  ? "Single Deployment"
-                  : `${frequency} Automated Seed`}
+                Weekly Automated Seed
               </p>
             </div>
 
