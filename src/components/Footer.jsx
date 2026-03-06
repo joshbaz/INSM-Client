@@ -12,9 +12,9 @@ const Footer = () => {
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-16 2xl:px-20 pt-16 pb-14">
         <div className="flex flex-col lg:flex-row gap-14 lg:gap-8">
           {/* LEFT: Logo + Brand Statement */}
-          <div className="flex gap-6 lg:max-w-[520px]">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:max-w-[520px] text-center lg:text-left">
             {/* Logo */}
-            <div className="shrink-0">
+            <div className="shrink-0 hidden lg:block">
               <div className="w-[100px] h-[100px] rounded-full bg-brand-lilac-200/20 border border-brand-lilac-300/30 flex items-center justify-center">
                 <img
                   src="/logo.png"
@@ -44,9 +44,9 @@ const Footer = () => {
           </div>
 
           {/* RIGHT: Navigation Columns */}
-          <div className="flex flex-wrap gap-16 lg:gap-24 xl:gap-32 2xl:gap-40 lg:ml-auto lg:pt-1">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-16 lg:gap-24 xl:gap-32 2xl:gap-40 lg:ml-auto lg:pt-1">
             {/* THE TERMINAL */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-center lg:text-left">
               <h4 className="font-primary font-bold text-brand-dark-400 text-[11px] tracking-[0.25em] uppercase">
                 The Terminal
               </h4>
@@ -70,7 +70,7 @@ const Footer = () => {
             </div>
 
             {/* THE ASSIGNMENT */}
-            <div className="space-y-6">
+            <div className="space-y-6 text-center lg:text-left">
               <h4 className="font-primary font-bold text-brand-dark-400 text-[11px] tracking-[0.25em] uppercase">
                 The Assignment
               </h4>
@@ -112,7 +112,7 @@ const Footer = () => {
       <div className="bg-brand-dark">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Copyright + Links */}
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 font-secondary text-[12px] text-white/40">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 font-secondary text-[12px] text-white/40 text-center">
             <span>
               © 2026 International Network for Single Mothers-Uganda Chapter
             </span>
