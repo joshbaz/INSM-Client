@@ -36,7 +36,7 @@ const HomeCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % CAROUSEL_DATA.length);
-    }, 6000); // Change every 6 seconds to allow for animations
+    }, 7000); // Change every 7 seconds to allow for animations
 
     return () => clearInterval(interval);
   }, []);
