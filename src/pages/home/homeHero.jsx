@@ -74,7 +74,7 @@ const HomeHero = () => {
               className="flex flex-col sm:flex-row gap-4 sm:gap-5"
             >
               <Link
-                to="/how-to-help/partner-with-us"
+                to="/how-to-help/join-the-assignment"
                 className="group relative inline-flex items-center justify-center min-h-[48px] bg-brand-lilac-700 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-8 md:px-10 py-4 rounded-full overflow-hidden transition-all duration-300 hover:scale-[1.03]"
               >
                 <span className="relative z-10">Access The Terminal</span>
@@ -82,7 +82,7 @@ const HomeHero = () => {
               </Link>
 
               <Link
-                to="/how-to-help/join-the-assignment"
+                to="/how-to-help/partner-with-us"
                 className="inline-flex items-center justify-center min-h-[48px] border border-brand-white/30 text-brand-white font-primary font-bold uppercase tracking-wider text-xs px-8 md:px-10 py-4 rounded-full backdrop-blur-md hover:bg-brand-white/10 transition-all duration-300 hover:scale-[1.03]"
               >
                 Invest in the Bloc
