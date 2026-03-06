@@ -15,7 +15,7 @@ const HomeVision = () => {
           variants={staggerContainer}
           className="flex flex-col md:flex-row items-center gap-12 md:gap-20"
         >
-          {/* Image Side */}
+          {/* Image Side  */}
           <motion.div
             variants={fadeIn}
             className="w-full md:w-1/2 flex justify-center md:justify-start"
