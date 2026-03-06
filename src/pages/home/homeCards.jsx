@@ -52,7 +52,7 @@ const HomeCards = () => {
           {/* Gold Title */}
           <motion.h2
             variants={fadeUp}
-            className="text-base md:text-lg lg:text-xl xl:text-5xl 2xl:text-6xl font-primary text-brand-gold leading-tight mb-3"
+            className="text-base md:text-lg lg:text-xl xl:text-5xl 2xl:text-6xl font-primary leading-tight mb-3 text-transparent bg-clip-text bg-linear-to-l from-brand-gold-300 via-brand-gold to-brand-gold-600"
             style={{ fontStyle: "italic", fontWeight: 400 }}
           >
             17,000+ Economic Units Deployed
