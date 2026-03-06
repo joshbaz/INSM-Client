@@ -12,6 +12,12 @@ const ContactSchema = Yup.object().shape({
     .required("Message is required"),
 });
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
+};
+
 const ContactForm = () => {
   return (
     <motion.div variants={fadeUp} className="max-w-3xl mx-auto space-y-6 pt-6">
@@ -29,16 +35,26 @@ const ContactForm = () => {
         initialValues={{ fullName: "", email: "", message: "" }}
         validationSchema={ContactSchema}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          // Simulate form submission
-          setTimeout(() => {
-            alert("Message sent successfully!");
-            setSubmitting(false);
-            resetForm();
-          }, 800);
+          fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: encode({ "form-name": "contact", ...values }),
+          })
+            .then(() => {
+              alert("Thank you! Your strategic inquiry has been submitted.");
+              setSubmitting(false);
+              resetForm();
+            })
+            .catch((error) => {
+              alert("Submission failed. Please try again.");
+              setSubmitting(false);
+            });
         }}
       >
         {({ isSubmitting, isValid, dirty }) => (
-          <Form className="space-y-6 pt-4">
+          <Form className="space-y-6 pt-4" name="contact" data-netlify="true">
+            {/* Hidden field for Netlify Forms (also passed in body) */}
+            <input type="hidden" name="form-name" value="contact" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full lg:w-[80%]">
               <div className="space-y-2">
                 <label
