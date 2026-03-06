@@ -83,7 +83,7 @@ const TermsOfUse = () => {
                   <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
                     Technical Mentors
                   </h4>
-                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                  <p className="text-base md:text-sm text-brand-dark-400 font-secondary leading-relaxed">
                     Must deploy expertise in Law, Finance, or Industry in
                     accordance with professional standards and the
                     infrastructure requirements of the Network.
@@ -100,7 +100,7 @@ const TermsOfUse = () => {
                   <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
                     Strategic Equippers
                   </h4>
-                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                  <p className="text-base md:text-sm text-brand-dark-400 font-secondary leading-relaxed">
                     Must utilize the official portal solely for the registration
                     and optimization of members within their designated
                     parishes.
@@ -117,7 +117,7 @@ const TermsOfUse = () => {
                   <h4 className="font-primary font-bold text-brand-dark uppercase tracking-wide">
                     Corporate & Civic Allies
                   </h4>
-                  <p className="text-sm text-brand-dark-400 font-secondary leading-relaxed">
+                  <p className="text-base md:text-sm text-brand-dark-400 font-secondary leading-relaxed">
                     Must act in alignment with the National Economic Priority,
                     providing market access and supply-chain support that
                     facilitates Asset-Ownership without exploitative friction.
@@ -158,22 +158,22 @@ const TermsOfUse = () => {
 
           {/* Sovereignty Footer */}
           <section className="pt-10 border-t border-brand-dark-200">
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-nowrap overflow-x-auto pb-4 -mx-6 px-6 sm:mx-0 sm:px-0 gap-4 pt-4 no-scrollbar">
               <Link
                 to="/privacy-policy"
-                className="inline-flex items-center justify-center border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-sm font-primary font-bold px-8 py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest"
+                className="inline-flex items-center justify-center shrink-0 border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-[12px] sm:text-sm font-primary font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest whitespace-nowrap"
               >
                 Privacy Policy
               </Link>
               <Link
                 to="/terms-of-use"
-                className="inline-flex items-center justify-center bg-brand-lilac-700 text-brand-white text-sm font-primary font-bold px-8 py-3 rounded-full transition-all cursor-default uppercase tracking-widest shadow-md"
+                className="inline-flex items-center justify-center shrink-0 bg-brand-lilac-700 text-brand-white text-[12px] sm:text-sm font-primary font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full transition-all cursor-default uppercase tracking-widest shadow-md whitespace-nowrap"
               >
                 Terms of Use
               </Link>
               <Link
                 to="/ethical-conduct"
-                className="inline-flex items-center justify-center border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-sm font-primary font-bold px-8 py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest"
+                className="inline-flex items-center justify-center shrink-0 border-2 border-brand-lilac-700 text-brand-lilac-700 hover:bg-brand-lilac-700 hover:text-brand-white text-[12px] sm:text-sm font-primary font-bold px-6 py-2.5 sm:px-8 sm:py-3 rounded-full transition-all cursor-pointer uppercase tracking-widest whitespace-nowrap"
               >
                 Ethical Conduct
               </Link>

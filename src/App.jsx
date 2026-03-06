@@ -28,7 +28,7 @@ import Blog from "./pages/what-we-do/Blog/blogPage";
 import BlogDetailPage from "./pages/what-we-do/Blog/details/blogDetailPage";
 import DonatePage from "./pages/Donate Page/donatePage";
 import HowToHelp from "./pages/how-to-help/howToHelpPage";
-import ContactUs from "./pages/contact-us/contactUsPage";
+import ContactUs from "./pages/how-to-help/contact-us/ContactUs";
 import PrivacyPolicyPage from "./pages/policies/policiesPage";
 import TermsOfUse from "./pages/policies/termsOfUse";
 import EthicalConduct from "./pages/policies/ethicalConduct";
