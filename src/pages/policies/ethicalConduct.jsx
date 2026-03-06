@@ -220,9 +220,7 @@ const EthicalConduct = () => {
                   </p>
                 </li>
               </ul>
-            </div>
-
-            {/* Embed Deletion Request Form Trigger */}
+               {/* Embed Deletion Request Form Trigger */}
             <div className="pt-8 w-full max-w-3xl">
               <button
                 onClick={() => setIsDeletionModalOpen(true)}
@@ -231,6 +229,9 @@ const EthicalConduct = () => {
                 Raise Deletion Request
               </button>
             </div>
+            </div>
+
+           
 
             <DeletionRequestForm
               isOpen={isDeletionModalOpen}
