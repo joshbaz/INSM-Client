@@ -51,7 +51,7 @@ const ContactForm = () => {
                   type="text"
                   name="fullName"
                   placeholder="Enter your full name"
-                  className="w-full px-4 py-3 bg-brand-white border border-brand-dark-200 rounded-lg text-brand-dark-600 outline-none focus:border-brand-lilac focus:ring-1 focus:ring-brand-lilac font-secondary text-sm placeholder:text-brand-dark-300 transition-all"
+                  className="w-full px-4 py-3 bg-brand-white border border-brand-dark-200 rounded-lg text-brand-dark-600 outline-none focus:border-brand-lilac focus:ring-1 focus:ring-brand-lilac font-secondary text-base md:text-sm placeholder:text-brand-dark-300 transition-all"
                 />
                 <ErrorMessage
                   name="fullName"
@@ -71,7 +71,7 @@ const ContactForm = () => {
                   type="email"
                   name="email"
                   placeholder="email@email.com"
-                  className="w-full px-4 py-3 bg-brand-white border border-brand-dark-200 rounded-lg text-brand-dark-600 outline-none focus:border-brand-lilac focus:ring-1 focus:ring-brand-lilac font-secondary text-sm placeholder:text-brand-dark-300 transition-all"
+                  className="w-full px-4 py-3 bg-brand-white border border-brand-dark-200 rounded-lg text-brand-dark-600 outline-none focus:border-brand-lilac focus:ring-1 focus:ring-brand-lilac font-secondary text-base md:text-sm placeholder:text-brand-dark-300 transition-all"
                 />
                 <ErrorMessage
                   name="email"
@@ -93,7 +93,7 @@ const ContactForm = () => {
                 name="message"
                 rows="5"
                 placeholder="Please let us know what's on your mind. Have a question for us? Ask away."
-                className="w-full px-4 py-3 bg-brand-white border border-brand-dark-200 rounded-lg text-brand-dark-600 outline-none focus:border-brand-lilac focus:ring-1 focus:ring-brand-lilac font-secondary text-sm resize-y placeholder:text-brand-dark-300 transition-all"
+                className="w-full px-4 py-3 bg-brand-white border border-brand-dark-200 rounded-lg text-brand-dark-600 outline-none focus:border-brand-lilac focus:ring-1 focus:ring-brand-lilac font-secondary text-base md:text-sm resize-y placeholder:text-brand-dark-300 transition-all"
               />
               <div className="flex justify-between items-center mt-1">
                 <ErrorMessage
