@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useLocation,
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -34,12 +35,33 @@ import EthicalConduct from "./pages/policies/ethicalConduct";
 import SeedPortals from "./pages/how-to-help/seed-portals/SeedPortals";
 import PartnerPortalPage from "./pages/dashboard/partnerPortalPage";
 
+import { AuthProvider } from "./store/context/AuthContext";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+
 function App() {
   return (
-    <Router>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+  const hideNavAndFooter = [
+    "/login",
+    "/signup",
+    "/forgot-password",
+    "/dashboard",
+  ].includes(location.pathname);
+
+  return (
+    <>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
-        <Navbar />
+        {!hideNavAndFooter && <Navbar />}
         <main className="grow">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -48,7 +70,14 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Who We Are */}
             <Route path="/who-we-are" element={<WhoWeArePage />} />
@@ -94,12 +123,19 @@ function App() {
             <Route path="/terms-of-use" element={<TermsOfUse />} />
             <Route path="/ethical-conduct" element={<EthicalConduct />} />
             <Route path="/how-to-help/seed-portals" element={<SeedPortals />} />
-            <Route path="/partner-portal" element={<PartnerPortalPage />} />
+            <Route
+              path="/partner-portal"
+              element={
+                <ProtectedRoute>
+                  <PartnerPortalPage />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </main>
-        <Footer />
+        {!hideNavAndFooter && <Footer />}
       </div>
-    </Router>
+    </>
   );
 }
 

@@ -190,7 +190,7 @@ const Partners = () => {
             <div className="flex justify-center md:justify-end">
               <a
                 href="#"
-                className="inline-block min-h-[48px] bg-brand-brown hover:bg-brand-brown/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-4 rounded-full transition-colors duration-300 flex items-center justify-center"
+                className="inline-block min-h-[48px] bg-brand-brown hover:bg-brand-brown/90 text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-6 py-4 rounded-full transition-colors duration-300 items-center justify-center"
               >
                 Partner at the Executive Level
               </a>

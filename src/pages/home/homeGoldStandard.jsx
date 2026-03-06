@@ -126,10 +126,10 @@ const HomeGoldStandard = () => {
           variants={fadeUp}
         >
           <Link
-            to="/partner-with-us"
+            to="/how-to-help/partner-with-us"
             className="inline-block bg-brand-lilac-700 text-white font-primary font-semibold text-xs md:text-sm uppercase tracking-wider px-8 py-4 rounded-full hover:bg-brand-lilac-800 transition-colors duration-200 cursor-pointer"
           >
-            View Our Impact Audit & Capitalize The Bloc
+            View Impact Audit & Capitalize The Bloc
           </Link>
         </motion.div>
       </div>
