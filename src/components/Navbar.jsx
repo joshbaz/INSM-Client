@@ -131,11 +131,11 @@ const Navbar = () => {
               <Link
                 to={isHomePage ? "/how-to-help/partner-with-us" : "/"}
                 className="
-                hidden md:inline-flex
+                flex
                 items-center justify-center text-center
                 bg-brand-lilac-700 hover:bg-brand-lilac-700/90
-                text-brand-white font-semibold text-xl xl:text-2xl
-                px-4 md:px-6 xl:px-8 h-[45px] xl:h-[52px] min-w-[150px] xl:min-w-[180px]
+                text-brand-white font-semibold text-sm sm:text-base xl:text-lg
+                px-4 md:px-6 xl:px-8 h-[40px] md:h-[45px] xl:h-[52px] min-w-[120px] sm:min-w-[150px] xl:min-w-[180px]
                 rounded-full
                 transition-colors
                 cursor-pointer
@@ -227,7 +227,7 @@ const Navbar = () => {
                   w-full md:w-auto
                   items-center justify-center
                   bg-brand-lilac-700 hover:bg-brand-lilac-700/90
-                  text-brand-white text-body font-semibold
+                  text-brand-white text-lg md:text-xl font-semibold
                   px-8 py-3
                   rounded-full
                   transition-colors
