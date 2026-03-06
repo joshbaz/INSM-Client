@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
 
           {/* RIGHT: Navigation Columns */}
-          <div className="flex flex-wrap justify-center lg:justify-start gap-16 lg:gap-24 xl:gap-32 2xl:gap-40 lg:ml-auto lg:pt-1">
+          <div className="flex flex-col lg:flex-row flex-wrap items-center lg:items-start justify-center lg:justify-start gap-16 lg:gap-24 xl:gap-32 2xl:gap-40 lg:ml-auto lg:pt-1">
             {/* THE TERMINAL */}
             <div className="space-y-6 text-center lg:text-left">
               <h4 className="font-primary font-bold text-brand-dark-400 text-[11px] tracking-[0.25em] uppercase">
