@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 // ── Auto-play interval (ms) ─
-const AUTO_PLAY_INTERVAL = 7000;
-// Change every 7 seconds to allow for animations
+const AUTO_PLAY_INTERVAL = 10000;
+// Change every 10 seconds to allow for animations
 
 // ── Mission Data Array ─
 const MISSION_DATA = [
