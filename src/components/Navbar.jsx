@@ -101,24 +101,25 @@ const Navbar = () => {
       >
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
           {/* NAV BAR HEADER */}
-          <div className="flex items-center justify-between h-20 md:h-22 lg:h-24 xl:h-28 2xl:h-32">
+          <div className="flex items-center justify-between h-14 md:h-16 lg:h-20">
             {/* LOGO */}
-            <Link to="/" className="flex items-center z-50 relative gap-3">
-              <div className="relative w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 shrink-0">
+            <Link to="/" className="flex items-center z-50 relative gap-3 md:gap-4">
+              {/* Leaking Logo Container */}
+              <div className="relative w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 shrink-0 self-start mt-1 -mb-3 md:-mb-5 rounded-full shadow-md bg-brand-white border border-gray-100/50">
                 <img
                   src="/logo.png"
                   alt="INSM Logo"
-                  className="w-full h-full rounded-full object-contain"
+                  className="w-full h-full rounded-full object-contain p-0.5"
                 />
               </div>
 
               <div className="hidden md:block">
                 <h1 className="font-primary font-bold uppercase leading-[1.1] tracking-tight">
-                  <span className="text-brand-lilac text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
+                  <span className="text-brand-lilac text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]">
                     INTERNATIONAL NETWORK <br /> FOR SINGLE MOTHERS
                   </span>
                   <br />
-                  <span className="text-brand-lilac-700 text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]">
+                  <span className="text-brand-lilac-700 text-[10px] lg:text-[12px] xl:text-[14px] 2xl:text-[16px]">
                     UGANDA CHAPTER
                   </span>
                 </h1>
@@ -155,9 +156,15 @@ const Navbar = () => {
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
-                  <Icon icon="heroicons:x-mark" className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-14 2xl:h-14" />
+                  <Icon
+                    icon="heroicons:x-mark"
+                    className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-14 2xl:h-14"
+                  />
                 ) : (
-                  <Icon icon="heroicons:bars-3" className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-14 2xl:h-14" />
+                  <Icon
+                    icon="heroicons:bars-3"
+                    className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-14 2xl:h-14"
+                  />
                 )}
               </button>
             </div>
