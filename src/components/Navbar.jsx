@@ -101,24 +101,24 @@ const Navbar = () => {
       >
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
           {/* NAV BAR HEADER */}
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-20 md:h-22 lg:h-24 xl:h-28 2xl:h-32">
             {/* LOGO */}
-            <Link to="/" className="flex items-center z-50 relative">
-              <div className="relative w-20 md:w-22 xl:w-26 2xl:w-30 h-20 md:h-24 xl:h-28 2xl:h-32 shrink-0">
+            <Link to="/" className="flex items-center z-50 relative gap-3">
+              <div className="relative w-16 h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 shrink-0">
                 <img
                   src="/logo.png"
                   alt="INSM Logo"
-                  className="absolute top-0 mt-4 left-0 w-18 h-18 md:w-20 md:h-20 xl:w-24 xl:h-24 2xl:w-28 2xl:h-28 rounded-full object-contain max-w-none"
+                  className="w-full h-full rounded-full object-contain"
                 />
               </div>
 
-              <div className="hidden sm:block">
-                <h1 className="font-primary font-bold text-body uppercase leading-tight">
-                  <span className="text-brand-lilac text-sm xl:text-base 2xl:text-lg">
+              <div className="hidden md:block">
+                <h1 className="font-primary font-bold uppercase leading-[1.1] tracking-tight">
+                  <span className="text-brand-lilac text-[14px] lg:text-[16px] xl:text-[18px] 2xl:text-[20px]">
                     INTERNATIONAL NETWORK <br /> FOR SINGLE MOTHERS
                   </span>
                   <br />
-                  <span className="text-brand-lilac-700 text-sm xl:text-base 2xl:text-lg">
+                  <span className="text-brand-lilac-700 text-[12px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]">
                     UGANDA CHAPTER
                   </span>
                 </h1>
@@ -126,7 +126,7 @@ const Navbar = () => {
             </Link>
 
             {/* RIGHT SIDE ACTIONS */}
-            <div className="flex items-center gap-6 z-30 relative">
+            <div className="flex items-center gap-4 lg:gap-6 z-30 relative">
               {/* CTA BUTTON */}
               <Link
                 to={isHomePage ? "/how-to-help/partner-with-us" : "/"}
@@ -134,10 +134,13 @@ const Navbar = () => {
                 hidden md:flex
                 items-center justify-center text-center
                 bg-brand-navy hover:bg-brand-navy/90
-                text-brand-white font-semibold text-base xl:text-lg
-                px-4 md:px-6 xl:px-8 h-[45px] xl:h-[52px] min-w-[150px] xl:min-w-[180px]
+                text-brand-white font-semibold 
+                text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]
+                px-5 lg:px-6 xl:px-8 
+                h-[40px] lg:h-[48px] xl:h-[54px] 2xl:h-[60px]
+                min-w-[140px] lg:min-w-[160px] xl:min-w-[200px] 2xl:min-w-[240px]
                 rounded-full
-                transition-colors
+                transition-all
                 cursor-pointer
                 uppercase tracking-wide
               "
@@ -152,9 +155,9 @@ const Navbar = () => {
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
-                  <Icon icon="heroicons:x-mark" width={40} />
+                  <Icon icon="heroicons:x-mark" className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-14 2xl:h-14" />
                 ) : (
-                  <Icon icon="heroicons:bars-3" width={40} />
+                  <Icon icon="heroicons:bars-3" className="w-8 h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 2xl:w-14 2xl:h-14" />
                 )}
               </button>
             </div>

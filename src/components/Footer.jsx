@@ -31,13 +31,13 @@ const Footer = () => {
                 <br />
                 One Unshakable Nation.
               </h3>
-              <p className="font-secondary text-white/50 text-[13px] leading-relaxed max-w-sm">
+              <p className="font-secondary text-white/50 text-[13px] md:text-sm lg:text-base xl:text-lg 2xl:text-xl leading-relaxed max-w-sm">
                 The International Network for Single Mothers-Uganda Chapter is
                 more than a movement; it is a structural mandate. By securing
                 the kitchen table, we stabilize the State. By optimizing the
                 mother, we secure the future workforce.
               </p>
-              <p className="font-primary font-semibold italic text-brand-gold text-[13px] tracking-wide">
+              <p className="font-primary font-semibold italic text-brand-gold text-[13px] md:text-sm lg:text-base xl:text-lg 2xl:text-xl tracking-wide">
                 "A mother in power is a nation in motion."
               </p>
             </div>
@@ -60,7 +60,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.to}
-                      className="font-primary font-bold text-sm text-white/80 hover:text-brand-gold transition-colors block"
+                      className="font-primary font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/80 hover:text-brand-gold transition-colors block"
                     >
                       {link.label}
                     </Link>
@@ -96,7 +96,7 @@ const Footer = () => {
                   <li key={i}>
                     <Link
                       to={link.to}
-                      className="font-primary font-bold text-sm text-white/80 hover:text-brand-gold transition-colors block"
+                      className="font-primary font-bold text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/80 hover:text-brand-gold transition-colors block"
                     >
                       {link.label}
                     </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
       <div className="bg-brand-dark">
         <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Copyright + Links */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 font-secondary text-[12px] text-white/40 text-center">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 font-secondary text-[12px] md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/40 text-center">
             <span>
               © 2026 International Network for Single Mothers-Uganda Chapter
             </span>

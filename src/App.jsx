@@ -10,30 +10,30 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
-import Home from "./pages/home/homePage";
-import HomeHero from "./pages/home/homeHero";
-import Login from "./pages/auth/login";
-import Signup from "./pages/auth/signup";
-import ForgotPassword from "./pages/auth/forgotPassword";
-import Dashboard from "./pages/dashboard/dashboardPage";
+import Home from "./pages/1.home/homePage";
+import HomeHero from "./pages/1.home/homeHero";
+import Login from "./pages/0.auth/login";
+import Signup from "./pages/0.auth/signup";
+import ForgotPassword from "./pages/0.auth/forgotPassword";
+import Dashboard from "./CRM/dashboard/dashboardPage";
 
 // New Sitemap Pages
-import WhoWeArePage from "./pages/who-we-are/whoWeArePage";
-import WhatWeDo from "./pages/what-we-do/whatWeDoPage";
-import Projects from "./pages/what-we-do/projects/projectsPage";
-import ProjectsList from "./pages/what-we-do/projects/projectsList";
-import ProjectDetail from "./pages/what-we-do/projects/projectDetail";
-import Gallery from "./pages/what-we-do/Gallery/galleryPage";
-import Blog from "./pages/what-we-do/Blog/blogPage";
-import BlogDetailPage from "./pages/what-we-do/Blog/details/blogDetailPage";
-import DonatePage from "./pages/Donate Page/donatePage";
-import HowToHelp from "./pages/how-to-help/howToHelpPage";
-import ContactUs from "./pages/how-to-help/contact-us/ContactUs";
+import WhoWeArePage from "./pages/2.who-we-are/whoWeArePage";
+import WhatWeDo from "./pages/3.what-we-do/whatWeDoPage";
+import Projects from "./pages/3.what-we-do/projects/projectsPage";
+import ProjectsList from "./pages/3.what-we-do/projects/projectsList";
+import ProjectDetail from "./pages/3.what-we-do/projects/projectDetail";
+import Gallery from "./pages/3.what-we-do/Gallery/galleryPage";
+import Blog from "./pages/3.what-we-do/Blog/blogPage";
+import BlogDetailPage from "./pages/3.what-we-do/Blog/details/blogDetailPage";
+import DonatePage from "./pages/4.how-to-help/Partner-with-us-Page/donatePage";
+import HowToHelp from "./pages/4.how-to-help/howToHelpPage";
+import ContactUs from "./pages/4.how-to-help/contact-us/ContactUs";
 import PrivacyPolicyPage from "./pages/policies/policiesPage";
 import TermsOfUse from "./pages/policies/termsOfUse";
 import EthicalConduct from "./pages/policies/ethicalConduct";
-import SeedPortals from "./pages/how-to-help/seed-portals/SeedPortals";
-import PartnerPortalPage from "./pages/dashboard/partnerPortalPage";
+import SeedPortals from "./pages/4.how-to-help/seed-portals/SeedPortals";
+import PartnerPortalPage from "./CRM/dashboard/partnerPortalPage";
 
 import { AuthProvider } from "./store/context/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
