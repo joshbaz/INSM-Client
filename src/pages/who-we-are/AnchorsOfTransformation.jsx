@@ -16,7 +16,7 @@ const ANCHORS = [
     title: "Scalable National Dominance",
     text: 'We are scaling this architecture across every district. Our mission is categorical: ensure that "female-led" becomes synonymous with "Economically Dominant."',
     image:
-      "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/Rectangle%206.png?updatedAt=1772569690283",
+      "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/national-dominance.png?updatedAt=1777971142991",
     alt: "Women-led economic expansion across Uganda",
   },
 ];
