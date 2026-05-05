@@ -62,20 +62,33 @@ const Navbar = () => {
   // Lock body scroll when menu is open
   // Lock body scroll when menu is open and handle scrollbar shift
   useEffect(() => {
+    const navElement = document.querySelector("nav");
     if (isMenuOpen) {
       const scrollbarWidth =
         window.innerWidth - document.documentElement.clientWidth;
       document.body.style.overflow = "hidden";
       document.body.style.paddingRight = `${scrollbarWidth}px`;
+      if (navElement) {
+        navElement.style.width = `calc(100% + ${scrollbarWidth}px)`;
+        navElement.style.paddingRight = `${scrollbarWidth}px`;
+      }
     } else {
       document.body.style.overflow = "unset";
       document.body.style.paddingRight = "0px";
+      if (navElement) {
+        navElement.style.width = "100%";
+        navElement.style.paddingRight = "0px";
+      }
     }
 
     // Cleanup function to ensure state is reset if component unmounts
     return () => {
       document.body.style.overflow = "unset";
       document.body.style.paddingRight = "0px";
+      if (navElement) {
+        navElement.style.width = "100%";
+        navElement.style.paddingRight = "0px";
+      }
     };
   }, [isMenuOpen]);
 
@@ -97,7 +110,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`sticky top-0 z-80 transition-all duration-500 ${isScrolled ? "bg-brand-white shadow-md" : "bg-brand-white shadow-sm"}`}
+        className={`w-full sticky top-0 z-80 transition duration-500 ${isScrolled ? "bg-brand-white shadow-md" : "bg-brand-white shadow-sm"}`}
       >
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
           {/* NAV BAR HEADER */}
@@ -136,14 +149,14 @@ const Navbar = () => {
                 items-center justify-center text-center
                 bg-brand-navy hover:bg-brand-navy/90
                 text-brand-white font-semibold 
-                text-[13px] lg:text-[14px] xl:text-[16px] 2xl:text-[18px]
-                px-5 lg:px-6 xl:px-8 
-                h-[40px] lg:h-[48px] xl:h-[54px] 2xl:h-[60px]
-                min-w-[140px] lg:min-w-[160px] xl:min-w-[200px] 2xl:min-w-[240px]
+                text-[11px] lg:text-[12px] xl:text-[13px]
+                px-[16px] lg:px-[20px] xl:px-[24px]
+                h-[34px] lg:h-[38px] xl:h-[42px]
+                min-w-[130px] lg:min-w-[140px] xl:min-w-[160px]
                 rounded-full
                 transition-all
                 cursor-pointer
-                uppercase tracking-wide
+                uppercase tracking-widest
               "
               >
                 {isHomePage ? "PARTNER WITH US" : "GO BACK HOME"}
@@ -181,8 +194,8 @@ const Navbar = () => {
           {/* Header Separation Line */}
           <div className="absolute top-20 left-0 w-full"></div>
 
-          <div className="max-w-3xl xl:max-w-5xl 2xl:max-w-7xl mx-auto px-4 md:px-8 py-8">
-            <div className="flex flex-col">
+          <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8 py-8 md:py-12">
+            <div className="flex flex-col max-w-full md:max-w-md lg:max-w-lg xl:max-w-xl">
               {menuCategories.map((category, index) => (
                 <div
                   key={index}
@@ -190,7 +203,7 @@ const Navbar = () => {
                 >
                   <button
                     onClick={() => toggleCategory(category.title)}
-                    className="w-full flex items-center justify-between py-6 group hover:bg-brand-white-100/50 transition-colors px-4 rounded-lg cursor-pointer"
+                    className="w-full flex items-center justify-between py-6 group hover:bg-brand-white-100/50 transition-colors px-2 md:px-4 rounded-lg cursor-pointer text-left"
                   >
                     <span className="text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl text-brand-dark font-normal">
                       {category.title}
@@ -211,13 +224,13 @@ const Navbar = () => {
                       ${expandedCategory === category.title ? "max-h-96 opacity-100 mb-6" : "max-h-0 opacity-0"}
                     `}
                   >
-                    <div className="px-4 space-y-3 pt-2">
+                    <div className="pl-6 md:pl-10 space-y-4 pt-3 pb-6">
                       {category.items.map((item, idx) => (
                         <Link
                           key={idx}
                           to={item.path}
                           onClick={() => setIsMenuOpen(false)}
-                          className="block text-lg xl:text-xl 2xl:text-2xl text-brand-dark-400 hover:text-brand-lilac/90 pl-4 border-l-2 border-transparent hover:border-brand-lilac transition-all cursor-pointer"
+                          className="block text-left text-lg xl:text-xl 2xl:text-2xl text-brand-dark-400 hover:text-brand-lilac/90 pl-4 border-l-2 border-transparent hover:border-brand-lilac transition-all cursor-pointer"
                         >
                           {item.name}
                         </Link>
