@@ -16,7 +16,7 @@ const OurTeam = () => {
         >
           <div className="w-full aspect-4/5 overflow-hidden bg-brand-dark-100 border border-brand-dark-200 flex items-center justify-center relative">
             <img
-              src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image.png?"
+              src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/winnie-nassanga.png?updatedAt=1777970651817"
               alt="Winifred Nassanga - Lead Architect"
               className="w-full h-full object-cover object-top absolute inset-0"
             />

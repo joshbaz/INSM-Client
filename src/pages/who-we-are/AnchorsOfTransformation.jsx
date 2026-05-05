@@ -8,7 +8,7 @@ const ANCHORS = [
     title: "National Strategic Endorsement",
     text: "Our architecture has garnered the explicit support of the Government of Uganda and senior leadership, recognizing us as the most Efficient Vehicle for Parish-Level Economic Development.",
     image:
-      "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image.png?updatedAt=1772569895604",
+      "https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/National-Strategic-Endorsement.png?updatedAt=1777970458275",
     alt: "Government partnership and strategic endorsement",
   },
   {
