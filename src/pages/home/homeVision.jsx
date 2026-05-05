@@ -22,7 +22,7 @@ const HomeVision = () => {
           >
             <div className="relative w-full aspect-4/5 overflow-hidden rounded-sm shadow-sm md:max-w-md">
               <img
-                src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/image.png"
+                src="https://ik.imagekit.io/sbgenu6wj/Internation%20Network%20For%20Single%20Mothers/Frame%202.png?updatedAt=1770419803425"
                 alt="INSM Vision"
                 className="w-full h-full object-cover"
               />
