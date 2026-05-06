@@ -110,7 +110,7 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`w-full sticky top-0 z-80 transition duration-500 ${isScrolled ? "bg-brand-white shadow-md" : "bg-brand-white shadow-sm"}`}
+        className={`w-full fixed top-0 left-0 right-0 z-80 transition duration-500 ${isScrolled ? "bg-brand-white shadow-md" : "bg-brand-white shadow-sm"}`}
       >
         <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
           {/* NAV BAR HEADER */}
@@ -184,6 +184,9 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/* Spacer to prevent content from jumping under fixed navbar */}
+      <div className="h-14 md:h-16 lg:h-20 w-full shrink-0" aria-hidden="true"></div>
 
       {/* MENU OVERLAY */}
       {isMenuOpen && (
