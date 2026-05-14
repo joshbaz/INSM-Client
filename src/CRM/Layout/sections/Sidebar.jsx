@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
 
   const menuItems = [
@@ -17,8 +17,16 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="w-60 bg-brand-white border-r border-brand-dark-200/20 h-screen fixed left-0 top-0 text-brand-dark p-5 z-50 flex flex-col">
-      <div className="mb-8 px-1 shrink-0">
+    <aside className={`w-60 bg-brand-white border-r border-brand-dark-200/20 h-screen fixed left-0 top-0 text-brand-dark p-5 z-50 flex flex-col transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0`}>
+      <div className="mb-8 px-1 shrink-0 relative">
+        {/* Mobile Close Button */}
+        <button 
+          onClick={onClose}
+          className="md:hidden absolute -top-2 -right-2 p-1.5 text-brand-dark-400 hover:text-brand-dark hover:bg-brand-white-100 rounded-lg transition-colors"
+        >
+          <Icon icon="heroicons:x-mark" className="w-5 h-5" />
+        </button>
+
         <div className="flex items-center gap-3 mb-4">
           <img src="/logo.png" alt="INSM Logo" className="w-8 h-8 object-contain rounded-full bg-brand-navy" />
           <div>
