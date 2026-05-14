@@ -27,13 +27,13 @@ const Sidebar = () => {
         </div>
         
         {/* User Profile */}
-        <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-brand-white-100 border border-brand-dark-200/20">
+        <div className="flex items-center gap-2.5 px-1 py-2">
           <div className="w-8 h-8 rounded-lg bg-brand-teal-100 flex shrink-0 items-center justify-center text-brand-teal-700 text-xs font-bold">
-            CA
+            JK
           </div>
           <div className="overflow-hidden">
-            <p className="text-xs font-primary font-bold text-brand-dark truncate">Charlie Aroma</p>
-            <p className="text-[9px] font-secondary text-brand-dark-400 font-bold truncate">System Admin</p>
+            <p className="text-xs font-primary font-bold text-brand-dark truncate">Joshua Kimbareeba</p>
+            <p className="text-[9px] font-secondary text-brand-dark-400 font-bold truncate">System Developer</p>
           </div>
         </div>
       </div>

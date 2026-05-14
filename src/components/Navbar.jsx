@@ -36,7 +36,7 @@ const Navbar = () => {
         },
         {
           name: "Equipper Portal",
-          path: "/partner-portal",
+          path: "/login",
         },
         { name: "Contact Us", path: "/how-to-help/contact-us" },
       ],
