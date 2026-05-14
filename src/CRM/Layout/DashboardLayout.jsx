@@ -7,7 +7,7 @@ const DashboardLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-brand-white-100 flex">
+    <div className="min-h-screen bg-brand-white-100 flex overflow-x-hidden">
       {/* Mobile Overlay */}
       {isMobileMenuOpen && (
         <div 
@@ -21,7 +21,7 @@ const DashboardLayout = () => {
         onClose={() => setIsMobileMenuOpen(false)} 
       />
       
-      <main className="flex-1 ml-0 md:ml-60 min-h-screen flex flex-col transition-all duration-300">
+      <main className="flex-1 min-w-0 w-full ml-0 md:ml-60 min-h-screen flex flex-col transition-all duration-300">
         {/* Mobile Header */}
         <div className="md:hidden flex items-center justify-between p-4 bg-brand-white border-b border-brand-dark-200/10 sticky top-0 z-30">
           <div className="flex items-center gap-2">
@@ -36,7 +36,7 @@ const DashboardLayout = () => {
           </button>
         </div>
 
-        <div className="p-4 md:p-8 flex-1 overflow-y-auto">
+        <div className="p-4 md:p-8 flex-1 overflow-y-auto min-w-0 w-full">
           <Outlet />
         </div>
       </main>
