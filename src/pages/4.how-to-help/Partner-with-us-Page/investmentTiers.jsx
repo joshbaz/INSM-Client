@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeUp, staggerContainer } from "../../../utils/animations";
 import TierDetailModal from "./TierDetailModal";
-import { TIERS } from "./tiersData";
+import TIERS from "../../../data/donationTiers.json";
 
 const InvestmentTiers = ({ onDonateClick }) => {
   const [selectedTier, setSelectedTier] = useState(null);
@@ -58,10 +58,10 @@ const InvestmentTiers = ({ onDonateClick }) => {
                   {tier.description}
                 </p>
 
-                <div className="flex justify-between items-center mt-auto gap-3">
+                <div className="flex flex-col xl:flex-row justify-between items-center mt-auto gap-3 w-full">
                   <button
                     onClick={() => setSelectedTier(tier)}
-                    className="border border-gray-300 text-gray-400 font-bold text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg py-4 px-4 rounded-full flex items-center gap-1 hover:bg-gray-50 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap min-h-[48px]"
+                    className="w-full xl:flex-1 border border-gray-300 text-gray-400 font-bold text-[10px] md:text-xs lg:text-sm py-3 md:py-4 px-2 md:px-4 rounded-full flex justify-center items-center gap-1 hover:bg-gray-50 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap min-h-[48px]"
                   >
                     More Info
                     <Icon
@@ -71,7 +71,7 @@ const InvestmentTiers = ({ onDonateClick }) => {
                   </button>
                   <button
                     onClick={() => onDonateClick && onDonateClick(tier)}
-                    className="bg-brand-lilac-600 text-brand-white font-bold text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg py-4 px-6 rounded-full hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm min-h-[48px]"
+                    className="w-full xl:flex-1 bg-brand-lilac-600 text-brand-white font-bold text-[10px] md:text-xs lg:text-sm py-3 md:py-4 px-2 md:px-6 rounded-full flex justify-center items-center hover:bg-brand-lilac-700 transition-colors uppercase tracking-wider cursor-pointer whitespace-nowrap shadow-sm min-h-[48px]"
                   >
                     Give Seed
                   </button>

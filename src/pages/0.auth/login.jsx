@@ -183,10 +183,7 @@ const Login = () => {
 
         <motion.div variants={fadeUp} className="mt-8 text-center">
           <p className="text-xs text-brand-white/40 font-secondary">
-            Don't have an institutional account?{" "}
-            <a href="/signup" className="text-brand-gold hover:underline">
-              Request Access
-            </a>
+            Restricted Access: Authorized system administrators only.
           </p>
           <div className="mt-6">
             <a

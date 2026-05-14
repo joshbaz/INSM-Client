@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import projectsData from "./projectsData";
+import projectsData from "../../../data/projects.json";
 
 const projectSponsorship = () => {
   const projects = projectsData.slice(0, 3);

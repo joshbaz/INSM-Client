@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import {
-  GALLERY_CATEGORIES,
-  GALLERY_REGIONS,
-  GALLERY_IMAGES,
-} from "./galleryData";
+import GALLERY_DATA from "../../../data/gallery.json";
+
+const GALLERY_CATEGORIES = GALLERY_DATA.categories;
+const GALLERY_REGIONS = GALLERY_DATA.regions;
+const GALLERY_IMAGES = GALLERY_DATA.images;
 
 const GalleryGrid = () => {
   const [activeCategory, setActiveCategory] = useState("all");

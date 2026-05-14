@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import projectsData from "./projectsData";
+import projectsData from "../../../data/projects.json";
 
 const projectsList = () => {
   // Subcategory checkbox selections

@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "title": "The Thread",
+    "subtitle": "From Invisible to Official",
+    "amount": "$10",
+    "description": "Provides a mother with her first official Cooperative Passbook and financial literacy induction.",
+    "colorClass": "bg-brand-teal",
+    "modalImage": "https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&q=80&w=1000",
+    "audioSrc": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    "longDescription": "Financial identity is the foundation. For $10, you provide a mother with her first official Cooperative Passbook, marking her transition from invisibility to economic participation. This isn't just a document; it's a key that unlocks her future in the cooperative network.\n\nBy investing in her financial literacy today, you are giving her the tools to manage resources and lead her family toward long-term prosperity."
+  },
+  {
+    "id": 2,
+    "title": "The Safety Rope",
+    "subtitle": "From Conflict to Stability",
+    "amount": "$100",
+    "description": "Funds a mental health and positive parenting seminar for 10 mothers.",
+    "colorClass": "bg-brand-pink",
+    "modalImage": "https://images.unsplash.com/photo-1544027993-37dbfe43562a?auto=format&fit=crop&q=80&w=1000",
+    "audioSrc": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    "longDescription": "Emotional stability is the \"Safety Rope\" that keeps a family together. For $100, you provide a healing space where ten mothers move from the chaos of conflict to the strength of a stable home. \n\nPartner with us to protect the next generation from the cycle of trauma and build a stronger, more resilient community today."
+  },
+  {
+    "id": 3,
+    "title": "The Parish Seed",
+    "subtitle": "From Isolation to Power",
+    "amount": "$500",
+    "description": "Seeds the registration and mobilization of a new 50-member Parish Cooperative.",
+    "colorClass": "bg-brand-brown",
+    "modalImage": "https://images.unsplash.com/photo-1494172961521-33799654c414?auto=format&fit=crop&q=80&w=1000",
+    "audioSrc": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    "longDescription": "Collective action is the engine of change. For $500, you fund the complete mobilization and official registration of a new 50-member Parish Cooperative.\n\nThis investment transforms isolated struggle into organized power, allowing 50 mothers to pool resources, access larger markets, and create a sustainable economic ecosystem for their children."
+  },
+  {
+    "id": 4,
+    "title": "The Masterclass",
+    "subtitle": "From Resilience to a Pro",
+    "amount": "$2,500",
+    "description": "Funds a 4-week certification in Commercial Agriculture or Tourism for 100 women.",
+    "colorClass": "bg-brand-brown",
+    "modalImage": "https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=1000",
+    "audioSrc": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+    "longDescription": "True prosperity requires specialized knowledge. Your investment funds intensive, 4-week certification programs in high-growth sectors for 100 women.\n\nBy moving from subsistence to professional production, these mothers double their earning potential and become local experts who can train others in their entire district."
+  },
+  {
+    "id": 5,
+    "title": "The SACCO Engine",
+    "subtitle": "From Subsistence to Wealth",
+    "amount": "$10,000",
+    "description": "Provides the initial revolving credit fund to scale small businesses across an entire division.",
+    "colorClass": "bg-brand-teal",
+    "modalImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a40d?auto=format&fit=crop&q=80&w=1000",
+    "audioSrc": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+    "longDescription": "The SACCO Engine is a systemic investment in regional growth. For $10,000, you provide the critical revolving credit fund that allows entire divisions of cooperatives to scale simultaneously.\n\nThis capital grows. As mothers repay their business loans, the fund is replenished to support the next group of entrepreneurs, moving communities toward generational wealth."
+  },
+  {
+    "id": 6,
+    "title": "The Legacy Fund",
+    "subtitle": "Building the Republic",
+    "amount": "$20,000+",
+    "description": "Provides institutional support to build the infrastructure of regional prosperity.",
+    "colorClass": "bg-brand-pink",
+    "modalImage": "https://images.unsplash.com/photo-1529391409740-59f2dee08361?auto=format&fit=crop&q=80&w=1000",
+    "audioSrc": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3",
+    "longDescription": "The Legacy Fund builds the foundations of regional prosperity. This tier provides the institutional backbone needed to support 17,000+ mothers across multiple districts.\n\nYour investment creates the systemic infrastructure—logistics, technology, and legal frameworks—that ensures national stability and ensures no single mother has to struggle alone."
+  }
+]

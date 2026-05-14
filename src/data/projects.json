@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Commercial Tailoring Hub",
+    "description": "Equipping mothers with industrial sewing machines and market access to build a self-sustaining garment enterprise.",
+    "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 21,400",
+    "category": "Community Programs",
+    "subcategory": "Fashion & Wearables",
+    "status": "Fully Funded",
+    "createdAt": "2025-06-15",
+    "location": "Nakawa Division",
+    "story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Sed sit amet ipsum mauris.\n\nSuspendisse potenti. Sed dignissim lacus nec tortor luctus, id blandit nisi finibus. In hac habitasse platea dictumst. Curabitur sit amet erat quis risus feugiat viverra. Sed in tortor vel ipsum ornare blandit. Aliquam erat volutpat. Nulla facilisi. Proin eget tortor risus.",
+    "extendedStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id vulputate risus. Sed id sem nulla. Suspendisse placerat turpis tempus tellus porta, at finibus risus fermentum. Duis sollicitudin efficitur mauris nec sodales. In vulputate posuere metus ut tincidunt. Sed in elit luctus, tincidunt orci congue, fringilla turpis. Nullam pretium nulla vitae fermentum iaculis.\n\nNunc volutpat tellus vitae mauris malesuada volutpat. Cras efficitur erat vel erat faucibus dictum. Aliquam condimentum libero eget condimentum fringilla. Aenean ut ligula pellentesque, porttitor lectus a, porta nisi. Mauris eget diam eu felis lobortis laoreet. Curabitur mattis massa et nisi cursus, eget auctor dui luctus. Aenean eget tempor orci, in sodales risus.",
+    "storyImage": "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 57,
+      "saccosFunded": 6,
+      "capitalDeployed": "$24,000"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Forage Sorghum Project",
+    "description": "Training mothers in commercial sorghum cultivation to supply breweries and animal feed processors across the region.",
+    "image": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 0",
+    "category": "Agriculture & Food",
+    "subcategory": "Land",
+    "status": "Upcoming",
+    "createdAt": "2026-01-10",
+    "location": "Luwero District",
+    "story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.\n\nSuspendisse potenti. Sed dignissim lacus nec tortor luctus, id blandit nisi finibus. In hac habitasse platea dictumst. Curabitur sit amet erat quis risus feugiat viverra. Sed in tortor vel ipsum ornare blandit.",
+    "extendedStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id vulputate risus. Sed id sem nulla. Suspendisse placerat turpis tempus tellus porta, at finibus risus fermentum. Duis sollicitudin efficitur mauris nec sodales.\n\nNunc volutpat tellus vitae mauris malesuada volutpat. Cras efficitur erat vel erat faucibus dictum. Aliquam condimentum libero eget condimentum fringilla.",
+    "storyImage": "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 34,
+      "saccosFunded": 2,
+      "capitalDeployed": "$0"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Hatchery Initiative in Makindye",
+    "description": "A poultry hatchery program providing day-old chicks and veterinary support to single-mother households.",
+    "image": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 0",
+    "category": "Agriculture & Food",
+    "subcategory": "Dairy & Poultry business",
+    "status": "Upcoming",
+    "createdAt": "2026-02-01",
+    "location": "Makindye Division",
+    "story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue.\n\nSuspendisse potenti. Sed dignissim lacus nec tortor luctus, id blandit nisi finibus. In hac habitasse platea dictumst. Curabitur sit amet erat quis risus feugiat viverra.",
+    "extendedStory": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id vulputate risus. Sed id sem nulla. Suspendisse placerat turpis tempus tellus porta, at finibus risus fermentum.\n\nNunc volutpat tellus vitae mauris malesuada volutpat. Cras efficitur erat vel erat faucibus dictum. Aliquam condimentum libero eget condimentum fringilla. Aenean ut ligula pellentesque, porttitor lectus a, porta nisi.",
+    "storyImage": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 0,
+      "saccosFunded": 0,
+      "capitalDeployed": "$0"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop"
+    ]
+  }
+]

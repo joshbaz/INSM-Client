@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import SendDonation from "./Project Details Form/sendDonation";
 import RequestForm from "./Project Details Form/requestForm";
-import projectsData from "./projectsData";
+import projectsData from "../../../data/projects.json";
 
 const ProjectDetail = () => {
   const { projectId } = useParams();

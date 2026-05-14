@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ARTICLES from "../blogData";
+import ARTICLES from "../../../../data/blogs.json";
 
 const BlogRelatedArticles = ({ currentArticleId }) => {
   // Get 4 articles excluding the current one

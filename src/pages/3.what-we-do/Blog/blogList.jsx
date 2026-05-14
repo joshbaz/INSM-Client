@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import ARTICLES from "./blogData";
+import ARTICLES from "../../../data/blogs.json";
 
 const ARTICLES_PER_PAGE = 6;
 

@@ -109,61 +109,80 @@ const Footer = () => {
       </div>
 
       {/* ─── BOTTOM BAR ─── */}
-      <div className="bg-brand-dark">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Left: Copyright + Links */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-2 gap-y-1 font-secondary text-[12px] md:text-sm lg:text-base xl:text-lg 2xl:text-xl text-white/40 text-center">
-            <span>
-              © 2026 International Network for Single Mothers-Uganda Chapter
-            </span>
-            <span className="text-white/20">•</span>
-            <button
-              onClick={() => setShowTransparency(true)}
-              className="hover:text-brand-gold transition-colors cursor-pointer"
-            >
-              Radical Transparency
-            </button>
-            <span className="text-white/20">•</span>
-            <Link
-              to="/privacy-policy"
-              className="hover:text-brand-gold transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <span className="text-white/20">•</span>
-            <Link
-              to="/terms-of-use"
-              className="hover:text-brand-gold transition-colors"
-            >
-              Terms of Use
-            </Link>
-          </div>
-
-          {/* Right: Socials + Partner Portal */}
-          <div className="flex flex-col md:flex-row items-center gap-6 ">
-            <div className="flex items-center gap-4">
-              <a
-                href="https://www.linkedin.com/in/winifred-nassanga-5459063a8/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/40 hover:text-brand-gold transition-colors"
-              >
-                <Icon icon="mdi:linkedin" className="w-5 h-5" />
-              </a>
-              <a
-                href="#"
-                className="text-white/40 hover:text-brand-gold transition-colors"
-              >
-                <Icon icon="ri:twitter-x-fill" className="w-[18px] h-[18px]" />
-              </a>
+      <div className="bg-brand-dark border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+            
+            {/* Left: Copyright & Legal Bloc */}
+            <div className="flex flex-col items-center lg:items-start gap-4">
+              <div className="flex flex-col items-center lg:items-start gap-1">
+                <span className="font-secondary text-[11px] md:text-xs uppercase tracking-widest text-white/30">
+                  Institutional Mandate
+                </span>
+                <span className="font-primary font-bold text-xs md:text-sm text-white/60 text-center lg:text-left">
+                  © 2026 International Network for Single Mothers-Uganda Chapter
+                </span>
+              </div>
+              
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2">
+                <button
+                  onClick={() => setShowTransparency(true)}
+                  className="font-secondary text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/40 hover:text-brand-gold transition-colors cursor-pointer flex items-center gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-brand-gold/40"></span>
+                  Radical Transparency
+                </button>
+                <Link
+                  to="/privacy-policy"
+                  className="font-secondary text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/40 hover:text-brand-gold transition-colors flex items-center gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-white/10"></span>
+                  Privacy Policy
+                </Link>
+                <Link
+                  to="/terms-of-use"
+                  className="font-secondary text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/40 hover:text-brand-gold transition-colors flex items-center gap-2"
+                >
+                  <span className="w-1 h-1 rounded-full bg-white/10"></span>
+                  Terms of Use
+                </Link>
+              </div>
             </div>
 
-            <Link
-              to="/partner-portal"
-              className="border border-brand-gold text-brand-gold rounded-full px-5 py-1.5 text-[10px] font-primary font-bold uppercase tracking-[0.15em] hover:bg-brand-gold hover:text-[#111] transition-all"
-            >
-              Partner Portal Login
-            </Link>
+            {/* Right: Socials & Terminal Access */}
+            <div className="flex flex-col sm:flex-row items-center gap-8">
+              {/* Social Links */}
+              <div className="flex items-center gap-6">
+                <a
+                  href="https://www.linkedin.com/in/winifred-nassanga-5459063a8/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
+                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300">
+                    <Icon icon="mdi:linkedin" className="w-5 h-5" />
+                  </div>
+                </a>
+                <a
+                  href="#"
+                  className="group"
+                >
+                  <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/40 group-hover:border-brand-gold group-hover:text-brand-gold transition-all duration-300">
+                    <Icon icon="ri:twitter-x-fill" className="w-[18px] h-[18px]" />
+                  </div>
+                </a>
+              </div>
+
+              {/* CRM Access */}
+              <Link
+                to="/login"
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-white/5 border border-brand-gold/30 text-brand-gold font-primary font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-brand-gold hover:text-brand-dark-900 transition-all duration-300 shadow-lg shadow-brand-gold/5"
+              >
+                <Icon icon="heroicons:lock-closed" className="w-3.5 h-3.5" />
+                Partner Terminal
+              </Link>
+            </div>
+
           </div>
         </div>
       </div>

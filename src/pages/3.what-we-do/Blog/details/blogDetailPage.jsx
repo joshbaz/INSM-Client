@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import ARTICLES from "../blogData";
+import ARTICLES from "../../../../data/blogs.json";
 import BlogRelatedArticles from "./blogRelatedArticles";
 
 const BlogDetailPage = () => {
