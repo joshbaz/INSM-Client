@@ -22,7 +22,7 @@ const data = [
 
 const ImpactChart = () => {
   return (
-    <div className="bg-brand-white p-6 rounded-2xl border border-brand-dark-200/10 shadow-sm h-[350px] flex flex-col">
+    <div className="bg-brand-white p-6 rounded-2xl border border-brand-dark-200/10 shadow-sm flex flex-col">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-primary font-bold text-brand-dark">Impact Velocity</h3>
@@ -34,7 +34,7 @@ const ImpactChart = () => {
         </select>
       </div>
 
-      <div className="flex-1 w-full h-full min-h-0">
+      <div className="w-full h-[250px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E5DAD4" />
