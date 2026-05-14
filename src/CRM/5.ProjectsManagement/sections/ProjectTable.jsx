@@ -151,9 +151,9 @@ const ProjectTable = () => {
 
   return (
     <>
-      <div className="bg-brand-white rounded-2xl border border-brand-dark-200/20 shadow-sm overflow-hidden">
+      <div className="bg-brand-white rounded-2xl border border-brand-dark-200/20 shadow-sm overflow-hidden w-full">
         {/* Table Header / Toolbar */}
-        <div className="p-6 border-b border-brand-dark-200/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="p-4 sm:p-6 border-b border-brand-dark-200/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h3 className="text-lg font-primary font-bold text-brand-dark">
               Projects Database
@@ -164,7 +164,7 @@ const ProjectTable = () => {
           </div>
           <button
             onClick={handleAdd}
-            className="inline-flex items-center gap-2 px-4 py-2 bg-brand-gold text-brand-navy-900 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-400 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-brand-gold text-brand-navy-900 rounded-lg font-bold text-xs uppercase tracking-wider hover:bg-brand-gold-400 transition-colors w-full sm:w-auto"
           >
             <Icon icon="heroicons:plus" className="w-4 h-4" />
             Add Project
@@ -172,8 +172,8 @@ const ProjectTable = () => {
         </div>
 
         {/* Table Content */}
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+        <div className="overflow-x-auto w-full">
+          <table className="w-full min-w-[700px] text-left border-collapse">
             <thead>
               {table.getHeaderGroups().map((headerGroup) => (
                 <tr
@@ -226,7 +226,7 @@ const ProjectTable = () => {
         </div>
 
         {/* Pagination */}
-        <div className="p-4 border-t border-brand-dark-200/10 flex items-center justify-between bg-brand-white-100/30">
+        <div className="p-4 border-t border-brand-dark-200/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-brand-white-100/30">
           <span className="text-xs font-secondary text-brand-dark-400">
             Showing {table.getRowModel().rows.length} of {data.length} projects
           </span>
