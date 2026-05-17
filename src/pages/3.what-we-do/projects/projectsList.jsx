@@ -111,7 +111,7 @@ const projectsList = () => {
   );
 
   return (
-    <section className="bg-page-bg min-h-screen pt-[173px] md:pt-[181px] lg:pt-[197px] pb-12 md:pb-20">
+    <section className="bg-page-bg min-h-screen pt-10 md:pt-16 lg:pt-20 pb-12 md:pb-20">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[90px]">
         {/* Page Header */}
         <div className="mb-[32px]">
