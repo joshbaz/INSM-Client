@@ -126,7 +126,7 @@ const projectsList = () => {
         {/* Main Layout: Cards + Sidebar */}
         <div className="flex flex-col lg:flex-row gap-[38px]">
           {/* Sidebar Filters */}
-          <div className="w-full lg:w-[300px] shrink-0 order-first lg:order-last space-y-8 bg-[var(--industrial-white)] rounded-[10px] shadow-sidebar p-5">
+          <div className="w-full lg:w-[300px] shrink-0 self-start order-first lg:order-last space-y-8 bg-[var(--industrial-white)] rounded-[10px] shadow-sidebar p-5">
             {/* ─── Category ─── */}
             <div>
               <div className="flex items-center gap-2 mb-4">
