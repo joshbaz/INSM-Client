@@ -1,31 +1,74 @@
 import React from "react";
 import { Icon } from "@iconify/react";
 
-const stats = [
-  { label: "Total Mothers", value: "1,284", icon: "heroicons:users", color: "text-brand-lilac", bg: "bg-brand-lilac/10" },
-  { label: "Impact Score", value: "84%", icon: "heroicons:chart-bar", color: "text-brand-teal", bg: "bg-brand-teal/10" },
-  { label: "Funds Raised", value: "$42.5k", icon: "heroicons:banknotes", color: "text-brand-gold", bg: "bg-brand-gold/10" },
-  { label: "Active Programs", value: "12", icon: "heroicons:academic-cap", color: "text-brand-navy", bg: "bg-brand-navy/10" },
-];
-
 const StatCards = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {stats.map((stat) => (
-        <div 
-          key={stat.label} 
-          className="bg-white p-6 rounded-2xl border border-brand-dark-200/10 shadow-sm hover:shadow-xl transition-all duration-300 group"
-        >
-          <div className="flex items-center justify-between mb-4">
-            <div className={`p-3 rounded-xl ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform`}>
-              <Icon icon={stat.icon} className="w-6 h-6" />
-            </div>
-            <span className="text-[10px] font-bold text-green-500 bg-green-50 px-2 py-1 rounded-full uppercase tracking-widest">+12%</span>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Card 1: Total Capital */}
+      <div className="bg-brand-white border border-brand-dark-200/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-brand-lilac/10 flex items-center justify-center text-brand-lilac shrink-0">
+            <Icon icon="ph:wallet-bold" className="w-5 h-5" />
           </div>
-          <h3 className="text-sm font-secondary font-bold text-brand-dark-400 uppercase tracking-wider">{stat.label}</h3>
-          <p className="text-3xl font-primary font-bold text-brand-dark mt-1 tracking-tight">{stat.value}</p>
+          <span className="inline-flex items-center gap-1 bg-[#eaf7ec] text-[#1fb039] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">
+            <Icon icon="ph:check-circle-fill" className="w-3.5 h-3.5 shrink-0" />
+            PesaPal Verified
+          </span>
         </div>
-      ))}
+        <div>
+          <p className="text-xs font-semibold text-brand-dark-400 uppercase tracking-wider mb-1 font-secondary">
+            Total Capital Deployed
+          </p>
+          <h3 className="text-3xl font-black text-brand-dark font-albert tracking-tight">
+            UGX 2.45B
+          </h3>
+          <p className="text-sm font-bold text-[#1fb039] mt-2 flex items-center gap-0.5">
+            +12.4% <span className="font-medium text-brand-dark-400">from last month</span>
+          </p>
+        </div>
+      </div>
+
+      {/* Card 2: Passbooks */}
+      <div className="bg-brand-white border border-brand-dark-200/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-brand-lilac/10 flex items-center justify-center text-brand-lilac shrink-0">
+            <Icon icon="ph:book-open-bold" className="w-5 h-5" />
+          </div>
+          <Icon icon="ph:users-bold" className="w-5 h-5 text-brand-dark-300" />
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-brand-dark-400 uppercase tracking-wider mb-1 font-secondary">
+            Cooperative Passbooks
+          </p>
+          <h3 className="text-3xl font-black text-brand-dark font-albert tracking-tight">
+            14,802
+          </h3>
+          <p className="text-sm font-semibold text-brand-lilac mt-2">
+            Women registered across regions
+          </p>
+        </div>
+      </div>
+
+      {/* Card 3: Active Parishes */}
+      <div className="bg-brand-white border border-brand-dark-200/10 rounded-2xl p-6 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow duration-300">
+        <div className="flex items-start justify-between gap-4 mb-4">
+          <div className="w-10 h-10 rounded-lg bg-brand-lilac/10 flex items-center justify-center text-brand-lilac shrink-0">
+            <Icon icon="ph:map-trifold-bold" className="w-5 h-5" />
+          </div>
+          <Icon icon="ph:map-pin-bold" className="w-5 h-5 text-brand-dark-300" />
+        </div>
+        <div>
+          <p className="text-xs font-semibold text-brand-dark-400 uppercase tracking-wider mb-1 font-secondary">
+            Active Parishes
+          </p>
+          <h3 className="text-3xl font-black text-brand-dark font-albert tracking-tight">
+            84
+          </h3>
+          <p className="text-sm font-semibold text-brand-brown mt-2">
+            Geographic coverage (Uganda)
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
