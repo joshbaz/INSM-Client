@@ -48,7 +48,7 @@ const BlogDetailPage = () => {
       <section className="pt-10 md:pt-16">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
           {/* Title — centered above image */}
-          <h1 className="text-3xl md:text-5xl font-bold font-primary text-brand-dark text-center leading-tight mb-8 md:mb-10">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-primary text-brand-dark text-center leading-tight mb-8 md:mb-10">
             {article.title}
           </h1>
 
@@ -65,11 +65,11 @@ const BlogDetailPage = () => {
           <div className="flex items-center justify-between gap-4 flex-wrap">
             {/* Left — Date + Category */}
             <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-sm font-secondary text-brand-dark-400">
+              <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
                 {formattedDate}
               </span>
               {article.category && (
-                <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs font-semibold text-brand-lilac uppercase tracking-wide">
+                <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs md:text-sm font-semibold text-brand-lilac uppercase tracking-wide">
                   {article.category}
                 </span>
               )}
@@ -77,7 +77,7 @@ const BlogDetailPage = () => {
 
             {/* Right — Share label + social icons */}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
+              <span className="text-xs md:text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
                 Share
               </span>
               {/* Copy Link */}
@@ -92,7 +92,7 @@ const BlogDetailPage = () => {
               >
                 <Icon icon="mdi:link-variant" width={18} />
                 {copied && (
-                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-semibold text-brand-white bg-brand-dark px-2 py-0.5 rounded whitespace-nowrap">
+                  <span className="absolute -bottom-7 left-1/2 -translate-x-1/2 text-xs md:text-sm font-semibold text-brand-white bg-brand-dark px-2 py-0.5 rounded whitespace-nowrap">
                     Copied!
                   </span>
                 )}
@@ -175,7 +175,7 @@ const BlogDetailPage = () => {
                   return (
                     <p
                       key={index}
-                      className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed"
+                      className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed"
                     >
                       {block.content}
                     </p>
@@ -184,7 +184,7 @@ const BlogDetailPage = () => {
                   return (
                     <h2
                       key={index}
-                      className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mt-4"
+                      className="text-xl md:text-2xl font-bold font-primary text-brand-dark mt-4"
                     >
                       {block.content}
                     </h2>

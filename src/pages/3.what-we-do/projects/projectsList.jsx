@@ -115,9 +115,9 @@ const projectsList = () => {
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[90px]">
         {/* Page Header */}
         <div className="mb-[32px]">
-          <h1 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark">
+          <h1 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark">
             Projects{" "}
-            <span className="text-xl md:text-2xl font-normal text-brand-dark-300">
+            <span className="text-base md:text-lg font-normal text-brand-dark-300">
               ({filteredProjects.length} results)
             </span>
           </h1>
@@ -280,7 +280,7 @@ const projectsList = () => {
 
           {/* Project Cards Grid */}
           <div className="grow max-w-[922px]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[26px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[26px] justify-items-center">
               {filteredProjects.map((project) => (
                 <Link
                   to={`/what-we-do/projects/list/${project.id}`}
@@ -298,10 +298,10 @@ const projectsList = () => {
 
                   {/* Content */}
                   <div className="pt-[12px] px-5 pb-5 flex flex-col grow">
-                    <h3 className="text-[16px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-albert font-extrabold text-[var(--dark)] tracking-normal mb-[15px] truncate">
+                    <h3 className="text-lg md:text-xl font-albert font-extrabold text-[var(--dark)] tracking-normal mb-[15px] truncate">
                       {project.title}
                     </h3>
-                    <p className="text-[13px] sm:text-[14px] md:text-[15px] lg:text-[17px] font-open font-normal text-[var(--dark)] line-clamp-3">
+                    <p className="text-sm md:text-base font-open font-normal text-[var(--dark)] line-clamp-3">
                       {project.description}
                     </p>
 
@@ -309,10 +309,10 @@ const projectsList = () => {
 
                     {/* Stats */}
                     <div className="flex items-center gap-3">
-                      <span className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-albert font-extrabold text-brand-lilac leading-none">
+                      <span className="text-lg md:text-xl font-albert font-extrabold text-brand-lilac leading-none">
                         {project.capitalRaised}
                       </span>
-                      <span className="text-sm font-secondary text-brand-dark-400">
+                      <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
                         Capital raised
                       </span>
                     </div>

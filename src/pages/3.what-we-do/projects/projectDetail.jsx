@@ -42,7 +42,7 @@ const ProjectDetail = () => {
       <section className="pt-10 md:pt-16">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
           {/* Title — centered above image */}
-          <h1 className="text-3xl md:text-5xl font-bold font-primary text-brand-dark text-center leading-tight mb-8 md:mb-10">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-primary text-brand-dark text-center leading-tight mb-8 md:mb-10">
             {project.title}
             {project.location && (
               <>
@@ -67,13 +67,13 @@ const ProjectDetail = () => {
           <div className="flex items-center justify-between gap-4 flex-wrap">
             {/* Left — Category label + pills */}
             <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-sm font-secondary text-brand-dark-400">
+              <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
                 Category
               </span>
-              <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs font-semibold text-brand-lilac uppercase tracking-wide">
+              <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs md:text-sm font-semibold text-brand-lilac uppercase tracking-wide">
                 {project.category}
               </span>
-              <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs font-semibold text-brand-lilac uppercase tracking-wide">
+              <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs md:text-sm font-semibold text-brand-lilac uppercase tracking-wide">
                 {project.subcategory}
               </span>
             </div>
@@ -171,12 +171,12 @@ const ProjectDetail = () => {
       ═══════════════════════════════════════════ */}
       <section className="py-8 md:py-10">
         <div className="max-w-5xl mx-auto px-6 md:px-24">
-          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-6">
+          <h2 className="text-xl md:text-2xl font-bold font-primary text-brand-dark mb-6">
             Project Story
           </h2>
 
           {/* Story text */}
-          <div className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed space-y-4 mb-10">
+          <div className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed space-y-4 mb-10">
             {project.story.split("\n\n").map((para, i) => (
               <p key={i}>{para}</p>
             ))}
@@ -194,35 +194,35 @@ const ProjectDetail = () => {
           {/* Stats row with dividers */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-0 mb-6">
             <div className="flex-1">
-              <p className="text-4xl md:text-5xl font-bold font-primary text-brand-brown mb-1">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-primary text-brand-brown mb-1">
                 {project.stats.mothersEmpowered}
               </p>
-              <p className="text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
+              <p className="text-xs md:text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
                 Mothers Supported
               </p>
             </div>
             <div className="hidden sm:block w-px h-16 bg-brand-dark-200/40" />
             <div className="flex-1 sm:pl-8">
-              <p className="text-4xl md:text-5xl font-bold font-primary text-brand-brown mb-1">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-primary text-brand-brown mb-1">
                 {project.stats.saccosFunded}
               </p>
-              <p className="text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
+              <p className="text-xs md:text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
                 Total SACCOs Funded
               </p>
             </div>
             <div className="hidden sm:block w-px h-16 bg-brand-dark-200/40" />
             <div className="flex-1 sm:pl-8">
-              <p className="text-4xl md:text-5xl font-bold font-primary text-brand-brown mb-1">
+              <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-primary text-brand-brown mb-1">
                 {project.stats.capitalDeployed}
               </p>
-              <p className="text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
+              <p className="text-xs md:text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
                 Capital Deployed
               </p>
             </div>
           </div>
 
           {/* Caption */}
-          <p className="text-sm font-secondary text-brand-dark-400/70 italic max-w-2xl">
+          <p className="text-xs md:text-sm font-secondary text-brand-dark-400/70 italic max-w-2xl">
             Integrity is our anchor. This live counter provides visual proof of
             how your capital is transforming the lives of single mothers.
           </p>
@@ -230,7 +230,7 @@ const ProjectDetail = () => {
           {/* Extended story */}
           {project.extendedStory && (
             <div className="mt-12">
-              <div className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed space-y-4 mb-6">
+              <div className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed space-y-4 mb-6">
                 {project.extendedStory.split("\n\n").map((para, i) => (
                   <p key={i}>{para}</p>
                 ))}
@@ -261,10 +261,10 @@ const ProjectDetail = () => {
       ═══════════════════════════════════════════ */}
       <section className="pb-20 md:pb-28 py-8 md:py-10">
         <div className="max-w-5xl mx-auto px-6 md:px-24">
-          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-3">
+          <h2 className="text-xl md:text-2xl font-bold font-primary text-brand-dark mb-3">
             Support this Initiative
           </h2>
-          <p className="text-base font-secondary text-brand-dark-400 leading-relaxed mb-10">
+          <p className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed mb-10">
             Your partnership turns potential into national prosperity. Whether
             you provide technical assets or the capital required to scale, you
             are helping a mother thrive in her venture.
@@ -273,7 +273,7 @@ const ProjectDetail = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1 — Capital */}
             <div className="bg-brand-brown-200/60 rounded-xl p-8 md:p-10 flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-brown mb-4 leading-snug">
+              <h3 className="text-lg md:text-xl font-bold font-primary text-brand-brown mb-4 leading-snug">
                 Sponsor this Project with Capital
               </h3>
               <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed mb-8 grow">
@@ -283,7 +283,7 @@ const ProjectDetail = () => {
               </p>
               <button
                 onClick={() => setIsDonationModalOpen(true)}
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-brown text-brand-white font-bold text-xs rounded-full hover:bg-brand-brown/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-brown text-brand-white font-bold text-xs md:text-sm rounded-full hover:bg-brand-brown/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
               >
                 Send Donation
               </button>
@@ -291,7 +291,7 @@ const ProjectDetail = () => {
 
             {/* Card 2 — Equipment */}
             <div className="bg-brand-teal-200/60 rounded-xl p-8 md:p-10 flex flex-col">
-              <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-teal-700 mb-4 leading-snug">
+              <h3 className="text-lg md:text-xl font-bold font-primary text-brand-teal-700 mb-4 leading-snug">
                 Sponsor this Project with Equipment
               </h3>
               <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed mb-8 grow">
@@ -301,7 +301,7 @@ const ProjectDetail = () => {
               </p>
               <button
                 onClick={() => setIsRequestFormOpen(true)}
-                className="inline-flex items-center justify-center px-6 py-3 bg-brand-teal-700 text-brand-white font-bold text-xs rounded-full hover:bg-brand-teal-700/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
+                className="inline-flex items-center justify-center px-6 py-3 bg-brand-teal-700 text-brand-white font-bold text-xs md:text-sm rounded-full hover:bg-brand-teal-700/90 transition-colors uppercase tracking-wider w-fit cursor-pointer"
               >
                 Fill Request Form
               </button>

@@ -13,10 +13,10 @@ const projectStats = () => {
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[146px]">
         {/* Heading */}
         <div className="mb-16 max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
             Duplicating the Prototype of Prosperity
           </h2>
-          <p className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed">
+          <p className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed">
             The International Network for Single Mothers Uganda Chapter operates
             through the Makindye Model, a tested prototype for national wealth
             building. Our programs are not "charity projects"; they are the
@@ -32,10 +32,10 @@ const projectStats = () => {
               key={index}
               className={`flex flex-col w-full md:w-auto ${index !== stats.length - 1 ? "md:border-r md:border-brand-dark-200 md:pr-16 lg:pr-24" : ""} ${index !== 0 ? "md:pl-16 lg:pl-2" : ""}`}
             >
-              <span className="text-4xl md:text-5xl font-bold font-primary text-brand-brown mb-2">
+              <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-primary text-brand-brown mb-2">
                 {stat.value}
               </span>
-              <span className="text-sm md:text-base font-semibold text-brand-dark-300 uppercase tracking-wide">
+              <span className="text-xs md:text-sm font-semibold text-brand-dark-300 uppercase tracking-wide">
                 {stat.label}
               </span>
             </div>
@@ -55,7 +55,7 @@ const projectStats = () => {
 
           {/* Text Overlay */}
           <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-[90%] md:w-[85%] bg-brand-brown/60 px-8 md:px-12 py-10 md:py-14">
-            <p className="text-xl md:text-3xl font-primary font-semibold text-brand-white leading-snug">
+            <p className="text-lg md:text-2xl font-primary font-semibold text-brand-white leading-snug">
               We identify, invest in, and accelerate the growth of innovative
               solutions across the agriculture and tourism sectors to transform
               30% of Ugandan households into a unified economic power.
