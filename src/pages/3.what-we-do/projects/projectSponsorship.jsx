@@ -10,13 +10,14 @@ const projectSponsorship = () => {
     <section className="bg-brand-white-100 py-20">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[146px]">
         {/* Heading */}
-        <div className="mb-12 max-w-4xl">
+        <div className="w-full mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-3">
             Sponsorship Opportunities
           </h2>
-          <p className="text-base md:text-lg font-secondary text-brand-dark-400 leading-relaxed">
+          <p className="text-[20px] font-open font-normal text-brand-dark-400 leading-relaxed">
             Each program below are active ventures seeking partners to provide
-            the capital or technical resources necessary to revamp the
+            the capital or technical resources <br />
+            necessary to revamp the
             microeconomics of Uganda by empowering the single mother.
           </p>
         </div>
@@ -43,7 +44,7 @@ const projectSponsorship = () => {
                 <h3 className="text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
                   {project.title}
                 </h3>
-                <p className="text-[21px] font-open font-normal text-brand-dark-400 mb-6">
+                <p className="text-[21px] font-open font-normal text-brand-dark-400 mb-6 line-clamp-3">
                   {project.description}
                 </p>
 
