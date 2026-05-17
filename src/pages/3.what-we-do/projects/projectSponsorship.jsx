@@ -11,10 +11,10 @@ const projectSponsorship = () => {
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[146px]">
         {/* Heading */}
         <div className="w-full mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-3">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black font-primary text-brand-dark mb-3 leading-[1.1]">
             Sponsorship Opportunities
           </h2>
-          <p className="text-sm md:text-base font-open font-normal text-brand-dark-400 leading-relaxed">
+          <p className="text-base md:text-xl font-open font-medium text-brand-dark-400 leading-relaxed">
             Each program below are active ventures seeking partners to provide
             the capital or technical resources necessary to revamp the
             microeconomics of Uganda by empowering the single mother.
@@ -40,19 +40,19 @@ const projectSponsorship = () => {
 
               {/* Content */}
               <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
-                <h3 className="text-lg md:text-xl font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
+                <h3 className="text-xl md:text-2xl font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
                   {project.title}
                 </h3>
-                <p className="text-xs md:text-sm font-open font-normal text-brand-dark-400 mb-6 line-clamp-3">
+                <p className="text-sm md:text-base font-open font-medium text-brand-dark-400 mb-6 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Stats */}
                 <div className="mt-auto flex items-center gap-4 pt-4 ">
-                  <span className="text-base md:text-lg font-bold font-primary text-brand-lilac">
+                  <span className="text-lg md:text-xl font-bold font-primary text-brand-lilac">
                     {project.capitalRaised}
                   </span>
-                  <span className="text-[11px] md:text-xs font-secondary text-brand-dark-400">
+                  <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
                     Capital raised
                   </span>
                 </div>

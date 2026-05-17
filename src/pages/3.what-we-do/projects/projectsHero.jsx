@@ -14,10 +14,10 @@ const projects = () => {
       {/* Content with glass background */}
       <div className="relative z-10 w-full">
         <div className="bg-brand-white/60 backdrop-blur-md h-auto md:h-[340px] xl:h-[380px] flex flex-col justify-center items-center p-6 md:p-12 xl:p-16 text-center w-full shadow-sm border-t border-brand-white/50">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-primary text-brand-teal-900 mb-4 md:mb-6 uppercase tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black font-primary text-brand-teal-900 mb-4 md:mb-6 uppercase tracking-tight">
             Scaling the <br className="hidden md:block" /> Wealth Model
           </h1>
-          <p className="text-base md:text-lg font-secondary text-brand-dark-400 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl font-secondary font-medium text-brand-dark-400 max-w-3xl mx-auto leading-relaxed">
             When we empower the mother, we save the child. Duplicating the
             Makindye Model is not just a theory; it is a viable strategy to
             transform Uganda. All of our programs are designed for scale and

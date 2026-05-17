@@ -79,22 +79,22 @@ const BlogList = () => {
               {/* Content */}
               <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
                 {/* Date */}
-                <p className="text-xs md:text-sm font-albert font-normal text-brand-lilac uppercase mb-3">
+                <p className="text-sm font-albert font-bold text-brand-lilac uppercase mb-3">
                   {formatDate(article.date)}
                 </p>
 
                 {/* Title */}
-                <h3 className="text-lg md:text-xl font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
+                <h3 className="text-xl md:text-2xl font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
                   {article.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-sm md:text-base font-open font-normal text-brand-dark-400 mb-4 line-clamp-3">
+                <p className="text-sm md:text-base font-open font-medium text-brand-dark-400 mb-4 line-clamp-3">
                   {article.excerpt}
                 </p>
 
                 {/* Read More Button */}
-                <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-xs md:text-sm rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-brand-white transition-all duration-300">
+                <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-sm rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-brand-white transition-all duration-300">
                   Read More
                 </span>
               </div>

@@ -12,11 +12,11 @@ const projectStats = () => {
     <section className="bg-brand-white-100 py-20 overflow-x-hidden">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[146px]">
         {/* Heading */}
-        <div className="mb-16 max-w-3xl">
-          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-dark mb-4">
+        <div className="mb-16 max-w-4xl">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black font-primary text-brand-dark mb-4 leading-[1.1]">
             Duplicating the Prototype of Prosperity
           </h2>
-          <p className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl font-secondary font-medium text-brand-dark-400 leading-relaxed">
             The International Network for Single Mothers Uganda Chapter operates
             through the Makindye Model, a tested prototype for national wealth
             building. Our programs are not "charity projects"; they are the
@@ -32,10 +32,10 @@ const projectStats = () => {
               key={index}
               className={`flex flex-col w-full md:w-auto ${index !== stats.length - 1 ? "md:border-r md:border-brand-dark-200 md:pr-16 lg:pr-24" : ""} ${index !== 0 ? "md:pl-16 lg:pl-2" : ""}`}
             >
-              <span className="text-2xl sm:text-3xl md:text-4xl font-bold font-primary text-brand-brown mb-2">
+              <span className="text-3xl md:text-5xl lg:text-6xl font-black font-primary text-brand-brown mb-2">
                 {stat.value}
               </span>
-              <span className="text-xs md:text-sm font-semibold text-brand-dark-300 uppercase tracking-wide">
+              <span className="text-sm md:text-base font-semibold text-brand-dark-300 uppercase tracking-wide">
                 {stat.label}
               </span>
             </div>

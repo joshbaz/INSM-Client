@@ -48,7 +48,7 @@ const BlogDetailPage = () => {
       <section className="pt-10 md:pt-16">
         <div className="max-w-7xl mx-auto px-6 md:px-24">
           {/* Title — centered above image */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-primary text-brand-dark text-center leading-tight mb-8 md:mb-10">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black font-primary text-brand-dark text-center leading-[1.1] mb-8 md:mb-10">
             {article.title}
           </h1>
 
@@ -65,11 +65,11 @@ const BlogDetailPage = () => {
           <div className="flex items-center justify-between gap-4 flex-wrap">
             {/* Left — Date + Category */}
             <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
+              <span className="text-sm md:text-base font-bold font-secondary text-brand-dark-400">
                 {formattedDate}
               </span>
               {article.category && (
-                <span className="px-3 py-1 rounded-full border border-brand-lilac-300 text-xs md:text-sm font-semibold text-brand-lilac uppercase tracking-wide">
+                <span className="px-4 py-1.5 rounded-full border border-brand-lilac-300 text-sm font-bold text-brand-lilac uppercase tracking-wide">
                   {article.category}
                 </span>
               )}
@@ -77,7 +77,7 @@ const BlogDetailPage = () => {
 
             {/* Right — Share label + social icons */}
             <div className="flex items-center gap-3">
-              <span className="text-xs md:text-sm font-secondary text-brand-dark-400 uppercase tracking-wide">
+              <span className="text-sm md:text-base font-bold font-secondary text-brand-dark-400 uppercase tracking-wide">
                 Share
               </span>
               {/* Copy Link */}
@@ -173,21 +173,21 @@ const BlogDetailPage = () => {
               switch (block.type) {
                 case "text":
                   return (
-                    <p
-                      key={index}
-                      className="text-sm md:text-base font-secondary text-brand-dark-400 leading-relaxed"
-                    >
-                      {block.content}
-                    </p>
+                     <p
+                       key={index}
+                       className="text-base md:text-lg lg:text-xl font-secondary font-medium text-brand-dark-400 leading-relaxed"
+                     >
+                       {block.content}
+                     </p>
                   );
                 case "heading":
                   return (
-                    <h2
-                      key={index}
-                      className="text-xl md:text-2xl font-bold font-primary text-brand-dark mt-4"
-                    >
-                      {block.content}
-                    </h2>
+                     <h2
+                       key={index}
+                       className="text-2xl md:text-4xl lg:text-5xl font-black font-primary text-brand-dark mt-8 mb-4 leading-[1.1]"
+                     >
+                       {block.content}
+                     </h2>
                   );
                 case "image":
                   return (

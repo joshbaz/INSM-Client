@@ -24,10 +24,10 @@ const projectFunds = () => {
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[146px]">
         {/* Heading */}
         <div className="mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold font-primary text-brand-white-900 mb-3">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-black font-primary text-brand-white-900 mb-3">
             Our Network funds
           </h2>
-          <p className="text-sm md:text-base font-secondary text-brand-dark-400">
+          <p className="text-base md:text-lg lg:text-xl font-secondary font-medium text-brand-dark-400">
             Solving challenges that demand diverse, coordinated capital
             strategies.
           </p>
@@ -40,10 +40,10 @@ const projectFunds = () => {
               key={index}
               className="bg-brand-teal-400 rounded-sm p-8 md:p-10 flex flex-col justify-end min-h-[320px] md:min-h-[380px]"
             >
-              <h3 className="text-lg md:text-xl font-bold font-primary text-brand-teal-900 mb-4">
+              <h3 className="text-xl md:text-2xl font-black font-primary text-brand-teal-900 mb-4">
                 {fund.title}
               </h3>
-              <p className="text-sm md:text-base font-secondary text-brand-teal-800 leading-relaxed">
+              <p className="text-base md:text-lg font-secondary font-medium text-brand-teal-800 leading-relaxed">
                 {fund.description}
               </p>
             </div>

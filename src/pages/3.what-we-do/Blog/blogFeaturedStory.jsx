@@ -27,18 +27,18 @@ const BlogFeaturedStory = () => {
           {/* Overlay Card — centered */}
           <div className="absolute bottom-0 left-0 right-0 flex justify-center p-4 md:p-0 ">
             <div className="bg-brand-white/95 backdrop-blur-sm p-6 md:p-8 max-w-xl w-full shadow-lg text-left">
-              <p className="text-xs font-secondary text-brand-lilac tracking-widest uppercase mb-3">
+              <p className="text-sm font-secondary font-bold text-brand-lilac tracking-widest uppercase mb-3">
                 {staticFeatured.date}
               </p>
-              <h2 className="text-xl md:text-2xl font-bold font-primary text-brand-dark leading-snug mb-3">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-black font-primary text-brand-dark leading-tight mb-3">
                 {staticFeatured.title}
               </h2>
-              <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed mb-5 line-clamp-2 md:line-clamp-3">
+              <p className="text-base md:text-lg font-secondary font-medium text-brand-dark-400 leading-relaxed mb-5 line-clamp-2 md:line-clamp-3">
                 {staticFeatured.excerpt}
               </p>
               <Link
                 to={`/what-we-do/blog/${staticFeatured.id}`}
-                className="inline-flex items-center justify-center px-6 py-2.5 bg-brand-lilac text-brand-white font-bold text-xs rounded-full hover:bg-brand-lilac/90 transition-colors uppercase tracking-wider"
+                className="inline-flex items-center justify-center px-6 py-2.5 bg-brand-lilac text-brand-white font-bold text-sm rounded-full hover:bg-brand-lilac/90 transition-colors uppercase tracking-wider"
               >
                 Read More
               </Link>
