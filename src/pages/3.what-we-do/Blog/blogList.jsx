@@ -79,17 +79,17 @@ const BlogList = () => {
               {/* Content */}
               <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
                 {/* Date */}
-                <p className="text-[18px] font-albert font-normal text-brand-lilac uppercase mb-3">
+                <p className="text-[14px] md:text-[16px] lg:text-[18px] font-albert font-normal text-brand-lilac uppercase mb-3">
                   {formatDate(article.date)}
                 </p>
 
                 {/* Title */}
-                <h3 className="text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
+                <h3 className="text-[18px] md:text-[22px] lg:text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
                   {article.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-[21px] font-open font-normal text-brand-dark-400 mb-4 line-clamp-3">
+                <p className="text-[15px] md:text-[21px] font-open font-normal text-brand-dark-400 mb-4 line-clamp-3">
                   {article.excerpt}
                 </p>
 

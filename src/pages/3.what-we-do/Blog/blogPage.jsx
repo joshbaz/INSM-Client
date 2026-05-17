@@ -16,7 +16,7 @@ const Blog = () => {
       <BlogFeaturedStory />
 
       {/* Horizontal Divider */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8 py-8 md:py-12">
         <hr className="border-t border-brand-dark-200/30" />
       </div>
 

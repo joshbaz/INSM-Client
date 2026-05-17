@@ -21,7 +21,7 @@ const projectFunds = () => {
 
   return (
     <section className="bg-brand-white-100 py-20">
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[146px]">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[146px]">
         {/* Heading */}
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-white-900 mb-3">

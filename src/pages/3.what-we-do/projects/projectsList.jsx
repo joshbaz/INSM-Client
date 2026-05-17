@@ -112,7 +112,7 @@ const projectsList = () => {
 
   return (
     <section className="bg-page-bg min-h-screen pt-[173px] md:pt-[181px] lg:pt-[197px] pb-12 md:pb-20">
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[90px]">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[90px]">
         {/* Page Header */}
         <div className="mb-[32px]">
           <h1 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark">
@@ -298,10 +298,10 @@ const projectsList = () => {
 
                   {/* Content */}
                   <div className="pt-[12px] px-5 pb-5 flex flex-col grow">
-                    <h3 className="text-[26px] font-albert font-extrabold text-[var(--dark)] tracking-normal mb-[15px] truncate">
+                    <h3 className="text-[18px] md:text-[22px] lg:text-[26px] font-albert font-extrabold text-[var(--dark)] tracking-normal mb-[15px] truncate">
                       {project.title}
                     </h3>
-                    <p className="text-[17px] font-open font-normal text-[var(--dark)] line-clamp-3">
+                    <p className="text-[14px] md:text-[17px] font-open font-normal text-[var(--dark)] line-clamp-3">
                       {project.description}
                     </p>
 
@@ -309,7 +309,7 @@ const projectsList = () => {
 
                     {/* Stats */}
                     <div className="flex items-center gap-3">
-                      <span className="text-[28px] font-albert font-extrabold text-brand-lilac leading-none">
+                      <span className="text-[20px] md:text-[24px] lg:text-[28px] font-albert font-extrabold text-brand-lilac leading-none">
                         {project.capitalRaised}
                       </span>
                       <span className="text-sm font-secondary text-brand-dark-400">

@@ -8,7 +8,7 @@ const projectSponsorship = () => {
 
   return (
     <section className="bg-brand-white-100 py-20">
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[146px]">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 xl:px-[146px]">
         {/* Heading */}
         <div className="w-full mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-3">
@@ -41,16 +41,16 @@ const projectSponsorship = () => {
 
               {/* Content */}
               <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
-                <h3 className="text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
+                <h3 className="text-[18px] md:text-[22px] lg:text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
                   {project.title}
                 </h3>
-                <p className="text-[21px] font-open font-normal text-brand-dark-400 mb-6 line-clamp-3">
+                <p className="text-[15px] md:text-[21px] font-open font-normal text-brand-dark-400 mb-6 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Stats */}
                 <div className="mt-auto flex items-center gap-4 pt-4 ">
-                  <span className="text-xl font-bold font-primary text-brand-lilac">
+                  <span className="text-lg md:text-xl font-bold font-primary text-brand-lilac">
                     {project.capitalRaised}
                   </span>
                   <span className="text-sm font-secondary text-brand-dark-300">
