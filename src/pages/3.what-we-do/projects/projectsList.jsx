@@ -112,7 +112,7 @@ const projectsList = () => {
 
   return (
     <section className="bg-page-bg min-h-screen pt-[173px] md:pt-[181px] lg:pt-[197px] pb-12 md:pb-20">
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[90px]">
         {/* Page Header */}
         <div className="mb-[32px]">
           <h1 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark">
@@ -280,7 +280,7 @@ const projectsList = () => {
 
           {/* Project Cards Grid */}
           <div className="grow max-w-[922px]">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[40px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[26px]">
               {filteredProjects.map((project) => (
                 <Link
                   to={`/what-we-do/projects/list/${project.id}`}

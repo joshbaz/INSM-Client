@@ -8,7 +8,7 @@ const projectSponsorship = () => {
 
   return (
     <section className="bg-brand-white-100 py-20">
-      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[146px]">
         {/* Heading */}
         <div className="mb-12 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-3">
@@ -27,7 +27,7 @@ const projectSponsorship = () => {
             <Link
               to={`/what-we-do/projects/list/${project.id}`}
               key={index}
-              className="w-full max-w-[356px] h-[621px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-card"
+              className="w-full max-w-[356px] h-[525px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-sponsorship"
             >
               {/* Image */}
               <div className="w-full h-[256px] overflow-hidden shrink-0">

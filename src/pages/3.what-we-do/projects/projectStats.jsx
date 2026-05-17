@@ -10,7 +10,7 @@ const projectStats = () => {
 
   return (
     <section className="bg-brand-white-100 py-20 overflow-x-hidden">
-      <div className="max-w-7xl mx-auto px-8 md:px-24">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-[146px]">
         {/* Heading */}
         <div className="mb-16 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-4">

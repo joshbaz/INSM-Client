@@ -198,6 +198,7 @@
 
   --shadow-card: -6px 3px 16px -8px rgba(157, 157, 158, 0.08);
   --shadow-card-project: -5.11px 2.56px 13.64px 6.82px rgba(157, 157, 158, 0.08);
+  --shadow-sponsorship: -5px 3px 16px 8px rgba(157, 157, 158, 0.08);
   --shadow-sidebar: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   --color-page-bg: var(--page-bg);
 
