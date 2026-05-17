@@ -301,7 +301,7 @@ const projectsList = () => {
                     <h3 className="text-lg md:text-xl font-albert font-extrabold text-[var(--dark)] tracking-normal mb-[15px] truncate">
                       {project.title}
                     </h3>
-                    <p className="text-sm md:text-base font-open font-normal text-[var(--dark)] line-clamp-3">
+                    <p className="text-xs md:text-sm font-open font-normal text-[var(--dark)] line-clamp-3">
                       {project.description}
                     </p>
 
@@ -309,10 +309,10 @@ const projectsList = () => {
 
                     {/* Stats */}
                     <div className="flex items-center gap-3">
-                      <span className="text-lg md:text-xl font-albert font-extrabold text-brand-lilac leading-none">
+                      <span className="text-base md:text-lg font-albert font-extrabold text-brand-lilac leading-none">
                         {project.capitalRaised}
                       </span>
-                      <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
+                      <span className="text-[11px] md:text-xs font-secondary text-brand-dark-400">
                         Capital raised
                       </span>
                     </div>
