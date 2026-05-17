@@ -40,10 +40,10 @@ const projectFunds = () => {
               key={index}
               className="bg-brand-teal-400 rounded-sm p-8 md:p-10 flex flex-col justify-end min-h-[320px] md:min-h-[380px]"
             >
-              <h3 className="text-2xl md:text-3xl font-bold font-primary text-brand-teal-900 mb-4">
+              <h3 className="text-[16px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-bold font-primary text-brand-teal-900 mb-4">
                 {fund.title}
               </h3>
-              <p className="text-sm md:text-base font-secondary text-brand-teal-800 leading-relaxed">
+              <p className="text-[13px] sm:text-[14px] md:text-[15px] lg:text-base font-secondary text-brand-teal-800 leading-relaxed">
                 {fund.description}
               </p>
             </div>

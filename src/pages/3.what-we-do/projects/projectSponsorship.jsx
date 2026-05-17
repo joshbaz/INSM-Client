@@ -41,16 +41,16 @@ const projectSponsorship = () => {
 
               {/* Content */}
               <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
-                <h3 className="text-[18px] md:text-[22px] lg:text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
+                <h3 className="text-[16px] sm:text-[18px] md:text-[22px] lg:text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
                   {project.title}
                 </h3>
-                <p className="text-[15px] md:text-[21px] font-open font-normal text-brand-dark-400 mb-6 line-clamp-3">
+                <p className="text-[13px] sm:text-[15px] md:text-[18px] lg:text-[21px] font-open font-normal text-brand-dark-400 mb-6 line-clamp-3">
                   {project.description}
                 </p>
 
                 {/* Stats */}
                 <div className="mt-auto flex items-center gap-4 pt-4 ">
-                  <span className="text-lg md:text-xl font-bold font-primary text-brand-lilac">
+                  <span className="text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] font-bold font-primary text-brand-lilac">
                     {project.capitalRaised}
                   </span>
                   <span className="text-sm font-secondary text-brand-dark-300">
