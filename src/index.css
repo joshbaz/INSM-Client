@@ -129,7 +129,7 @@
   --color-brand-teal-800: var(--teal-800);
   --color-brand-teal-900: var(--teal-900);
 
-  --color-brand-white: var(--white);
+  --color-brand-white: var(--industrial-white);
   --color-brand-white-100: var(--white-100);
   --color-brand-white-200: var(--white-200);
   --color-brand-white-300: var(--white-300);
@@ -220,7 +220,7 @@ html {
 /* Restored original base styles since backgrounds should stay cream */
 body {
   font-family: var(--font-primary);
-  background-color: var(--white);
+  background-color: var(--industrial-white);
   color: var(--dark);
   font-size: 16px;
 }
