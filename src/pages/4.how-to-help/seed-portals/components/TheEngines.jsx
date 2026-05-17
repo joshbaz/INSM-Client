@@ -57,7 +57,7 @@ const TheEngines = () => {
             <motion.div
               variants={fadeUp}
               key={engine.id}
-              className="bg-brand-white-100 rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 md:p-10 group"
+              className="bg-brand-white-100 rounded-[10px] shadow-sm border border-brand-dark-200/40 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 md:p-10 group"
             >
               <div className="mb-6">
                 <p className="text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-bold text-gray-400 font-secondary uppercase tracking-[0.15em] mb-2">

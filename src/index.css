@@ -1,5 +1,5 @@
 /* INSM Uganda 2026: Hybrid Industrial + Legacy Identity */
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Montserrat:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100..800&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Montserrat:ital,wght@0,300..800;1,300..800&family=Open+Sans:wght@300..800&display=swap");
 
 /* ── Legacy Brand Palette (Preserved) ── */
 :root {
@@ -95,6 +95,7 @@
 
   --industrial-white: #FFFFFF;
   --industrial-muted: #6B6C6D;
+  --page-bg: #F5F5F5;
 
   /* Partner – PesaPal brand */
   --pesapal-blue: #1a6dab;
@@ -107,6 +108,8 @@
   /* Fonts: Montserrat (Authority) & DM Sans (Precision) */
   --font-primary: "Montserrat", ui-sans-serif, system-ui, sans-serif;
   --font-secondary: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-albert: "Albert Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-open: "Open Sans", ui-sans-serif, system-ui, sans-serif;
 
   /* ── Legacy Brand Colors (Preserved) ── */
   --color-brand-lilac: var(--lilac);
@@ -192,6 +195,11 @@
 
   --color-pesapal-blue: var(--pesapal-blue);
   --color-pesapal-red: var(--pesapal-red);
+
+  --shadow-card: -6px 3px 16px -8px rgba(157, 157, 158, 0.08);
+  --shadow-card-project: -5.11px 2.56px 13.64px 6.82px rgba(157, 157, 158, 0.08);
+  --shadow-sidebar: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  --color-page-bg: var(--page-bg);
 
   /* Typography scale – Designed for "Architect Level" Voice */
   --text-display: 3.5rem;

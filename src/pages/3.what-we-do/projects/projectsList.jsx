@@ -11,9 +11,9 @@ const projectsList = () => {
 
   // Accordion open states
   const [isCommunityOpen, setIsCommunityOpen] = useState(true);
-  const [isAgricultureOpen, setIsAgricultureOpen] = useState(true);
-  const [isStatusOpen, setIsStatusOpen] = useState(true);
-  const [isSortOpen, setIsSortOpen] = useState(true);
+  const [isAgricultureOpen, setIsAgricultureOpen] = useState(false);
+  const [isStatusOpen, setIsStatusOpen] = useState(false);
+  const [isSortOpen, setIsSortOpen] = useState(false);
 
   const categoryStructure = {
     "Community Programs": [
@@ -106,15 +106,15 @@ const projectsList = () => {
   const ChevronIcon = ({ isOpen }) => (
     <Icon
       icon="ph:caret-down-bold"
-      className={`w-5 h-5 text-brand-dark-300 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+      className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "text-brand-lilac-600 rotate-180" : "text-brand-dark"}`}
     />
   );
 
   return (
-    <section className="bg-brand-white-100 min-h-screen py-12 md:py-20">
-      <div className="max-w-7xl mx-auto px-6 md:px-24">
+    <section className="bg-page-bg min-h-screen pt-[173px] md:pt-[181px] lg:pt-[197px] pb-12 md:pb-20">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
         {/* Page Header */}
-        <div className="mb-10">
+        <div className="mb-[32px]">
           <h1 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark">
             Projects{" "}
             <span className="text-xl md:text-2xl font-normal text-brand-dark-300">
@@ -124,29 +124,29 @@ const projectsList = () => {
         </div>
 
         {/* Main Layout: Cards + Sidebar */}
-        <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col lg:flex-row gap-[38px]">
           {/* Sidebar Filters */}
-          <div className="w-full lg:w-[280px] shrink-0 order-first lg:order-last space-y-8">
+          <div className="w-full lg:w-[300px] shrink-0 order-first lg:order-last space-y-8 bg-[var(--industrial-white)] rounded-[10px] shadow-sidebar p-5">
             {/* ─── Category ─── */}
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Icon
-                  icon="heroicons:squares-2x2"
-                  className="w-5 h-5 text-brand-lilac"
+                  icon="mynaui:sprout"
+                  className="w-5 h-5 text-brand-dark"
                 />
                 <span className="text-base font-semibold font-primary text-brand-dark">
                   Category
                 </span>
               </div>
 
-              <div className="bg-brand-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <div>
                 {/* Community Programs */}
                 <div>
                   <button
                     onClick={() => setIsCommunityOpen(!isCommunityOpen)}
-                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-100"
+                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors"
                   >
-                    <span className="text-sm font-semibold font-secondary text-brand-lilac">
+                    <span className={`text-sm font-semibold font-secondary ${isCommunityOpen ? "text-brand-lilac-600" : "text-brand-dark"}`}>
                       Community Programs
                     </span>
                     <ChevronIcon isOpen={isCommunityOpen} />
@@ -158,7 +158,7 @@ const projectsList = () => {
                       <button
                         key={sub}
                         onClick={() => toggleSubcategory(sub)}
-                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-b-0"
+                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
                       >
                         <Checkbox
                           checked={selectedSubcategories.includes(sub)}
@@ -175,9 +175,9 @@ const projectsList = () => {
                 <div>
                   <button
                     onClick={() => setIsAgricultureOpen(!isAgricultureOpen)}
-                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-100"
+                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors"
                   >
-                    <span className="text-sm font-semibold font-secondary text-brand-lilac">
+                    <span className={`text-sm font-semibold font-secondary ${isAgricultureOpen ? "text-brand-lilac-600" : "text-brand-dark"}`}>
                       Agriculture & Food
                     </span>
                     <ChevronIcon isOpen={isAgricultureOpen} />
@@ -189,7 +189,7 @@ const projectsList = () => {
                       <button
                         key={sub}
                         onClick={() => toggleSubcategory(sub)}
-                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-b-0"
+                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
                       >
                         <Checkbox
                           checked={selectedSubcategories.includes(sub)}
@@ -208,22 +208,22 @@ const projectsList = () => {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Icon
-                  icon="heroicons:adjustments-horizontal"
-                  className="w-5 h-5 text-brand-lilac"
+                  icon="mynaui:filter-one"
+                  className="w-5 h-5 text-brand-dark"
                 />
                 <span className="text-base font-semibold font-primary text-brand-dark">
                   Filters
                 </span>
               </div>
 
-              <div className="bg-brand-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+              <div>
                 {/* Project Status */}
                 <div>
                   <button
                     onClick={() => setIsStatusOpen(!isStatusOpen)}
-                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-100"
+                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors"
                   >
-                    <span className="text-sm font-semibold font-secondary text-brand-lilac">
+                    <span className={`text-sm font-semibold font-secondary ${isStatusOpen ? "text-brand-lilac-600" : "text-brand-dark"}`}>
                       Project status
                     </span>
                     <ChevronIcon isOpen={isStatusOpen} />
@@ -235,7 +235,7 @@ const projectsList = () => {
                       <button
                         key={status}
                         onClick={() => toggleStatus(status)}
-                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-b-0"
+                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
                       >
                         <Checkbox checked={selectedStatuses.includes(status)} />
                         <span className="text-sm font-secondary text-brand-dark-400">
@@ -250,9 +250,9 @@ const projectsList = () => {
                 <div>
                   <button
                     onClick={() => setIsSortOpen(!isSortOpen)}
-                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-100"
+                    className="w-full flex items-center justify-between px-5 py-3.5 cursor-pointer hover:bg-gray-50 transition-colors"
                   >
-                    <span className="text-sm font-semibold font-secondary text-brand-lilac">
+                    <span className={`text-sm font-semibold font-secondary ${isSortOpen ? "text-brand-lilac-600" : "text-brand-dark"}`}>
                       Sort
                     </span>
                     <ChevronIcon isOpen={isSortOpen} />
@@ -264,7 +264,7 @@ const projectsList = () => {
                       <button
                         key={option}
                         onClick={() => setSortOrder(option)}
-                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors border-b border-gray-50 last:border-b-0"
+                        className="w-full flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors"
                       >
                         <Checkbox checked={sortOrder === option} />
                         <span className="text-sm font-secondary text-brand-dark-400">
@@ -279,16 +279,16 @@ const projectsList = () => {
           </div>
 
           {/* Project Cards Grid */}
-          <div className="grow">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grow max-w-[922px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[40px]">
               {filteredProjects.map((project) => (
                 <Link
                   to={`/what-we-do/projects/list/${project.id}`}
                   key={project.id}
-                  className="bg-brand-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+                  className="w-full max-w-[290px] h-[448px] rounded-[10px] border border-brand-dark-200/40 bg-[var(--industrial-white)] overflow-hidden flex flex-col shadow-card-project"
                 >
                   {/* Image */}
-                  <div className="w-full h-[160px] overflow-hidden">
+                  <div className="w-full h-[200px] overflow-hidden shrink-0">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -297,20 +297,22 @@ const projectsList = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="p-5 flex flex-col grow">
-                    <h3 className="text-base font-bold font-primary text-brand-dark mb-1.5 truncate">
+                  <div className="pt-[12px] px-5 pb-5 flex flex-col grow">
+                    <h3 className="text-[26px] font-albert font-extrabold text-[var(--dark)] tracking-normal mb-[15px] truncate">
                       {project.title}
                     </h3>
-                    <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed mb-4">
+                    <p className="text-[17px] font-open font-normal text-[var(--dark)] line-clamp-3">
                       {project.description}
                     </p>
 
+                    <div className="grow min-h-[47px]" />
+
                     {/* Stats */}
-                    <div className="mt-auto flex items-center gap-3">
-                      <span className="text-lg font-bold font-primary text-brand-lilac">
+                    <div className="flex items-center gap-3">
+                      <span className="text-[28px] font-albert font-extrabold text-brand-lilac leading-none">
                         {project.capitalRaised}
                       </span>
-                      <span className="text-xs font-secondary text-brand-dark-300">
+                      <span className="text-sm font-secondary text-brand-dark-400">
                         Capital raised
                       </span>
                     </div>

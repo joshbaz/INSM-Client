@@ -22,37 +22,40 @@ const BlogRelatedArticles = ({ currentArticleId }) => {
           Related articles
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[40px]">
           {related.map((article) => (
             <Link
               to={`/what-we-do/blog/${article.id}`}
               key={article.id}
-              className="group flex flex-col"
+              className="w-full max-w-[356px] h-[621px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-card group"
             >
               {/* Image */}
-              <div className="w-full h-[180px] rounded-lg overflow-hidden mb-3">
+              <div className="w-full h-[256px] overflow-hidden shrink-0">
                 <img
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
 
-              {/* Date */}
-              <p className="text-xs font-secondary text-brand-lilac tracking-widest uppercase mb-1.5">
-                {formatDate(article.date)}
-              </p>
+              {/* Content */}
+              <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
+                {/* Date */}
+                <p className="text-[18px] font-albert font-normal text-brand-lilac uppercase mb-3">
+                  {formatDate(article.date)}
+                </p>
 
-              {/* Title */}
-              <h3 className="text-base font-bold font-primary text-brand-dark leading-snug mb-1.5 group-hover:text-brand-lilac-700 transition-colors">
-                {article.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
+                  {article.title}
+                </h3>
 
-              {/* Excerpt */}
-              <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed line-clamp-3">
-                {article.excerpt}
-              </p>
+                {/* Excerpt */}
+                <p className="text-[21px] font-open font-normal text-brand-dark-400 line-clamp-3">
+                  {article.excerpt}
+                </p>
+              </div>
             </Link>
           ))}
         </div>

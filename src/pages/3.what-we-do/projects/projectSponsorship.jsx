@@ -8,7 +8,7 @@ const projectSponsorship = () => {
 
   return (
     <section className="bg-brand-white-100 py-20">
-      <div className="max-w-7xl mx-auto px-8 md:px-24">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
         {/* Heading */}
         <div className="mb-12 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold font-primary text-brand-dark mb-3">
@@ -22,15 +22,15 @@ const projectSponsorship = () => {
         </div>
 
         {/* Project Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
           {projects.map((project, index) => (
             <Link
               to={`/what-we-do/projects/list/${project.id}`}
               key={index}
-              className="bg-brand-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow"
+              className="w-full max-w-[356px] h-[621px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-card"
             >
               {/* Image */}
-              <div className="w-full h-[220px] overflow-hidden">
+              <div className="w-full h-[256px] overflow-hidden shrink-0">
                 <img
                   src={project.image}
                   alt={project.title}
@@ -39,11 +39,11 @@ const projectSponsorship = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-lg font-bold font-primary text-brand-dark mb-2 truncate">
+              <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
+                <h3 className="text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] truncate">
                   {project.title}
                 </h3>
-                <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed mb-6">
+                <p className="text-[21px] font-open font-normal text-brand-dark-400 mb-6">
                   {project.description}
                 </p>
 

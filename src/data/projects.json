@@ -73,5 +73,180 @@
       "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&h=400&fit=crop",
       "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop"
     ]
+  },
+  {
+    "id": 4,
+    "title": "Women's Market Cooperative",
+    "description": "Establishing a cooperative retail space where mothers sell fresh produce, crafts, and prepared foods to the local community.",
+    "image": "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 18,200",
+    "category": "Community Programs",
+    "subcategory": "Local Businesses",
+    "status": "Fully Funded",
+    "createdAt": "2025-09-20",
+    "location": "Kawempe Division",
+    "story": "A growing collective of single mothers joined forces to create a central marketplace in Kawempe. With seed capital from INSM, they secured a lease on a commercial plot and built twelve vendor stalls. Each member contributes a portion of weekly earnings toward the cooperative savings account.\n\nThe market now serves over 500 households weekly and has become a model for community-driven commerce. Plans are underway to add a cold storage unit and a communal kitchen.",
+    "extendedStory": "The cooperative model was designed to eliminate the middleman and allow mothers to capture full retail value. Members receive training in pricing, inventory management, and customer service. A rotating leadership committee ensures every voice is heard in decision-making.\n\nWithin the first six months, average monthly income per member increased by 40%. The cooperative has also established a micro-loan fund that members can access for emergency needs or business expansion.",
+    "storyImage": "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 42,
+      "saccosFunded": 1,
+      "capitalDeployed": "$18,200"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Organic Vegetable Value Chain",
+    "description": "Building a farm-to-market pipeline for organic vegetables grown by single-mother farming cooperatives in Wakiso.",
+    "image": "https://images.unsplash.com/photo-1556844211-1a5b2b8f99b0?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 0",
+    "category": "Agriculture & Food",
+    "subcategory": "Food market",
+    "status": "Upcoming",
+    "createdAt": "2026-03-15",
+    "location": "Wakiso District",
+    "story": "Forty acres of fertile land in Wakiso have been identified for an organic vegetable initiative. The project will train mothers in sustainable farming techniques, provide certified organic seeds, and establish direct contracts with Kampala hotels and restaurants.\n\nA central washing and packing station will ensure consistent quality. The long-term vision includes obtaining organic certification to access premium export markets.",
+    "extendedStory": "The program is structured as a three-season pilot. In the first season, twenty mothers will each cultivate half an acre of high-demand vegetables such as sukuma wiki, dodo, and tomatoes. INSM agronomists will provide ongoing technical support.\n\nBy the third season, the goal is to expand to sixty mothers and achieve a weekly harvest volume sufficient to supply major supermarket chains. A mobile冷藏 unit will be procured to reduce post-harvest losses.",
+    "storyImage": "https://images.unsplash.com/photo-1556844211-1a5b2b8f99b0?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 0,
+      "saccosFunded": 0,
+      "capitalDeployed": "$0"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1556844211-1a5b2b8f99b0?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Goat Rearing & Dairy Collective",
+    "description": "A dairy goat breeding program providing mothers with livestock, veterinary training, and a guaranteed milk offtake agreement.",
+    "image": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 9,800",
+    "category": "Agriculture & Food",
+    "subcategory": "Dairy & Poultry business",
+    "status": "Completed",
+    "createdAt": "2025-03-01",
+    "location": "Masaka District",
+    "story": "Forty-five mothers received two dairy goats each under a pass-on program where the first offspring is given to a new beneficiary. A community veterinary worker was trained to provide routine care and artificial insemination services.\n\nThe collective negotiated a bulk milk purchase agreement with a local processor, ensuring a stable income stream. Milk collection points were established in three villages with solar-powered coolers.",
+    "extendedStory": "The pass-on model created a self-sustaining cycle. Within eighteen months, the original herd of 90 goats had grown to over 250, with 30 new mothers joining the program through the pass-on system. Average daily milk production reached 180 litres.\n\nThe collective has since registered as a formal dairy cooperative and is exploring value-added products such as yogurt and cheese. A savings and credit scheme now operates alongside the dairy activities, with a portfolio of $4,500 in member savings.",
+    "storyImage": "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 75,
+      "saccosFunded": 1,
+      "capitalDeployed": "$9,800"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Handcrafted Goods Export Hub",
+    "description": "Aggregating handmade crafts, baskets, and textiles from mother-led cooperatives for sale in international fair-trade markets.",
+    "image": "https://images.unsplash.com/photo-1602872030217-614013be86ce?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 0",
+    "category": "Community Programs",
+    "subcategory": "Other Projects",
+    "status": "Upcoming",
+    "createdAt": "2026-04-20",
+    "location": "Rubaga Division",
+    "story": "A central showroom and processing hub in Rubaga will aggregate handmade goods from twenty mother-led cooperatives across Kampala. Products will be graded, photographed, and listed on international fair-trade platforms.\n\nThe hub will provide quality control training, packaging standards, and logistics coordination. An initial catalog of 150 unique products will launch with a digital storefront targeting European and North American buyers.",
+    "extendedStory": "The hub operates on a consignment model where mothers receive 80% of the retail price upon sale, with 20% reinvested into hub operations and marketing. A dedicated quality assurance team ensures every piece meets export standards.\n\nPartnership discussions are underway with two fair-trade importers in Germany and Canada. Initial projections indicate an addressable market of $120,000 in annual revenue by the second year of operation.",
+    "storyImage": "https://images.unsplash.com/photo-1602872030217-614013be86ce?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 0,
+      "saccosFunded": 0,
+      "capitalDeployed": "$0"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1602872030217-614013be86ce?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Cassava Processing Plant",
+    "description": "A community-owned cassava processing facility producing high-quality flour and starch for commercial buyers across Uganda.",
+    "image": "https://images.unsplash.com/photo-1517153960944-081944877f02?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 32,500",
+    "category": "Agriculture & Food",
+    "subcategory": "Land",
+    "status": "Fully Funded",
+    "createdAt": "2025-04-10",
+    "location": "Mukono District",
+    "story": "A former warehouse in Mukono was converted into a modern cassava processing plant with a peeling, drying, and milling line. Fifty mothers from surrounding villages supply fresh cassava roots under contract, eliminating the distress sales that previously kept them in poverty.\n\nThe plant produces 500 kg of high-grade cassava flour daily, sold to bakeries, breweries, and school feeding programs. A by-product line processes peels into animal feed, creating an additional revenue stream.",
+    "extendedStory": "The plant is structured as a cooperative shareholding model. Each supplying mother received 200 shares in the enterprise proportional to her delivery volume. Dividends were paid for the first time in December 2025, averaging $180 per shareholder.\n\nA second processing line for cassava starch is being planned, with equipment procurement underway. The anticipated additional capacity will create 30 more supplier contracts and increase monthly revenue by 60%.",
+    "storyImage": "https://images.unsplash.com/photo-1517153960944-081944877f02?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 88,
+      "saccosFunded": 1,
+      "capitalDeployed": "$32,500"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1517153960944-081944877f02?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Community Bakery & Catering",
+    "description": "A commercial bakery and catering service run by single mothers supplying fresh bread, pastries, and event catering to Kampala businesses.",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 15,000",
+    "category": "Community Programs",
+    "subcategory": "Local Businesses",
+    "status": "Completed",
+    "createdAt": "2024-11-01",
+    "location": "Central Division",
+    "story": "A fully equipped commercial bakery was established with industrial ovens, mixers, and a delivery van. Twenty mothers completed a three-month professional baking and food safety certification course. The bakery now supplies bread and pastries to fifteen schools and ten office cafeterias.\n\nThe catering division handles events from corporate luncheons to wedding receptions, generating steady revenue that supplements the daily bakery sales. Annual revenue has reached $45,000.",
+    "extendedStory": "The bakery has become a flagship enterprise, demonstrating that mother-led ventures can compete in formal markets. A second location is being scouted in Ntinda to expand the delivery radius and serve the growing eastern suburbs.\n\nThe catering division has developed a menu of 60+ items and maintains a five-star hygiene rating from the Kampala Capital City Authority. Plans include launching a weekend baking academy to train additional mothers.",
+    "storyImage": "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 64,
+      "saccosFunded": 1,
+      "capitalDeployed": "$15,000"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&h=400&fit=crop"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Bee Keeping & Honey Export",
+    "description": "Training mothers in modern beekeeping to produce premium honey, beeswax, and propolis for domestic and export markets.",
+    "image": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&h=400&fit=crop",
+    "capitalRaised": "$ 0",
+    "category": "Agriculture & Food",
+    "subcategory": "Other farming projects",
+    "status": "Upcoming",
+    "createdAt": "2026-05-01",
+    "location": "Mbale District",
+    "story": "The rich flora of the Mt. Elgon region provides an ideal environment for apiculture. Sixty mothers will receive Langstroth hives, protective gear, and hands-on training in sustainable honey harvesting. A central extraction and bottling facility will ensure Grade-A quality.\n\nThe project targets an initial harvest of 3,000 kg of honey per season. Certification for organic and fair-trade labels is being pursued to access premium export channels in the Middle East and Europe.",
+    "extendedStory": "Beyond honey, the project will produce beeswax for candle-making and cosmetic industries, as well as propolis for health supplements. A cooperative marketing entity will handle all sales, with profits distributed quarterly to members.\n\nAn experienced master beekeeper has been retained to train and mentor participants over a twelve-month period. Each mother will manage ten hives initially, with the option to expand based on performance and land availability.",
+    "storyImage": "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&h=400&fit=crop",
+    "stats": {
+      "mothersEmpowered": 0,
+      "saccosFunded": 0,
+      "capitalDeployed": "$0"
+    },
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&h=400&fit=crop"
+    ]
   }
 ]

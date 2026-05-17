@@ -57,44 +57,47 @@ const BlogList = () => {
 
   return (
     <section className="py-8 md:py-12">
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
+      <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
         {/* Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px]">
           {pageArticles.map((article) => (
             <Link
               to={`/what-we-do/blog/${article.id}`}
               key={article.id}
-              className="group flex flex-col"
+              className="w-full max-w-[356px] h-[621px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-card group"
             >
               {/* Image */}
-              <div className="w-full h-[200px] rounded-lg overflow-hidden mb-4">
+              <div className="w-full h-[256px] overflow-hidden shrink-0">
                 <img
                   src={article.image}
                   alt={article.title}
-                  className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
 
-              {/* Date */}
-              <p className="text-xs font-secondary text-brand-lilac tracking-widest uppercase mb-2">
-                {formatDate(article.date)}
-              </p>
+              {/* Content */}
+              <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
+                {/* Date */}
+                <p className="text-[18px] font-albert font-normal text-brand-lilac uppercase mb-3">
+                  {formatDate(article.date)}
+                </p>
 
-              {/* Title */}
-              <h3 className="text-lg font-bold font-primary text-brand-dark leading-snug mb-2 group-hover:text-brand-lilac-700 transition-colors">
-                {article.title}
-              </h3>
+                {/* Title */}
+                <h3 className="text-[27px] font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
+                  {article.title}
+                </h3>
 
-              {/* Excerpt */}
-              <p className="text-sm font-secondary text-brand-dark-400 leading-relaxed mb-4 line-clamp-3">
-                {article.excerpt}
-              </p>
+                {/* Excerpt */}
+                <p className="text-[21px] font-open font-normal text-brand-dark-400 mb-4 line-clamp-3">
+                  {article.excerpt}
+                </p>
 
-              {/* Read More Button */}
-              <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-xs rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-brand-white transition-all duration-300">
-                Read More
-              </span>
+                {/* Read More Button */}
+                <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-xs rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-brand-white transition-all duration-300">
+                  Read More
+                </span>
+              </div>
             </Link>
           ))}
         </div>
