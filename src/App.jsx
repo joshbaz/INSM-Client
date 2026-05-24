@@ -50,6 +50,14 @@ import CRMDashboard from "./CRM/1.Dashboard/DashboardPage";
 import ProjectsManagementPage from "./CRM/5.ProjectsManagement/ProjectsManagementPage";
 import BeneficiariesPage from "./CRM/6.Beneficiaries/BeneficiariesPage";
 
+// ── EXECUTIVE PORTAL (PROTECTED) ──
+import ExecutiveLayout from "./Executive/Layout/ExecutiveLayout";
+import ExecutiveHome from "./Executive/Pages/Home/ExecutiveHome";
+import ManageLeads from "./Executive/Pages/Leads/ManageLeads";
+import ManageBlogs from "./Executive/Pages/Blogs/ManageBlogs";
+import NewArticle from "./Executive/Pages/Blogs/NewArticle";
+import ExecutiveLogin from "./Executive/Pages/Auth/ExecutiveLogin";
+
 function App() {
   return (
     <AuthProvider>
@@ -62,20 +70,26 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
-  
+
   // Hide Navbar/Footer for Auth and CRM pages
   const hideNavAndFooter = [
     "/login",
     "/forgot-password",
     "/dashboard",
     "/crm",
+    "/executive/login",
   ].some(path => location.pathname.startsWith(path));
+
+  // The executive layout also handles its own layout, so we hide for all /executive EXCEPT maybe we could hide for all /executive? 
+  // Wait, the executive portal HAS its own layout. The previous plan added "/executive" to hideNavAndFooter.
+  const isExecutiveRoute = location.pathname.startsWith("/executive");
+  const shouldHideNavAndFooter = hideNavAndFooter || isExecutiveRoute;
 
   return (
     <>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col">
-        {!hideNavAndFooter && <Navbar />}
+        {!shouldHideNavAndFooter && <Navbar />}
         <main className="grow">
           <Routes>
             {/* ── Public Routes ── */}
@@ -83,6 +97,14 @@ function AppContent() {
             <Route path="/home/hero" element={<HomeHero />} />
             <Route path="/login" element={<Login />} />
             <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout />
+                </ProtectedRoute>
+              }
+            />
 
             {/* Who We Are */}
             <Route path="/who-we-are" element={<WhoWeArePage />} />
@@ -116,7 +138,7 @@ function AppContent() {
               path="/crm"
               element={
                 <ProtectedRoute>
-                  <DashboardLayout />
+                  <CRMDashboard />
                 </ProtectedRoute>
               }
             >
@@ -131,6 +153,28 @@ function AppContent() {
               <Route path="settings" element={<div className="text-brand-dark p-8">Settings Manager Coming Soon</div>} />
             </Route>
 
+            {/* ── Protected Executive Routes ── */}
+            <Route path="/executive/login" element={<ExecutiveLogin />} />
+            
+            <Route
+              path="/executive"
+              element={
+                <ProtectedRoute redirectTo="/executive/login" requiredRole="admin">
+                  <ExecutiveLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<Navigate to="home" replace />} />
+              <Route path="home" element={<ExecutiveHome />} />
+              <Route path="capital" element={<div className="text-brand-dark p-8">Capital Coming Soon</div>} />
+              <Route path="leads" element={<ManageLeads />} />
+              <Route path="network" element={<div className="text-brand-dark p-8">Network Coming Soon</div>} />
+              <Route path="blogs" element={<ManageBlogs />} />
+              <Route path="blogs/new" element={<NewArticle />} />
+              <Route path="photos" element={<div className="text-brand-dark p-8">Photos Coming Soon</div>} />
+              <Route path="settings" element={<div className="text-brand-dark p-8">Settings Coming Soon</div>} />
+            </Route>
+
             {/* Redirection for old dashboard link */}
             <Route
               path="/dashboard"
@@ -139,7 +183,7 @@ function AppContent() {
 
           </Routes>
         </main>
-        {!hideNavAndFooter && <Footer />}
+        {!shouldHideNavAndFooter && <Footer />}
       </div>
     </>
   );

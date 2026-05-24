@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
+import api from "../../services/api";
 
 const AuthContext = createContext(null);
 
@@ -7,34 +8,65 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Check for stored auth state on mount
-    const storedUser = localStorage.getItem("insm_user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-    setLoading(false);
+    const checkAuth = async () => {
+      const storedUser = localStorage.getItem("insm_user");
+      if (storedUser) {
+        try {
+          const parsedUser = JSON.parse(storedUser);
+          // Verify token with backend
+          const response = await api.get("/auth/me");
+          setUser({ ...response.data, token: parsedUser.token });
+        } catch (error) {
+          console.error("Auth verification failed", error);
+          localStorage.removeItem("insm_user");
+          setUser(null);
+        }
+      }
+      setLoading(false);
+    };
+
+    checkAuth();
   }, []);
 
   const login = async (email, password) => {
-    // Mock login logic - in a real app, this would call an API
-    if (email && password) {
-      const userData = { email, role: "partner" };
+    try {
+      const response = await api.post("/auth/login", { email, password });
+      const userData = response.data;
       setUser(userData);
       localStorage.setItem("insm_user", JSON.stringify(userData));
       return { success: true };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.response?.data?.message || "Login failed",
+      };
     }
-    return { success: false, message: "Invalid credentials" };
+  };
+
+  const signup = async (name, email, password) => {
+    try {
+      const response = await api.post("/auth/signup", { name, email, password });
+      const userData = response.data;
+      setUser(userData);
+      localStorage.setItem("insm_user", JSON.stringify(userData));
+      return { success: true };
+    } catch (error) {
+      return {
+        success: false,
+        message: error.response?.data?.message || "Signup failed",
+      };
+    }
   };
 
   const logout = () => {
     setUser(null);
     localStorage.removeItem("insm_user");
-    window.location.href = "/";
+    window.location.href = "/login";
   };
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, login, logout, isAuthenticated: !!user }}
+      value={{ user, loading, login, signup, logout, isAuthenticated: !!user }}
     >
       {children}
     </AuthContext.Provider>
