@@ -1,15 +1,18 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useCreateArticle, useUploadPhoto } from "../../../store/tanstackStore/services/queries";
+import { useUpdateArticle, useArticle, useUploadPhoto } from "../../../store/tanstackStore/services/queries";
 import { useAuth } from "../../../store/context/AuthContext";
 import api from "../../../store/tanstackStore/services/api";
 
-const NewArticle = () => {
+const EditArticle = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
   const { user } = useAuth();
-  const createArticle = useCreateArticle();
+  const updateArticle = useUpdateArticle();
   const uploadPhoto = useUploadPhoto();
+
+  const { data: articleData, isLoading: isArticleLoading } = useArticle(id);
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -18,6 +21,22 @@ const NewArticle = () => {
   const [file, setFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState("");
   const [savedSelection, setSavedSelection] = useState(null);
+  const editorRef = React.useRef(null);
+
+  useEffect(() => {
+    if (articleData) {
+      setTitle(articleData.title || "");
+      setContent(articleData.content || "");
+      setSlug(articleData.slug || "");
+      setExcerpt(articleData.excerpt || "");
+      if (articleData.coverImageId) {
+        setPreviewUrl(`${api.defaults.baseURL}/photos/${articleData.coverImageId}/view`);
+      }
+      if (editorRef.current && editorRef.current.innerHTML !== articleData.content) {
+        editorRef.current.innerHTML = articleData.content || "";
+      }
+    }
+  }, [articleData]);
 
   const saveSelection = () => {
     if (window.getSelection) {
@@ -72,7 +91,7 @@ const NewArticle = () => {
     }
 
     try {
-      let coverImageId = null;
+      let coverImageId = articleData?.coverImageId || null;
 
       // 1. Upload photo if selected
       if (file) {
@@ -80,24 +99,32 @@ const NewArticle = () => {
         coverImageId = photoResponse.id;
       }
 
-      // 2. Create article
-      await createArticle.mutateAsync({
+      // 2. Update article
+      await updateArticle.mutateAsync({
+        id,
         title,
         content,
         slug,
         excerpt,
         status,
         coverImageId,
-        authorId: user?.id || null,
       });
 
       // Navigate back on success
       navigate("/executive/blogs");
     } catch (error) {
-      console.error("Failed to save article:", error);
-      alert("Failed to save article.");
+      console.error("Failed to update article:", error);
+      alert("Failed to update article.");
     }
   };
+
+  if (isArticleLoading) {
+    return (
+      <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+        <Icon icon="ph:spinner-gap-bold" className="w-8 h-8 text-brand-lilac animate-spin" />
+      </div>
+    );
+  }
 
   return (
     <div className="fixed inset-0 bg-white z-50 flex flex-col overflow-hidden">
@@ -110,23 +137,23 @@ const NewArticle = () => {
           >
             <Icon icon="ph:x-bold" className="w-5 h-5" />
           </Link>
-          <h1 className="text-xl font-secondary font-bold text-gray-800">New Article</h1>
+          <h1 className="text-xl font-secondary font-bold text-gray-800">Edit Article</h1>
         </div>
 
         <div className="flex items-center gap-4">
           <button
             onClick={() => handleSave("DRAFT")}
-            disabled={createArticle.isPending || uploadPhoto.isPending}
+            disabled={updateArticle.isPending || uploadPhoto.isPending}
             className="px-6 py-2.5 rounded-full border border-gray-300 text-gray-700 font-secondary font-bold text-xs tracking-wider uppercase hover:bg-gray-50 transition-colors"
           >
-            {createArticle.isPending ? "SAVING..." : "SAVE AS DRAFT"}
+            {updateArticle.isPending ? "SAVING..." : "SAVE AS DRAFT"}
           </button>
           <button
             onClick={() => handleSave("PUBLISHED")}
-            disabled={createArticle.isPending || uploadPhoto.isPending}
+            disabled={updateArticle.isPending || uploadPhoto.isPending}
             className="px-6 py-2.5 rounded-full bg-[#dca838] hover:bg-[#c99525] text-white font-secondary font-bold text-xs tracking-wider uppercase transition-colors shadow-sm"
           >
-            {createArticle.isPending ? "PUBLISHING..." : "PUBLISH BLOG"}
+            {updateArticle.isPending ? "PUBLISHING..." : "PUBLISH BLOG"}
           </button>
         </div>
       </div>
@@ -215,6 +242,7 @@ const NewArticle = () => {
                 </div>
                 {/* Editor Area */}
                 <div
+                  ref={editorRef}
                   className="flex-1 p-6 bg-white outline-none overflow-y-auto"
                   contentEditable
                   suppressContentEditableWarning
@@ -292,4 +320,4 @@ const NewArticle = () => {
   );
 };
 
-export default NewArticle;
+export default EditArticle;

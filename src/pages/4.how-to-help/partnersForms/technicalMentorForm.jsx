@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import { Icon } from "@iconify/react";
 import * as Yup from "yup";
 import useSEO from "../../../hooks/useSEO";
+import { useCreateApplication } from "../../../store/tanstackStore/services/queries";
 
 /* ── Inline SVG icons for each expertise option ── */
 const ExpertiseIcons = {
@@ -18,6 +19,9 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
     description:
       "Lend your expertise in Law, Finance, or Health to build the infrastructure of our movement for single mothers in Uganda.",
   });
+  
+  const createApplicationMutation = useCreateApplication();
+
   const validationSchema = useMemo(
     () =>
       Yup.object({
@@ -109,9 +113,21 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
               validationSchema={validationSchema}
               onSubmit={async (values, { setSubmitting, resetForm }) => {
                 try {
-                  console.log("Technical mentor application:", values);
+                  const payload = {
+                    applicantName: values.fullName,
+                    email: values.email,
+                    phoneNumber: values.phoneNumber,
+                    linkedInUrl: values.linkedin,
+                    domain: values.areaOfExpertise === "Other" ? "MISC" : values.areaOfExpertise.toUpperCase(),
+                    role: "TECHNICAL_MENTOR",
+                  };
+                  
+                  await createApplicationMutation.mutateAsync(payload);
                   resetForm();
                   onClose();
+                } catch (error) {
+                  console.error("Failed to submit technical mentor application:", error);
+                  // Here we could add a toast notification for error
                 } finally {
                   setSubmitting(false);
                 }
@@ -298,7 +314,7 @@ const TechnicalMentorForm = ({ isOpen, onClose }) => {
                       disabled={isSubmitting}
                       className="bg-brand-lilac hover:bg-brand-lilac/90 active:scale-[0.97] text-brand-white font-primary font-semibold text-xs md:text-sm tracking-widest uppercase px-8 py-3.5 rounded-full transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer shadow-md shadow-brand-lilac/25 hover:shadow-lg hover:shadow-brand-lilac/30"
                     >
-                      SUBMIT FORM
+                      {isSubmitting ? "SUBMITTING..." : "SUBMIT FORM"}
                     </button>
                   </div>
                 </form>

@@ -1,0 +1,121 @@
+{
+  "uganda_regions": {
+    "central": {
+      "districts": [
+        {
+          "district": "Kampala",
+          "sub_counties": [
+            {
+              "sub_county": "Central Division",
+              "parishes": ["Kiwatule", "Kamwokya I", "Kamwokya II", "Kisenyi I", "Kisenyi II", "Nakasero"]
+            },
+            {
+              "sub_county": "Makindye Division",
+              "parishes": ["Kabalagala", "Kansanga", "Katwe", "Ggaba", "Salaama", "Nsambya"]
+            }
+          ]
+        },
+        {
+          "district": "Wakiso",
+          "sub_counties": [
+            {
+              "sub_county": "Entebbe Division",
+              "parishes": ["Central", "Kitoro", "Bugonga", "Lugonjo", "Lunyo"]
+            },
+            {
+              "sub_county": "Nansana Municipality",
+              "parishes": ["Nansana West", "Gganda", "Nabweru", "Wandgeya"]
+            }
+          ]
+        },
+        {
+          "district": "Kalangala",
+          "sub_counties": [
+            {
+              "sub_county": "Bujumba",
+              "parishes": ["Bujumba", "Funve", "Maziinga", "Bubeke"]
+            }
+          ]
+        }
+      ]
+    },
+    "eastern": {
+      "districts": [
+        {
+          "district": "Jinja",
+          "sub_counties": [
+            {
+              "sub_county": "Jinja Central",
+              "parishes": ["Central Business District", "Magwa", "Mpumudde", "Walukuba"]
+            },
+            {
+              "sub_county": "Mafubira",
+              "parishes": ["Mafubira", "Buwenge", "Wanyange", "Namulesa"]
+            }
+          ]
+        },
+        {
+          "district": "Mbale",
+          "sub_counties": [
+            {
+              "sub_county": "Wanale",
+              "parishes": ["Wanale", "Bumasikye", "Bufumbo", "Namanyonyi"]
+            }
+          ]
+        }
+      ]
+    },
+    "northern": {
+      "districts": [
+        {
+          "district": "Gulu",
+          "sub_counties": [
+            {
+              "sub_county": "Laroo-Pece Division",
+              "parishes": ["Laroo", "Pece", "Agwee", "Queen's", "Laboomo"]
+            },
+            {
+              "sub_county": "Bardege-Layibi Division",
+              "parishes": ["Bardege", "Layibi", "Kanyagoga", "Guruguru"]
+            }
+          ]
+        },
+        {
+          "district": "Arua",
+          "sub_counties": [
+            {
+              "sub_county": "Ayivu Division",
+              "parishes": ["Dadamu", "Olia", "Pajulu", "Adumi", "Logiri"]
+            }
+          ]
+        }
+      ]
+    },
+    "western": {
+      "districts": [
+        {
+          "district": "Mbarara",
+          "sub_counties": [
+            {
+              "sub_county": "Kakoba Division",
+              "parishes": ["Kakoba", "Nyamitanga", "Ruti", "Kamukuzi"]
+            },
+            {
+              "sub_county": "Biharwe",
+              "parishes": ["Biharwe", "Nyakahita", "Kashanyarazi"]
+            }
+          ]
+        },
+        {
+          "district": "Kasese",
+          "sub_counties": [
+            {
+              "sub_county": "Central Division",
+              "parishes": ["Kikonzo", "Kilembe", "Nyamwamba", "Kamaiba"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,9 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
+  const [expandedMenus, setExpandedMenus] = useState({});
+
+  useEffect(() => {
+    if (location.pathname.startsWith("/executive/capital")) {
+      setExpandedMenus(prev => ({ ...prev, "Capital Investment": true }));
+    }
+  }, [location.pathname]);
+
+  const toggleSubMenu = (name) => {
+    setExpandedMenus(prev => ({
+      ...prev,
+      [name]: !prev[name]
+    }));
+  };
 
   const menuItems = [
     { 
@@ -12,9 +26,13 @@ const Sidebar = ({ isOpen, onClose }) => {
       icon: "ph:squares-four-bold"
     },
     { 
-      name: "Capital", 
-      path: "/executive/capital", 
-      icon: "ph:money-wavy-bold"
+      name: "Capital Investment", 
+      icon: "ph:money-wavy-bold",
+      path: "/executive/capital",
+      subItems: [
+        { name: "Programs", path: "/executive/capital/programs" },
+        { name: "Seed-a-Cooperative", path: "/executive/capital/seed-a-cooperative" }
+      ]
     },
     { 
       name: "Leads", 
@@ -32,9 +50,9 @@ const Sidebar = ({ isOpen, onClose }) => {
       icon: "ph:article-bold"
     },
     { 
-      name: "Manage Photos", 
+      name: "Media library", 
       path: "/executive/photos", 
-      icon: "ph:image-bold"
+      icon: "ph:images-bold"
     }
   ];
 
@@ -64,25 +82,76 @@ const Sidebar = ({ isOpen, onClose }) => {
       {/* Main Navigation Links */}
       <nav className="flex-1 overflow-y-auto py-2 no-scrollbar">
         {menuItems.map((item) => {
-          const isActive = location.pathname.startsWith(item.path);
+          const isActive = item.path && location.pathname.startsWith(item.path);
+          const hasSubItems = item.subItems && item.subItems.length > 0;
+          const isExpanded = expandedMenus[item.name];
+
           return (
-            <Link
-              key={item.name}
-              to={item.path}
-              className={`w-full relative py-3.5 px-8 flex items-center gap-3.5 transition-all duration-200 group ${
-                isActive 
-                  ? "bg-[#D4AF37]/10 text-brand-white after:absolute after:left-0 after:top-0 after:bottom-0 after:w-[4px] after:bg-[#D4AF37]" 
-                  : "hover:bg-brand-dark-700/50 text-[#8b8e91] hover:text-brand-white"
-              }`}
-            >
-              <Icon 
-                icon={item.icon} 
-                className={`w-5 h-5 transition-all duration-200 shrink-0 ${isActive ? "text-[#D4AF37]" : "text-[#8b8e91] group-hover:text-brand-white group-hover:scale-105"}`} 
-              />
-              <span className={`text-[15px] font-secondary font-medium tracking-normal transition-colors duration-200 ${isActive ? 'font-semibold text-[#D4AF37]' : ''}`}>
-                {item.name}
-              </span>
-            </Link>
+            <div key={item.name}>
+              {hasSubItems ? (
+                <button
+                  onClick={() => toggleSubMenu(item.name)}
+                  className={`w-full relative py-3.5 px-8 flex items-center justify-between transition-all duration-200 group ${
+                    isActive 
+                      ? "bg-[#D4AF37]/10 text-brand-white after:absolute after:left-0 after:top-0 after:bottom-0 after:w-[4px] after:bg-[#D4AF37]" 
+                      : "hover:bg-brand-dark-700/50 text-[#8b8e91] hover:text-brand-white"
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5">
+                    <Icon 
+                      icon={item.icon} 
+                      className={`w-5 h-5 transition-all duration-200 shrink-0 ${isActive ? "text-[#D4AF37]" : "text-[#8b8e91] group-hover:text-brand-white group-hover:scale-105"}`} 
+                    />
+                    <span className={`text-[15px] font-secondary font-medium tracking-normal transition-colors duration-200 ${isActive ? 'font-semibold text-[#D4AF37]' : ''}`}>
+                      {item.name}
+                    </span>
+                  </div>
+                  <Icon 
+                    icon={isExpanded ? "ph:caret-up-light" : "ph:caret-down-light"} 
+                    className={`w-4 h-4 transition-transform duration-200 ${isActive ? "text-[#D4AF37]" : "text-[#8b8e91] group-hover:text-brand-white"}`}
+                  />
+                </button>
+              ) : (
+                <Link
+                  to={item.path}
+                  className={`w-full relative py-3.5 px-8 flex items-center gap-3.5 transition-all duration-200 group ${
+                    isActive 
+                      ? "bg-[#D4AF37]/10 text-brand-white after:absolute after:left-0 after:top-0 after:bottom-0 after:w-[4px] after:bg-[#D4AF37]" 
+                      : "hover:bg-brand-dark-700/50 text-[#8b8e91] hover:text-brand-white"
+                  }`}
+                >
+                  <Icon 
+                    icon={item.icon} 
+                    className={`w-5 h-5 transition-all duration-200 shrink-0 ${isActive ? "text-[#D4AF37]" : "text-[#8b8e91] group-hover:text-brand-white group-hover:scale-105"}`} 
+                  />
+                  <span className={`text-[15px] font-secondary font-medium tracking-normal transition-colors duration-200 ${isActive ? 'font-semibold text-[#D4AF37]' : ''}`}>
+                    {item.name}
+                  </span>
+                </Link>
+              )}
+
+              {/* Sub Items */}
+              {hasSubItems && isExpanded && (
+                <div className="flex flex-col py-1">
+                  {item.subItems.map((subItem) => {
+                    const isSubActive = location.pathname === subItem.path || (location.pathname.startsWith(subItem.path) && subItem.path !== item.path);
+                    return (
+                      <Link
+                        key={subItem.name}
+                        to={subItem.path}
+                        className={`w-full py-3 pl-[60px] pr-8 flex items-center transition-all duration-200 ${
+                          isSubActive
+                            ? "bg-[#F3EAD3] text-[#8C7030] font-semibold"
+                            : "text-[#8b8e91] hover:text-brand-white hover:bg-brand-dark-700/30 font-medium"
+                        } text-[14px] font-secondary`}
+                      >
+                        {subItem.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
           );
         })}
       </nav>
@@ -125,3 +194,4 @@ const Sidebar = ({ isOpen, onClose }) => {
 };
 
 export default Sidebar;
+

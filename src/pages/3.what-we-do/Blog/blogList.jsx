@@ -1,33 +1,36 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import ARTICLES from "../../../data/blogs.json";
+import api from "../../../store/tanstackStore/services/api";
 
 const ARTICLES_PER_PAGE = 6;
 
-const BlogList = () => {
+const BlogList = ({ articles = [] }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Exclude featured article from the list
-  const listArticles = ARTICLES.filter((a) => !a.featured);
-
-  const totalPages = Math.ceil(listArticles.length / ARTICLES_PER_PAGE);
+  const totalPages = Math.ceil(articles.length / ARTICLES_PER_PAGE);
 
   const startIdx = (currentPage - 1) * ARTICLES_PER_PAGE;
-  const pageArticles = listArticles.slice(
+  const pageArticles = articles.slice(
     startIdx,
     startIdx + ARTICLES_PER_PAGE,
   );
 
   // Format date helper
-  const formatDate = (dateStr) =>
-    new Date(dateStr)
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "";
+    return new Date(dateStr)
       .toLocaleDateString("en-US", {
         year: "numeric",
         month: "long",
         day: "2-digit",
       })
       .toUpperCase();
+  };
+
+  const getImageUrl = (id) => {
+    return id ? `${api.defaults.baseURL}/photos/${id}/view` : null;
+  };
 
   // Generate pagination numbers with ellipsis
   const getPaginationRange = () => {
@@ -59,42 +62,46 @@ const BlogList = () => {
     <section className="py-8 md:py-12">
       <div className="max-w-7xl 2xl:max-w-screen-2xl mx-auto px-4 lg:px-6 2xl:px-8">
         {/* Article Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px] justify-items-center">
+        <div className="flex flex-wrap justify-center gap-8 lg:gap-[40px]">
           {pageArticles.map((article) => (
             <Link
-              to={`/what-we-do/blog/${article.id}`}
+              to={`/what-we-do/blog/${article.slug || article.id}`}
               key={article.id}
-              className="w-full max-w-[356px] h-[621px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-card group"
+              className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.75rem)] max-w-[420px] h-full rounded-2xl border border-gray-100 bg-white overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
             >
               {/* Image */}
-              <div className="w-full h-[256px] overflow-hidden shrink-0">
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
+              <div className="w-full h-[240px] lg:h-[260px] overflow-hidden shrink-0">
+                {article.coverImageId ? (
+                  <img
+                    src={getImageUrl(article.coverImageId)}
+                    alt={article.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-r from-brand-lilac/30 to-brand-lilac/10 transition-transform duration-700 group-hover:scale-105" />
+                )}
               </div>
 
               {/* Content */}
-              <div className="pt-[24px] px-5 pb-5 flex flex-col grow">
+              <div className="p-6 md:p-8 flex flex-col grow">
                 {/* Date */}
-                <p className="text-sm font-albert font-bold text-brand-lilac uppercase mb-3">
-                  {formatDate(article.date)}
+                <p className="text-[11px] md:text-xs font-secondary font-bold text-gray-400 uppercase mb-3 tracking-widest">
+                  {formatDate(article.publishedAt || article.createdAt)}
                 </p>
 
                 {/* Title */}
-                <h3 className="text-xl md:text-2xl font-albert font-extrabold text-brand-dark tracking-normal mb-[10px] group-hover:text-brand-lilac-700 transition-colors">
+                <h3 className="text-xl md:text-[22px] font-black font-primary text-gray-900 leading-tight mb-3 group-hover:text-[#9e70a1] transition-colors">
                   {article.title}
                 </h3>
 
                 {/* Excerpt */}
-                <p className="text-sm md:text-base font-open font-medium text-brand-dark-400 mb-4 line-clamp-3">
+                <p className="text-sm font-secondary font-medium text-gray-500 mb-8 line-clamp-3 leading-relaxed">
                   {article.excerpt}
                 </p>
 
                 {/* Read More Button */}
-                <span className="mt-auto inline-flex items-center justify-center px-5 py-2 border-2 border-brand-lilac text-brand-lilac font-bold text-sm rounded-full uppercase tracking-wider w-fit group-hover:bg-brand-lilac group-hover:text-brand-white transition-all duration-300">
+                <span className="mt-auto inline-flex items-center justify-center px-6 py-2 border-2 border-[#9e70a1] text-[#9e70a1] font-bold text-[10px] rounded-full uppercase tracking-widest w-fit group-hover:bg-[#9e70a1] group-hover:text-white transition-all duration-300">
                   Read More
                 </span>
               </div>

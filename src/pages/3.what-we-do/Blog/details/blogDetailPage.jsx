@@ -1,13 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import ARTICLES from "../../../../data/blogs.json";
+import { useArticle } from "../../../../store/tanstackStore/services/queries";
+import api, { incrementArticleView, incrementArticleRead } from "../../../../store/tanstackStore/services/api";
 import BlogRelatedArticles from "./blogRelatedArticles";
 
 const BlogDetailPage = () => {
   const { articleId } = useParams();
-  const article = ARTICLES.find((a) => a.id === parseInt(articleId));
+  const { data: article, isLoading } = useArticle(articleId);
   const [copied, setCopied] = useState(false);
+
+  // Track views and reads
+  useEffect(() => {
+    if (articleId) {
+      // Increment view immediately when component mounts
+      incrementArticleView(articleId).catch(console.error);
+
+      // Increment read after 10 seconds on the page
+      const timer = setTimeout(() => {
+        incrementArticleRead(articleId).catch(console.error);
+      }, 10000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [articleId]);
+
+  if (isLoading) {
+    return (
+      <section className="bg-brand-white-100 min-h-screen flex items-center justify-center">
+        <Icon icon="ph:spinner-gap-bold" className="w-8 h-8 text-brand-lilac animate-spin" />
+      </section>
+    );
+  }
 
   /* ── 404 Handling ── */
   if (!article) {
@@ -32,7 +56,7 @@ const BlogDetailPage = () => {
   }
 
   // Format date
-  const formattedDate = new Date(article.date)
+  const formattedDate = new Date(article.publishedAt || article.createdAt)
     .toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
@@ -53,13 +77,15 @@ const BlogDetailPage = () => {
           </h1>
 
           {/* Contained image */}
-          <div className="w-full rounded-lg overflow-hidden mb-6">
-            <img
-              src={article.image}
-              alt={article.title}
-              className="w-full h-[280px] md:h-[420px] object-cover"
-            />
-          </div>
+          {article.coverImageId && (
+            <div className="w-full rounded-lg overflow-hidden mb-6">
+              <img
+                src={`${api.defaults.baseURL}/photos/${article.coverImageId}/view`}
+                alt={article.title}
+                className="w-full h-[280px] md:h-[420px] object-cover"
+              />
+            </div>
+          )}
 
           {/* Category pill + Share icons row */}
           <div className="flex items-center justify-between gap-4 flex-wrap">
@@ -168,45 +194,10 @@ const BlogDetailPage = () => {
       ═══════════════════════════════════════════ */}
       <section className="py-8 md:py-10">
         <div className="max-w-5xl mx-auto px-6 md:px-24">
-          <div className="space-y-6">
-            {article.body.map((block, index) => {
-              switch (block.type) {
-                case "text":
-                  return (
-                     <p
-                       key={index}
-                       className="text-base md:text-lg lg:text-xl font-secondary font-medium text-brand-dark-400 leading-relaxed"
-                     >
-                       {block.content}
-                     </p>
-                  );
-                case "heading":
-                  return (
-                     <h2
-                       key={index}
-                       className="text-2xl md:text-4xl lg:text-5xl font-black font-primary text-brand-dark mt-8 mb-4 leading-[1.1]"
-                     >
-                       {block.content}
-                     </h2>
-                  );
-                case "image":
-                  return (
-                    <div
-                      key={index}
-                      className="w-full rounded-lg overflow-hidden my-4"
-                    >
-                      <img
-                        src={block.src}
-                        alt={block.alt}
-                        className="w-full h-[250px] md:h-[380px] object-cover"
-                      />
-                    </div>
-                  );
-                default:
-                  return null;
-              }
-            })}
-          </div>
+          <div 
+            className="blog-content"
+            dangerouslySetInnerHTML={{ __html: article.content }}
+          />
         </div>
       </section>
 

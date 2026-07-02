@@ -1,10 +1,25 @@
 import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Sidebar from "./sections/Sidebar";
 
 const ExecutiveLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const getPageTitle = (pathname) => {
+    if (pathname.includes('/executive/home')) return 'Dashboard';
+    if (pathname.includes('/executive/leads')) return 'Lead Management';
+    if (pathname.includes('/executive/blogs/new')) return 'New Article';
+    if (pathname.includes('/executive/blogs')) return 'Manage Blogs';
+    if (pathname.includes('/executive/capital')) return 'Capital Investments';
+    if (pathname.includes('/executive/network')) return 'Equippers Network';
+    if (pathname.includes('/executive/photos')) return 'Media library';
+    if (pathname.includes('/executive/settings')) return 'Settings';
+    return 'Executive Portal';
+  };
+
+  const title = getPageTitle(location.pathname);
 
   return (
     <div className="min-h-screen bg-brand-white flex overflow-x-hidden">
@@ -44,8 +59,10 @@ const ExecutiveLayout = () => {
             DESKTOP ONLY TOP NAVBAR
         ═══════════════════════════════════════════ */}
         <header className="hidden md:flex h-20 bg-white items-center justify-between px-8 sticky top-0 z-30 shrink-0">
-          {/* Page Title or Search (Empty space based on design, design shows empty space on left) */}
-          <div className="flex-1"></div>
+          {/* Page Title */}
+          <div className="flex-1">
+            <h1 className="text-[17px] font-bold font-secondary text-brand-dark">{title}</h1>
+          </div>
 
           {/* Action Navigation Items */}
           <div className="flex items-center gap-6">

@@ -85,3 +85,41 @@ export const useUploadPhoto = () => {
     mutationFn: ({ file, caption }) => api.uploadPhoto(file, caption),
   });
 };
+
+// Investment Tiers Queries
+export const useTiers = () => {
+  return useQuery({
+    queryKey: ['tiers'],
+    queryFn: api.getTiers,
+  });
+};
+
+export const useCreateTier = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (formData) => api.createTier(formData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tiers'] });
+    },
+  });
+};
+
+export const useUpdateTier = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ id, formData }) => api.updateTier(id, formData),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tiers'] });
+    },
+  });
+};
+
+export const useDeleteTier = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id) => api.deleteTier(id),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tiers'] });
+    },
+  });
+};

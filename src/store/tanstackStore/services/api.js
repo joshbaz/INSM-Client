@@ -74,4 +74,33 @@ export const uploadPhoto = async (file, caption = '') => {
   return data;
 };
 
+// Investment Tiers
+export const getTiers = async () => {
+  const { data } = await api.get('/tiers');
+  return data;
+};
+
+export const createTier = async (formData) => {
+  const { data } = await api.post('/tiers', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  return data;
+};
+
+export const updateTier = async (id, formData) => {
+  const { data } = await api.put(`/tiers/${id}`, formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+  return data;
+};
+
+export const deleteTier = async (id) => {
+  const { data } = await api.delete(`/tiers/${id}`);
+  return data;
+};
+
 export default api;

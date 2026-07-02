@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children, requiredRole, redirectTo = "/login" }) => {
     return <Navigate to={redirectTo} state={{ from: location }} replace />;
   }
 
-  if (requiredRole && user?.role !== requiredRole) {
+  if (requiredRole && user?.role?.toUpperCase() !== requiredRole.toUpperCase()) {
     // Redirect to home if user doesn't have required role
     return <Navigate to="/" replace />;
   }
