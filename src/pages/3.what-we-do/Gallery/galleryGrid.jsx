@@ -43,6 +43,8 @@ const GalleryGrid = () => {
   const [isLoading, setIsLoading] = useState(true);
   
   const dropdownRef = useRef(null);
+  const viewedAlbums = useRef(new Set());
+  const viewedPhotos = useRef(new Set());
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -133,7 +135,14 @@ const GalleryGrid = () => {
           {galleryCategories.map((cat) => (
             <button
               key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => {
+                setActiveCategory(cat.id);
+                // Increment album view once per session per album
+                if (cat.id !== "all" && !viewedAlbums.current.has(cat.id)) {
+                  viewedAlbums.current.add(cat.id);
+                  api.patch(`/v1/albums/${cat.id}/view`).catch((err) => console.error('[Album view error]', err));
+                }
+              }}
               className={`text-sm md:text-base font-secondary font-medium transition-all duration-300 relative pb-4 px-3 md:px-2 cursor-pointer whitespace-nowrap shrink-0 ${
                 activeCategory === cat.id
                   ? "text-brand-lilac-700 after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-brand-lilac-600 after:rounded-t-sm"
@@ -248,7 +257,14 @@ const GalleryGrid = () => {
             {filteredImages.map((img) => (
               <div
                 key={img.id}
-                onClick={() => setSelectedImage(img)}
+                onClick={() => {
+                  setSelectedImage(img);
+                  // Increment photo view once per session
+                  if (!viewedPhotos.current.has(img.id)) {
+                    viewedPhotos.current.add(img.id);
+                    api.patch(`/v1/photos/${img.id}/view`).catch((err) => console.error('[Photo view error]', err));
+                  }
+                }}
                 className="relative group overflow-hidden rounded-xl break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300 cursor-zoom-in"
               >
                 <ImageWithLoader src={img.src} alt={img.alt} />

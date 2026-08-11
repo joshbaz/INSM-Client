@@ -190,6 +190,8 @@ const MediaLibrary = () => {
     }
   };
 
+  const totalViews = albums.reduce((sum, a) => sum + (a.views || 0), 0);
+
   const stats = [
     {
       title: "Total Published",
@@ -203,7 +205,7 @@ const MediaLibrary = () => {
     },
     {
       title: "Views",
-      value: "0",
+      value: totalViews.toString(),
       description: "Landed on your albums through website."
     }
   ];
@@ -254,11 +256,17 @@ const MediaLibrary = () => {
           <p className="text-[12px] font-secondary text-brand-dark-400">
             {(photo.contentType?.split('/')[1] || '').toUpperCase()} <span className="mx-1">|</span> {formatBytes(photo.size)} <span className="mx-1">|</span> {photo.resolution || 'Unknown'}
           </p>
-          {photo.region && (
-            <span className="text-[10px] font-secondary font-semibold text-[#7E9C9F] bg-[#7E9C9F]/10 px-2 py-0.5 rounded-md border border-[#7E9C9F]/20">
-              {photo.region}
+          <div className="flex items-center gap-1.5">
+            <span className="flex items-center gap-1 text-[10px] font-secondary text-brand-dark-400">
+              <Icon icon="ph:eye-bold" className="w-3 h-3" />
+              {photo.views ?? 0}
             </span>
-          )}
+            {photo.region && (
+              <span className="text-[10px] font-secondary font-semibold text-[#7E9C9F] bg-[#7E9C9F]/10 px-2 py-0.5 rounded-md border border-[#7E9C9F]/20">
+                {photo.region}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </div>
@@ -268,6 +276,16 @@ const MediaLibrary = () => {
     <div className="max-w-[1200px] w-full flex flex-col gap-8 pb-10">
       
       {/* Stats Cards */}
+      <div className="flex items-center justify-between mb-0">
+        <span className="text-[13px] font-secondary text-brand-dark-400">Live stats from your media library</span>
+        <button
+          onClick={fetchData}
+          className="flex items-center gap-1.5 text-[13px] font-secondary font-semibold text-[#9E7B9D] hover:text-[#8d6d8c] transition-colors"
+        >
+          <Icon icon="ph:arrow-clockwise-bold" className="w-4 h-4" />
+          Refresh Stats
+        </button>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white rounded-xl p-6 border border-brand-dark-200/20 shadow-sm flex flex-col justify-between">
