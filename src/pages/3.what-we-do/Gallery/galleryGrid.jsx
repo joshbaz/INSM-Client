@@ -1,16 +1,47 @@
 import React, { useState, useMemo, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
-import GALLERY_DATA from "../../../data/gallery.json";
+import api from "../../../services/api";
 
-const GALLERY_CATEGORIES = GALLERY_DATA.categories;
-const GALLERY_REGIONS = GALLERY_DATA.regions;
-const GALLERY_IMAGES = GALLERY_DATA.images;
+const GALLERY_REGIONS = [
+  { id: "CENTRAL", label: "CENTRAL", color: "bg-brand-lilac" },
+  { id: "NORTHERN", label: "NORTHERN", color: "bg-brand-lilac" },
+  { id: "WESTERN", label: "WESTERN", color: "bg-brand-lilac" },
+  { id: "EASTERN", label: "EASTERN", color: "bg-brand-lilac" }
+];
+
+const ImageWithLoader = ({ src, alt }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div className="relative w-full h-full min-h-[200px] bg-brand-lilac/10">
+      {!isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center animate-pulse bg-gray-100">
+          <Icon icon="ph:image-light" className="w-8 h-8 text-gray-300" />
+        </div>
+      )}
+      <img
+        src={src}
+        alt={alt}
+        className={`w-full h-auto object-cover transform transition-all duration-700 group-hover:scale-105 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        loading="lazy"
+        onLoad={() => setIsLoaded(true)}
+      />
+    </div>
+  );
+};
 
 const GalleryGrid = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [activeRegion, setActiveRegion] = useState(null); // null means all regions
   const [selectedImage, setSelectedImage] = useState(null);
   const [regionDropdownOpen, setRegionDropdownOpen] = useState(false);
+  
+  const [albums, setAlbums] = useState([]);
+  const [photos, setPhotos] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -24,20 +55,64 @@ const GalleryGrid = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const fetchGalleryData = async () => {
+      try {
+        setIsLoading(true);
+        const [albumsRes, photosRes] = await Promise.all([
+          api.get('/v1/albums'),
+          api.get('/v1/photos')
+        ]);
+        
+        setAlbums(albumsRes.data);
+        setPhotos(photosRes.data);
+      } catch (error) {
+        console.error("Failed to fetch gallery data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchGalleryData();
+  }, []);
+
   // Get the label of the currently active region
   const activeRegionLabel = activeRegion
     ? GALLERY_REGIONS.find((r) => r.id === activeRegion)?.label
     : "All Regions";
 
+  // Derive categories from published albums
+  const galleryCategories = useMemo(() => {
+    const publishedAlbums = albums.filter(a => a.isPublished);
+    return [
+      { id: "all", label: "All Photos" },
+      ...publishedAlbums.map(a => ({ id: a.id, label: a.name }))
+    ];
+  }, [albums]);
+
+  // Derive images from photos in published albums
+  const galleryImages = useMemo(() => {
+    const publishedAlbumIds = new Set(albums.filter(a => a.isPublished).map(a => a.id));
+    return photos
+      .filter(p => p.albumId && publishedAlbumIds.has(p.albumId))
+      .map(p => ({
+        id: p.id,
+        src: `${api.defaults.baseURL}/v1/photos/${p.id}/view`,
+        category: p.albumId,
+        region: p.region,
+        alt: p.caption || p.name || 'Gallery image'
+      }));
+  }, [albums, photos]);
+
   // Filter images based on category and region
   const filteredImages = useMemo(() => {
-    return GALLERY_IMAGES.filter((img) => {
+    return galleryImages.filter((img) => {
       const categoryMatch =
         activeCategory === "all" || img.category === activeCategory;
       const regionMatch = !activeRegion || img.region === activeRegion;
       return categoryMatch && regionMatch;
     });
-  }, [activeCategory, activeRegion]);
+  }, [galleryImages, activeCategory, activeRegion]);
 
   return (
     <>
@@ -55,7 +130,7 @@ const GalleryGrid = () => {
               display: none;
             }
           `}</style>
-          {GALLERY_CATEGORIES.map((cat) => (
+          {galleryCategories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
@@ -136,6 +211,16 @@ const GalleryGrid = () => {
           <span className="text-sm md:text-base font-primary font-medium text-gray-400 tracking-widest uppercase mr-4">
             REGIONS
           </span>
+          <button
+            onClick={() => setActiveRegion(null)}
+            className={`cursor-pointer px-8 py-2.5 rounded-full text-sm font-bold text-brand-white uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 ${
+              !activeRegion
+                ? "bg-brand-lilac-800 shadow-brand-lilac/50 scale-105 ring-2 ring-offset-2 ring-brand-lilac-800"
+                : "bg-brand-lilac hover:bg-brand-lilac/90"
+            }`}
+          >
+            ALL
+          </button>
           {GALLERY_REGIONS.map((region) => (
             <button
               key={region.id}
@@ -154,25 +239,25 @@ const GalleryGrid = () => {
         </div>
 
         {/* Image Grid with CSS Columns */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-          {filteredImages.map((img) => (
-            <div
-              key={img.id}
-              onClick={() => setSelectedImage(img)}
-              className="relative group overflow-hidden rounded-xl break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300 cursor-zoom-in"
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-              {/* Overlay removed as per request - hover effect is now just scale */}
-            </div>
-          ))}
-        </div>
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <Icon icon="ph:spinner-bold" className="w-8 h-8 text-brand-lilac animate-spin" />
+          </div>
+        ) : (
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+            {filteredImages.map((img) => (
+              <div
+                key={img.id}
+                onClick={() => setSelectedImage(img)}
+                className="relative group overflow-hidden rounded-xl break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300 cursor-zoom-in"
+              >
+                <ImageWithLoader src={img.src} alt={img.alt} />
+              </div>
+            ))}
+          </div>
+        )}
 
-        {filteredImages.length === 0 && (
+        {!isLoading && filteredImages.length === 0 && (
           <div className="text-center py-20 bg-brand-white-50 rounded-2xl border border-brand-lilac-100">
             <p className="text-xl text-brand-dark-400 font-secondary italic">
               No photos found for this selection.
