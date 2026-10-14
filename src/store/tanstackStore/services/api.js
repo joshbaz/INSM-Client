@@ -268,6 +268,52 @@ export const getExecutiveSummary = async () => {
   return data;
 };
 
+// Giving programmes (e.g. The 1k Club)
+export const getPrograms = async () => {
+  const { data } = await api.get('/programs');
+  return data;
+};
+
+export const getManagedPrograms = async () => {
+  const { data } = await api.get('/programs/manage');
+  return data;
+};
+
+export const getManagedProgram = async (id, params = {}) => {
+  const { data } = await api.get(`/programs/manage/${id}`, { params });
+  return data;
+};
+
+export const createProgram = async (program) => {
+  const { data } = await api.post('/programs', program);
+  return data;
+};
+
+export const updateProgram = async (id, program) => {
+  const { data } = await api.patch(`/programs/${id}`, program);
+  return data;
+};
+
+export const deleteProgram = async (id) => {
+  const { data } = await api.delete(`/programs/${id}`);
+  return data;
+};
+
+export const addProgramContribution = async (id, contribution) => {
+  const { data } = await api.post(`/programs/${id}/contributions`, contribution);
+  return data;
+};
+
+export const deleteProgramContribution = async (id, paymentId) => {
+  const { data } = await api.delete(`/programs/${id}/contributions/${paymentId}`);
+  return data;
+};
+
+export const getPublicExchangeRate = async () => {
+  const { data } = await api.get('/projects/exchange-rate');
+  return data;
+};
+
 // PesaPal Payments
 export const initiatePayment = async (payload) => {
   const { data } = await api.post('/payment/pesapal/donate', payload);

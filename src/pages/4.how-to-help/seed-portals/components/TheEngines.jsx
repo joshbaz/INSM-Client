@@ -1,30 +1,15 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
 import { fadeUp, staggerContainer } from "../../../../utils/animations";
-import OneKClubModal from "./OneKClubModal";
+import { usePrograms } from "../../../../store/tanstackStore/services/queries";
+import ProgramModal from "./ProgramModal";
+import { programTheme, formatProgramAmount, FREQUENCY_LABELS } from "./programDisplay";
 
-const ENGINES = [
-  {
-    id: "1k-club",
-    title: "The 1k Club",
-    subtitle: "Liquidity Engine: 1K-CLUB-V1",
-    amount: "UGX 1,000",
-    colorClass: "bg-brand-lilac",
-    description:
-      "An elite cadre of 10,000 individual partners committing UGX 1,000 Weekly. This fund supports the intellectual and legal infrastructure for 17,000+ mothers.",
-    bullets: [
-      "Quarterly Efficiency Audits & Radical Transparency access.",
-      "Direct influence on regional economic strategy.",
-    ],
-    actionType: "modal", // Triggers the modal
-    buttonLabel: "Activate My Subscription",
-  },
-];
-
+// Giving programmes ("engines") come from the dashboard: Capital Investment → Programs
 const TheEngines = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { data: programs = [], isLoading } = usePrograms();
+  const [selected, setSelected] = useState(null);
 
   return (
     <section className="w-full py-24 bg-brand-white">
@@ -46,100 +31,104 @@ const TheEngines = () => {
           </div>
         </motion.div>
 
+        {isLoading && (
+          <div className="flex justify-center py-16">
+            <Icon icon="ph:spinner-gap-bold" className="w-8 h-8 text-brand-lilac animate-spin" />
+          </div>
+        )}
+
+        {!isLoading && programs.length === 0 && (
+          <p className="text-center font-secondary text-brand-dark-400 py-16">New partnership portals are opening soon.</p>
+        )}
+
         <motion.div
-          className="grid grid-cols-1 max-w-2xl mx-auto gap-10"
+          className={`grid grid-cols-1 gap-10 mx-auto ${programs.length > 1 ? "md:grid-cols-2 max-w-5xl" : "max-w-2xl"}`}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
         >
-          {ENGINES.map((engine) => (
-            <motion.div
-              variants={fadeUp}
-              key={engine.id}
-              className="bg-brand-white-100 rounded-[10px] shadow-sm border border-brand-dark-200/40 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 md:p-10 group"
-            >
-              <div className="mb-6">
-                <p className="text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-bold text-gray-400 font-secondary uppercase tracking-[0.15em] mb-2">
-                  {engine.subtitle}
-                </p>
-                <h3 className="text-2xl font-bold font-primary text-black flex items-center gap-3">
-                  {engine.id === "1k-club" ? (
-                    <Icon
-                      icon="heroicons:star-20-solid"
-                      className="text-brand-lilac w-6 h-6"
-                    />
-                  ) : (
-                    <Icon
-                      icon="heroicons:map-pin-20-solid"
-                      className="text-brand-teal w-6 h-6"
-                    />
-                  )}
-                  {engine.title}
-                </h3>
-              </div>
-
-              <div
-                className={`w-full h-40 md:h-48 ${engine.colorClass} flex flex-col items-center justify-center text-brand-white rounded-lg mb-8 relative overflow-hidden`}
+          {programs.map((program) => {
+            const theme = programTheme(program.color);
+            return (
+              <motion.div
+                variants={fadeUp}
+                key={program.id}
+                className="bg-brand-white-100 rounded-[10px] shadow-sm border border-brand-dark-200/40 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow p-6 md:p-10 group"
               >
-                <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(var(--white)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-                <span className="relative z-10 text-4xl md:text-6xl font-black font-primary tracking-tighter">
-                  {engine.amount}
-                </span>
-                {engine.id === "1k-club" && (
-                  <span className="relative z-10 text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-secondary uppercase tracking-widest mt-2 opacity-80 font-bold">
-                    Weekly
+                <div className="mb-6">
+                  {program.subtitle && (
+                    <p className="text-[10px] md:text-xs lg:text-sm font-bold text-gray-400 font-secondary uppercase tracking-[0.15em] mb-2">
+                      {program.subtitle}
+                    </p>
+                  )}
+                  <h3 className="text-2xl font-bold font-primary text-black flex items-center gap-3">
+                    <Icon icon="heroicons:star-20-solid" className={`${theme.text} w-6 h-6`} />
+                    {program.title}
+                  </h3>
+                </div>
+
+                <div className={`w-full h-40 md:h-48 ${theme.solid} flex flex-col items-center justify-center text-brand-white rounded-lg mb-8 relative overflow-hidden`}>
+                  <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[radial-gradient(var(--white)_1px,transparent_1px)] bg-[size:24px_24px]" />
+                  <span className="relative z-10 text-4xl md:text-6xl font-black font-primary tracking-tighter">
+                    {program.allowCustomAmount ? "Any amount" : formatProgramAmount(program.amount, program.currency)}
                   </span>
-                )}
-              </div>
-
-              <div className="flex flex-col grow">
-                <p className="text-brand-dark font-secondary leading-relaxed mb-8 text-sm md:text-base">
-                  {engine.description}
-                </p>
-
-                <ul className="space-y-4 pt-6 border-t border-gray-100 w-full mb-10 grow">
-                  {engine.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <Icon
-                        icon="heroicons:check-circle"
-                        className={`${engine.id === "1k-club" ? "text-brand-lilac" : "text-brand-teal"} w-5 h-5 shrink-0 mt-0.5`}
-                      />
-                      <span className="text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg font-secondary text-brand-dark-400 uppercase tracking-widest leading-loose">
-                        {bullet}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-auto pt-4">
-                  {engine.actionType === "modal" ? (
-                    <button
-                      onClick={() => setIsModalOpen(true)}
-                      className="w-full bg-brand-lilac-600 hover:bg-brand-lilac-700 text-brand-white font-bold text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg py-4 px-6 rounded-full transition-colors uppercase tracking-widest cursor-pointer shadow-sm flex items-center justify-center gap-2"
-                    >
-                      {engine.buttonLabel}
-                    
-                    </button>
-                  ) : (
-                    <Link
-                      to={engine.linkTo}
-                      className="w-full border-2 border-brand-teal text-brand-teal hover:bg-brand-teal hover:text-brand-white font-bold text-[11px] md:text-xs lg:text-sm xl:text-base 2xl:text-lg py-4 px-6 rounded-full transition-colors uppercase tracking-widest cursor-pointer flex items-center justify-center gap-2"
-                    >
-                      {engine.buttonLabel}
-                    </Link>
+                  {program.frequency !== "once" && (
+                    <span className="relative z-10 text-[10px] md:text-xs lg:text-sm font-secondary uppercase tracking-widest mt-2 opacity-80 font-bold">
+                      {FREQUENCY_LABELS[program.frequency]}
+                    </span>
                   )}
                 </div>
-              </div>
-            </motion.div>
-          ))}
+
+                <div className="flex flex-col grow">
+                  {program.description && (
+                    <p className="text-brand-dark font-secondary leading-relaxed mb-6 text-sm md:text-base">{program.description}</p>
+                  )}
+
+                  {program.goalSupporters > 0 && (
+                    <div className="mb-8">
+                      <div className="flex justify-between text-[11px] font-secondary font-bold uppercase tracking-widest text-brand-dark-400 mb-2">
+                        <span>{program.supporterCount.toLocaleString()} members</span>
+                        <span>Goal {program.goalSupporters.toLocaleString()}</span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-brand-dark-200/40 overflow-hidden">
+                        <div
+                          className={`h-full rounded-full ${theme.solid}`}
+                          style={{ width: `${Math.min((program.supporterCount / program.goalSupporters) * 100, 100)}%` }}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {program.bullets.length > 0 && (
+                    <ul className="space-y-4 pt-6 border-t border-gray-100 w-full mb-10 grow">
+                      {program.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-4">
+                          <Icon icon="heroicons:check-circle" className={`${theme.text} w-5 h-5 shrink-0 mt-0.5`} />
+                          <span className="text-[11px] md:text-xs lg:text-sm font-secondary text-brand-dark-400 uppercase tracking-widest leading-loose">
+                            {bullet}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="mt-auto pt-4">
+                    <button
+                      onClick={() => setSelected(program)}
+                      className={`w-full ${theme.button} text-brand-white font-bold text-[11px] md:text-xs lg:text-sm py-4 px-6 rounded-full transition-colors uppercase tracking-widest cursor-pointer shadow-sm flex items-center justify-center gap-2`}
+                    >
+                      {program.buttonLabel || (program.frequency === "once" ? "Give now" : "Join now")}
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
 
-      <OneKClubModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
+      {selected && <ProgramModal program={selected} onClose={() => setSelected(null)} />}
     </section>
   );
 };

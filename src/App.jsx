@@ -58,7 +58,8 @@ import BeneficiariesPage from "./CRM/6.Beneficiaries/BeneficiariesPage";
 // ── EXECUTIVE PORTAL (PROTECTED) ──
 import ExecutiveLayout from "./Executive/Layout/ExecutiveLayout";
 import ExecutiveHome from "./Executive/Pages/Home/ExecutiveHome";
-import CapitalInvestments from "./Executive/Pages/Capital/CapitalInvestments";
+import ManagePrograms from "./Executive/Pages/Programs/ManagePrograms";
+import ProgramDetail from "./Executive/Pages/Programs/ProgramDetail";
 import SeedACooperative from "./Executive/Pages/Capital/SeedACooperative";
 import InvestmentTiers from "./Executive/Pages/Capital/InvestmentTiers";
 import TierDeliveries from "./Executive/Pages/Capital/TierDeliveries";
@@ -197,8 +198,9 @@ function AppContent() {
                 <Route path="capital/seed-a-cooperative" element={<SeedACooperative />} />
                 <Route path="capital/seed-a-cooperative/tiers" element={<InvestmentTiers />} />
                 <Route path="capital/seed-a-cooperative/tiers/:id" element={<TierDeliveries />} />
-                <Route path="capital/programs" element={<CapitalInvestments />} />
-                <Route path="capital/1k-club" element={<CapitalInvestments />} />
+                <Route path="capital/programs" element={<ManagePrograms />} />
+                <Route path="capital/programs/:id" element={<ProgramDetail />} />
+                <Route path="capital/1k-club" element={<Navigate to="/executive/capital/programs" replace />} />
                 <Route path="projects" element={<ManageProjects />} />
                 <Route path="projects/new" element={<ProjectForm />} />
                 <Route path="projects/edit/:id" element={<ProjectForm />} />

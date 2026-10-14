@@ -1,16 +1,17 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { useInitiatePayment } from "../../../../store/tanstackStore/services/queries";
+import { useInitiatePayment, usePublicExchangeRate } from "../../../../store/tanstackStore/services/queries";
 
 /**
  * PesaPal payment form view.
  * Integrates with back-end to submit transaction request and redirect to PesaPal gateway.
  *
- * @param {{ amount: string, tier: any, frequency: string, onBack: Function, projectId?: string }} props
+ * @param {{ amount: string, currency?: "USD" | "UGX", tier: any, frequency: string, onBack: Function, projectId?: string, programId?: string }} props
+ *   `currency` is the currency `amount` is given in (defaults to USD); the form starts in it.
  */
-const USD_TO_UGX = 3750;
+const FALLBACK_USD_TO_UGX = 3700;
 
 const COUNTRY_CODES = [
   { code: "+256", label: "Uganda" },
@@ -221,11 +222,20 @@ const COUNTRY_CODES = [
   { code: "+998", label: "Uzbekistan" },
 ];
 
-const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => {
+const ContinueWithPesapal = ({ amount, currency: baseCurrency = "USD", tier, frequency, onBack, projectId, programId }) => {
   const [submitError, setSubmitError] = useState(null);
   const initiatePaymentMutation = useInitiatePayment();
-  const baseAmountRef = useRef(parseFloat(String(amount).replace(/,/g, "")));
-  const [displayAmount, setDisplayAmount] = useState(baseAmountRef.current);
+  const { data: rateData } = usePublicExchangeRate();
+  const usdToUgx = rateData?.usdToUgxRate || FALLBACK_USD_TO_UGX;
+  const baseAmount = parseFloat(String(amount).replace(/,/g, ""));
+  const [displayAmount, setDisplayAmount] = useState(baseAmount);
+
+  // Amount in the chosen currency, converted from the currency it was offered in
+  const amountIn = (currency) => {
+    const base = baseAmount;
+    if (currency === baseCurrency) return base;
+    return currency === "UGX" ? Math.round(base * usdToUgx) : Math.round((base / usdToUgx) * 100) / 100;
+  };
 
   const steps = [
     { num: 1, label: "Enter Details", active: true },
@@ -309,7 +319,7 @@ const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => 
             email: "",
             phoneNumber: "",
             countryCode: "+256",
-            currency: "USD",
+            currency: baseCurrency,
           }}
           validationSchema={validationSchema}
           onSubmit={async (values, { setSubmitting }) => {
@@ -326,9 +336,10 @@ const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => 
                 phonenumber: values.countryCode + values.phoneNumber,
                 tierTitle: tier?.title || "General Donation",
                 frequency: frequency || "once",
-                note: `Seed contribution for ${tier?.title || "General Donation"}`,
+                note: `Contribution for ${tier?.title || "General Donation"}`,
                 ...(projectId ? { projectId } : {}),
-                ...(!projectId && tier?.id ? { tierId: tier.id } : {}),
+                ...(!projectId && programId ? { programId } : {}),
+                ...(!projectId && !programId && tier?.id ? { tierId: tier.id } : {}),
               };
 
               const response = await initiatePaymentMutation.mutateAsync(payload);
@@ -475,7 +486,7 @@ const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => 
                     Amount *
                   </label>
                   <div className="h-10 border border-brand-dark-200 rounded-lg bg-brand-white-100/50 flex items-center px-3 text-brand-dark-400 font-secondary cursor-not-allowed font-bold text-sm">
-                    {values.currency === "USD" ? "$" : "UGX "}{displayAmount || "0.00"}
+                    {values.currency === "USD" ? "$" : "UGX "}{displayAmount ? Number(displayAmount).toLocaleString() : "0.00"}
                   </div>
                 </div>
 
@@ -488,12 +499,7 @@ const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => 
                     value={values.currency}
                     onChange={(e) => {
                       const newCurrency = e.target.value;
-                      const base = baseAmountRef.current;
-                      if (newCurrency === "UGX") {
-                        setDisplayAmount(Math.round(base * USD_TO_UGX));
-                      } else {
-                        setDisplayAmount(base);
-                      }
+                      setDisplayAmount(amountIn(newCurrency));
                       setFieldValue("currency", newCurrency);
                     }}
                     onBlur={handleBlur}

@@ -295,6 +295,56 @@ export const useExecutiveSummary = () => {
   });
 };
 
+// Programme Queries
+export const usePrograms = () => {
+  return useQuery({
+    queryKey: ['programs', 'public'],
+    queryFn: api.getPrograms,
+  });
+};
+
+export const useManagedPrograms = () => {
+  return useQuery({
+    queryKey: ['programs', 'manage'],
+    queryFn: api.getManagedPrograms,
+  });
+};
+
+export const useManagedProgram = (id, params = {}) => {
+  return useQuery({
+    queryKey: ['programs', 'manage', id, params],
+    queryFn: () => api.getManagedProgram(id, params),
+    enabled: !!id,
+  });
+};
+
+const useProgramMutation = (mutationFn) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['programs'] });
+      queryClient.invalidateQueries({ queryKey: ['executive-summary'] });
+      queryClient.invalidateQueries({ queryKey: ['payment-summary'] });
+    },
+  });
+};
+
+export const useCreateProgram = () => useProgramMutation((program) => api.createProgram(program));
+export const useUpdateProgram = () => useProgramMutation(({ id, ...program }) => api.updateProgram(id, program));
+export const useDeleteProgram = () => useProgramMutation((id) => api.deleteProgram(id));
+export const useAddProgramContribution = () => useProgramMutation(({ id, ...contribution }) => api.addProgramContribution(id, contribution));
+export const useDeleteProgramContribution = () => useProgramMutation(({ id, paymentId }) => api.deleteProgramContribution(id, paymentId));
+
+// Same USD↔UGX rate the dashboard uses, for converting amounts on donation forms
+export const usePublicExchangeRate = () => {
+  return useQuery({
+    queryKey: ['exchange-rate', 'public'],
+    queryFn: api.getPublicExchangeRate,
+    staleTime: 10 * 60 * 1000,
+  });
+};
+
 // PesaPal Payment Queries
 export const useInitiatePayment = () => {
   return useMutation({

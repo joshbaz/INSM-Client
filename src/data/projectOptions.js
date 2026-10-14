@@ -13,6 +13,8 @@ export const STATUS_LABELS = {
 
 export const CURRENCIES = ["USD", "UGX"];
 
+export const PROGRAM_FREQUENCY_LABELS = { once: "One-time", weekly: "Weekly", monthly: "Monthly" };
+
 export const PAYMENT_METHODS = ["Bank transfer", "Cash", "Mobile money", "Cheque", "Other"];
 
 export const formatMoney = (amount, currency = "USD") => {
