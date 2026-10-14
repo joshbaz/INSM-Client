@@ -243,6 +243,44 @@ export const useRemoveAdmin = () => {
   });
 };
 
+// Seed-a-Cooperative Impact Queries
+export const useTierImpact = () => {
+  return useQuery({
+    queryKey: ['tiers', 'impact'],
+    queryFn: api.getTierImpact,
+  });
+};
+
+export const useTierDeliveries = (tierId) => {
+  return useQuery({
+    queryKey: ['tiers', 'deliveries', tierId],
+    queryFn: () => api.getTierDeliveries(tierId),
+    enabled: !!tierId,
+  });
+};
+
+const useTierMutation = (mutationFn) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['tiers'] });
+      queryClient.invalidateQueries({ queryKey: ['executive-summary'] });
+    },
+  });
+};
+
+export const useAddTierDelivery = () => useTierMutation(({ tierId, ...delivery }) => api.addTierDelivery(tierId, delivery));
+export const useUpdateTierDelivery = () => useTierMutation(({ tierId, deliveryId, ...delivery }) => api.updateTierDelivery(tierId, deliveryId, delivery));
+export const useDeleteTierDelivery = () => useTierMutation(({ tierId, deliveryId }) => api.deleteTierDelivery(tierId, deliveryId));
+
+export const useExecutiveSummary = () => {
+  return useQuery({
+    queryKey: ['executive-summary'],
+    queryFn: api.getExecutiveSummary,
+  });
+};
+
 // PesaPal Payment Queries
 export const useInitiatePayment = () => {
   return useMutation({

@@ -328,6 +328,7 @@ const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => 
                 frequency: frequency || "once",
                 note: `Seed contribution for ${tier?.title || "General Donation"}`,
                 ...(projectId ? { projectId } : {}),
+                ...(!projectId && tier?.id ? { tierId: tier.id } : {}),
               };
 
               const response = await initiatePaymentMutation.mutateAsync(payload);

@@ -226,6 +226,38 @@ export const removeAdmin = async (id) => {
   return data;
 };
 
+// Seed-a-Cooperative impact (units funded vs delivered per tier)
+export const getTierImpact = async () => {
+  const { data } = await api.get('/tiers/impact');
+  return data;
+};
+
+export const getTierDeliveries = async (tierId) => {
+  const { data } = await api.get(`/tiers/${tierId}/deliveries`);
+  return data;
+};
+
+export const addTierDelivery = async (tierId, delivery) => {
+  const { data } = await api.post(`/tiers/${tierId}/deliveries`, delivery);
+  return data;
+};
+
+export const updateTierDelivery = async (tierId, deliveryId, delivery) => {
+  const { data } = await api.patch(`/tiers/${tierId}/deliveries/${deliveryId}`, delivery);
+  return data;
+};
+
+export const deleteTierDelivery = async (tierId, deliveryId) => {
+  const { data } = await api.delete(`/tiers/${tierId}/deliveries/${deliveryId}`);
+  return data;
+};
+
+// Executive home (dashboard routes live outside /v1)
+export const getExecutiveSummary = async () => {
+  const { data } = await api.get(`${api.defaults.baseURL.replace(/\/v1$/, '')}/dashboard/executive`);
+  return data;
+};
+
 // PesaPal Payments
 export const initiatePayment = async (payload) => {
   const { data } = await api.post('/payment/pesapal/donate', payload);

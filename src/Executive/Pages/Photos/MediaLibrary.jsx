@@ -16,6 +16,7 @@ const USAGE_STYLES = {
   blog: { label: "Blog", icon: "ph:article-bold", text: "text-brand-gold", border: "border-brand-gold/30" },
   project: { label: "Project", icon: "ph:folder-notch-open-bold", text: "text-[#4d7a7d]", border: "border-[#7E9C9F]/40" },
   profile: { label: "Profile", icon: "ph:user-circle-bold", text: "text-[#916b94]", border: "border-[#a57ea9]/40" },
+  seed: { label: "Seed-a-Coop", icon: "ph:plant-bold", text: "text-[#8C7030]", border: "border-[#D4AF37]/40" },
 };
 
 const USAGE_FILTERS = [["ALL", "All"], ["blog", "Blogs"], ["project", "Projects"], ["UNUSED", "Unused"]];

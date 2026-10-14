@@ -36,7 +36,10 @@ const TierModal = ({ isOpen, onClose, tier, mode = 'create' }) => {
     customPayment: false,
     premiumTier: false,
     audioFile: null,
-    audioDescription: ""
+    audioDescription: "",
+    unitName: "",
+    unitCost: "",
+    openingUnits: 0
   });
   
   const [fileToUpload, setFileToUpload] = useState(null);
@@ -96,11 +99,15 @@ const TierModal = ({ isOpen, onClose, tier, mode = 'create' }) => {
         customPayment: tier.customPayment || false,
         premiumTier: tier.premiumTier || false,
         audioFile: tier.audioFileName || null,
-        audioDescription: tier.audioDescription || ""
+        audioDescription: tier.audioDescription || "",
+        unitName: tier.unitName || "",
+        unitCost: tier.unitCost || "",
+        openingUnits: tier.openingUnits || 0
       });
     } else {
       setFormData({
-        title: "", amount: "", subtitle: "", hookQuote: "", description: "", customPayment: false, premiumTier: false, audioFile: null, audioDescription: ""
+        title: "", amount: "", subtitle: "", hookQuote: "", description: "", customPayment: false, premiumTier: false, audioFile: null, audioDescription: "",
+        unitName: "", unitCost: "", openingUnits: 0
       });
     }
     setFileToUpload(null);
@@ -140,6 +147,9 @@ const TierModal = ({ isOpen, onClose, tier, mode = 'create' }) => {
     data.append("customPayment", formData.customPayment);
     data.append("premiumTier", formData.premiumTier);
     data.append("audioDescription", formData.audioDescription);
+    data.append("unitName", formData.unitName);
+    data.append("unitCost", formData.unitCost);
+    data.append("openingUnits", formData.openingUnits);
     
     if (fileToUpload) {
       data.append("audioFile", fileToUpload);
@@ -159,6 +169,7 @@ const TierModal = ({ isOpen, onClose, tier, mode = 'create' }) => {
       onClose();
     } catch (error) {
       console.error("Submission failed", error);
+      alert(error.response?.data?.message || "Failed to save tier.");
     }
   };
 
@@ -170,6 +181,7 @@ const TierModal = ({ isOpen, onClose, tier, mode = 'create' }) => {
       onClose();
     } catch (error) {
       console.error("Delete failed", error);
+      alert(error.response?.data?.message || "Failed to delete tier.");
     }
   };
 
@@ -314,6 +326,54 @@ const TierModal = ({ isOpen, onClose, tier, mode = 'create' }) => {
                     Adding this will include a custom amount text box on the donation form.
                   </p>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Impact Tracking Section */}
+          <section className="flex flex-col gap-6">
+            <div>
+              <h3 className="text-xl font-bold font-secondary text-brand-dark mb-1">Impact Tracking</h3>
+              <p className="text-[#6B7280] text-[13px] font-medium">
+                What one unit of this tier delivers. Donations are converted into units funded, and you record what's been handed out.
+                Leave the unit empty if this tier isn't tracked.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="flex flex-col gap-2">
+                <label className="text-[13px] font-bold font-secondary text-brand-dark/80">Unit name</label>
+                <input
+                  type="text"
+                  placeholder="e.g. passbook"
+                  className={`w-full border border-brand-dark-200/20 rounded-md px-4 py-3 text-[14px] text-brand-dark placeholder-[#9BA1A6] focus:outline-none focus:border-[#997B94] ${isViewMode ? 'bg-gray-50' : ''}`}
+                  value={formData.unitName}
+                  onChange={(e) => setFormData({...formData, unitName: e.target.value})}
+                  readOnly={isViewMode}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-[13px] font-bold font-secondary text-brand-dark/80">Cost per unit (USD)</label>
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  placeholder={formData.amount ? `${formData.amount} (tier amount)` : "Tier amount"}
+                  className={`w-full border border-brand-dark-200/20 rounded-md px-4 py-3 text-[14px] text-brand-dark placeholder-[#9BA1A6] focus:outline-none focus:border-[#997B94] ${isViewMode ? 'bg-gray-50' : ''}`}
+                  value={formData.unitCost}
+                  onChange={(e) => setFormData({...formData, unitCost: e.target.value})}
+                  readOnly={isViewMode}
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <label className="text-[13px] font-bold font-secondary text-brand-dark/80">Already delivered before tracking</label>
+                <input
+                  type="number"
+                  min="0"
+                  className={`w-full border border-brand-dark-200/20 rounded-md px-4 py-3 text-[14px] text-brand-dark placeholder-[#9BA1A6] focus:outline-none focus:border-[#997B94] ${isViewMode ? 'bg-gray-50' : ''}`}
+                  value={formData.openingUnits}
+                  onChange={(e) => setFormData({...formData, openingUnits: e.target.value})}
+                  readOnly={isViewMode}
+                />
               </div>
             </div>
           </section>

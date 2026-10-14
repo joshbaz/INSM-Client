@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import TierModal from "./components/TierModal";
-import { useTiers } from "../../../store/tanstackStore/services/queries";
+import { useTiers, useTierImpact } from "../../../store/tanstackStore/services/queries";
 import { useSocket } from "../../../store/context/SocketContext";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
@@ -42,6 +42,8 @@ const InvestmentTiers = () => {
   };
 
   const { data: tiers = [], isLoading } = useTiers();
+  const { data: tierImpact = [] } = useTierImpact();
+  const impactOf = (tier) => tierImpact.find((t) => t.id === tier.id)?.impact;
 
   return (
     <>
@@ -117,6 +119,26 @@ const InvestmentTiers = () => {
                     </p>
                   </div>
 
+                  {/* Impact */}
+                  {impactOf(tier)?.unitName && (() => {
+                    const impact = impactOf(tier);
+                    return (
+                      <div className="mt-5 rounded-lg bg-[#F9FAFB] border border-brand-dark-200/20 p-3 grid grid-cols-3 gap-2 text-center">
+                        {[
+                          ["Funded", Math.floor(impact.fundedUnits)],
+                          ["Delivered", impact.totalDelivered],
+                          ["Waiting", Math.max(impact.awaitingUnits, 0)],
+                        ].map(([label, value]) => (
+                          <div key={label}>
+                            <div className={`text-lg font-black font-albert ${label === "Waiting" && value > 0 ? "text-[#b8871f]" : "text-brand-dark"}`}>{value.toLocaleString()}</div>
+                            <div className="text-[10px] font-bold tracking-widest text-[#9BA1A6] uppercase">{label}</div>
+                          </div>
+                        ))}
+                        <p className="col-span-3 text-[11px] font-secondary text-[#6B7280] capitalize">{impact.unitName}s</p>
+                      </div>
+                    );
+                  })()}
+
                   {/* Action */}
                   <div className="mt-6 flex gap-3 flex-col">
                     {tier.audioFileUrl && (
@@ -124,6 +146,15 @@ const InvestmentTiers = () => {
                          <Icon icon="ph:microphone-fill" className="w-4 h-4" />
                          AUDIO AVAILABLE
                       </div>
+                    )}
+                    {impactOf(tier)?.unitName && (
+                      <Link
+                        to={`/executive/capital/seed-a-cooperative/tiers/${tier.id}`}
+                        onClick={(e) => e.stopPropagation()}
+                        className="w-full border border-[#997B94] text-[#997B94] hover:bg-[#997B94] hover:text-white text-xs font-black tracking-widest py-3 rounded-full transition-colors uppercase text-center"
+                      >
+                        Track {impactOf(tier).unitName}s
+                      </Link>
                     )}
                     <button 
                       onClick={(e) => handleEdit(e, tier)}

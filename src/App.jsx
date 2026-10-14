@@ -61,6 +61,7 @@ import ExecutiveHome from "./Executive/Pages/Home/ExecutiveHome";
 import CapitalInvestments from "./Executive/Pages/Capital/CapitalInvestments";
 import SeedACooperative from "./Executive/Pages/Capital/SeedACooperative";
 import InvestmentTiers from "./Executive/Pages/Capital/InvestmentTiers";
+import TierDeliveries from "./Executive/Pages/Capital/TierDeliveries";
 import ManageLeads from "./Executive/Pages/Leads/ManageLeads";
 import ManageBlogs from "./Executive/Pages/Blogs/ManageBlogs";
 import MediaLibrary from "./Executive/Pages/Photos/MediaLibrary";
@@ -195,6 +196,7 @@ function AppContent() {
                 <Route path="capital" element={<Navigate to="seed-a-cooperative" replace />} />
                 <Route path="capital/seed-a-cooperative" element={<SeedACooperative />} />
                 <Route path="capital/seed-a-cooperative/tiers" element={<InvestmentTiers />} />
+                <Route path="capital/seed-a-cooperative/tiers/:id" element={<TierDeliveries />} />
                 <Route path="capital/programs" element={<CapitalInvestments />} />
                 <Route path="capital/1k-club" element={<CapitalInvestments />} />
                 <Route path="projects" element={<ManageProjects />} />
