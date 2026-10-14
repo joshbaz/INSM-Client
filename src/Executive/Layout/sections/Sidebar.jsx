@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
+import { useAuth } from "../../../store/context/AuthContext";
 
 const Sidebar = ({ isOpen, onClose }) => {
   const location = useLocation();
+  const { logout } = useAuth();
   const [expandedMenus, setExpandedMenus] = useState({});
 
   useEffect(() => {
@@ -183,16 +185,16 @@ const Sidebar = ({ isOpen, onClose }) => {
         </Link>
 
         {/* Logout */}
-        <Link
-          to="/login"
-          className="w-full py-3 px-8 flex items-center gap-3.5 hover:bg-brand-dark-700/50 text-[#8b8e91] hover:text-brand-white transition-all duration-200 group"
+        <button
+          onClick={() => logout("/executive/login")}
+          className="w-full py-3 px-8 flex items-center gap-3.5 hover:bg-brand-dark-700/50 text-[#8b8e91] hover:text-brand-white transition-all duration-200 group cursor-pointer"
         >
           <Icon 
             icon="ph:sign-out-bold" 
             className="w-5 h-5 transition-colors" 
           />
           <span className="text-[15px] font-secondary font-medium">Logout</span>
-        </Link>
+        </button>
       </div>
     </aside>
   );

@@ -1,7 +1,54 @@
 import React, { useState } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Sidebar from "./sections/Sidebar";
+import UserAvatar from "../components/UserAvatar";
+import { useAuth } from "../../store/context/AuthContext";
+
+const ProfileMenu = () => {
+  const { user, logout } = useAuth();
+  const [isOpen, setIsOpen] = useState(false);
+  const close = () => setIsOpen(false);
+
+  return (
+    <div className="relative">
+      <button onClick={() => setIsOpen((open) => !open)} className="flex items-center gap-3 cursor-pointer group">
+        <span className="text-right hidden lg:block">
+          <span className="block text-[14px] font-secondary font-bold text-brand-dark group-hover:text-brand-gold transition-colors leading-tight">
+            {user?.name || "Profile"}
+          </span>
+          {user?.jobTitle && <span className="block text-[12px] font-secondary text-brand-dark-400 leading-tight">{user.jobTitle}</span>}
+        </span>
+        <UserAvatar user={user} size={36} />
+        <Icon icon="ph:caret-down-bold" className={`w-3.5 h-3.5 text-brand-dark-400 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+      </button>
+
+      {isOpen && (
+        <>
+          <div className="fixed inset-0 z-40" onClick={close} />
+          <div className="absolute right-0 mt-3 w-64 bg-white rounded-xl shadow-xl border border-gray-100 z-50 overflow-hidden">
+            <div className="flex items-center gap-3 p-4 border-b border-gray-100">
+              <UserAvatar user={user} size={40} />
+              <div className="min-w-0">
+                <p className="text-sm font-bold font-secondary text-gray-900 truncate">{user?.name || "Administrator"}</p>
+                <p className="text-xs font-secondary text-gray-500 truncate">{user?.email}</p>
+              </div>
+            </div>
+            <Link to="/executive/profile" onClick={close} className="flex items-center gap-3 px-4 py-3 text-sm font-secondary text-gray-700 hover:bg-gray-50">
+              <Icon icon="ph:user-circle-bold" className="w-4 h-4" /> My profile
+            </Link>
+            <Link to="/executive/settings" onClick={close} className="flex items-center gap-3 px-4 py-3 text-sm font-secondary text-gray-700 hover:bg-gray-50">
+              <Icon icon="ph:gear-bold" className="w-4 h-4" /> Settings
+            </Link>
+            <button onClick={() => logout("/executive/login")} className="w-full flex items-center gap-3 px-4 py-3 text-sm font-secondary text-[#EF4444] hover:bg-[#EF4444]/5 border-t border-gray-100">
+              <Icon icon="ph:sign-out-bold" className="w-4 h-4" /> Sign out
+            </button>
+          </div>
+        </>
+      )}
+    </div>
+  );
+};
 
 const ExecutiveLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,7 +62,9 @@ const ExecutiveLayout = () => {
     if (pathname.includes('/executive/capital')) return 'Capital Investments';
     if (pathname.includes('/executive/network')) return 'Equippers Network';
     if (pathname.includes('/executive/photos')) return 'Media library';
+    if (pathname.includes('/executive/projects')) return 'Projects';
     if (pathname.includes('/executive/settings')) return 'Settings';
+    if (pathname.includes('/executive/profile')) return 'My Profile';
     return 'Executive Portal';
   };
 
@@ -47,12 +96,15 @@ const ExecutiveLayout = () => {
           <div className="flex items-center gap-2">
             <h1 className="text-lg font-primary font-bold text-brand-gold tracking-tight leading-none">INSM</h1>
           </div>
-          <button 
-            onClick={() => setIsMobileMenuOpen(true)}
-            className="p-2 text-brand-dark-400 hover:text-brand-dark focus:outline-none"
-          >
-            <Icon icon="heroicons:bars-3" className="w-6 h-6" />
-          </button>
+          <div className="flex items-center gap-2">
+            <ProfileMenu />
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-2 text-brand-dark-400 hover:text-brand-dark focus:outline-none"
+            >
+              <Icon icon="heroicons:bars-3" className="w-6 h-6" />
+            </button>
+          </div>
         </div>
 
         {/* ═══════════════════════════════════════════
@@ -80,16 +132,7 @@ const ExecutiveLayout = () => {
             <div className="w-px h-6 bg-brand-dark-200/50" />
 
             {/* Profile Navigation Dropdown */}
-            <div className="flex items-center gap-3 cursor-pointer group">
-              <span className="text-[15px] font-secondary font-bold text-brand-dark group-hover:text-brand-gold transition-colors">
-                Profile
-              </span>
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=256" 
-                alt="Profile" 
-                className="w-9 h-9 rounded-full object-cover border border-brand-dark-200/10 shadow-sm shrink-0"
-              />
-            </div>
+            <ProfileMenu />
           </div>
         </header>
 

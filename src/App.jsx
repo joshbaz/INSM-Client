@@ -70,6 +70,8 @@ import ExecutiveViewArticle from "./Executive/Pages/Blogs/ExecutiveViewArticle";
 import ManageProjects from "./Executive/Pages/Projects/ManageProjects";
 import ProjectForm from "./Executive/Pages/Projects/ProjectForm";
 import ProjectFunds from "./Executive/Pages/Projects/ProjectFunds";
+import ExecutiveProfile from "./Executive/Pages/Profile/Profile";
+import ExecutiveSettings from "./Executive/Pages/Settings/Settings";
 import ExecutiveLogin from "./Executive/Pages/Auth/ExecutiveLogin";
 import RegisterSuperAdmin from "./Executive/Pages/Auth/RegisterSuperAdmin";
 
@@ -206,7 +208,8 @@ function AppContent() {
                 <Route path="blogs/edit/:id" element={<EditArticle />} />
                 <Route path="blogs/view/:id" element={<ExecutiveViewArticle />} />
                 <Route path="photos" element={<MediaLibrary />} />
-                <Route path="settings" element={<div className="text-brand-dark p-8">Settings Coming Soon</div>} />
+                <Route path="settings" element={<ExecutiveSettings />} />
+                <Route path="profile" element={<ExecutiveProfile />} />
               </Route>
 
               {/* Redirection for old dashboard link */}

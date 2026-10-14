@@ -196,7 +196,52 @@ export const useDeleteProjectContribution = () => useProjectMutation(({ id, paym
 export const useAddImpactEntry = () => useProjectMutation(({ id, ...entry }) => api.addImpactEntry(id, entry));
 export const useUpdateImpactEntry = () => useProjectMutation(({ id, entryId, ...entry }) => api.updateImpactEntry(id, entryId, entry));
 export const useDeleteImpactEntry = () => useProjectMutation(({ id, entryId }) => api.deleteImpactEntry(id, entryId));
+export const useExchangeRate = () => {
+  return useQuery({
+    queryKey: ['projects', 'exchange-rate'],
+    queryFn: api.getExchangeRate,
+  });
+};
+
 export const useUpdateExchangeRate = () => useProjectMutation((rate) => api.updateExchangeRate(rate));
+
+// Account & Admin Team Queries
+export const useUpdateProfile = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (profile) => api.updateProfile(profile),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admins'] }),
+  });
+};
+
+export const useChangePassword = () => {
+  return useMutation({
+    mutationFn: (passwords) => api.changePassword(passwords),
+  });
+};
+
+export const useAdmins = () => {
+  return useQuery({
+    queryKey: ['admins'],
+    queryFn: api.getAdmins,
+  });
+};
+
+export const useCreateAdmin = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (admin) => api.createAdmin(admin),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admins'] }),
+  });
+};
+
+export const useRemoveAdmin = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id) => api.removeAdmin(id),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admins'] }),
+  });
+};
 
 // PesaPal Payment Queries
 export const useInitiatePayment = () => {

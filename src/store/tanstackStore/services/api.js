@@ -188,8 +188,41 @@ export const deleteImpactEntry = async (id, entryId) => {
   return data;
 };
 
+export const getExchangeRate = async () => {
+  const { data } = await api.get('/projects/manage/exchange-rate');
+  return data;
+};
+
 export const updateExchangeRate = async (usdToUgxRate) => {
   const { data } = await api.put('/projects/manage/exchange-rate', { usdToUgxRate });
+  return data;
+};
+
+// Account & admin team (auth routes live outside /v1)
+const authApi = (path) => `${api.defaults.baseURL.replace(/\/v1$/, '')}/auth${path}`;
+
+export const updateProfile = async (profile) => {
+  const { data } = await api.patch(authApi('/me'), profile);
+  return data;
+};
+
+export const changePassword = async (passwords) => {
+  const { data } = await api.put(authApi('/me/password'), passwords);
+  return data;
+};
+
+export const getAdmins = async () => {
+  const { data } = await api.get(authApi('/admins'));
+  return data;
+};
+
+export const createAdmin = async (admin) => {
+  const { data } = await api.post(authApi('/admins'), admin);
+  return data;
+};
+
+export const removeAdmin = async (id) => {
+  const { data } = await api.delete(authApi(`/admins/${id}`));
   return data;
 };
 

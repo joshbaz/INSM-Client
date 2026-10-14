@@ -12,6 +12,27 @@ const formatBytes = (bytes, decimals = 2) => {
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 };
 
+const USAGE_STYLES = {
+  blog: { label: "Blog", icon: "ph:article-bold", text: "text-brand-gold", border: "border-brand-gold/30" },
+  project: { label: "Project", icon: "ph:folder-notch-open-bold", text: "text-[#4d7a7d]", border: "border-[#7E9C9F]/40" },
+  profile: { label: "Profile", icon: "ph:user-circle-bold", text: "text-[#916b94]", border: "border-[#a57ea9]/40" },
+};
+
+const USAGE_FILTERS = [["ALL", "All"], ["blog", "Blogs"], ["project", "Projects"], ["UNUSED", "Unused"]];
+
+// One tag per blog/project using the photo (a project can use it in several slots)
+const usageTags = (photo) => {
+  const seen = new Map();
+  for (const use of photo.usedIn || []) seen.set(`${use.type}-${use.id}`, use);
+  return [...seen.values()];
+};
+
+const matchesUsageFilter = (photo, filter) => {
+  if (filter === "ALL") return true;
+  if (filter === "UNUSED") return !photo.usedIn?.length && !photo.albumId;
+  return (photo.usedIn || []).some((use) => use.type === filter);
+};
+
 const MediaLibrary = () => {
   const { user } = useAuth();
   const [activeTab, setActiveTab] = useState('ALL PHOTOS');
@@ -48,6 +69,7 @@ const MediaLibrary = () => {
   const [editPhotoRegion, setEditPhotoRegion] = useState("");
 
   const [photoToDelete, setPhotoToDelete] = useState(null);
+  const [usageFilter, setUsageFilter] = useState("ALL");
   const [selectedPhotoForGallery, setSelectedPhotoForGallery] = useState(null);
 
   const fetchData = async () => {
@@ -215,7 +237,8 @@ const MediaLibrary = () => {
     : photos;
 
   const renderPhotoCard = (photo) => {
-    const isBlogAsset = photo.caption === 'inline image' || photo.caption?.endsWith(' cover image');
+    const tags = usageTags(photo);
+    const isUnused = tags.length === 0 && !photo.albumId;
     
     return (
     <div key={photo.id} className="flex flex-col rounded-xl border border-brand-dark-200/20 overflow-hidden hover:shadow-md transition-shadow bg-white group">
@@ -224,10 +247,29 @@ const MediaLibrary = () => {
         style={{ backgroundImage: `url(${api.defaults.baseURL}/photos/${photo.id}/view)` }}
         onClick={() => setSelectedPhotoForGallery(photo)}
       >
-        {isBlogAsset && (
-          <div className="absolute top-2 left-2 flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-brand-gold/30">
-            <Icon icon="ph:article-bold" className="w-3 h-3 text-brand-gold" />
-            <span className="text-[10px] font-secondary font-bold text-brand-gold uppercase tracking-wider">Blog Asset</span>
+        {(tags.length > 0 || isUnused) && (
+          <div className="absolute top-2 left-2 flex flex-col items-start gap-1 max-w-[70%]">
+            {tags.slice(0, 2).map((tag) => (
+              <div
+                key={`${tag.type}-${tag.id}`}
+                className={`flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border max-w-full ${USAGE_STYLES[tag.type].border}`}
+                title={`${USAGE_STYLES[tag.type].label}: ${tag.title}`}
+              >
+                <Icon icon={USAGE_STYLES[tag.type].icon} className={`w-3 h-3 shrink-0 ${USAGE_STYLES[tag.type].text}`} />
+                <span className={`text-[10px] font-secondary font-bold uppercase tracking-wider truncate ${USAGE_STYLES[tag.type].text}`}>
+                  {USAGE_STYLES[tag.type].label} · {tag.title}
+                </span>
+              </div>
+            ))}
+            {tags.length > 2 && (
+              <span className="bg-white/90 px-2 py-0.5 rounded-md text-[10px] font-secondary font-bold text-brand-dark-400 shadow-sm">+{tags.length - 2} more</span>
+            )}
+            {isUnused && (
+              <div className="flex items-center gap-1 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-gray-300">
+                <Icon icon="ph:circle-dashed-bold" className="w-3 h-3 text-gray-500" />
+                <span className="text-[10px] font-secondary font-bold text-gray-500 uppercase tracking-wider">Unused</span>
+              </div>
+            )}
           </div>
         )}
         <div className="absolute top-2 right-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -400,11 +442,28 @@ const MediaLibrary = () => {
             ) : (
               <>
                 {activeTab === 'ALL PHOTOS' && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {photos.length === 0 ? (
-                       <div className="col-span-full text-center py-10 text-gray-500 font-secondary">No photos uploaded yet.</div>
-                    ) : photos.map(photo => renderPhotoCard(photo))}
-                  </div>
+                  <>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {USAGE_FILTERS.map(([key, label]) => (
+                        <button
+                          key={key}
+                          onClick={() => setUsageFilter(key)}
+                          className={`px-4 py-1.5 rounded-full text-[12px] font-secondary font-semibold transition-colors ${
+                            usageFilter === key ? 'bg-brand-dark text-white' : 'bg-gray-100 text-brand-dark-400 hover:text-brand-dark'
+                          }`}
+                        >
+                          {label} <span className="opacity-60 ml-0.5">{photos.filter((p) => matchesUsageFilter(p, key)).length}</span>
+                        </button>
+                      ))}
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                      {photos.length === 0 ? (
+                         <div className="col-span-full text-center py-10 text-gray-500 font-secondary">No photos uploaded yet.</div>
+                      ) : photos.filter((p) => matchesUsageFilter(p, usageFilter)).length === 0 ? (
+                         <div className="col-span-full text-center py-10 text-gray-500 font-secondary">No photos match this filter.</div>
+                      ) : photos.filter((p) => matchesUsageFilter(p, usageFilter)).map(photo => renderPhotoCard(photo))}
+                    </div>
+                  </>
                 )}
 
                 {activeTab === 'ALBUMS' && (
@@ -848,6 +907,18 @@ const MediaLibrary = () => {
             <p className="text-[13px] font-secondary text-brand-dark-400 mb-6">
               Are you sure you want to delete <span className="font-bold text-brand-dark">"{photoToDelete.name || 'Untitled'}"</span>? This action cannot be undone.
             </p>
+            {photoToDelete.usedIn?.length > 0 && (
+              <div className="w-full text-left bg-red-50 border border-red-200 rounded-lg p-3 mb-6">
+                <p className="text-[12px] font-secondary font-bold text-red-700 mb-1.5 flex items-center gap-1.5">
+                  <Icon icon="ph:warning-bold" className="w-4 h-4" /> This photo is still in use and will show as broken:
+                </p>
+                <ul className="text-[12px] font-secondary text-brand-dark space-y-0.5 list-disc pl-5">
+                  {photoToDelete.usedIn.map((use, i) => (
+                    <li key={i}>{USAGE_STYLES[use.type].label} · <strong>{use.title}</strong> ({use.where})</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <div className="flex w-full gap-3">
               <button 
                 onClick={() => setPhotoToDelete(null)}
@@ -859,7 +930,7 @@ const MediaLibrary = () => {
                 onClick={handleDeletePhoto}
                 className="flex-1 py-2.5 rounded-full text-[13px] font-secondary font-semibold text-white bg-red-600 hover:bg-red-700 transition-colors shadow-sm"
               >
-                Delete
+                {photoToDelete.usedIn?.length > 0 ? 'Delete anyway' : 'Delete'}
               </button>
             </div>
           </div>

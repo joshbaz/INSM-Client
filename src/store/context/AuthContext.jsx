@@ -58,15 +58,24 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
+  const logout = (redirectTo = "/login") => {
     setUser(null);
     localStorage.removeItem("insm_user");
-    window.location.href = "/login";
+    window.location.href = redirectTo;
+  };
+
+  // Merge updated profile fields into the session (keeps the token)
+  const updateUser = (changes) => {
+    setUser((prev) => {
+      const next = { ...prev, ...changes };
+      localStorage.setItem("insm_user", JSON.stringify(next));
+      return next;
+    });
   };
 
   return (
     <AuthContext.Provider
-      value={{ user, loading, login, signup, logout, isAuthenticated: !!user }}
+      value={{ user, loading, login, signup, logout, updateUser, isAuthenticated: !!user }}
     >
       {children}
     </AuthContext.Provider>
