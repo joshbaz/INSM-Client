@@ -3,6 +3,8 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import Sidebar from "./sections/Sidebar";
 import UserAvatar from "../components/UserAvatar";
+import NotificationBell from "./sections/NotificationBell";
+import HelpPanel from "./sections/HelpPanel";
 import { useAuth } from "../../store/context/AuthContext";
 
 const ProfileMenu = () => {
@@ -96,7 +98,8 @@ const ExecutiveLayout = () => {
           <div className="flex items-center gap-2">
             <h1 className="text-lg font-primary font-bold text-brand-gold tracking-tight leading-none">INSM</h1>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <NotificationBell />
             <ProfileMenu />
             <button 
               onClick={() => setIsMobileMenuOpen(true)}
@@ -118,15 +121,8 @@ const ExecutiveLayout = () => {
 
           {/* Action Navigation Items */}
           <div className="flex items-center gap-6">
-            {/* Bell Notification Icon */}
-            <button className="relative p-1 text-brand-dark-400 hover:text-brand-dark transition-colors cursor-pointer">
-              <Icon icon="ph:bell-fill" className="w-[22px] h-[22px]" />
-            </button>
-
-            {/* Help Question Icon */}
-            <button className="text-brand-dark-400 hover:text-brand-dark transition-colors cursor-pointer">
-              <Icon icon="ph:info-fill" className="w-[22px] h-[22px]" />
-            </button>
+            <NotificationBell />
+            <HelpPanel />
 
             {/* Thin Vertical Divider */}
             <div className="w-px h-6 bg-brand-dark-200/50" />

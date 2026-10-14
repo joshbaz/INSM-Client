@@ -155,6 +155,9 @@ const ExecutiveHome = () => {
           {leads.pendingCount > 0 && (
             <> · <Link to="/executive/leads" className="font-bold text-[#a57ea9] hover:underline">{leads.pendingCount} lead{leads.pendingCount === 1 ? "" : "s"} waiting for review</Link></>
           )}
+          {data.pendingFieldReports > 0 && (
+            <> · <Link to="/executive/network" className="font-bold text-[#a57ea9] hover:underline">{data.pendingFieldReports} handout report{data.pendingFieldReports === 1 ? "" : "s"} from the field</Link></>
+          )}
         </p>
       </div>
 

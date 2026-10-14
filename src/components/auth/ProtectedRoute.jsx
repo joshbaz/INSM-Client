@@ -19,9 +19,13 @@ const ProtectedRoute = ({ children, requiredRole, redirectTo = "/login" }) => {
     return <Navigate to={redirectTo} state={{ from: location }} replace />;
   }
 
-  if (requiredRole && user?.role?.toUpperCase() !== requiredRole.toUpperCase()) {
-    // Redirect to home if user doesn't have required role
-    return <Navigate to="/" replace />;
+  // requiredRole may be one role or a list of allowed roles
+  const allowed = [].concat(requiredRole || []).map((r) => r.toUpperCase());
+  if (allowed.length && !allowed.includes(user?.role?.toUpperCase())) {
+    // Send people to their own area: admins to the executive portal, equippers/mentors to the terminal
+    const role = user?.role?.toUpperCase();
+    const home = role === "ADMIN" ? "/executive/home" : ["EQUIPPER", "MENTOR"].includes(role) ? "/terminal" : "/";
+    return <Navigate to={home} replace />;
   }
 
   return children;

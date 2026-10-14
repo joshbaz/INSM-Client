@@ -49,11 +49,6 @@ import PrivacyPolicyPage from "./pages/policies/policiesPage";
 import TermsOfUse from "./pages/policies/termsOfUse";
 import EthicalConduct from "./pages/policies/ethicalConduct";
 
-// ── CRM DASHBOARD (PROTECTED) ──
-import DashboardLayout from "./CRM/Layout/DashboardLayout";
-import CRMDashboard from "./CRM/1.Dashboard/DashboardPage";
-import ProjectsManagementPage from "./CRM/5.ProjectsManagement/ProjectsManagementPage";
-import BeneficiariesPage from "./CRM/6.Beneficiaries/BeneficiariesPage";
 
 // ── EXECUTIVE PORTAL (PROTECTED) ──
 import ExecutiveLayout from "./Executive/Layout/ExecutiveLayout";
@@ -61,6 +56,12 @@ import ExecutiveHome from "./Executive/Pages/Home/ExecutiveHome";
 import ManagePrograms from "./Executive/Pages/Programs/ManagePrograms";
 import ProgramDetail from "./Executive/Pages/Programs/ProgramDetail";
 import EquippersNetwork from "./Executive/Pages/Network/EquippersNetwork";
+import PartnerLayout from "./Partner/PartnerLayout";
+import PartnerHome from "./Partner/pages/PartnerHome";
+import PartnerMothers from "./Partner/pages/Mothers";
+import PartnerHandouts from "./Partner/pages/Handouts";
+import PartnerSupport from "./Partner/pages/Support";
+import { Tasks as PartnerTasks, Announcements as PartnerAnnouncements } from "./Partner/pages/Updates";
 import SeedACooperative from "./Executive/Pages/Capital/SeedACooperative";
 import InvestmentTiers from "./Executive/Pages/Capital/InvestmentTiers";
 import TierDeliveries from "./Executive/Pages/Capital/TierDeliveries";
@@ -100,6 +101,7 @@ function AppContent() {
     "/forgot-password",
     "/dashboard",
     "/crm",
+    "/terminal",
     "/executive/login",
     "/register-superadmin",
   ].some(path => location.pathname.startsWith(path));
@@ -122,14 +124,6 @@ function AppContent() {
               <Route path="/home/hero" element={<HomeHero />} />
               <Route path="/login" element={<Login />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
-              <Route
-                path="/dashboard"
-                element={
-                  <ProtectedRoute>
-                    <DashboardLayout />
-                  </ProtectedRoute>
-                }
-              />
 
               {/* Who We Are */}
               <Route path="/who-we-are" element={<WhoWeArePage />} />
@@ -159,32 +153,28 @@ function AppContent() {
               <Route path="/terms-of-use" element={<TermsOfUse />} />
               <Route path="/ethical-conduct" element={<EthicalConduct />} />
 
-              {/* ── Protected CRM Routes ── */}
+              {/* ── Partner Terminal (Community Equippers & Technical Mentors) ── */}
               <Route
-                path="/crm"
+                path="/terminal"
                 element={
-                  <ProtectedRoute>
-                    <CRMDashboard />
+                  <ProtectedRoute requiredRole={["EQUIPPER", "MENTOR"]}>
+                    <PartnerLayout />
                   </ProtectedRoute>
                 }
               >
-                <Route index element={<Navigate to="dashboard" replace />} />
-                <Route path="dashboard" element={<CRMDashboard />} />
-                <Route path="media" element={<div className="text-brand-dark p-8">Media Manager Coming Soon</div>} />
-                <Route path="donations" element={<div className="text-brand-dark p-8">Donation Manager Coming Soon</div>} />
-                <Route path="blogs" element={<div className="text-brand-dark p-8">Blog Manager Coming Soon</div>} />
-                <Route path="projects" element={<ProjectsManagementPage />} />
-                <Route path="beneficiaries" element={<BeneficiariesPage />} />
-                <Route path="partners" element={<div className="text-brand-dark p-8">Partners Manager Coming Soon</div>} />
-                <Route path="settings" element={<div className="text-brand-dark p-8">Settings Manager Coming Soon</div>} />
+                <Route index element={<PartnerHome />} />
+                <Route path="mothers" element={<ProtectedRoute requiredRole="EQUIPPER"><PartnerMothers /></ProtectedRoute>} />
+                <Route path="handouts" element={<ProtectedRoute requiredRole="EQUIPPER"><PartnerHandouts /></ProtectedRoute>} />
+                <Route path="support" element={<PartnerSupport />} />
+                <Route path="tasks" element={<PartnerTasks />} />
+                <Route path="announcements" element={<PartnerAnnouncements />} />
+                <Route path="profile" element={<ExecutiveProfile />} />
               </Route>
+              <Route path="/crm/*" element={<Navigate to="/terminal" replace />} />
 
-              {/* ── One-Time Admin Setup ── */}
+              {/* ── Executive Portal (admins) ── */}
               <Route path="/register-superadmin" element={<RegisterSuperAdmin />} />
-
-              {/* ── Protected Executive Routes ── */}
               <Route path="/executive/login" element={<ExecutiveLogin />} />
-
               <Route
                 path="/executive"
                 element={
@@ -218,10 +208,7 @@ function AppContent() {
               </Route>
 
               {/* Redirection for old dashboard link */}
-              <Route
-                path="/dashboard"
-                element={<Navigate to="/crm/dashboard" replace />}
-              />
+              <Route path="/dashboard" element={<Navigate to="/terminal" replace />} />
 
             </Routes>
           </main>

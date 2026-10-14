@@ -22,7 +22,14 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const from = location.state?.from?.pathname || "/dashboard";
+  const from = location.state?.from?.pathname;
+
+  // Admins go to the executive portal; equippers and mentors to the Partner Terminal
+  const homeFor = (user) => {
+    if (user?.role === "ADMIN") return "/executive/home";
+    if (user?.mustChangePassword) return "/terminal/profile";
+    return from?.startsWith("/terminal") ? from : "/terminal";
+  };
 
   return (
     <div className="min-h-screen bg-brand-navy-900 flex items-center justify-center relative overflow-hidden py-20 px-4">
@@ -66,7 +73,7 @@ const Login = () => {
               try {
                 const result = await login(values.email, values.password);
                 if (result.success) {
-                  navigate(from, { replace: true });
+                  navigate(homeFor(result.user), { replace: true });
                 } else {
                   setError(result.message);
                 }

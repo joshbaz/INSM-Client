@@ -387,6 +387,94 @@ export const useUpdateNetworkMember = () => useNetworkMutation(({ id, ...changes
 export const useAddMemberNote = () => useNetworkMutation(({ id, ...note }) => api.addMemberNote(id, note));
 export const useDeleteMemberNote = () => useNetworkMutation(({ id, noteId }) => api.deleteMemberNote(id, noteId));
 
+// Partner Terminal oversight (HQ): access, field reports, support requests, announcements
+export const useInviteMember = () => useNetworkMutation((id) => api.default.post(`/network/${id}/invite`).then((r) => r.data));
+export const useRemoveMemberAccess = () => useNetworkMutation((id) => api.default.delete(`/network/${id}/access`).then((r) => r.data));
+
+export const useFieldReports = (status) => {
+  return useQuery({
+    queryKey: ['field', 'reports', status || 'all'],
+    queryFn: () => api.default.get('/field/reports', { params: status ? { status } : {} }).then((r) => r.data),
+  });
+};
+
+export const useSupportRequests = (status) => {
+  return useQuery({
+    queryKey: ['field', 'support', status || 'all'],
+    queryFn: () => api.default.get('/field/support', { params: status ? { status } : {} }).then((r) => r.data),
+  });
+};
+
+export const useFieldAnnouncements = () => {
+  return useQuery({
+    queryKey: ['field', 'announcements'],
+    queryFn: () => api.default.get('/field/announcements').then((r) => r.data),
+  });
+};
+
+const useFieldMutation = (mutationFn) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['field'] });
+      queryClient.invalidateQueries({ queryKey: ['network'] });
+      queryClient.invalidateQueries({ queryKey: ['tiers'] });
+      queryClient.invalidateQueries({ queryKey: ['executive-summary'] });
+    },
+  });
+};
+
+export const useApproveFieldReport = () => useFieldMutation(({ id, ...body }) => api.default.post(`/field/reports/${id}/approve`, body).then((r) => r.data));
+export const useRejectFieldReport = () => useFieldMutation(({ id, ...body }) => api.default.post(`/field/reports/${id}/reject`, body).then((r) => r.data));
+export const useUpdateSupportRequest = () => useFieldMutation(({ id, ...body }) => api.default.patch(`/field/support/${id}`, body).then((r) => r.data));
+export const useSaveAnnouncement = () => useFieldMutation(({ id, ...body }) =>
+  (id ? api.default.patch(`/field/announcements/${id}`, body) : api.default.post('/field/announcements', body)).then((r) => r.data));
+export const useDeleteAnnouncement = () => useFieldMutation((id) => api.default.delete(`/field/announcements/${id}`).then((r) => r.data));
+
+// Executive header: notification bell & help panel (dashboard routes live outside /v1)
+const dashboardUrl = (path) => `${api.default.defaults.baseURL.replace(/\/v1$/, '')}/dashboard${path}`;
+
+export const useNotifications = () => {
+  return useQuery({
+    queryKey: ['notifications'],
+    queryFn: () => api.default.get(dashboardUrl('/notifications')).then((r) => r.data),
+    refetchInterval: 60 * 1000, // fallback if the live socket drops
+  });
+};
+
+export const useMarkNotificationsSeen = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () => api.default.post(dashboardUrl('/notifications/seen')).then((r) => r.data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['notifications'] }),
+  });
+};
+
+export const useSetupChecklist = (enabled = true) => {
+  return useQuery({
+    queryKey: ['setup-checklist'],
+    queryFn: () => api.default.get(dashboardUrl('/setup')).then((r) => r.data),
+    enabled,
+  });
+};
+
+export const useHelpContact = (enabled = true) => {
+  return useQuery({
+    queryKey: ['help-contact'],
+    queryFn: () => api.default.get(dashboardUrl('/help-contact')).then((r) => r.data),
+    enabled,
+  });
+};
+
+export const useSaveHelpContact = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (contact) => api.default.put(dashboardUrl('/help-contact'), contact).then((r) => r.data),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['help-contact'] }),
+  });
+};
+
 // PesaPal Payment Queries
 export const useInitiatePayment = () => {
   return useMutation({

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import {
-  useNetworkMember, useUpdateNetworkMember, useAddMemberNote, useDeleteMemberNote,
+  useNetworkMember, useUpdateNetworkMember, useAddMemberNote, useDeleteMemberNote, useInviteMember, useRemoveMemberAccess,
 } from "../../../store/tanstackStore/services/queries";
 import UserAvatar from "../../components/UserAvatar";
 import {
@@ -116,7 +116,10 @@ const ActivityLog = ({ member }) => {
           onChange={set("body")}
           placeholder="e.g. Onboarding call; agreed to mobilise mothers in Kiwatule for the next passbook handout"
         />
-        <div className="flex justify-end">
+        <div className="flex items-center justify-between gap-3">
+          <p className="text-[11px] font-secondary text-gray-400">
+            {form.kind === "assignment" ? "Assignments show up as tasks in their Partner Terminal." : ""}
+          </p>
           <button type="submit" disabled={addNote.isPending || !form.body.trim()} className="px-4 py-1.5 rounded-full bg-gray-900 text-white text-xs font-bold disabled:opacity-40">
             {addNote.isPending ? "Saving..." : "Add to log"}
           </button>
@@ -149,6 +152,95 @@ const ActivityLog = ({ member }) => {
         </ol>
       )}
     </>
+  );
+};
+
+// Partner Terminal login: invite, reset the password, or remove access
+const TerminalAccess = ({ member }) => {
+  const invite = useInviteMember();
+  const removeAccess = useRemoveMemberAccess();
+  const [credentials, setCredentials] = useState(null);
+  const [copied, setCopied] = useState(false);
+
+  const sendInvite = async () => {
+    if (member.access && !window.confirm(`Reset ${member.applicantName}'s password? Their current password will stop working.`)) return;
+    try {
+      setCredentials(await invite.mutateAsync(member.id));
+    } catch (err) {
+      alert(err.response?.data?.message || "Failed to create the login.");
+    }
+  };
+
+  const revoke = async () => {
+    if (!window.confirm(`Remove ${member.applicantName}'s Partner Terminal login? Their records stay; you can invite them again later.`)) return;
+    try {
+      await removeAccess.mutateAsync(member.id);
+      setCredentials(null);
+    } catch (err) {
+      alert(err.response?.data?.message || "Failed to remove access.");
+    }
+  };
+
+  const message = credentials
+    ? `Hello ${member.applicantName.split(" ")[0]}, your INSM Partner Terminal login is ready.\n\nLink: ${window.location.origin}/login\nEmail: ${credentials.email}\nTemporary password: ${credentials.tempPassword}\n\nYou'll be asked to choose your own password when you first sign in.`
+    : "";
+  const copy = async () => {
+    await navigator.clipboard.writeText(message);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  const whatsapp = contactLinks(member).whatsapp;
+
+  if (credentials) {
+    return (
+      <div className="space-y-3">
+        <p className="text-sm font-secondary text-gray-700">
+          {credentials.isNew ? "Login created." : "Password reset."} Share these details privately; the temporary password is only shown once.
+        </p>
+        <pre className="bg-gray-50 border border-gray-200 rounded-lg p-3 text-xs font-mono text-gray-800 whitespace-pre-wrap break-all">{message}</pre>
+        <div className="flex gap-2 flex-wrap">
+          <button onClick={copy} className="flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-gray-300 text-xs font-bold text-gray-700">
+            <Icon icon={copied ? "ph:check-bold" : "ph:copy-bold"} /> {copied ? "Copied" : "Copy message"}
+          </button>
+          {whatsapp && (
+            <a href={`${whatsapp}?text=${encodeURIComponent(message)}`} target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#25D366]/10 text-[#128C7E] text-xs font-bold">
+              <Icon icon="ph:whatsapp-logo-bold" /> Send on WhatsApp
+            </a>
+          )}
+          <button onClick={() => setCredentials(null)} className="px-4 py-1.5 rounded-full text-xs font-bold text-gray-400">Done</button>
+        </div>
+      </div>
+    );
+  }
+
+  if (!member.access) {
+    return (
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <p className="text-sm font-secondary text-gray-500">
+          {member.email ? "No login yet." : "Add an email under Details before inviting."}
+        </p>
+        <button onClick={sendInvite} disabled={invite.isPending || !member.email || member.memberStatus !== "ACTIVE"} className="px-4 py-2 rounded-full bg-[#997B94] text-white text-xs font-bold disabled:opacity-40">
+          {invite.isPending ? "Creating..." : "Invite to Partner Terminal"}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3">
+      <div className="text-sm font-secondary text-gray-700 space-y-0.5">
+        <p><Icon icon="ph:check-circle-fill" className="inline w-4 h-4 text-[#16A34A] -mt-0.5" /> Can sign in as <strong>{member.access.email}</strong></p>
+        <p className="text-xs text-gray-400">
+          {member.access.lastLoginAt ? `Last signed in ${shortDate(member.access.lastLoginAt)}` : "Hasn't signed in yet"}
+          {member.access.mustChangePassword ? " · still on the temporary password" : ""}
+          {member.memberStatus !== "ACTIVE" ? " · blocked while not Active" : ""}
+        </p>
+      </div>
+      <div className="flex gap-2">
+        <button onClick={sendInvite} disabled={invite.isPending} className="px-4 py-1.5 rounded-full border border-gray-300 text-xs font-bold text-gray-700 disabled:opacity-50">Reset password</button>
+        <button onClick={revoke} disabled={removeAccess.isPending} className="px-4 py-1.5 rounded-full border border-[#EF4444]/40 text-[#EF4444] text-xs font-bold disabled:opacity-50">Remove access</button>
+      </div>
+    </div>
   );
 };
 
@@ -205,6 +297,17 @@ const MemberDrawer = ({ memberId, onClose }) => {
                 {Object.entries(MEMBER_STATUS_STYLES).map(([value, { label }]) => <option key={value} value={value}>{label}</option>)}
               </select>
             </div>
+
+            {/* Partner Terminal */}
+            <Section title="Partner Terminal">
+              <TerminalAccess member={member} />
+              {isEquipper && (
+                <p className="text-xs font-secondary text-gray-500 mt-3">
+                  {member.mothersCount || 0} mother{member.mothersCount === 1 ? "" : "s"} registered
+                  {member.pendingReports ? ` · ${member.pendingReports} handout report${member.pendingReports === 1 ? "" : "s"} waiting for review` : ""}
+                </p>
+              )}
+            </Section>
 
             {/* Contact & location */}
             <Section

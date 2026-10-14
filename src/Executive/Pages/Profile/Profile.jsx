@@ -78,7 +78,7 @@ const ProfileHeader = ({ user, onAvatarChange, isSaving }) => {
   );
 };
 
-const DetailsForm = ({ user, onSaved }) => {
+const DetailsForm = ({ user, onSaved, description }) => {
   const updateProfile = useUpdateProfile();
   const [form, setForm] = useState({
     name: user.name || "",
@@ -104,7 +104,7 @@ const DetailsForm = ({ user, onSaved }) => {
   };
 
   return (
-    <Card title="Personal details" description="Shown to other administrators in Settings → Team.">
+    <Card title="Personal details" description={description}>
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           <div>
@@ -140,7 +140,7 @@ const DetailsForm = ({ user, onSaved }) => {
   );
 };
 
-const PasswordForm = () => {
+const PasswordForm = ({ onChanged }) => {
   const changePassword = useChangePassword();
   const [form, setForm] = useState({ currentPassword: "", newPassword: "", confirmPassword: "" });
   const [show, setShow] = useState(false);
@@ -163,6 +163,7 @@ const PasswordForm = () => {
       await changePassword.mutateAsync({ currentPassword: form.currentPassword, newPassword: form.newPassword });
       setForm({ currentPassword: "", newPassword: "", confirmPassword: "" });
       setNotice({ type: "success", text: "Password changed." });
+      onChanged?.();
     } catch (err) {
       setNotice({ type: "error", text: err.response?.data?.message || "Failed to change password." });
     }
@@ -211,6 +212,7 @@ const Profile = () => {
   const updateProfile = useUpdateProfile();
 
   if (!user) return null;
+  const isAdmin = user.role === "ADMIN";
 
   const handleAvatarChange = async (avatar) => {
     try {
@@ -224,11 +226,16 @@ const Profile = () => {
     <div className="space-y-6 max-w-4xl mx-auto">
       <ProfileHeader user={user} onAvatarChange={handleAvatarChange} isSaving={updateProfile.isPending} />
       {/* Keyed so the form picks up changes saved elsewhere (e.g. a new email) */}
-      <DetailsForm key={`${user.email}-${user.name}`} user={user} onSaved={updateUser} />
-      <PasswordForm />
+      <DetailsForm
+        key={`${user.email}-${user.name}`}
+        user={user}
+        onSaved={updateUser}
+        description={isAdmin ? "Shown to other administrators in Settings → Team." : "Shown to INSM headquarters."}
+      />
+      <PasswordForm onChanged={() => updateUser({ mustChangePassword: false })} />
       <div className="flex justify-end">
         <button
-          onClick={() => logout("/executive/login")}
+          onClick={() => logout(isAdmin ? "/executive/login" : "/login")}
           className="flex items-center gap-2 text-sm font-bold font-secondary text-gray-500 hover:text-[#EF4444] transition-colors"
         >
           <Icon icon="ph:sign-out-bold" /> Sign out

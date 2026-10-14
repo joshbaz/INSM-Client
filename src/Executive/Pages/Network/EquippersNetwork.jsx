@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useNetwork } from "../../../store/tanstackStore/services/queries";
 import UserAvatar from "../../components/UserAvatar";
 import MemberDrawer from "./MemberDrawer";
+import { FieldReportsPanel, SupportRequestsPanel, AnnouncementsPanel } from "./FieldOversight";
 import {
   REGIONS, MEMBER_STATUS_STYLES, LEADERSHIP_LABELS, DOMAIN_LABELS, contactLinks, shortDate, titleCase,
 } from "./networkOptions";
@@ -11,6 +12,13 @@ import {
 const TABS = [
   ["COMMUNITY_EQUIPPER", "Community Equippers"],
   ["TECHNICAL_MENTOR", "Technical Mentors"],
+];
+
+// Partner Terminal oversight
+const FIELD_TABS = [
+  ["REPORTS", "Handout reports", FieldReportsPanel],
+  ["SUPPORT", "Mentor requests", SupportRequestsPanel],
+  ["ANNOUNCEMENTS", "Announcements", AnnouncementsPanel],
 ];
 
 const selectClass = "border border-gray-200 rounded-full px-3 py-1.5 text-[12px] font-secondary font-semibold text-gray-700 bg-white outline-none focus:border-[#997B94]";
@@ -159,14 +167,16 @@ const EquippersNetwork = () => {
     && (tab !== "COMMUNITY_EQUIPPER" || ((!region || m.region === region) && (!district || (m.district || "Unknown district") === district)))
     && (tab !== "TECHNICAL_MENTOR" || !domain || m.domain === domain));
 
+  const ActiveFieldPanel = FIELD_TABS.find(([key]) => key === tab)?.[2];
+
   const switchTab = (key) => {
     setTab(key);
     setRegion(""); setDistrict(""); setDomain("");
   };
 
   const kpis = summary && [
-    { title: "Active members", value: summary.active, subtitle: `${summary.total} approved${summary.joinedThisMonth ? ` · +${summary.joinedThisMonth} this month` : ""}`, icon: "ph:users-three-fill" },
-    { title: "Community Equippers", value: summary.equippers, subtitle: `${Object.values(summary.equippersByRegion).filter(Boolean).length} of 4 regions`, icon: "ph:house-line-fill" },
+    { title: "Active members", value: summary.active, subtitle: `${summary.withAccess} with terminal access${summary.joinedThisMonth ? ` · +${summary.joinedThisMonth} this month` : ""}`, icon: "ph:users-three-fill" },
+    { title: "Community Equippers", value: summary.equippers, subtitle: `${Object.values(summary.equippersByRegion).filter(Boolean).length} of 4 regions · ${summary.mothersRegistered} mothers registered`, icon: "ph:house-line-fill" },
     { title: "Technical Mentors", value: summary.mentors, subtitle: Object.entries(summary.mentorsByDomain).filter(([, n]) => n).map(([d, n]) => `${DOMAIN_LABELS[d]} ${n}`).join(" · ") || "None yet", icon: "ph:graduation-cap-fill" },
     { title: "Coverage", value: `${summary.parishesCovered} parishes`, subtitle: `across ${summary.districtsCovered} district${summary.districtsCovered === 1 ? "" : "s"}`, icon: "ph:map-pin-fill" },
   ];
@@ -221,8 +231,24 @@ const EquippersNetwork = () => {
             {label} <span className="opacity-60 ml-1">{members.filter((m) => m.role === key).length}</span>
           </button>
         ))}
+        <span className="w-px bg-gray-200 mx-1" />
+        {FIELD_TABS.map(([key, label]) => (
+          <button
+            key={key}
+            onClick={() => switchTab(key)}
+            className={`px-5 py-2.5 rounded-full text-xs font-bold font-secondary tracking-wider uppercase transition-colors ${tab === key ? "bg-gray-900 text-white" : "bg-white border border-gray-200 text-gray-500 hover:text-gray-800"}`}
+          >
+            {label}
+            {key === "REPORTS" && summary?.pendingReports > 0 && (
+              <span className="ml-1.5 bg-[#dca838] text-white rounded-full px-1.5 py-0.5 text-[10px]">{summary.pendingReports}</span>
+            )}
+          </button>
+        ))}
       </div>
 
+      {ActiveFieldPanel && <ActiveFieldPanel />}
+
+      {TABS.some(([key]) => key === tab) && (
       <div className={`grid grid-cols-1 gap-6 ${tab === "COMMUNITY_EQUIPPER" ? "lg:grid-cols-[300px_1fr]" : ""}`}>
         {tab === "COMMUNITY_EQUIPPER" && (
           <CoveragePanel members={ofRole} region={region} setRegion={setRegion} district={district} setDistrict={setDistrict} />
@@ -284,6 +310,8 @@ const EquippersNetwork = () => {
           )}
         </div>
       </div>
+
+      )}
 
       {openId && <MemberDrawer key={openId} memberId={openId} onClose={() => setOpenId(null)} />}
     </div>
