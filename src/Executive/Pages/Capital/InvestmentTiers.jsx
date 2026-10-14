@@ -2,10 +2,57 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import TierModal from "./components/TierModal";
-import { useTiers, useTierImpact } from "../../../store/tanstackStore/services/queries";
+import { useTiers, useTierImpact, useDefaultTier, useSetDefaultTier } from "../../../store/tanstackStore/services/queries";
 import { useSocket } from "../../../store/context/SocketContext";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
+
+// Which tier receives general "Empower A Mother Today" gifts from the Partner With Us page
+const DefaultTierSetting = ({ tiers }) => {
+  const { data } = useDefaultTier();
+  const setDefaultTier = useSetDefaultTier();
+
+  const handleChange = async (e) => {
+    try {
+      await setDefaultTier.mutateAsync(e.target.value || null);
+    } catch (error) {
+      alert(error.response?.data?.message || "Failed to update the default tier.");
+    }
+  };
+
+  const automaticLabel = data?.source === "admin"
+    ? "Automatic (The First Threads)"
+    : `Automatic (${data?.tier?.title || "no tiers yet"})`;
+
+  return (
+    <div className="flex items-center justify-between gap-4 flex-wrap rounded-lg border border-brand-dark-200/20 bg-[#F9FAFB] px-5 py-4">
+      <div className="flex items-start gap-3 min-w-[240px] flex-1">
+        <Icon icon="ph:hand-heart-bold" className="w-5 h-5 text-[#997B94] mt-0.5 shrink-0" />
+        <div>
+          <p className="text-sm font-bold font-secondary text-brand-dark">"Empower A Mother Today" donations go to</p>
+          <p className="text-xs font-secondary text-[#6B7280]">
+            Gifts from the general button on the Partner With Us page count toward this tier.
+            {data?.source !== "admin" && " By default that's The First Threads, or the lowest-priced tier if it doesn't exist."}
+          </p>
+        </div>
+      </div>
+      <div className="flex items-center gap-2">
+        {setDefaultTier.isPending && <Icon icon="ph:spinner-gap-bold" className="w-4 h-4 animate-spin text-[#997B94]" />}
+        <select
+          value={data?.configuredTierId || ""}
+          onChange={handleChange}
+          disabled={setDefaultTier.isPending}
+          className="border border-brand-dark-200/40 rounded-full px-4 py-2 text-[13px] font-secondary font-semibold text-brand-dark bg-white outline-none focus:border-[#997B94] min-w-[220px]"
+        >
+          <option value="">{automaticLabel}</option>
+          {tiers.map((tier) => (
+            <option key={tier.id} value={tier.id}>{tier.title} (${tier.amount})</option>
+          ))}
+        </select>
+      </div>
+    </div>
+  );
+};
 
 const InvestmentTiers = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,6 +118,8 @@ const InvestmentTiers = () => {
 
         {/* Main Container */}
         <div className="bg-white rounded-lg border border-brand-dark-200/20 shadow-sm p-8 flex flex-col gap-8 mt-2">
+          <DefaultTierSetting tiers={tiers} />
+
           {/* Top Actions */}
           <div>
             <button 

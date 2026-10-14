@@ -232,6 +232,17 @@ export const getTierImpact = async () => {
   return data;
 };
 
+// Tier that general "Empower A Mother Today" gifts go to
+export const getDefaultTier = async () => {
+  const { data } = await api.get('/tiers/default');
+  return data;
+};
+
+export const setDefaultTier = async (tierId) => {
+  const { data } = await api.put('/tiers/default', { tierId: tierId || null });
+  return data;
+};
+
 export const getSeedOverview = async () => {
   const { data } = await api.get('/tiers/overview');
   return data;

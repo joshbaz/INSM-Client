@@ -251,6 +251,15 @@ export const useTierImpact = () => {
   });
 };
 
+export const useDefaultTier = () => {
+  return useQuery({
+    queryKey: ['tiers', 'default'],
+    queryFn: api.getDefaultTier,
+  });
+};
+
+export const useSetDefaultTier = () => useTierMutation((tierId) => api.setDefaultTier(tierId));
+
 export const useSeedOverview = () => {
   return useQuery({
     queryKey: ['tiers', 'overview'],
