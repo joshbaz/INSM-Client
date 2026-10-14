@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import {
-  useAddTierDelivery, useUpdateTierDelivery, useUploadPhoto,
+  useAddTierDelivery, useUpdateTierDelivery, useUploadPhoto, useNetwork,
 } from "../../../../store/tanstackStore/services/queries";
 import { resolveImageUrl } from "../../../../data/projectOptions";
 
@@ -33,7 +33,14 @@ const DeliveryModal = ({ tiers, initialTierId, delivery, onClose }) => {
     recipients: delivery?.recipients || "",
     note: delivery?.note || "",
     photo: delivery?.photo || "",
+    facilitatorId: delivery?.facilitatorId || "",
   });
+
+  // Equippers Network members who can be credited with the handout (community equippers first)
+  const { data: network } = useNetwork();
+  const facilitators = (network?.members || [])
+    .filter((m) => m.memberStatus !== "INACTIVE" || m.id === form.facilitatorId)
+    .sort((a, b) => (a.role === b.role ? a.applicantName.localeCompare(b.applicantName) : a.role === "COMMUNITY_EQUIPPER" ? -1 : 1));
   const [error, setError] = useState(null);
 
   const set = (field) => (e) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
@@ -109,6 +116,18 @@ const DeliveryModal = ({ tiers, initialTierId, delivery, onClose }) => {
                 <label className={labelClass}>Region / district</label>
                 <input className={inputClass} value={form.region} onChange={set("region")} placeholder="e.g. Kampala" />
               </div>
+            </div>
+
+            <div>
+              <label className={labelClass}>Facilitated by (optional)</label>
+              <select className={inputClass} value={form.facilitatorId} onChange={set("facilitatorId")}>
+                <option value="">— No one / not recorded —</option>
+                {facilitators.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.applicantName} · {m.role === "COMMUNITY_EQUIPPER" ? [m.parish, m.district].filter(Boolean).join(", ") || "Equipper" : "Mentor"}
+                  </option>
+                ))}
+              </select>
             </div>
 
             <div>

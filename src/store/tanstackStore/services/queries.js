@@ -23,8 +23,10 @@ export const useUpdateApplication = () => {
   return useMutation({
     mutationFn: ({ id, status }) => api.updateApplicationStatus(id, status),
     onSuccess: () => {
-      // Invalidate applications list so it refreshes
+      // Approving or rejecting changes who is in the Equippers Network
       queryClient.invalidateQueries({ queryKey: ['applications'] });
+      queryClient.invalidateQueries({ queryKey: ['network'] });
+      queryClient.invalidateQueries({ queryKey: ['executive-summary'] });
     },
   });
 };
@@ -353,6 +355,37 @@ export const usePublicExchangeRate = () => {
     staleTime: 10 * 60 * 1000,
   });
 };
+
+// Equippers Network Queries (approved Join the Assignment applicants)
+export const useNetwork = () => {
+  return useQuery({
+    queryKey: ['network'],
+    queryFn: api.getNetwork,
+  });
+};
+
+export const useNetworkMember = (id) => {
+  return useQuery({
+    queryKey: ['network', id],
+    queryFn: () => api.getNetworkMember(id),
+    enabled: !!id,
+  });
+};
+
+const useNetworkMutation = (mutationFn) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['network'] });
+      queryClient.invalidateQueries({ queryKey: ['applications'] });
+    },
+  });
+};
+
+export const useUpdateNetworkMember = () => useNetworkMutation(({ id, ...changes }) => api.updateNetworkMember(id, changes));
+export const useAddMemberNote = () => useNetworkMutation(({ id, ...note }) => api.addMemberNote(id, note));
+export const useDeleteMemberNote = () => useNetworkMutation(({ id, noteId }) => api.deleteMemberNote(id, noteId));
 
 // PesaPal Payment Queries
 export const useInitiatePayment = () => {

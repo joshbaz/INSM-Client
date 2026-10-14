@@ -135,7 +135,10 @@ const TierDeliveries = () => {
                             {new Date(d.date).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
                           </td>
                           <td className="py-4 px-6 font-bold whitespace-nowrap">{plural(d.quantity, unit)}</td>
-                          <td className="py-4 px-6">{[d.parish, d.region].filter(Boolean).join(", ") || <span className="text-gray-300">—</span>}</td>
+                          <td className="py-4 px-6">
+                            {[d.parish, d.region].filter(Boolean).join(", ") || <span className="text-gray-300">—</span>}
+                            {d.facilitator && <p className="text-xs text-gray-400">by {d.facilitator.applicantName}</p>}
+                          </td>
                           <td className="py-4 px-6">
                             {people.length ? (
                               <button onClick={() => setExpanded(expanded === d.id ? null : d.id)} className="text-[#997B94] font-bold hover:underline flex items-center gap-1">

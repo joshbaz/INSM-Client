@@ -225,7 +225,10 @@ const DeliveriesTable = () => {
                 <div className="text-brand-dark/70 font-medium">{shortDate(d.date)}</div>
                 <div className="font-semibold truncate pr-3">{d.tier?.title}</div>
                 <div className="font-bold">{plural(d.quantity, d.tier?.unitName || "unit")}</div>
-                <div className="text-brand-dark/70 truncate pr-3">{[d.parish, d.region].filter(Boolean).join(", ") || "—"}</div>
+                <div className="text-brand-dark/70 truncate pr-3">
+                  {[d.parish, d.region].filter(Boolean).join(", ") || "—"}
+                  {d.facilitator && <span className="block text-xs text-gray-400 truncate">by {d.facilitator.applicantName}</span>}
+                </div>
                 <div className="text-brand-dark/70">{recipientCount(d.recipients) || "—"}</div>
                 <div className="text-brand-dark/70 truncate">{d.note || ""}</div>
               </div>

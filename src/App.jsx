@@ -60,6 +60,7 @@ import ExecutiveLayout from "./Executive/Layout/ExecutiveLayout";
 import ExecutiveHome from "./Executive/Pages/Home/ExecutiveHome";
 import ManagePrograms from "./Executive/Pages/Programs/ManagePrograms";
 import ProgramDetail from "./Executive/Pages/Programs/ProgramDetail";
+import EquippersNetwork from "./Executive/Pages/Network/EquippersNetwork";
 import SeedACooperative from "./Executive/Pages/Capital/SeedACooperative";
 import InvestmentTiers from "./Executive/Pages/Capital/InvestmentTiers";
 import TierDeliveries from "./Executive/Pages/Capital/TierDeliveries";
@@ -206,7 +207,7 @@ function AppContent() {
                 <Route path="projects/edit/:id" element={<ProjectForm />} />
                 <Route path="projects/:id" element={<ProjectFunds />} />
                 <Route path="leads" element={<ManageLeads />} />
-                <Route path="network" element={<div className="text-brand-dark p-8">Network Coming Soon</div>} />
+                <Route path="network" element={<EquippersNetwork />} />
                 <Route path="blogs" element={<ManageBlogs />} />
                 <Route path="blogs/new" element={<NewArticle />} />
                 <Route path="blogs/edit/:id" element={<EditArticle />} />

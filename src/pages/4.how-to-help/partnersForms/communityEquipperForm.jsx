@@ -121,7 +121,9 @@ const CommunityEquipperForm = ({ isOpen, onClose }) => {
                     email: values.email,
                     phoneNumber: values.phoneNumber,
                     region: values.region.toUpperCase(),
-                    parish: `${values.parish}, ${values.subCounty}, ${values.district}`,
+                    parish: values.parish,
+                    subCounty: values.subCounty,
+                    district: values.district,
                     leadershipConnection: values.leadershipConnection,
                     role: "COMMUNITY_EQUIPPER",
                     domain: "MISC"

@@ -223,7 +223,7 @@ const ManageLeads = () => {
                   ) : (
                     <>
                       <td className="py-5 px-6 text-sm font-secondary text-gray-600">
-                        {lead.parish || '-'}
+                        {[lead.parish, lead.subCounty, lead.district].filter(Boolean).join(", ") || '-'}
                       </td>
                       <td className="py-5 px-6">
                         {lead.region ? (

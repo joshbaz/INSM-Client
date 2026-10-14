@@ -91,7 +91,7 @@ const LeadDetailsModal = ({ isOpen, onClose, lead, onUpdateStatus, isUpdating })
               <div>
                 <h3 className="text-sm font-bold font-secondary text-gray-700 mb-2">Region</h3>
                 <span className="inline-block px-3 py-1 text-[10px] font-bold font-secondary tracking-wider border border-gray-400 text-gray-600 rounded-full">
-                  {lead.region || "CENTRAL"}
+                  {lead.region || "Not given"}
                 </span>
               </div>
 
@@ -101,8 +101,8 @@ const LeadDetailsModal = ({ isOpen, onClose, lead, onUpdateStatus, isUpdating })
                   <div className="flex items-center gap-4 border border-gray-200 rounded-lg p-4 bg-white">
                     <Icon icon="heroicons:map-pin" className="w-5 h-5 text-[#866089]" />
                     <div>
-                      <div className="text-[9px] font-bold text-gray-400 font-secondary tracking-wider uppercase">PARISH</div>
-                      <div className="text-sm text-gray-800 font-secondary mt-0.5 font-medium">{lead.parish || "Kansanga, Makindye Division"}</div>
+                      <div className="text-[9px] font-bold text-gray-400 font-secondary tracking-wider uppercase">LOCATION</div>
+                      <div className="text-sm text-gray-800 font-secondary mt-0.5 font-medium">{[lead.parish, lead.subCounty, lead.district].filter(Boolean).join(", ") || "Not given"}</div>
                     </div>
                   </div>
                   

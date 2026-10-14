@@ -325,6 +325,32 @@ export const getPublicExchangeRate = async () => {
   return data;
 };
 
+// Equippers Network
+export const getNetwork = async () => {
+  const { data } = await api.get('/network');
+  return data;
+};
+
+export const getNetworkMember = async (id) => {
+  const { data } = await api.get(`/network/${id}`);
+  return data;
+};
+
+export const updateNetworkMember = async (id, changes) => {
+  const { data } = await api.patch(`/network/${id}`, changes);
+  return data;
+};
+
+export const addMemberNote = async (id, note) => {
+  const { data } = await api.post(`/network/${id}/notes`, note);
+  return data;
+};
+
+export const deleteMemberNote = async (id, noteId) => {
+  const { data } = await api.delete(`/network/${id}/notes/${noteId}`);
+  return data;
+};
+
 // PesaPal Payments
 export const initiatePayment = async (payload) => {
   const { data } = await api.post('/payment/pesapal/donate', payload);
