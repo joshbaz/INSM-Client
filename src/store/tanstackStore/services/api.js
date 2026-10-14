@@ -127,6 +127,72 @@ export const deleteTier = async (id) => {
   return data;
 };
 
+// Projects
+export const getProjects = async () => {
+  const { data } = await api.get('/projects');
+  return data;
+};
+
+export const getProject = async (idOrSlug) => {
+  const { data } = await api.get(`/projects/${idOrSlug}`);
+  return data;
+};
+
+export const getManagedProjects = async () => {
+  const { data } = await api.get('/projects/manage');
+  return data;
+};
+
+export const getManagedProject = async (id) => {
+  const { data } = await api.get(`/projects/manage/${id}`);
+  return data;
+};
+
+export const createProject = async (projectData) => {
+  const { data } = await api.post('/projects', projectData);
+  return data;
+};
+
+export const updateProject = async (id, projectData) => {
+  const { data } = await api.patch(`/projects/${id}`, projectData);
+  return data;
+};
+
+export const deleteProject = async (id) => {
+  const { data } = await api.delete(`/projects/${id}`);
+  return data;
+};
+
+export const addProjectContribution = async (id, contribution) => {
+  const { data } = await api.post(`/projects/${id}/contributions`, contribution);
+  return data;
+};
+
+export const deleteProjectContribution = async (id, paymentId) => {
+  const { data } = await api.delete(`/projects/${id}/contributions/${paymentId}`);
+  return data;
+};
+
+export const addImpactEntry = async (id, entry) => {
+  const { data } = await api.post(`/projects/${id}/impact`, entry);
+  return data;
+};
+
+export const updateImpactEntry = async (id, entryId, entry) => {
+  const { data } = await api.patch(`/projects/${id}/impact/${entryId}`, entry);
+  return data;
+};
+
+export const deleteImpactEntry = async (id, entryId) => {
+  const { data } = await api.delete(`/projects/${id}/impact/${entryId}`);
+  return data;
+};
+
+export const updateExchangeRate = async (usdToUgxRate) => {
+  const { data } = await api.put('/projects/manage/exchange-rate', { usdToUgxRate });
+  return data;
+};
+
 // PesaPal Payments
 export const initiatePayment = async (payload) => {
   const { data } = await api.post('/payment/pesapal/donate', payload);

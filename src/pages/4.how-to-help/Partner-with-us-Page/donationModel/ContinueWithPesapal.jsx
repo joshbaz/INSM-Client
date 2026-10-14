@@ -8,7 +8,7 @@ import { useInitiatePayment } from "../../../../store/tanstackStore/services/que
  * PesaPal payment form view.
  * Integrates with back-end to submit transaction request and redirect to PesaPal gateway.
  *
- * @param {{ amount: string, tier: any, frequency: string, onBack: Function }} props
+ * @param {{ amount: string, tier: any, frequency: string, onBack: Function, projectId?: string }} props
  */
 const USD_TO_UGX = 3750;
 
@@ -221,7 +221,7 @@ const COUNTRY_CODES = [
   { code: "+998", label: "Uzbekistan" },
 ];
 
-const ContinueWithPesapal = ({ amount, tier, frequency, onBack }) => {
+const ContinueWithPesapal = ({ amount, tier, frequency, onBack, projectId }) => {
   const [submitError, setSubmitError] = useState(null);
   const initiatePaymentMutation = useInitiatePayment();
   const baseAmountRef = useRef(parseFloat(String(amount).replace(/,/g, "")));
@@ -326,7 +326,8 @@ const ContinueWithPesapal = ({ amount, tier, frequency, onBack }) => {
                 phonenumber: values.countryCode + values.phoneNumber,
                 tierTitle: tier?.title || "General Donation",
                 frequency: frequency || "once",
-                note: `Seed contribution for ${tier?.title || "General Donation"}`
+                note: `Seed contribution for ${tier?.title || "General Donation"}`,
+                ...(projectId ? { projectId } : {}),
               };
 
               const response = await initiatePaymentMutation.mutateAsync(payload);

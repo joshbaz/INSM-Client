@@ -35,6 +35,11 @@ const Sidebar = ({ isOpen, onClose }) => {
       ]
     },
     { 
+      name: "Projects", 
+      path: "/executive/projects", 
+      icon: "ph:folder-notch-open-bold"
+    },
+    { 
       name: "Leads", 
       path: "/executive/leads", 
       icon: "ph:stack-bold"

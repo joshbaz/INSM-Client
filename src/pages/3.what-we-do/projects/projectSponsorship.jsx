@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import projectsData from "../../../data/projects.json";
+import { useProjects } from "../../../store/tanstackStore/services/queries";
+import { formatMoney, resolveImageUrl } from "../../../data/projectOptions";
 
-const projectSponsorship = () => {
-  const projects = projectsData.slice(0, 3);
+const ProjectSponsorship = () => {
+  const { data: projectsData = [] } = useProjects();
+  // Projects still seeking funding first
+  const projects = [...projectsData]
+    .sort((a, b) => (a.status === "UPCOMING" ? 0 : 1) - (b.status === "UPCOMING" ? 0 : 1))
+    .slice(0, 3);
 
   return (
     <section className="bg-brand-white-100 py-20">
@@ -23,16 +28,16 @@ const projectSponsorship = () => {
 
         {/* Project Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[40px] justify-items-center">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Link
-              to={`/what-we-do/projects/list/${project.id}`}
-              key={index}
+              to={`/what-we-do/projects/list/${project.slug}`}
+              key={project.id}
               className="w-full max-w-[356px] h-[525px] rounded-[10px] border border-brand-dark-200/40 bg-brand-white overflow-hidden flex flex-col shadow-sponsorship"
             >
               {/* Image */}
               <div className="w-full h-[256px] overflow-hidden shrink-0">
                 <img
-                  src={project.image}
+                  src={resolveImageUrl(project.coverImage)}
                   alt={project.title}
                   className="w-full h-full object-cover"
                 />
@@ -50,7 +55,7 @@ const projectSponsorship = () => {
                 {/* Stats */}
                 <div className="mt-auto flex items-center gap-4 pt-4 ">
                   <span className="text-lg md:text-xl font-bold font-primary text-brand-lilac">
-                    {project.capitalRaised}
+                    {formatMoney(project.raised, project.currency)}
                   </span>
                   <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
                     Capital raised
@@ -79,4 +84,4 @@ const projectSponsorship = () => {
   );
 };
 
-export default projectSponsorship;
+export default ProjectSponsorship;

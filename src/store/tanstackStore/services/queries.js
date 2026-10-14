@@ -143,6 +143,61 @@ export const useDeleteTier = () => {
   });
 };
 
+// Projects Queries
+export const useProjects = () => {
+  return useQuery({
+    queryKey: ['projects', 'public'],
+    queryFn: api.getProjects,
+  });
+};
+
+export const useProject = (idOrSlug) => {
+  return useQuery({
+    queryKey: ['projects', 'public', idOrSlug],
+    queryFn: () => api.getProject(idOrSlug),
+    enabled: !!idOrSlug,
+    retry: false,
+  });
+};
+
+export const useManagedProjects = () => {
+  return useQuery({
+    queryKey: ['projects', 'manage'],
+    queryFn: api.getManagedProjects,
+  });
+};
+
+export const useManagedProject = (id) => {
+  return useQuery({
+    queryKey: ['projects', 'manage', id],
+    queryFn: () => api.getManagedProject(id),
+    enabled: !!id,
+  });
+};
+
+// Any project change can move totals, so refresh every project query (and payment summaries)
+const useProjectMutation = (mutationFn) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['projects'] });
+      queryClient.invalidateQueries({ queryKey: ['payment-summary'] });
+      queryClient.invalidateQueries({ queryKey: ['payments'] });
+    },
+  });
+};
+
+export const useCreateProject = () => useProjectMutation((projectData) => api.createProject(projectData));
+export const useUpdateProject = () => useProjectMutation(({ id, ...projectData }) => api.updateProject(id, projectData));
+export const useDeleteProject = () => useProjectMutation((id) => api.deleteProject(id));
+export const useAddProjectContribution = () => useProjectMutation(({ id, ...contribution }) => api.addProjectContribution(id, contribution));
+export const useDeleteProjectContribution = () => useProjectMutation(({ id, paymentId }) => api.deleteProjectContribution(id, paymentId));
+export const useAddImpactEntry = () => useProjectMutation(({ id, ...entry }) => api.addImpactEntry(id, entry));
+export const useUpdateImpactEntry = () => useProjectMutation(({ id, entryId, ...entry }) => api.updateImpactEntry(id, entryId, entry));
+export const useDeleteImpactEntry = () => useProjectMutation(({ id, entryId }) => api.deleteImpactEntry(id, entryId));
+export const useUpdateExchangeRate = () => useProjectMutation((rate) => api.updateExchangeRate(rate));
+
 // PesaPal Payment Queries
 export const useInitiatePayment = () => {
   return useMutation({

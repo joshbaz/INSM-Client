@@ -3,14 +3,25 @@ import { useParams, Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import SendDonation from "./Project Details Form/sendDonation";
 import RequestForm from "./Project Details Form/requestForm";
-import projectsData from "../../../data/projects.json";
+import ProjectGallery from "./projectGallery";
+import ProjectUpdates from "./projectUpdates";
+import { useProject } from "../../../store/tanstackStore/services/queries";
+import { formatMoney, resolveImageUrl } from "../../../data/projectOptions";
 
 const ProjectDetail = () => {
   const { projectId } = useParams();
-  const project = projectsData.find((p) => p.id === parseInt(projectId));
+  const { data: project, isLoading } = useProject(projectId);
   const [copied, setCopied] = useState(false);
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
   const [isRequestFormOpen, setIsRequestFormOpen] = useState(false);
+
+  if (isLoading) {
+    return (
+      <section className="bg-brand-white-100 min-h-screen flex items-center justify-center">
+        <Icon icon="ph:spinner-gap-bold" className="w-8 h-8 text-brand-lilac animate-spin" />
+      </section>
+    );
+  }
 
   /* ── 404 Handling ── */
   if (!project) {
@@ -57,7 +68,7 @@ const ProjectDetail = () => {
           {/* Contained image */}
           <div className="w-full rounded-lg overflow-hidden mb-6">
             <img
-              src={project.image}
+              src={resolveImageUrl(project.coverImage)}
               alt={project.title}
               className="w-full h-[280px] md:h-[420px] object-cover"
             />
@@ -177,25 +188,27 @@ const ProjectDetail = () => {
 
           {/* Story text */}
           <div className="text-base md:text-lg lg:text-xl font-secondary font-medium text-brand-dark-400 leading-relaxed space-y-4 mb-10">
-            {project.story.split("\n\n").map((para, i) => (
+            {(project.story || "").split("\n\n").map((para, i) => (
               <p key={i}>{para}</p>
             ))}
           </div>
 
           {/* Single image */}
-          <div className="w-full rounded-lg overflow-hidden mb-12">
-            <img
-              src={project.galleryImages[0]}
-              alt={`${project.title} story`}
-              className="w-full h-[300px] md:h-[420px] object-cover"
-            />
-          </div>
+          {project.galleryImages?.[0] && (
+            <div className="w-full rounded-lg overflow-hidden mb-12">
+              <img
+                src={resolveImageUrl(project.galleryImages[0])}
+                alt={`${project.title} story`}
+                className="w-full h-[300px] md:h-[420px] object-cover"
+              />
+            </div>
+          )}
 
           {/* Stats row with dividers */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-0 mb-6">
             <div className="flex-1">
               <p className="text-3xl md:text-5xl font-black font-primary text-brand-brown mb-1">
-                {project.stats.mothersEmpowered}
+                {project.impact.mothersSupported.toLocaleString()}
               </p>
               <p className="text-xs md:text-sm font-secondary text-brand-dark-300 uppercase tracking-wide">
                 Mothers Supported
@@ -204,7 +217,7 @@ const ProjectDetail = () => {
             <div className="hidden sm:block w-px h-16 bg-brand-dark-200/40" />
             <div className="flex-1 sm:pl-8">
               <p className="text-3xl md:text-5xl font-black font-primary text-brand-brown mb-1">
-                {project.stats.saccosFunded}
+                {project.impact.saccosFunded.toLocaleString()}
               </p>
               <p className="text-xs md:text-sm font-secondary text-brand-dark-300 uppercase tracking-wide">
                 Total SACCOs Funded
@@ -213,7 +226,7 @@ const ProjectDetail = () => {
             <div className="hidden sm:block w-px h-16 bg-brand-dark-200/40" />
             <div className="flex-1 sm:pl-8">
               <p className="text-3xl md:text-5xl font-black font-primary text-brand-brown mb-1">
-                {project.stats.capitalDeployed}
+                {formatMoney(project.impact.capitalDeployed, project.currency)}
               </p>
               <p className="text-xs md:text-sm font-secondary text-brand-dark-300 uppercase tracking-wide">
                 Capital Deployed
@@ -240,7 +253,7 @@ const ProjectDetail = () => {
               {project.storyImage && (
                 <div className="w-full rounded-lg overflow-hidden">
                   <img
-                    src={project.storyImage}
+                    src={resolveImageUrl(project.storyImage)}
                     alt={`${project.title} extended`}
                     className="w-full h-[300px] md:h-[420px] object-cover"
                   />
@@ -250,6 +263,10 @@ const ProjectDetail = () => {
           )}
         </div>
       </section>
+
+      <ProjectUpdates project={project} />
+
+      <ProjectGallery project={project} />
 
       {/* Horizontal divider */}
       <div className="max-w-5xl mx-auto px-6 md:px-24 py-2 ">
@@ -269,6 +286,31 @@ const ProjectDetail = () => {
             you provide technical assets or the capital required to scale, you
             are helping a mother thrive in her venture.
           </p>
+
+          {/* Funding progress */}
+          <div className="mb-10">
+            <div className="flex items-end justify-between gap-4 mb-3 flex-wrap">
+              <p className="text-2xl md:text-4xl font-black font-primary text-brand-brown leading-none">
+                {formatMoney(project.raised, project.currency)}
+                <span className="ml-2 text-sm md:text-base font-secondary font-medium text-brand-dark-400">
+                  raised{project.goalAmount ? ` of ${formatMoney(project.goalAmount, project.currency)} goal` : ""}
+                </span>
+              </p>
+              {project.donorCount > 0 && (
+                <span className="text-sm font-secondary text-brand-dark-400">
+                  {project.donorCount} supporter{project.donorCount === 1 ? "" : "s"}
+                </span>
+              )}
+            </div>
+            {project.goalAmount > 0 && (
+              <div className="w-full h-3 rounded-full bg-brand-dark-200/30 overflow-hidden">
+                <div
+                  className="h-full bg-brand-brown rounded-full transition-all"
+                  style={{ width: `${Math.round((project.progress || 0) * 100)}%` }}
+                />
+              </div>
+            )}
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Card 1 — Capital */}
@@ -312,6 +354,7 @@ const ProjectDetail = () => {
 
       {/* Donation Modal */}
       <SendDonation
+        project={project}
         isOpen={isDonationModalOpen}
         onClose={() => setIsDonationModalOpen(false)}
       />

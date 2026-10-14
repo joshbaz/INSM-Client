@@ -16,7 +16,7 @@ const PRESET_AMOUNTS = [
   "50,000",
 ];
 
-const SendDonation = ({ isOpen, onClose }) => {
+const SendDonation = ({ isOpen, onClose, project }) => {
   const [step, setStep] = useState("donation"); // 'donation' | 'pesapal'
   const [confirmedAmount, setConfirmedAmount] = useState("");
 
@@ -216,6 +216,8 @@ const SendDonation = ({ isOpen, onClose }) => {
           ) : (
             <ContinueWithPesapal
               amount={confirmedAmount}
+              tier={project ? { title: project.title } : undefined}
+              projectId={project?.id}
               onBack={() => setStep("donation")}
             />
           )}

@@ -67,6 +67,9 @@ import MediaLibrary from "./Executive/Pages/Photos/MediaLibrary";
 import NewArticle from "./Executive/Pages/Blogs/NewArticle";
 import EditArticle from "./Executive/Pages/Blogs/EditArticle";
 import ExecutiveViewArticle from "./Executive/Pages/Blogs/ExecutiveViewArticle";
+import ManageProjects from "./Executive/Pages/Projects/ManageProjects";
+import ProjectForm from "./Executive/Pages/Projects/ProjectForm";
+import ProjectFunds from "./Executive/Pages/Projects/ProjectFunds";
 import ExecutiveLogin from "./Executive/Pages/Auth/ExecutiveLogin";
 import RegisterSuperAdmin from "./Executive/Pages/Auth/RegisterSuperAdmin";
 
@@ -192,6 +195,10 @@ function AppContent() {
                 <Route path="capital/seed-a-cooperative/tiers" element={<InvestmentTiers />} />
                 <Route path="capital/programs" element={<CapitalInvestments />} />
                 <Route path="capital/1k-club" element={<CapitalInvestments />} />
+                <Route path="projects" element={<ManageProjects />} />
+                <Route path="projects/new" element={<ProjectForm />} />
+                <Route path="projects/edit/:id" element={<ProjectForm />} />
+                <Route path="projects/:id" element={<ProjectFunds />} />
                 <Route path="leads" element={<ManageLeads />} />
                 <Route path="network" element={<div className="text-brand-dark p-8">Network Coming Soon</div>} />
                 <Route path="blogs" element={<ManageBlogs />} />

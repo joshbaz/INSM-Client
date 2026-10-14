@@ -1,9 +1,31 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import projectsData from "../../../data/projects.json";
+import { useProjects } from "../../../store/tanstackStore/services/queries";
+import { CATEGORY_STRUCTURE, STATUS_LABELS, formatMoney, resolveImageUrl } from "../../../data/projectOptions";
 
-const projectsList = () => {
+// Checkbox component
+const Checkbox = ({ checked }) => (
+  <div
+    className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center transition-colors ${checked ? "bg-brand-lilac border-brand-lilac" : "border-brand-dark-200 bg-brand-white"}`}
+  >
+    {checked && (
+      <Icon icon="heroicons:check-bold" className="w-3 h-3 text-brand-white" />
+    )}
+  </div>
+);
+
+// Chevron icon component
+const ChevronIcon = ({ isOpen }) => (
+  <Icon
+    icon="ph:caret-down-bold"
+    className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "text-brand-lilac-600 rotate-180" : "text-brand-dark"}`}
+  />
+);
+
+const ProjectsList = () => {
+  const { data: projectsData = [], isLoading } = useProjects();
+
   // Subcategory checkbox selections
   const [selectedSubcategories, setSelectedSubcategories] = useState([]);
   const [selectedStatuses, setSelectedStatuses] = useState([]);
@@ -15,21 +37,8 @@ const projectsList = () => {
   const [isStatusOpen, setIsStatusOpen] = useState(false);
   const [isSortOpen, setIsSortOpen] = useState(false);
 
-  const categoryStructure = {
-    "Community Programs": [
-      "Local Businesses",
-      "Fashion & Wearables",
-      "Other Projects",
-    ],
-    "Agriculture & Food": [
-      "Land",
-      "Dairy & Poultry business",
-      "Food market",
-      "Other farming projects",
-    ],
-  };
-
-  const statuses = ["Upcoming", "Fully Funded", "Completed"];
+  const categoryStructure = CATEGORY_STRUCTURE;
+  const statuses = Object.values(STATUS_LABELS);
   const sortOptions = [
     "Default",
     "A-Z",
@@ -65,7 +74,7 @@ const projectsList = () => {
       );
     }
     if (selectedStatuses.length > 0) {
-      results = results.filter((p) => selectedStatuses.includes(p.status));
+      results = results.filter((p) => selectedStatuses.includes(STATUS_LABELS[p.status]));
     }
 
     switch (sortOrder) {
@@ -89,26 +98,7 @@ const projectsList = () => {
     }
 
     return results;
-  }, [selectedSubcategories, selectedStatuses, sortOrder]);
-
-  // Checkbox component
-  const Checkbox = ({ checked }) => (
-    <div
-      className={`w-5 h-5 rounded border-2 shrink-0 flex items-center justify-center transition-colors ${checked ? "bg-brand-lilac border-brand-lilac" : "border-brand-dark-200 bg-brand-white"}`}
-    >
-      {checked && (
-        <Icon icon="heroicons:check-bold" className="w-3 h-3 text-brand-white" />
-      )}
-    </div>
-  );
-
-  // Chevron icon component
-  const ChevronIcon = ({ isOpen }) => (
-    <Icon
-      icon="ph:caret-down-bold"
-      className={`w-5 h-5 transition-transform duration-300 ${isOpen ? "text-brand-lilac-600 rotate-180" : "text-brand-dark"}`}
-    />
-  );
+  }, [projectsData, selectedSubcategories, selectedStatuses, sortOrder]);
 
   return (
     <section className="bg-page-bg min-h-screen pt-10 md:pt-16 lg:pt-20 pb-12 md:pb-20">
@@ -283,14 +273,14 @@ const projectsList = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[26px] justify-items-center">
               {filteredProjects.map((project) => (
                 <Link
-                  to={`/what-we-do/projects/list/${project.id}`}
+                  to={`/what-we-do/projects/list/${project.slug}`}
                   key={project.id}
                   className="w-full max-w-[290px] h-[448px] rounded-[10px] border border-brand-dark-200/40 bg-[var(--industrial-white)] overflow-hidden flex flex-col shadow-card-project"
                 >
                   {/* Image */}
                   <div className="w-full h-[200px] overflow-hidden shrink-0">
                     <img
-                      src={project.image}
+                      src={resolveImageUrl(project.coverImage)}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -310,7 +300,7 @@ const projectsList = () => {
                     {/* Stats */}
                     <div className="flex items-center gap-3">
                       <span className="text-lg md:text-xl font-albert font-extrabold text-brand-lilac leading-none">
-                        {project.capitalRaised}
+                        {formatMoney(project.raised, project.currency)}
                       </span>
                       <span className="text-xs md:text-sm font-secondary text-brand-dark-400">
                         Capital raised
@@ -322,7 +312,12 @@ const projectsList = () => {
             </div>
 
             {/* Empty State */}
-            {filteredProjects.length === 0 && (
+            {isLoading && (
+              <div className="flex justify-center py-20">
+                <Icon icon="ph:spinner-gap-bold" className="w-8 h-8 text-brand-lilac animate-spin" />
+              </div>
+            )}
+            {!isLoading && filteredProjects.length === 0 && (
               <div className="text-center py-20">
                 <p className="text-lg font-secondary text-brand-dark-300">
                   No projects match the selected filters.
@@ -336,4 +331,4 @@ const projectsList = () => {
   );
 };
 
-export default projectsList;
+export default ProjectsList;
