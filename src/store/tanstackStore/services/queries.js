@@ -251,6 +251,20 @@ export const useTierImpact = () => {
   });
 };
 
+export const useSeedOverview = () => {
+  return useQuery({
+    queryKey: ['tiers', 'overview'],
+    queryFn: api.getSeedOverview,
+  });
+};
+
+export const useAllDeliveries = (params = {}) => {
+  return useQuery({
+    queryKey: ['tiers', 'all-deliveries', params],
+    queryFn: () => api.getAllDeliveries(params),
+  });
+};
+
 export const useTierDeliveries = (tierId) => {
   return useQuery({
     queryKey: ['tiers', 'deliveries', tierId],

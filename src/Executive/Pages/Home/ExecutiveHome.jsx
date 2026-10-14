@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useQueryClient } from "@tanstack/react-query";
-import { useExecutiveSummary } from "../../../store/tanstackStore/services/queries";
+import { useExecutiveSummary, useTierImpact } from "../../../store/tanstackStore/services/queries";
+import DeliveryModal from "../Capital/components/DeliveryModal";
 import { useSocket } from "../../../store/context/SocketContext";
 import { useAuth } from "../../../store/context/AuthContext";
 import { formatMoney, resolveImageUrl } from "../../../data/projectOptions";
@@ -42,13 +43,23 @@ const ViewAll = ({ to, label = "View all" }) => (
   <Link to={to} className="text-xs font-bold font-secondary text-[#a57ea9] hover:underline whitespace-nowrap">{label} →</Link>
 );
 
-const KpiCard = ({ title, value, label, icon, tag, setupLink }) => (
+const KpiCard = ({ title, value, label, icon, tag, setupLink, onRecord }) => (
   <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between min-h-[160px]">
     <div className="flex items-start justify-between">
       <div className="w-10 h-10 rounded-lg bg-brand-lilac/10 flex items-center justify-center">
         <Icon icon={icon} className="w-5 h-5 text-brand-lilac" />
       </div>
-      {tag && <span className="text-[10px] font-bold text-[#b8871f] bg-[#dca838]/10 px-2 py-1 rounded-full tracking-wide">{tag}</span>}
+      <div className="flex items-center gap-2">
+        {tag && <span className="text-[10px] font-bold text-[#b8871f] bg-[#dca838]/10 px-2 py-1 rounded-full tracking-wide">{tag}</span>}
+        {onRecord && (
+          <button
+            onClick={onRecord}
+            className="text-[10px] font-bold text-white bg-[#a57ea9] hover:bg-[#916b94] px-2.5 py-1 rounded-full tracking-wide flex items-center gap-1 cursor-pointer"
+          >
+            <Icon icon="ph:plus-bold" className="w-3 h-3" /> RECORD
+          </button>
+        )}
+      </div>
     </div>
     <div className="mt-4">
       <p className="text-sm font-secondary font-bold text-gray-700 mb-1">{title}</p>
@@ -68,6 +79,9 @@ const ExecutiveHome = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { data, isLoading } = useExecutiveSummary();
+  const { data: tierImpact = [] } = useTierImpact();
+  const [recordingTierId, setRecordingTierId] = useState(null);
+  const trackedTiers = tierImpact.filter((t) => t.impact.unitName);
 
   // Real-time refresh when new leads or metrics arrive
   useEffect(() => {
@@ -107,6 +121,7 @@ const ExecutiveHome = () => {
       : `Set a "${fallbackUnit}" unit on a Seed-a-Coop tier`,
     tag: figures?.awaitingUnits > 0 ? `${figures.awaitingUnits} WAITING` : null,
     setupLink: figures ? null : tiersLink,
+    onRecord: figures ? () => setRecordingTierId(figures.id) : null,
   });
 
   const kpis = [
@@ -282,6 +297,10 @@ const ExecutiveHome = () => {
           </Panel>
         </div>
       </div>
+
+      {recordingTierId && trackedTiers.length > 0 && (
+        <DeliveryModal tiers={trackedTiers} initialTierId={recordingTierId} onClose={() => setRecordingTierId(null)} />
+      )}
     </div>
   );
 };

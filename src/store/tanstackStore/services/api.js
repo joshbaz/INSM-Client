@@ -232,6 +232,16 @@ export const getTierImpact = async () => {
   return data;
 };
 
+export const getSeedOverview = async () => {
+  const { data } = await api.get('/tiers/overview');
+  return data;
+};
+
+export const getAllDeliveries = async (params = {}) => {
+  const { data } = await api.get('/tiers/deliveries', { params });
+  return data;
+};
+
 export const getTierDeliveries = async (tierId) => {
   const { data } = await api.get(`/tiers/${tierId}/deliveries`);
   return data;
