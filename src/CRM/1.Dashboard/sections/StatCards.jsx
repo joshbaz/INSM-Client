@@ -1,7 +1,17 @@
 import React from "react";
 import { Icon } from "@iconify/react";
+import { usePaymentSummary } from "../../../store/tanstackStore/services/queries";
 
 const StatCards = () => {
+  const { data: summary, isLoading } = usePaymentSummary();
+
+  const formatAmount = (val) => {
+    if (!val) return "UGX 0";
+    if (val >= 1e9) return `UGX ${(val / 1e9).toFixed(2)}B`;
+    if (val >= 1e6) return `UGX ${(val / 1e6).toFixed(2)}M`;
+    return `UGX ${val.toLocaleString()}`;
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {/* Card 1: Total Capital */}
@@ -20,7 +30,11 @@ const StatCards = () => {
             Total Capital Deployed
           </p>
           <h3 className="text-3xl font-black text-brand-dark font-albert tracking-tight">
-            UGX 2.45B
+            {isLoading ? (
+              <span className="inline-block w-24 h-6 bg-brand-dark-200 animate-pulse rounded" />
+            ) : (
+              formatAmount(summary?.totalCapital)
+            )}
           </h3>
           <p className="text-sm font-bold text-[#1fb039] mt-2 flex items-center gap-0.5">
             +12.4% <span className="font-medium text-brand-dark-400">from last month</span>

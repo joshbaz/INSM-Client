@@ -79,6 +79,25 @@ export const useUpdateArticle = () => {
   });
 };
 
+export const useArticleImages = (id) => {
+  return useQuery({
+    queryKey: ['articleImages', id],
+    queryFn: () => api.getArticleImages(id),
+    enabled: !!id,
+  });
+};
+
+export const useDeleteArticle = () => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ id, deleteImages }) => api.deleteArticle(id, { deleteImages }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['articles'] });
+    },
+  });
+};
+
 // Photos Queries
 export const useUploadPhoto = () => {
   return useMutation({
@@ -121,5 +140,35 @@ export const useDeleteTier = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['tiers'] });
     },
+  });
+};
+
+// PesaPal Payment Queries
+export const useInitiatePayment = () => {
+  return useMutation({
+    mutationFn: (payload) => api.initiatePayment(payload),
+  });
+};
+
+export const usePaymentStatus = (orderTrackingId, options = {}) => {
+  return useQuery({
+    queryKey: ['payment-status', orderTrackingId],
+    queryFn: () => api.getPaymentStatus(orderTrackingId),
+    enabled: !!orderTrackingId,
+    ...options,
+  });
+};
+
+export const usePayments = (filters = {}) => {
+  return useQuery({
+    queryKey: ['payments', filters],
+    queryFn: () => api.getPayments(filters),
+  });
+};
+
+export const usePaymentSummary = () => {
+  return useQuery({
+    queryKey: ['payment-summary'],
+    queryFn: api.getPaymentSummary,
   });
 };

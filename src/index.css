@@ -326,6 +326,10 @@ hr {
 }
 
 /* ── Blog Content Typography ── */
+.blog-content {
+  display: flow-root; /* keep any floats inside the article */
+}
+
 .blog-content h1, .blog-content h2, .blog-content h3 {
   font-family: var(--font-primary);
   color: var(--dark);

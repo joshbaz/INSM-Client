@@ -7,6 +7,20 @@ const api = axios.create({
   },
 });
 
+// Add interceptor to include auth token for CRM/Executive queries
+api.interceptors.request.use(
+  (config) => {
+    const user = JSON.parse(localStorage.getItem("insm_user"));
+    if (user?.token) {
+      config.headers.Authorization = `Bearer ${user.token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 // Applications
 export const getApplications = async (filters = {}) => {
   const { data } = await api.get('/applications', { params: filters });
@@ -47,6 +61,16 @@ export const createArticle = async (articleData) => {
 
 export const updateArticle = async (id, articleData) => {
   const { data } = await api.patch(`/articles/${id}`, articleData);
+  return data;
+};
+
+export const getArticleImages = async (id) => {
+  const { data } = await api.get(`/articles/${id}/images`);
+  return data;
+};
+
+export const deleteArticle = async (id, { deleteImages = false } = {}) => {
+  const { data } = await api.delete(`/articles/${id}`, { params: { deleteImages } });
   return data;
 };
 
@@ -100,6 +124,29 @@ export const updateTier = async (id, formData) => {
 
 export const deleteTier = async (id) => {
   const { data } = await api.delete(`/tiers/${id}`);
+  return data;
+};
+
+// PesaPal Payments
+export const initiatePayment = async (payload) => {
+  const { data } = await api.post('/payment/pesapal/donate', payload);
+  return data;
+};
+
+export const getPaymentStatus = async (orderTrackingId) => {
+  const { data } = await api.get(`/payment/pesapal/status`, {
+    params: { orderTrackingId }
+  });
+  return data;
+};
+
+export const getPayments = async (filters = {}) => {
+  const { data } = await api.get('/payment/pesapal/list', { params: filters });
+  return data;
+};
+
+export const getPaymentSummary = async () => {
+  const { data } = await api.get('/payment/pesapal/summary');
   return data;
 };
 

@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useCreateArticle, useUploadPhoto } from "../../../store/tanstackStore/services/queries";
 import { useAuth } from "../../../store/context/AuthContext";
 import api from "../../../store/tanstackStore/services/api";
+import { handleCleanPaste } from "../../../utils/cleanArticleHtml";
 
 const NewArticle = () => {
   const navigate = useNavigate();
@@ -219,6 +220,7 @@ const NewArticle = () => {
                   contentEditable
                   suppressContentEditableWarning
                   onInput={(e) => setContent(e.currentTarget.innerHTML)}
+                  onPaste={(e) => handleCleanPaste(e, setContent)}
                 ></div>
               </div>
             </div>

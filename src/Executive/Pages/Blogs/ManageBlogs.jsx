@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useArticles } from "../../../store/tanstackStore/services/queries";
+import { useArticles, useDeleteArticle } from "../../../store/tanstackStore/services/queries";
+import DeleteArticleModal from "./components/DeleteArticleModal";
 
 const ManageBlogs = () => {
   const [activeTab, setActiveTab] = useState("DRAFTS");
 
+  const [articleToDelete, setArticleToDelete] = useState(null);
+
   const { data: allArticles, isLoading } = useArticles();
+  const deleteArticle = useDeleteArticle();
+
+  const handleDelete = async (deleteImages) => {
+    try {
+      const result = await deleteArticle.mutateAsync({ id: articleToDelete.id, deleteImages });
+      if (result.imagesFailed > 0) {
+        alert(`Story deleted, but ${result.imagesFailed} image(s) could not be removed. You can delete them from the Media Library.`);
+      }
+      setArticleToDelete(null);
+    } catch (error) {
+      console.error("Failed to delete article:", error);
+      alert("Failed to delete article.");
+    }
+  };
 
   const publishedCount = allArticles?.filter(a => a.status === "PUBLISHED").length || 0;
   const draftCount = allArticles?.filter(a => a.status === "DRAFT").length || 0;
@@ -135,6 +152,12 @@ const ManageBlogs = () => {
                         >
                           Edit story
                         </Link>
+                        <button
+                          onClick={() => setArticleToDelete(blog)}
+                          className="ml-2 border border-[#EF4444]/40 text-[#EF4444] hover:bg-[#EF4444] hover:text-white transition-colors px-4 py-2 rounded-lg text-xs font-bold font-secondary inline-block"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -176,6 +199,12 @@ const ManageBlogs = () => {
                         >
                           View story
                         </Link>
+                        <button
+                          onClick={() => setArticleToDelete(blog)}
+                          className="ml-2 border border-[#EF4444]/40 text-[#EF4444] hover:bg-[#EF4444] hover:text-white transition-colors px-4 py-2 rounded-lg text-xs font-bold font-secondary inline-block"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -217,6 +246,12 @@ const ManageBlogs = () => {
                         >
                           View story
                         </Link>
+                        <button
+                          onClick={() => setArticleToDelete(blog)}
+                          className="ml-2 border border-[#EF4444]/40 text-[#EF4444] hover:bg-[#EF4444] hover:text-white transition-colors px-4 py-2 rounded-lg text-xs font-bold font-secondary inline-block"
+                        >
+                          Delete
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -233,6 +268,13 @@ const ManageBlogs = () => {
           </table>
         </div>
       </div>
+
+      <DeleteArticleModal
+        article={articleToDelete}
+        onCancel={() => setArticleToDelete(null)}
+        onConfirm={handleDelete}
+        isDeleting={deleteArticle.isPending}
+      />
     </div>
   );
 };

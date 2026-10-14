@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useArticle } from "../../../../store/tanstackStore/services/queries";
 import api, { incrementArticleView, incrementArticleRead } from "../../../../store/tanstackStore/services/api";
 import BlogRelatedArticles from "./blogRelatedArticles";
+import { cleanArticleHtml } from "../../../../utils/cleanArticleHtml";
 
 const BlogDetailPage = () => {
   const { articleId } = useParams();
@@ -196,7 +197,7 @@ const BlogDetailPage = () => {
         <div className="max-w-5xl mx-auto px-6 md:px-24">
           <div 
             className="blog-content"
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{ __html: cleanArticleHtml(article.content) }}
           />
         </div>
       </section>

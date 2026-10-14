@@ -4,6 +4,7 @@ import { Icon } from "@iconify/react";
 import { useUpdateArticle, useArticle, useUploadPhoto } from "../../../store/tanstackStore/services/queries";
 import { useAuth } from "../../../store/context/AuthContext";
 import api from "../../../store/tanstackStore/services/api";
+import { cleanArticleHtml, handleCleanPaste } from "../../../utils/cleanArticleHtml";
 
 const EditArticle = () => {
   const navigate = useNavigate();
@@ -25,15 +26,16 @@ const EditArticle = () => {
 
   useEffect(() => {
     if (articleData) {
+      const cleanedContent = cleanArticleHtml(articleData.content);
       setTitle(articleData.title || "");
-      setContent(articleData.content || "");
+      setContent(cleanedContent);
       setSlug(articleData.slug || "");
       setExcerpt(articleData.excerpt || "");
       if (articleData.coverImageId) {
         setPreviewUrl(`${api.defaults.baseURL}/photos/${articleData.coverImageId}/view`);
       }
-      if (editorRef.current && editorRef.current.innerHTML !== articleData.content) {
-        editorRef.current.innerHTML = articleData.content || "";
+      if (editorRef.current && editorRef.current.innerHTML !== cleanedContent) {
+        editorRef.current.innerHTML = cleanedContent;
       }
     }
   }, [articleData]);
@@ -247,6 +249,7 @@ const EditArticle = () => {
                   contentEditable
                   suppressContentEditableWarning
                   onInput={(e) => setContent(e.currentTarget.innerHTML)}
+                  onPaste={(e) => handleCleanPaste(e, setContent)}
                 ></div>
               </div>
             </div>

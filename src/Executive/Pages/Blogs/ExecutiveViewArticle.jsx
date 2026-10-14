@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useArticle, useUpdateArticle } from "../../../store/tanstackStore/services/queries";
+import { useArticle, useUpdateArticle, useDeleteArticle } from "../../../store/tanstackStore/services/queries";
+import DeleteArticleModal from "./components/DeleteArticleModal";
+import { cleanArticleHtml } from "../../../utils/cleanArticleHtml";
 import api from "../../../store/tanstackStore/services/api";
 
 const ExecutiveViewArticle = () => {
@@ -9,6 +11,8 @@ const ExecutiveViewArticle = () => {
   const navigate = useNavigate();
   const { data: article, isLoading } = useArticle(id);
   const updateArticle = useUpdateArticle();
+  const deleteArticle = useDeleteArticle();
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   if (isLoading) {
     return (
@@ -42,6 +46,19 @@ const ExecutiveViewArticle = () => {
     }
   };
 
+  const handleDelete = async (deleteImages) => {
+    try {
+      const result = await deleteArticle.mutateAsync({ id: article.id, deleteImages });
+      if (result.imagesFailed > 0) {
+        alert(`Story deleted, but ${result.imagesFailed} image(s) could not be removed. You can delete them from the Media Library.`);
+      }
+      navigate("/executive/blogs");
+    } catch (error) {
+      console.error("Failed to delete article:", error);
+      alert("Failed to delete article.");
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-white z-50 flex flex-col overflow-hidden">
       {/* Top Header */}
@@ -60,6 +77,13 @@ const ExecutiveViewArticle = () => {
         </div>
 
         <div className="flex items-center gap-4">
+          <button
+            onClick={() => setShowDeleteModal(true)}
+            className="px-6 py-2.5 rounded-full border border-[#EF4444] text-[#EF4444] hover:bg-[#EF4444]/5 font-secondary font-bold text-xs tracking-wider uppercase transition-colors flex items-center gap-2"
+          >
+            <Icon icon="ph:trash-bold" />
+            DELETE
+          </button>
           <Link
             to={`/executive/blogs/edit/${article.id}`}
             className="px-6 py-2.5 rounded-full border border-gray-300 text-gray-700 font-secondary font-bold text-xs tracking-wider uppercase hover:bg-gray-50 transition-colors flex items-center gap-2"
@@ -115,11 +139,18 @@ const ExecutiveViewArticle = () => {
 
             <div 
               className="blog-content"
-              dangerouslySetInnerHTML={{ __html: article.content }}
+              dangerouslySetInnerHTML={{ __html: cleanArticleHtml(article.content) }}
             />
           </div>
         </div>
       </div>
+
+      <DeleteArticleModal
+        article={showDeleteModal ? article : null}
+        onCancel={() => setShowDeleteModal(false)}
+        onConfirm={handleDelete}
+        isDeleting={deleteArticle.isPending}
+      />
     </div>
   );
 };

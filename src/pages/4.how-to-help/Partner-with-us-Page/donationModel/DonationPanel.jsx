@@ -35,7 +35,7 @@ const DonationPanel = ({
   const campaignSubtitle = tier?.subtitle || "Identity & Orientation";
 
   return (
-    <div className="w-full md:max-w-[400px] bg-brand-white-100 rounded-xl shadow-lg flex flex-col overflow-hidden">
+    <div className={`w-full bg-brand-white-100 rounded-xl shadow-lg flex flex-col overflow-hidden ${step === "pesapal" ? "md:max-w-[560px]" : "md:max-w-[400px]"}`}>
       {/* ── Mobile-only compact campaign banner ── */}
       <div className="flex md:hidden items-center gap-3 p-4 bg-brand-white-200/50 border-b border-brand-dark-200/30">
         <img
@@ -155,6 +155,8 @@ const DonationPanel = ({
         ) : (
           <ContinueWithPesapal
             amount={finalAmount}
+            tier={tier}
+            frequency={frequency}
             onBack={() => setStep("donation")}
           />
         )}

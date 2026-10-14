@@ -42,6 +42,7 @@ import DonatePage from "./pages/4.how-to-help/Partner-with-us-Page/donatePage";
 import HowToHelp from "./pages/4.how-to-help/howToHelpPage";
 import ContactUs from "./pages/4.how-to-help/contact-us/ContactUs";
 import SeedPortals from "./pages/4.how-to-help/seed-portals/SeedPortals";
+import PaymentCallback from "./pages/4.how-to-help/Partner-with-us-Page/PaymentCallback";
 
 // Policies
 import PrivacyPolicyPage from "./pages/policies/policiesPage";
@@ -139,6 +140,7 @@ function AppContent() {
 
               {/* How To Help */}
               <Route path="/how-to-help/partner-with-us" element={<DonatePage />} />
+              <Route path="/payment/callback" element={<PaymentCallback />} />
               <Route path="/how-to-help/donate" element={<Navigate to="/how-to-help/partner-with-us" replace />} />
               <Route path="/how-to-help/join-the-assignment" element={<HowToHelp />} />
               <Route path="/how-to-help/contact-us" element={<ContactUs />} />
